@@ -1,10 +1,30 @@
+# Python
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
 .venv/
-outputs/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Hugging Face caches (HF_HOME is configured outside this repository)
 huggingface/
 .cache/
+
+# Downloaded model weights and checkpoints
 *.ckpt
+*.pt
+*.pth
 *.safetensors
 *.bin
+
+# Temporary and editor files
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
