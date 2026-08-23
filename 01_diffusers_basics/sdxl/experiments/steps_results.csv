@@ -1,0 +1,5 @@
+num_inference_steps,inference_seconds,peak_allocated_mib,peak_reserved_mib,output_path
+10,1.866,10720.3,14116.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/steps_10_seed42.png
+20,2.708,10720.3,14118.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/steps_20_seed42.png
+30,3.928,10720.3,14118.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/steps_30_seed42.png
+50,6.342,10721.0,14118.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/steps_50_seed42.png
