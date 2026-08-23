@@ -1,0 +1,6 @@
+guidance_scale,inference_seconds,peak_allocated_mib,peak_reserved_mib,output_path
+1.0,2.927,10716.5,14100.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/guidance_1_seed42.png
+3.0,3.981,10718.5,14104.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/guidance_3_seed42.png
+5.0,3.922,10717.5,14104.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/guidance_5_seed42.png
+7.0,3.936,10718.5,14104.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/guidance_7_seed42.png
+10.0,3.929,10718.5,14104.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/sdxl/outputs/guidance_10_seed42.png
