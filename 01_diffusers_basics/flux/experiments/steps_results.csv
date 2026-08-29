@@ -1,0 +1,5 @@
+num_inference_steps,inference_seconds,peak_allocated_mib,peak_reserved_mib,output_path
+1,31.388,23109.5,23514.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/flux/outputs/flux_schnell_steps1_seed42.png
+2,29.583,23110.0,23516.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/flux/outputs/flux_schnell_steps2_seed42.png
+4,28.226,23110.0,23516.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/flux/outputs/flux_schnell_steps4_seed42.png
+8,29.649,23110.0,23516.0,/root/autodl-tmp/diffusion-reproduction/01_diffusers_basics/flux/outputs/flux_schnell_steps8_seed42.png
