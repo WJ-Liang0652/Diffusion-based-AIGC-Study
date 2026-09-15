@@ -329,7 +329,7 @@ pipe.text_encoder_2.to("cpu")
 torch.cuda.synchronize()
 torch.cuda.empty_cache()
 
-output_dir = Path(__file__).resolve().parent / "outputs" / "multilayer_attention"
+output_dir = Path(__file__).resolve().parent.parent / "outputs" / "multilayer_attention"
 for directory in (output_dir, output_dir / "raw_aggregates", output_dir / "heatmaps", output_dir / "overlays"):
     directory.mkdir(parents=True, exist_ok=True)
 reference_path = output_dir / "sdxl_multilayer_attention_seed42.png"

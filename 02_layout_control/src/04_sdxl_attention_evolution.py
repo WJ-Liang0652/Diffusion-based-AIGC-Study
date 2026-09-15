@@ -291,7 +291,7 @@ pipe.text_encoder_2.to("cpu")
 torch.cuda.synchronize()
 torch.cuda.empty_cache()
 
-output_dir = Path(__file__).resolve().parent / "outputs" / "attention_evolution"
+output_dir = Path(__file__).resolve().parent.parent / "outputs" / "attention_evolution"
 for directory in (output_dir, output_dir / "raw_maps", output_dir / "heatmaps", output_dir / "overlays"):
     directory.mkdir(parents=True, exist_ok=True)
 generated_image_path = output_dir / "sdxl_attention_evolution_seed42.png"

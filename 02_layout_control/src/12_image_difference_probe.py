@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 
 
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "layout_guidance"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "layout_guidance"
 BASELINE_PATH = OUTPUT_DIR / "baseline_seed42.png"
 CONTROLLED_PATH = OUTPUT_DIR / "controlled_seed42.png"
 DIFFERENCE_PATH = OUTPUT_DIR / "amplified_difference.png"

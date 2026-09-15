@@ -28,7 +28,7 @@ GUIDED_STEP_INDICES = {1, 2, 3, 4}
 MAX_OPT_ITERS = 20
 EPS = 1e-8
 SAVE_ITERATIONS = {0, 1, 5, 10, 20}
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "layout_guidance"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "layout_guidance"
 
 
 class IterativeRecordingProcessor:

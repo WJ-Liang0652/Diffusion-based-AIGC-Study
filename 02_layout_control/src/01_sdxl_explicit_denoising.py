@@ -176,7 +176,7 @@ with torch.no_grad():
 if pipe.watermark is not None:
     image_tensor = pipe.watermark.apply_watermark(image_tensor)
 image = pipe.image_processor.postprocess(image_tensor, output_type="pil")[0]
-output_path = Path(__file__).resolve().parent / "outputs" / "sdxl_explicit_denoising_seed42.png"
+output_path = Path(__file__).resolve().parent.parent / "outputs" / "sdxl_explicit_denoising_seed42.png"
 output_path.parent.mkdir(parents=True, exist_ok=True)
 image.save(output_path)
 print(f"Saved image to: {output_path}")

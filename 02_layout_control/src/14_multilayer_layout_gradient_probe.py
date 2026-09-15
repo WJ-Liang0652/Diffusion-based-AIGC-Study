@@ -21,7 +21,7 @@ TARGET_STEP_INDEX = 4
 TARGET_WORD = "cabin"
 TARGET_BOX = (0.10, 0.50, 0.40, 0.82)
 EPS = 1e-8
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "multilayer_layout_gradient_probe"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "multilayer_layout_gradient_probe"
 
 
 class ShapeProbeProcessor:

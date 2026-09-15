@@ -292,7 +292,7 @@ heatmap = cabin_attention.reshape(spatial_side, spatial_side)
 heatmap_min, heatmap_max = heatmap.min(), heatmap.max()
 heatmap_for_display = (heatmap - heatmap_min) / (heatmap_max - heatmap_min + 1e-8)
 
-output_dir = Path(__file__).resolve().parent / "outputs"
+output_dir = Path(__file__).resolve().parent.parent / "outputs"
 output_dir.mkdir(parents=True, exist_ok=True)
 heatmap_path = output_dir / "cross_attention_cabin_step4.png"
 image_path = output_dir / "sdxl_cross_attention_probe_seed42.png"

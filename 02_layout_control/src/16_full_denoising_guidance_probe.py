@@ -28,7 +28,7 @@ GUIDED_STEP_INDICES = {0, 1, 2, 3, 4}
 GUIDED_STEP_INDICES = {0, 1, 2, 3, 4}
 EPS = 1e-8
 SAVE_ITERATIONS = {0, 1, 5, 10, 20}
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "full_denoising_guidance_probe"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "full_denoising_guidance_probe"
 
 
 class IterativeRecordingProcessor:

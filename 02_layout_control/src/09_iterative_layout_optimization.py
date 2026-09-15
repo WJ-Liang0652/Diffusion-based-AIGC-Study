@@ -1,4 +1,9 @@
-"""Probe one normalized single-mid attention-gradient latent update at fixed SDXL t=501."""
+"""Optimize one SDXL latent repeatedly at t=501 using a raw cross-attention layout loss.
+
+This is deliberately not an image-generation experiment.  Steps 0--3 create the
+same x_t as the earlier probes; the scheduler is then held at t=501 while x_t is
+updated repeatedly by -eta * d(layout_loss)/d(x_t).
+"""
 
 import csv
 import math
@@ -22,11 +27,11 @@ TARGET_STEP_INDEX = 4
 TARGET_LAYER_NAME = "mid_block.attentions.0.transformer_blocks.0.attn2"
 TARGET_WORD = "cabin"
 TARGET_BOX = (0.10, 0.50, 0.40, 0.82)
-ETA = 0.5
+ETA = 100.0
 MAX_OPT_ITERS = 20
 EPS = 1e-8
 SAVE_ITERATIONS = {0, 1, 5, 10, 20}
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "single_step_latent_guidance_probe"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "iterative_layout_optimization"
 
 
 class IterativeRecordingProcessor:
@@ -196,6 +201,8 @@ original_processor = target_attention.processor
 processor = IterativeRecordingProcessor()
 target_attention.set_processor(processor)
 
+records = []
+stop_reason = None
 try:
     with torch.no_grad():
         positive, negative, positive_pooled, negative_pooled = pipe.encode_prompt(
@@ -208,69 +215,120 @@ try:
         pipe.scheduler.set_timesteps(NUM_INFERENCE_STEPS, device=device)
         timesteps = pipe.scheduler.timesteps
         extra_step_kwargs = pipe.prepare_extra_step_kwargs(generator, eta=0.0)
-        latents = pipe.prepare_latents(1, pipe.unet.config.in_channels, HEIGHT, WIDTH, positive.dtype, device, generator)
-        time_ids = pipe._get_add_time_ids((HEIGHT, WIDTH), (0, 0), (HEIGHT, WIDTH), positive.dtype, pipe.text_encoder_2.config.projection_dim)
-        added_cond_kwargs = {"text_embeds": add_text_embeds, "time_ids": torch.cat([time_ids, time_ids], dim=0).to(device)}
-        # The same ordinary steps 0--3 establish the reference x_t from prior probes.
+        latents = pipe.prepare_latents(
+            1, pipe.unet.config.in_channels, HEIGHT, WIDTH, positive.dtype, device, generator
+        )
+        time_ids = pipe._get_add_time_ids(
+            (HEIGHT, WIDTH), (0, 0), (HEIGHT, WIDTH), positive.dtype,
+            pipe.text_encoder_2.config.projection_dim,
+        )
+        added_cond_kwargs = {
+            "text_embeds": add_text_embeds,
+            "time_ids": torch.cat([time_ids, time_ids], dim=0).to(device),
+        }
+        # Steps 0--3 only: this is the normal, fixed route to the target x_t.
         for timestep in timesteps[:TARGET_STEP_INDEX]:
             processor.capture_enabled = False
             model_input = pipe.scheduler.scale_model_input(torch.cat([latents] * 2), timestep)
-            noise = pipe.unet(model_input, timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None, cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False)[0]
-            uncond, text = noise.chunk(2)
-            latents = pipe.scheduler.step(uncond + GUIDANCE_SCALE * (text - uncond), timestep, latents, **extra_step_kwargs, return_dict=False)[0]
+            noise_pred = pipe.unet(
+                model_input, timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None,
+                cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False,
+            )[0]
+            noise_uncond, noise_text = noise_pred.chunk(2)
+            latents = pipe.scheduler.step(
+                noise_uncond + GUIDANCE_SCALE * (noise_text - noise_uncond), timestep, latents,
+                **extra_step_kwargs, return_dict=False,
+            )[0]
 
     target_timestep = timesteps[TARGET_STEP_INDEX]
-    z_t = latents.detach().requires_grad_(True)
+    x_initial = latents.detach()
+    x_current = x_initial.clone()
     torch.cuda.reset_peak_memory_stats()
-    processor.capture_enabled = True
-    processor.attention_probs = None
-    model_input = pipe.scheduler.scale_model_input(torch.cat([z_t] * 2), target_timestep)
-    noise = pipe.unet(model_input, target_timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None, cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False)[0]
-    raw_before = raw_map_from_capture(processor, token_indices)
-    ratio_before, loss_before, box_grid = objective_from_raw_map(raw_before)
-    ratio_before_value, loss_before_value = ratio_before.item(), loss_before.item()
-    gradient = torch.autograd.grad(loss_before, z_t)[0]
-    check_finite("before attention", raw_before)
-    check_finite("gradient", gradient)
-    gradient_norm = gradient.norm()
-    latent_norm = z_t.detach().norm()
-    grad_normalized = gradient / (gradient_norm + EPS)
-    update = -ETA * grad_normalized.detach()
-    z_guided = z_t.detach() + update
-    check_finite("guided latent", z_guided)
-    update_norm = update.norm()
-    relative_update = update_norm / (latent_norm + EPS)
-    # Save the raw before map plus a separately normalized display-only heatmap.
-    save_attention_snapshot(raw_before, 0, box_grid)
-    processor.attention_probs = None
-    del model_input, noise, raw_before, ratio_before, loss_before, grad_normalized
 
-    # Recompute attention from z_guided at exactly the same timestep; no scheduler step occurs.
-    with torch.no_grad():
+    for iteration in range(MAX_OPT_ITERS + 1):
+        # This assignment both starts a fresh graph and guarantees no prior graph is retained.
+        x_current = x_current.detach().requires_grad_(True)
         processor.capture_enabled = True
         processor.attention_probs = None
-        model_input = pipe.scheduler.scale_model_input(torch.cat([z_guided] * 2), target_timestep)
-        noise = pipe.unet(model_input, target_timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None, cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False)[0]
-        raw_after = raw_map_from_capture(processor, token_indices)
-        ratio_after, loss_after, after_box_grid = objective_from_raw_map(raw_after)
-        check_finite("after attention", raw_after)
-        if after_box_grid != box_grid:
-            raise RuntimeError("Attention grid changed between before and after evaluation.")
-        save_attention_snapshot(raw_after, 1, box_grid)
+        model_input = pipe.scheduler.scale_model_input(torch.cat([x_current] * 2), target_timestep)
+        noise_pred = pipe.unet(
+            model_input, target_timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None,
+            cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False,
+        )[0]
+        raw_map = raw_map_from_capture(processor, token_indices)
+        inside_ratio, layout_loss, box_grid = objective_from_raw_map(raw_map)
+        gradient = torch.autograd.grad(layout_loss, x_current)[0]
+        check_finite("raw attention", raw_map)
+        check_finite("layout loss", layout_loss)
+        check_finite("latent gradient", gradient)
+
+        update = -ETA * gradient.detach()
+        x_next = x_current.detach() + update
+        check_finite("updated latent", x_next)
+        initial_ratio = records[0]["inside_ratio"] if records else inside_ratio.item()
+        initial_loss = records[0]["layout_loss"] if records else layout_loss.item()
+        record = {
+            "iteration": iteration,
+            "inside_ratio": inside_ratio.item(),
+            "layout_loss": layout_loss.item(),
+            "grad_norm": gradient.norm().item(),
+            "update_norm": update.norm().item(),
+            "relative_update": (update.norm() / (x_current.detach().norm() + EPS)).item(),
+            "latent_norm": x_current.detach().norm().item(),
+            "delta_ratio_vs_initial": inside_ratio.item() - initial_ratio,
+            "delta_loss_vs_initial": layout_loss.item() - initial_loss,
+        }
+        records.append(record)
+        if iteration in SAVE_ITERATIONS:
+            save_attention_snapshot(raw_map, iteration, box_grid)
+
+        # No scheduler.step. Iteration 20 is measured but not updated further.
+        processor.attention_probs = None
+        del model_input, noise_pred, raw_map, inside_ratio, layout_loss, gradient, update
+        if iteration == MAX_OPT_ITERS:
+            break
+        x_current = x_next
+        del x_next
+
+        # A clearly worsening run is stopped, as specified; two successive increases
+        # avoid treating fp16-scale noise as a meaningful deterioration.
+        if len(records) >= 3 and all(
+            records[-offset]["layout_loss"] > records[-offset - 1]["layout_loss"] + 1e-5
+            for offset in (1, 2)
+        ):
+            stop_reason = "layout loss increased by more than 1e-5 for two consecutive updates"
+            break
 finally:
     target_attention.set_processor(original_processor)
 
-print("[1] Normalized single-step latent guidance probe")
+csv_path = OUTPUT_DIR / "iteration_metrics.csv"
+with csv_path.open("w", newline="") as file:
+    writer = csv.DictWriter(file, fieldnames=list(records[0]) if records else ["iteration"])
+    writer.writeheader()
+    writer.writerows(records)
+
+if not records:
+    raise RuntimeError("No iteration metrics were recorded.")
+initial = records[0]
+final = records[-1]
+print("[1] Iterative single-timestep layout optimization")
 print(f"target step_index / timestep: {TARGET_STEP_INDEX} / {float(target_timestep)}")
 print(f"target layer: {TARGET_LAYER_NAME}")
 print(f"cabin indices: tokenizer={indices_1}, tokenizer_2={indices_2}, used={token_indices}")
 print(f"target box grid: x=[{box_grid[0]}, {box_grid[1]}), y=[{box_grid[2]}, {box_grid[3]})")
-print(f"normalized update eta: {ETA}")
-print(f"ratio before / after / delta: {ratio_before_value:.8f} / {ratio_after.item():.8f} / {ratio_after.item() - ratio_before_value:+.8e}")
-print(f"loss before / after / delta: {loss_before_value:.8f} / {loss_after.item():.8f} / {loss_after.item() - loss_before_value:+.8e}")
-print(f"gradient norm: {gradient_norm.item():.8e}")
-print(f"latent norm: {latent_norm.item():.8e}")
-print(f"update norm / relative update: {update_norm.item():.8e} / {relative_update.item():.8e}")
-print(f"NaN / Inf (gradient, guided latent): {torch.isnan(gradient).any().item() or torch.isnan(z_guided).any().item()} / {torch.isinf(gradient).any().item() or torch.isinf(z_guided).any().item()}")
-print(f"peak allocated/reserved MiB: {torch.cuda.max_memory_allocated()/1024**2:.1f} / {torch.cuda.max_memory_reserved()/1024**2:.1f}")
-print(f"before/after snapshots: {OUTPUT_DIR}")
+print(f"eta / maximum iterations: {ETA} / {MAX_OPT_ITERS}")
+print(f"frozen parameter count: {frozen_parameter_count}")
+print("iteration | inside_ratio | layout_loss | grad_norm | update_norm | relative_update | latent_norm")
+for record in records:
+    print(
+        f"{record['iteration']:>9d} | {record['inside_ratio']:.8f} | {record['layout_loss']:.8f} | "
+        f"{record['grad_norm']:.8e} | {record['update_norm']:.8e} | "
+        f"{record['relative_update']:.8e} | {record['latent_norm']:.8e}"
+    )
+print(f"initial -> final inside_ratio: {initial['inside_ratio']:.8f} -> {final['inside_ratio']:.8f} ({final['delta_ratio_vs_initial']:+.8e})")
+print(f"initial -> final layout_loss: {initial['layout_loss']:.8f} -> {final['layout_loss']:.8f} ({final['delta_loss_vs_initial']:+.8e})")
+print(f"stop reason: {stop_reason or 'completed MAX_OPT_ITERS'}")
+print(f"peak allocated/reserved MiB: {torch.cuda.max_memory_allocated() / 1024**2:.1f} / {torch.cuda.max_memory_reserved() / 1024**2:.1f}")
+print(f"metrics: {csv_path}")
+print(f"snapshots: {OUTPUT_DIR}")
+

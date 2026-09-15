@@ -1,4 +1,4 @@
-"""Repeat the validated SDXL layout-guidance run with eta=1000 only."""
+"""Calibrate independent iterative layout-optimization step sizes at fixed SDXL t=501."""
 
 import csv
 import math
@@ -22,13 +22,11 @@ TARGET_STEP_INDEX = 4
 TARGET_LAYER_NAME = "mid_block.attentions.0.transformer_blocks.0.attn2"
 TARGET_WORD = "cabin"
 TARGET_BOX = (0.10, 0.50, 0.40, 0.82)
-ETA = 1000.0
-INNER_ITERS = 5
-GUIDED_STEP_INDICES = {1, 2, 3, 4}
+ETAS = (100.0, 300.0, 1000.0)
 MAX_OPT_ITERS = 20
 EPS = 1e-8
-SAVE_ITERATIONS = {0, 1, 5, 10, 20}
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "layout_guidance"
+SAVE_ITERATIONS = {0, 5, 10, 20}
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "layout_eta_sweep"
 
 
 class IterativeRecordingProcessor:
@@ -145,10 +143,10 @@ def raw_map_from_capture(processor, token_indices):
     return vector.reshape(side, side)
 
 
-def save_attention_snapshot(raw_map, iteration, box_grid):
+def save_attention_snapshot(raw_map, iteration, box_grid, output_dir):
     """Save raw 32x32 data and a separately min-max-normalized visualization."""
     raw_cpu = raw_map.detach().float().cpu()
-    torch.save(raw_cpu, OUTPUT_DIR / f"iteration_{iteration:02d}_raw_attention.pt")
+    torch.save(raw_cpu, output_dir / f"iteration_{iteration:02d}_raw_attention.pt")
     display = raw_cpu.numpy()
     display = (display - display.min()) / max(float(display.max() - display.min()), EPS)
     x_start, x_end, y_start, y_end = box_grid
@@ -160,7 +158,7 @@ def save_attention_snapshot(raw_map, iteration, box_grid):
     ax.set_xlabel("x query position")
     ax.set_ylabel("y query position")
     fig.colorbar(image, ax=ax, label="display-normalized attention")
-    fig.savefig(OUTPUT_DIR / f"iteration_{iteration:02d}_heatmap.png", dpi=180)
+    fig.savefig(output_dir / f"iteration_{iteration:02d}_heatmap.png", dpi=180)
     plt.close(fig)
 
 
@@ -199,32 +197,9 @@ processor = IterativeRecordingProcessor()
 target_attention.set_processor(processor)
 
 
-def unet_noise_prediction(latents, timestep, capture_attention):
-    """Run one CFG UNet forward; caller decides whether its graph is needed."""
-    processor.capture_enabled = capture_attention
-    processor.attention_probs = None
-    model_input = pipe.scheduler.scale_model_input(torch.cat([latents] * 2), timestep)
-    noise_pred = pipe.unet(
-        model_input, timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None,
-        cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False,
-    )[0]
-    noise_uncond, noise_text = noise_pred.chunk(2)
-    return noise_uncond + GUIDANCE_SCALE * (noise_text - noise_uncond), model_input
-
-
-def decode_latent(latents):
-    """Decode only after denoising; move non-VAE components away to preserve VRAM."""
-    with torch.no_grad():
-        if pipe.vae.config.force_upcast:
-            pipe.upcast_vae()
-        vae_dtype = next(iter(pipe.vae.post_quant_conv.parameters())).dtype
-        image = pipe.vae.decode(
-            (latents / pipe.vae.config.scaling_factor).to(dtype=vae_dtype), return_dict=False
-        )[0]
-        return pipe.image_processor.postprocess(image, output_type="pil")[0]
-
-
-records = []
+# All three eta values share exactly this fixed target latent, then branch independently.
+all_records = {}
+summary = []
 try:
     with torch.no_grad():
         positive, negative, positive_pooled, negative_pooled = pipe.encode_prompt(
@@ -237,7 +212,7 @@ try:
         pipe.scheduler.set_timesteps(NUM_INFERENCE_STEPS, device=device)
         timesteps = pipe.scheduler.timesteps
         extra_step_kwargs = pipe.prepare_extra_step_kwargs(generator, eta=0.0)
-        initial_latents = pipe.prepare_latents(
+        latents = pipe.prepare_latents(
             1, pipe.unet.config.in_channels, HEIGHT, WIDTH, positive.dtype, device, generator
         )
         time_ids = pipe._get_add_time_ids(
@@ -248,152 +223,132 @@ try:
             "text_embeds": add_text_embeds,
             "time_ids": torch.cat([time_ids, time_ids], dim=0).to(device),
         }
-
-        # Baseline consumes one independent clone of the exact seeded initial latent.
-        baseline_latents = initial_latents.clone()
-        for timestep in timesteps:
-            noise_pred, model_input = unet_noise_prediction(baseline_latents, timestep, False)
-            baseline_latents = pipe.scheduler.step(
-                noise_pred, timestep, baseline_latents, **extra_step_kwargs, return_dict=False
+        # Normal SDXL denoising stops at x_t for step_index=4.
+        for timestep in timesteps[:TARGET_STEP_INDEX]:
+            processor.capture_enabled = False
+            model_input = pipe.scheduler.scale_model_input(torch.cat([latents] * 2), timestep)
+            noise_pred = pipe.unet(
+                model_input, timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None,
+                cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False,
             )[0]
-            del noise_pred, model_input
+            noise_uncond, noise_text = noise_pred.chunk(2)
+            latents = pipe.scheduler.step(
+                noise_uncond + GUIDANCE_SCALE * (noise_text - noise_uncond), timestep, latents,
+                **extra_step_kwargs, return_dict=False,
+            )[0]
 
-    # Controlled run starts from the same tensor values, not the baseline terminal latent.
-    # EulerDiscreteScheduler keeps an internal step_index; reset the identical schedule for this independent run.
-    pipe.scheduler.set_timesteps(NUM_INFERENCE_STEPS, device=device)
-    timesteps = pipe.scheduler.timesteps
-    controlled_latents = initial_latents.clone()
+    target_timestep = timesteps[TARGET_STEP_INDEX]
+    x_initial = latents.detach()
     torch.cuda.reset_peak_memory_stats()
-    for step_index, timestep in enumerate(timesteps):
-        if step_index in GUIDED_STEP_INDICES:
-            x_before = controlled_latents.detach()
-            x_current = x_before.clone()
-            inner_losses = []
-            pre_ratio = pre_loss = post_ratio = post_loss = None
-            finite = True
-            for inner_index in range(INNER_ITERS):
-                # A new leaf and a new target-step graph are built for every inner update.
+
+    for eta in ETAS:
+        eta_dir = OUTPUT_DIR / f"eta_{eta:g}"
+        eta_dir.mkdir(parents=True, exist_ok=True)
+        # Critical: clone the same x_initial rather than chaining between eta settings.
+        x_current = x_initial.clone()
+        records = []
+        stop_reason = None
+        try:
+            for iteration in range(MAX_OPT_ITERS + 1):
                 x_current = x_current.detach().requires_grad_(True)
-                noise_pred, model_input = unet_noise_prediction(x_current, timestep, True)
+                processor.capture_enabled = True
+                processor.attention_probs = None
+                model_input = pipe.scheduler.scale_model_input(torch.cat([x_current] * 2), target_timestep)
+                noise_pred = pipe.unet(
+                    model_input, target_timestep, encoder_hidden_states=prompt_embeds, timestep_cond=None,
+                    cross_attention_kwargs=None, added_cond_kwargs=added_cond_kwargs, return_dict=False,
+                )[0]
                 raw_map = raw_map_from_capture(processor, token_indices)
                 inside_ratio, layout_loss, box_grid = objective_from_raw_map(raw_map)
                 gradient = torch.autograd.grad(layout_loss, x_current)[0]
                 check_finite("raw attention", raw_map)
                 check_finite("layout loss", layout_loss)
                 check_finite("latent gradient", gradient)
-                if inner_index == 0:
-                    pre_ratio, pre_loss = inside_ratio.item(), layout_loss.item()
-                inner_losses.append(layout_loss.item())
-                x_next = x_current.detach() - ETA * gradient.detach()
-                check_finite("guided latent", x_next)
+
+                update = -eta * gradient.detach()
+                x_next = x_current.detach() + update
+                check_finite("updated latent", x_next)
+                initial_ratio = records[0]["inside_ratio"] if records else inside_ratio.item()
+                initial_loss = records[0]["layout_loss"] if records else layout_loss.item()
+                cumulative_update = x_current.detach() - x_initial
+                record = {
+                    "eta": eta,
+                    "iteration": iteration,
+                    "inside_ratio": inside_ratio.item(),
+                    "layout_loss": layout_loss.item(),
+                    "grad_norm": gradient.norm().item(),
+                    "relative_update": (update.norm() / (x_current.detach().norm() + EPS)).item(),
+                    "latent_norm": x_current.detach().norm().item(),
+                    "delta_ratio_vs_initial": inside_ratio.item() - initial_ratio,
+                    "delta_loss_vs_initial": layout_loss.item() - initial_loss,
+                    "cumulative_update_norm": cumulative_update.norm().item(),
+                    "cumulative_relative_update": (
+                        cumulative_update.norm() / (x_initial.norm() + EPS)
+                    ).item(),
+                }
+                records.append(record)
+                if iteration in SAVE_ITERATIONS:
+                    save_attention_snapshot(raw_map, iteration, box_grid, eta_dir)
+
                 processor.attention_probs = None
-                del noise_pred, model_input, raw_map, inside_ratio, layout_loss, gradient
+                del model_input, noise_pred, raw_map, inside_ratio, layout_loss, gradient, update, cumulative_update
+                if iteration == MAX_OPT_ITERS:
+                    break
                 x_current = x_next
                 del x_next
+                # Stop only meaningful, sustained worsening, not float16-scale fluctuations.
+                if len(records) >= 3 and all(
+                    records[-offset]["layout_loss"] > records[-offset - 1]["layout_loss"] + 1e-5
+                    for offset in (1, 2)
+                ):
+                    stop_reason = "loss increased by more than 1e-5 for two consecutive updates"
+                    break
+        except (FloatingPointError, torch.cuda.OutOfMemoryError) as error:
+            stop_reason = f"stopped: {type(error).__name__}: {error}"
+            if isinstance(error, torch.cuda.OutOfMemoryError):
+                torch.cuda.empty_cache()
 
-            # Measure the post-guidance objective on the final updated x_t.
-            x_measure = x_current.detach().requires_grad_(True)
-            noise_pred, model_input = unet_noise_prediction(x_measure, timestep, True)
-            raw_map = raw_map_from_capture(processor, token_indices)
-            inside_ratio, layout_loss, box_grid = objective_from_raw_map(raw_map)
-            check_finite("post-guidance raw attention", raw_map)
-            check_finite("post-guidance layout loss", layout_loss)
-            post_ratio, post_loss = inside_ratio.item(), layout_loss.item()
-            cumulative_update = x_measure.detach() - x_before
-            records.append({
-                "step_index": step_index,
-                "timestep": float(timestep),
-                "pre_inside_ratio": pre_ratio,
-                "pre_layout_loss": pre_loss,
-                "post_inside_ratio": post_ratio,
-                "post_layout_loss": post_loss,
-                "delta_ratio": post_ratio - pre_ratio,
-                "delta_loss": post_loss - pre_loss,
-                "inner_losses": ";".join(f"{value:.8f}" for value in inner_losses),
-                "cumulative_update_norm": cumulative_update.norm().item(),
-                "cumulative_relative_update": (
-                    cumulative_update.norm() / (x_before.norm() + EPS)
-                ).item(),
-                "has_nan_or_inf": not finite,
-            })
-            # Discard the measurement graph.  Its noise pred is deliberately not reused.
-            processor.attention_probs = None
-            del noise_pred, model_input, raw_map, inside_ratio, layout_loss, cumulative_update
-            del x_measure
-            controlled_latents = x_current.detach()
-            del x_current, x_before
-
-        # For every timestep (including guided ones), predict noise again from the current
-        # latent and only then advance Euler's scheduler.  No old optimization prediction leaks in.
-        with torch.no_grad():
-            noise_pred, model_input = unet_noise_prediction(controlled_latents, timestep, False)
-            controlled_latents = pipe.scheduler.step(
-                noise_pred, timestep, controlled_latents, **extra_step_kwargs, return_dict=False
-            )[0]
-            del noise_pred, model_input
+        if not records:
+            raise RuntimeError(f"eta={eta:g} produced no valid records: {stop_reason}")
+        with (eta_dir / "iteration_metrics.csv").open("w", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=list(records[0]))
+            writer.writeheader()
+            writer.writerows(records)
+        all_records[eta] = records
+        initial, final = records[0], records[-1]
+        summary.append({
+            "eta": eta,
+            "initial_ratio": initial["inside_ratio"], "final_ratio": final["inside_ratio"],
+            "delta_ratio": final["delta_ratio_vs_initial"],
+            "initial_loss": initial["layout_loss"], "final_loss": final["layout_loss"],
+            "delta_loss": final["delta_loss_vs_initial"],
+            "cumulative_update_norm": final["cumulative_update_norm"],
+            "cumulative_relative_update": final["cumulative_relative_update"],
+            "stable": stop_reason is None,
+            "stop_reason": stop_reason or "completed MAX_OPT_ITERS",
+        })
 finally:
     target_attention.set_processor(original_processor)
 
-if len(records) != len(GUIDED_STEP_INDICES):
-    raise RuntimeError(f"Expected {len(GUIDED_STEP_INDICES)} guided records, got {len(records)}.")
-with (OUTPUT_DIR / "guided_timestep_metrics_eta1000.csv").open("w", newline="") as file:
-    writer = csv.DictWriter(file, fieldnames=list(records[0]))
+with (OUTPUT_DIR / "eta_sweep_summary.csv").open("w", newline="") as file:
+    writer = csv.DictWriter(file, fieldnames=list(summary[0]) if summary else ["eta"])
     writer.writeheader()
-    writer.writerows(records)
+    writer.writerows(summary)
 
-# The target-step autograd work is done.  Move unused components off GPU before force-upcast VAE decode.
-pipe.unet.to("cpu")
-pipe.text_encoder.to("cpu")
-pipe.text_encoder_2.to("cpu")
-torch.cuda.synchronize()
-torch.cuda.empty_cache()
-baseline_image = decode_latent(baseline_latents)
-controlled_image = decode_latent(controlled_latents)
-baseline_path = OUTPUT_DIR / "baseline_seed42.png"
-controlled_path = OUTPUT_DIR / "controlled_eta1000_seed42.png"
-baseline_image.save(baseline_path)
-controlled_image.save(controlled_path)
-
-# This overlay is only a layout-condition reference, not evidence that image pixels are segmented.
-fig, ax = plt.subplots(figsize=(8, 8), constrained_layout=True)
-ax.imshow(controlled_image)
-x0, y0, x1, y1 = TARGET_BOX
-ax.add_patch(plt.Rectangle((x0 * WIDTH, y0 * HEIGHT), (x1 - x0) * WIDTH, (y1 - y0) * HEIGHT,
-                           fill=False, edgecolor="cyan", linewidth=3))
-ax.set_title("Controlled image with cabin target box (layout reference)")
-ax.axis("off")
-overlay_path = OUTPUT_DIR / "controlled_eta1000_seed42_target_box_reference.png"
-fig.savefig(overlay_path, dpi=180)
-plt.close(fig)
-
-print("[1] SDXL single-layer layout guidance")
-print(f"guided indices / actual timesteps: {[(item['step_index'], item['timestep']) for item in records]}")
-print(f"eta / inner iterations: {ETA} / {INNER_ITERS}")
-print("step | timestep | pre_ratio | post_ratio | delta_ratio | pre_loss | post_loss | delta_loss | cumulative_relative_update | NaN/Inf")
-for item in records:
+print("[1] Fixed-timestep iterative layout eta sweep")
+print(f"target step_index / timestep: {TARGET_STEP_INDEX} / {float(target_timestep)}")
+print(f"target layer: {TARGET_LAYER_NAME}")
+print(f"cabin indices: tokenizer={indices_1}, tokenizer_2={indices_2}, used={token_indices}")
+print(f"target box grid: x=[{box_grid[0]}, {box_grid[1]}), y=[{box_grid[2]}, {box_grid[3]})")
+print(f"etas / maximum iterations: {ETAS} / {MAX_OPT_ITERS}")
+print(f"frozen parameter count: {frozen_parameter_count}")
+print("eta | initial_ratio | final_ratio | delta_ratio | initial_loss | final_loss | delta_loss | cumulative_relative_update | stable")
+for row in summary:
     print(
-        f"{item['step_index']:>4d} | {item['timestep']:>8.1f} | {item['pre_inside_ratio']:.8f} | "
-        f"{item['post_inside_ratio']:.8f} | {item['delta_ratio']:+.8e} | "
-        f"{item['pre_layout_loss']:.8f} | {item['post_layout_loss']:.8f} | "
-        f"{item['delta_loss']:+.8e} | {item['cumulative_relative_update']:.8e} | "
-        f"{item['has_nan_or_inf']}"
+        f"{row['eta']:>4g} | {row['initial_ratio']:.8f} | {row['final_ratio']:.8f} | "
+        f"{row['delta_ratio']:+.8e} | {row['initial_loss']:.8f} | {row['final_loss']:.8f} | "
+        f"{row['delta_loss']:+.8e} | {row['cumulative_relative_update']:.8e} | {row['stable']}"
     )
+    print(f"  stop reason: {row['stop_reason']}")
 print(f"peak allocated/reserved MiB: {torch.cuda.max_memory_allocated() / 1024**2:.1f} / {torch.cuda.max_memory_reserved() / 1024**2:.1f}")
-print(f"baseline: {baseline_path}")
-print(f"controlled: {controlled_path}")
-print(f"target-box reference: {overlay_path}")
-
-# Numerical comparison uses saved 8-bit images and does not affect sampling or guidance.
-import numpy as np
-from PIL import Image
-
-baseline_pixels = np.asarray(Image.open(OUTPUT_DIR / "baseline_seed42.png").convert("RGB"), dtype=np.int16)
-eta1000_pixels = np.asarray(Image.open(controlled_path).convert("RGB"), dtype=np.int16)
-if baseline_pixels.shape != eta1000_pixels.shape:
-    raise RuntimeError(f"Saved image shape mismatch: {baseline_pixels.shape} vs {eta1000_pixels.shape}")
-absolute_difference = np.abs(eta1000_pixels - baseline_pixels)
-print("baseline vs eta=1000 pixel comparison")
-print(f"mean absolute pixel difference: {absolute_difference.mean():.8f}")
-print(f"RMSE: {np.sqrt(np.mean((eta1000_pixels - baseline_pixels).astype(np.float64) ** 2)):.8f}")
-print(f"max absolute pixel difference: {absolute_difference.max()}")
-print(f"different pixel ratio: {np.any(absolute_difference != 0, axis=-1).mean():.8f}")
+print(f"summary: {OUTPUT_DIR / 'eta_sweep_summary.csv'}")

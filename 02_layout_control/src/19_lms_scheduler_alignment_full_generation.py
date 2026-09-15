@@ -1,4 +1,4 @@
-"""Generate SDXL baseline and paper-style backward-guided 51-step trajectories with Euler."""
+"""Repeat the paper-style full generation with LMS scheduler alignment only."""
 
 import math
 import csv
@@ -10,7 +10,7 @@ from PIL import ImageDraw
 import numpy as np
 import torch
 import torch.nn.functional as F
-from diffusers import StableDiffusionXLPipeline
+from diffusers import LMSDiscreteScheduler, StableDiffusionXLPipeline
 from diffusers.models.attention import BasicTransformerBlock
 
 
@@ -24,7 +24,7 @@ TARGET_STEP_INDEX = 4
 TARGET_WORD = "cabin"
 TARGET_BOX = (0.10, 0.50, 0.40, 0.82)
 EPS = 1e-8
-OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "paper_backward_guidance_full_generation"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs" / "lms_scheduler_alignment_full_generation"
 
 
 class ShapeProbeProcessor:
@@ -268,6 +268,8 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 pipe = StableDiffusionXLPipeline.from_pretrained(MODEL_ID, torch_dtype=torch.float16, local_files_only=True)
 pipe.to("cuda")
+# Single experimental variable: replace Euler with LMS while preserving the original scheduler configuration.
+pipe.scheduler = LMSDiscreteScheduler.from_config(pipe.scheduler.config)
 device = torch.device("cuda")
 pipe._guidance_scale = CFG_SCALE
 pipe._guidance_rescale = 0.0
@@ -299,6 +301,10 @@ try:
         generator = torch.Generator(device="cuda").manual_seed(SEED)
         pipe.scheduler.set_timesteps(NUM_INFERENCE_STEPS, device=device)
         timesteps = pipe.scheduler.timesteps
+        print(f"scheduler class: {type(pipe.scheduler).__name__}")
+        print(f"scheduler config: {pipe.scheduler.config}")
+        print(f"timestep count: {len(timesteps)}")
+        print(f"early guided timesteps / sigmas: {[(float(timesteps[i]), float(pipe.scheduler.sigmas[i])) for i in range(MAX_GUIDED_STEPS)]}")
         extra_step_kwargs = pipe.prepare_extra_step_kwargs(generator, eta=0.0)
         initial_latents = pipe.prepare_latents(1, pipe.unet.config.in_channels, HEIGHT, WIDTH, positive.dtype, device, generator)
 
@@ -413,8 +419,8 @@ latent_delta = guided_latents.float() - baseline_latents.float()
 baseline_pixels = np.asarray(baseline_image.convert("RGB"), dtype=np.int16)
 guided_pixels = np.asarray(guided_image.convert("RGB"), dtype=np.int16)
 pixel_delta = np.abs(guided_pixels - baseline_pixels)
-print("[1] Full paper-style backward-guidance generation (SDXL/Euler adaptation)")
-print("author scheduler: LMSDiscreteScheduler; current experiment scheduler: EulerDiscreteScheduler (scheduler is intentionally not aligned in this run).")
+print("[1] Full paper-style backward-guidance generation (SDXL/LMS alignment)")
+print("author scheduler: LMSDiscreteScheduler; current experiment scheduler: LMSDiscreteScheduler constructed from the original Euler config.")
 print(f"CFG scale: {CFG_SCALE} (existing project baseline; author config default is 7.5)")
 print(f"inner early-stop: author condition loss/loss_scale > loss_threshold, here E > {LOSS_THRESHOLD}")
 for row in step_summaries:

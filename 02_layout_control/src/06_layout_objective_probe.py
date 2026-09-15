@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw
 TARGET_BOX = (0.10, 0.50, 0.40, 0.82)  # x0, y0, x1, y1 in normalized image coordinates
 EPS = 1e-8
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 RAW_MAP_PATH = ROOT / "outputs" / "multilayer_attention" / "raw_aggregates" / "cabin_all_aggregate.pt"
 REFERENCE_IMAGE_PATH = ROOT / "outputs" / "multilayer_attention" / "sdxl_multilayer_attention_seed42.png"
 OUTPUT_DIR = ROOT / "outputs" / "layout_objective"
