@@ -1,0 +1,28 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "first_run": {
+    "runtime_seconds": 31.977047538384795,
+    "peak_cuda_allocated_mib": 1383.8330078125,
+    "peak_cuda_reserved_mib": 1392.0,
+    "pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "output_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/baseline/flux-1-schnell_seed-42_steps-4_run-1.png"
+  },
+  "second_run": {
+    "runtime_seconds": 17.48237164877355,
+    "peak_cuda_allocated_mib": 1383.8330078125,
+    "peak_cuda_reserved_mib": 1392.0,
+    "pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "output_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/baseline/flux-1-schnell_seed-42_steps-4_run-2.png"
+  },
+  "fixed_seed_pixel_reproducible": true
+}
