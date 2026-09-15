@@ -1,0 +1,297 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "equation": "E(A,B,i) = (1 - sum_{u in B} A[u,i] / sum_u A[u,i])^2",
+  "target_spans": {
+    "apple": {
+      "character_span": [
+        6,
+        11
+      ],
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple"
+    },
+    "cup": {
+      "character_span": [
+        23,
+        26
+      ],
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup"
+    }
+  },
+  "normalized_regions": {
+    "left": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "right": [
+      0.5,
+      0.0,
+      1.0,
+      1.0
+    ]
+  },
+  "layouts": {
+    "layout_a": {
+      "apple": "left",
+      "cup": "right"
+    },
+    "layout_b": {
+      "apple": "right",
+      "cup": "left"
+    }
+  },
+  "blocks": {
+    "9": {
+      "block_index": 9,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "signal": {
+        "base_processor": "FluxAttnProcessor2_0",
+        "attention_direction": "image queries -> target text keys",
+        "normalization": "native joint softmax over all 512 text + 2304 image keys",
+        "span_aggregation": "sum target span token probabilities, then mean over 24 heads",
+        "map_shape": [
+          48,
+          48
+        ],
+        "requires_grad": false
+      },
+      "layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 5.556230316469737,
+            "in_box_attention_mass": 4.853188186425541,
+            "in_box_attention_mass_ratio": 0.8734677848108198,
+            "energy": 0.016010401480681013
+          },
+          "cup": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 3.742864946329064,
+            "in_box_attention_mass": 2.9400927558890544,
+            "in_box_attention_mass_ratio": 0.7855193275869186,
+            "energy": 0.04600195883876755
+          }
+        },
+        "total_energy": 0.06201236031944857
+      },
+      "layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 5.556230316469737,
+            "in_box_attention_mass": 0.7030421300441958,
+            "in_box_attention_mass_ratio": 0.12653221518918026,
+            "energy": 0.7629459711023205
+          },
+          "cup": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 3.742864946329064,
+            "in_box_attention_mass": 0.8027721904400096,
+            "in_box_attention_mass_ratio": 0.21448067241308144,
+            "energy": 0.6170406140126047
+          }
+        },
+        "total_energy": 1.3799865851149251
+      },
+      "comparison": {
+        "layout_a_lower_than_layout_b": true,
+        "energy_gap_b_minus_a": 1.3179742247954764,
+        "energy_ratio_b_over_a": 22.253411707054926
+      }
+    },
+    "18": {
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "signal": {
+        "base_processor": "FluxAttnProcessor2_0",
+        "attention_direction": "image queries -> target text keys",
+        "normalization": "native joint softmax over all 512 text + 2304 image keys",
+        "span_aggregation": "sum target span token probabilities, then mean over 24 heads",
+        "map_shape": [
+          48,
+          48
+        ],
+        "requires_grad": false
+      },
+      "layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 16.5420873843359,
+            "in_box_attention_mass": 14.06237490537751,
+            "in_box_attention_mass_ratio": 0.8500967609863741,
+            "energy": 0.022470981066776256
+          },
+          "cup": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 12.956506088336027,
+            "in_box_attention_mass": 10.661216055719706,
+            "in_box_attention_mass_ratio": 0.8228465284570325,
+            "energy": 0.03138335247972498
+          }
+        },
+        "total_energy": 0.05385433354650124
+      },
+      "layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 16.5420873843359,
+            "in_box_attention_mass": 2.4797124789583904,
+            "in_box_attention_mass_ratio": 0.14990323901362593,
+            "energy": 0.7226645030395245
+          },
+          "cup": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 12.956506088336027,
+            "in_box_attention_mass": 2.2952900326163217,
+            "in_box_attention_mass_ratio": 0.1771534715429675,
+            "energy": 0.6770764093937901
+          }
+        },
+        "total_energy": 1.3997409124333147
+      },
+      "comparison": {
+        "layout_a_lower_than_layout_b": true,
+        "energy_gap_b_minus_a": 1.3458865788868135,
+        "energy_ratio_b_over_a": 25.991240077730975
+      }
+    }
+  },
+  "non_invasive_check": {
+    "generated_pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "baseline_pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "pixel_exact_match": true
+  },
+  "generation_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/layout_objective/flux-1-schnell_layout-objective_seed-42_steps-4.png",
+  "runtime_seconds": 21.67482108063996,
+  "peak_cuda_allocated_mib": 1383.8330078125,
+  "peak_cuda_reserved_mib": 1392.0
+}
