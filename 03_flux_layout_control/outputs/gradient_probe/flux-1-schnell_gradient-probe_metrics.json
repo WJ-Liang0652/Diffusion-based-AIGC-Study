@@ -1,0 +1,347 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "gradient_checkpointing": true,
+  "target_spans": {
+    "apple": {
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple"
+    },
+    "cup": {
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup"
+    }
+  },
+  "normalized_regions": {
+    "left": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "right": [
+      0.5,
+      0.0,
+      1.0,
+      1.0
+    ]
+  },
+  "layouts": {
+    "layout_a": {
+      "apple": "left",
+      "cup": "right"
+    },
+    "layout_b": {
+      "apple": "right",
+      "cup": "left"
+    }
+  },
+  "optimization_variable": {
+    "name": "packed_latents_at_transformer_input_before_denoising_index_2",
+    "shape": [
+      1,
+      2304,
+      64
+    ],
+    "dtype": "torch.bfloat16",
+    "timestep": 500.0
+  },
+  "blocks": {
+    "18": {
+      "block_index": 18,
+      "layout_optimized": "layout_b",
+      "initial_layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "mass_ratio": 0.8500967621803284,
+            "energy": 0.022470980882644653
+          },
+          "cup": {
+            "region": "right",
+            "mass_ratio": 0.8228465914726257,
+            "energy": 0.03138333186507225
+          }
+        },
+        "total_energy": 0.053854312747716904
+      },
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.14990323781967163,
+            "energy": 0.722664475440979
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.17715346813201904,
+            "energy": 0.6770763993263245
+          }
+        },
+        "total_energy": 1.3997409343719482
+      },
+      "objective_backward_succeeded": true,
+      "gradient_is_none": false,
+      "gradient_is_nonzero": true,
+      "gradient_is_finite": true,
+      "gradient_norm_l2": 0.046555597335100174,
+      "gradient_abs_mean": 7.377017755061388e-05,
+      "latent_norm_l2": 335.50714111328125,
+      "model_parameters_with_grad": [],
+      "model_parameter_grad_count": 0,
+      "update_trials": [
+        {
+          "relative_step_size": 0.0005,
+          "effective_eta": 3.6032955646514893,
+          "desired_update_norm": 0.16775357723236084,
+          "actual_bf16_update_norm": 0.12998050451278687,
+          "actual_relative_update_norm": 0.0003874150279443711,
+          "updated_layout_b": {
+            "objects": {
+              "apple": {
+                "region": "right",
+                "mass_ratio": 0.15042611956596375,
+                "energy": 0.7217757105827332
+              },
+              "cup": {
+                "region": "left",
+                "mass_ratio": 0.1786631941795349,
+                "energy": 0.6745941638946533
+              }
+            },
+            "total_energy": 1.3963699340820312
+          },
+          "objective_delta_updated_minus_initial": -0.003371000289916992,
+          "objective_decreased": true,
+          "mass_ratio_delta": {
+            "apple": 0.0005228817462921143,
+            "cup": 0.0015097260475158691
+          }
+        },
+        {
+          "relative_step_size": 0.001,
+          "effective_eta": 7.2065911293029785,
+          "desired_update_norm": 0.3355071544647217,
+          "actual_bf16_update_norm": 0.3039073944091797,
+          "actual_relative_update_norm": 0.0009058149880729616,
+          "updated_layout_b": {
+            "objects": {
+              "apple": {
+                "region": "right",
+                "mass_ratio": 0.1522761434316635,
+                "energy": 0.7186357378959656
+              },
+              "cup": {
+                "region": "left",
+                "mass_ratio": 0.18162451684474945,
+                "energy": 0.6697384119033813
+              }
+            },
+            "total_energy": 1.3883740901947021
+          },
+          "objective_delta_updated_minus_initial": -0.011366844177246094,
+          "objective_decreased": true,
+          "mass_ratio_delta": {
+            "apple": 0.0023729056119918823,
+            "cup": 0.004471048712730408
+          }
+        },
+        {
+          "relative_step_size": 0.002,
+          "effective_eta": 14.413182258605957,
+          "desired_update_norm": 0.6710143089294434,
+          "actual_bf16_update_norm": 0.6656580567359924,
+          "actual_relative_update_norm": 0.001984035363420844,
+          "updated_layout_b": {
+            "objects": {
+              "apple": {
+                "region": "right",
+                "mass_ratio": 0.15585049986839294,
+                "energy": 0.7125883102416992
+              },
+              "cup": {
+                "region": "left",
+                "mass_ratio": 0.1860911250114441,
+                "energy": 0.6624476313591003
+              }
+            },
+            "total_energy": 1.3750360012054443
+          },
+          "objective_delta_updated_minus_initial": -0.024704933166503906,
+          "objective_decreased": true,
+          "mass_ratio_delta": {
+            "apple": 0.0059472620487213135,
+            "cup": 0.008937656879425049
+          }
+        }
+      ],
+      "best_updated_energy": 1.3750360012054443,
+      "any_update_decreased_objective": true,
+      "runtime_seconds": 19.72080440632999,
+      "peak_cuda_allocated_mib": 1999.6328125,
+      "peak_cuda_reserved_mib": 2130.0
+    },
+    "9": {
+      "block_index": 9,
+      "layout_optimized": "layout_b",
+      "initial_layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "mass_ratio": 0.8734678626060486,
+            "energy": 0.016010381281375885
+          },
+          "cup": {
+            "region": "right",
+            "mass_ratio": 0.7855193018913269,
+            "energy": 0.046001970767974854
+          }
+        },
+        "total_energy": 0.06201235204935074
+      },
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.12653222680091858,
+            "energy": 0.7629460096359253
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.2144806683063507,
+            "energy": 0.6170406937599182
+          }
+        },
+        "total_energy": 1.3799867630004883
+      },
+      "objective_backward_succeeded": true,
+      "gradient_is_none": false,
+      "gradient_is_nonzero": true,
+      "gradient_is_finite": true,
+      "gradient_norm_l2": 0.03757370635867119,
+      "gradient_abs_mean": 7.063621160341427e-05,
+      "latent_norm_l2": 335.50714111328125,
+      "model_parameters_with_grad": [],
+      "model_parameter_grad_count": 0,
+      "update_trials": [
+        {
+          "relative_step_size": 0.0005,
+          "effective_eta": 4.464653491973877,
+          "desired_update_norm": 0.16775357723236084,
+          "actual_bf16_update_norm": 0.11144719272851944,
+          "actual_relative_update_norm": 0.0003321753174532205,
+          "updated_layout_b": {
+            "objects": {
+              "apple": {
+                "region": "right",
+                "mass_ratio": 0.1269533932209015,
+                "energy": 0.7622104287147522
+              },
+              "cup": {
+                "region": "left",
+                "mass_ratio": 0.21650730073451996,
+                "energy": 0.6138607859611511
+              }
+            },
+            "total_energy": 1.3760712146759033
+          },
+          "objective_delta_updated_minus_initial": -0.003915548324584961,
+          "objective_decreased": true,
+          "mass_ratio_delta": {
+            "apple": 0.00042116641998291016,
+            "cup": 0.0020266324281692505
+          }
+        },
+        {
+          "relative_step_size": 0.001,
+          "effective_eta": 8.929306983947754,
+          "desired_update_norm": 0.3355071544647217,
+          "actual_bf16_update_norm": 0.28750187158584595,
+          "actual_relative_update_norm": 0.0008569172932766378,
+          "updated_layout_b": {
+            "objects": {
+              "apple": {
+                "region": "right",
+                "mass_ratio": 0.12750880420207977,
+                "energy": 0.7612408399581909
+              },
+              "cup": {
+                "region": "left",
+                "mass_ratio": 0.21820029616355896,
+                "energy": 0.6112107038497925
+              }
+            },
+            "total_energy": 1.3724515438079834
+          },
+          "objective_delta_updated_minus_initial": -0.007535219192504883,
+          "objective_decreased": true,
+          "mass_ratio_delta": {
+            "apple": 0.0009765774011611938,
+            "cup": 0.003719627857208252
+          }
+        },
+        {
+          "relative_step_size": 0.002,
+          "effective_eta": 17.858613967895508,
+          "desired_update_norm": 0.6710143089294434,
+          "actual_bf16_update_norm": 0.6737967729568481,
+          "actual_relative_update_norm": 0.00200829328969121,
+          "updated_layout_b": {
+            "objects": {
+              "apple": {
+                "region": "right",
+                "mass_ratio": 0.12986145913600922,
+                "energy": 0.7571410536766052
+              },
+              "cup": {
+                "region": "left",
+                "mass_ratio": 0.22513994574546814,
+                "energy": 0.6004080772399902
+              }
+            },
+            "total_energy": 1.3575491905212402
+          },
+          "objective_delta_updated_minus_initial": -0.022437572479248047,
+          "objective_decreased": true,
+          "mass_ratio_delta": {
+            "apple": 0.003329232335090637,
+            "cup": 0.010659277439117432
+          }
+        }
+      ],
+      "best_updated_energy": 1.3575491905212402,
+      "any_update_decreased_objective": true,
+      "runtime_seconds": 18.752751369960606,
+      "peak_cuda_allocated_mib": 1848.6328125,
+      "peak_cuda_reserved_mib": 1978.0
+    }
+  },
+  "total_runtime_seconds_including_load_and_state_preparation": 53.27194864116609,
+  "peak_cuda_allocated_mib_overall": 1999.6328125,
+  "peak_cuda_reserved_mib_overall": 2130.0
+}

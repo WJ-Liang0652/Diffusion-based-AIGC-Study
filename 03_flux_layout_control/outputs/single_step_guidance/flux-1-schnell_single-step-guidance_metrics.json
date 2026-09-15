@@ -1,0 +1,300 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "block_index": 18,
+  "denoising_index": 2,
+  "timestep": 500.0,
+  "layout": {
+    "apple": "right",
+    "cup": "left"
+  },
+  "normalized_regions": {
+    "left": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "right": [
+      0.5,
+      0.0,
+      1.0,
+      1.0
+    ]
+  },
+  "target_spans": {
+    "apple": {
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple"
+    },
+    "cup": {
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup"
+    }
+  },
+  "optimization_variable": {
+    "name": "packed_latents_at_transformer_input_before_t500",
+    "shape": [
+      1,
+      2304,
+      64
+    ],
+    "dtype": "torch.bfloat16"
+  },
+  "update_definition": {
+    "formula": "x_new = x - eta*g",
+    "gradient": "g = d(E_layout_b)/dx",
+    "eta": "relative_step * ||x||_2 / ||g||_2",
+    "interpretation": "desired update L2 norm is relative_step times current packed-latent L2 norm; update is rounded to latent BF16"
+  },
+  "initial_layout_b": {
+    "objects": {
+      "apple": {
+        "target_region": "right",
+        "mass_ratio": 0.14990323781967163,
+        "energy": 0.722664475440979
+      },
+      "cup": {
+        "target_region": "left",
+        "mass_ratio": 0.17715346813201904,
+        "energy": 0.6770763993263245
+      }
+    },
+    "total_energy": 1.3997409343719482
+  },
+  "gradient": {
+    "objective_backward_succeeded": true,
+    "gradient_norm_l2": 0.04655143618583679,
+    "gradient_abs_mean": 7.376988651230931e-05,
+    "gradient_is_finite": true,
+    "gradient_is_nonzero": true,
+    "model_parameter_grad_count": 0,
+    "model_parameters_with_grad": []
+  },
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux-1-schnell_single-step_baseline_seed-42_steps-4.png",
+    "pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "matches_original_pipeline_baseline": true,
+    "runtime_seconds_from_t500": 9.08526468835771,
+    "color_centroids": {
+      "apple_red_proxy": {
+        "pixel_count": 50769,
+        "centroid_xy_pixels": [
+          277.63881502491677,
+          562.6710591108747
+        ],
+        "centroid_xy_normalized": [
+          0.3615088737303604,
+          0.7326446082172847
+        ]
+      },
+      "cup_blue_proxy": {
+        "pixel_count": 75525,
+        "centroid_xy_pixels": [
+          589.3853558424363,
+          528.4400794438927
+        ],
+        "centroid_xy_normalized": [
+          0.7674288487531723,
+          0.6880730201092353
+        ]
+      }
+    }
+  },
+  "guided_results": [
+    {
+      "relative_step_size": 0.002,
+      "effective_eta": 14.414470672607422,
+      "update_formula": "x_new = x - eta*g; eta = relative_step*||x||_2/||g||_2",
+      "desired_update_norm": 0.6710143089294434,
+      "actual_bf16_update_norm": 0.6653305292129517,
+      "actual_relative_update_norm": 0.0019830591045320034,
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.14990323781967163,
+            "energy": 0.722664475440979
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.17715346813201904,
+            "energy": 0.6770763993263245
+          }
+        },
+        "total_energy": 1.3997409343719482
+      },
+      "updated_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.15631593763828278,
+            "energy": 0.7118028402328491
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.18646934628486633,
+            "energy": 0.6618321537971497
+          }
+        },
+        "total_energy": 1.3736350536346436
+      },
+      "objective_delta_updated_minus_initial": -0.026105880737304688,
+      "mass_ratio_delta": {
+        "apple": 0.006412699818611145,
+        "cup": 0.00931587815284729
+      },
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux-1-schnell_single-step-guided_rel-0p002_seed-42_steps-4.png",
+      "pixel_sha256": "da91f43c388ee814119fb751de407aaaa0ea3dcfd105a60b2a1a1834547dc0c3",
+      "pixel_difference_vs_branch_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 31.0,
+        "mean_absolute_pixel_difference": 0.24578236043453217,
+        "rmse": 0.6343551874160767,
+        "changed_pixel_fraction": 0.4373067220052083,
+        "mean_signed_rgb_difference": [
+          -0.0206875279545784,
+          0.0006137423915788531,
+          -0.01181877963244915
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 50807,
+          "centroid_xy_pixels": [
+            277.60816422933846,
+            562.5680516464266
+          ],
+          "centroid_xy_normalized": [
+            0.36146896384028443,
+            0.732510483914618
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75493,
+          "centroid_xy_pixels": [
+            589.3811214284768,
+            528.28373491582
+          ],
+          "centroid_xy_normalized": [
+            0.7674233351933292,
+            0.687869446504974
+          ]
+        }
+      },
+      "branch_runtime_seconds": 9.027524050325155
+    },
+    {
+      "relative_step_size": 0.005,
+      "effective_eta": 36.03617477416992,
+      "update_formula": "x_new = x - eta*g; eta = relative_step*||x||_2/||g||_2",
+      "desired_update_norm": 1.6775356531143188,
+      "actual_bf16_update_norm": 1.7146774530410767,
+      "actual_relative_update_norm": 0.005110703408718109,
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.14990323781967163,
+            "energy": 0.722664475440979
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.17715346813201904,
+            "energy": 0.6770763993263245
+          }
+        },
+        "total_energy": 1.3997409343719482
+      },
+      "updated_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.17055641114711761,
+            "energy": 0.6879766583442688
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.19877563416957855,
+            "energy": 0.6419604420661926
+          }
+        },
+        "total_energy": 1.3299371004104614
+      },
+      "objective_delta_updated_minus_initial": -0.06980383396148682,
+      "mass_ratio_delta": {
+        "apple": 0.020653173327445984,
+        "cup": 0.02162216603755951
+      },
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux-1-schnell_single-step-guided_rel-0p005_seed-42_steps-4.png",
+      "pixel_sha256": "d56ac4a25f3805ff951dd15c895be4b1a2b42dc4160a02374a2cab41f331ce7d",
+      "pixel_difference_vs_branch_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 45.0,
+        "mean_absolute_pixel_difference": 0.32416337728500366,
+        "rmse": 0.7688262462615967,
+        "changed_pixel_fraction": 0.5276607937282987,
+        "mean_signed_rgb_difference": [
+          -0.0287356898188591,
+          -0.0245649553835392,
+          0.0853034108877182
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 50748,
+          "centroid_xy_pixels": [
+            277.54317411523607,
+            562.6021321037282
+          ],
+          "centroid_xy_normalized": [
+            0.3613843412958803,
+            0.7325548595100627
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75482,
+          "centroid_xy_pixels": [
+            589.3881322699451,
+            528.4314273601653
+          ],
+          "centroid_xy_normalized": [
+            0.7674324638931577,
+            0.6880617543752153
+          ]
+        }
+      },
+      "branch_runtime_seconds": 8.73990255407989
+    }
+  ],
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux-1-schnell_single-step-guidance_comparison.png",
+  "gradient_runtime_seconds": 6.855298948474228,
+  "total_runtime_seconds_including_load": 49.0422323262319,
+  "peak_cuda_allocated_mib": 2002.63330078125,
+  "peak_cuda_reserved_mib": 2140.0
+}

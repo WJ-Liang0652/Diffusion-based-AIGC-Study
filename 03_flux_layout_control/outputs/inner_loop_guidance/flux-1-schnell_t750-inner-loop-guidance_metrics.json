@@ -1,0 +1,577 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "block_index": 18,
+  "denoising_index": 1,
+  "timestep": 750.0,
+  "layout_b": {
+    "apple": "right",
+    "cup": "left"
+  },
+  "normalized_regions": {
+    "left": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "right": [
+      0.5,
+      0.0,
+      1.0,
+      1.0
+    ]
+  },
+  "target_spans": {
+    "apple": {
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple"
+    },
+    "cup": {
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup"
+    }
+  },
+  "attention_objective": "joint-normalized image-query -> target text-key-span probability",
+  "relative_step": 0.005,
+  "inner_loop_checkpoints": [
+    1,
+    3,
+    5
+  ],
+  "trajectory_design": "one shared five-update trajectory, evaluated after updates 1, 3, and 5",
+  "update_definition": {
+    "formula": "x_new = x - eta*g",
+    "gradient": "g = d(E_layout_b)/dx from a fresh forward at the current latent",
+    "eta": "relative_step * ||current_x||_2 / ||g||_2",
+    "graph_lifetime": "detach after every update; fresh requires_grad leaf and graph each iteration"
+  },
+  "spatial_signal_check": {
+    "layout_a_baseline_consistent": {
+      "objects": {
+        "apple": {
+          "region": "left",
+          "mass_ratio": 0.8518945574760437,
+          "energy": 0.021935222670435905
+        },
+        "cup": {
+          "region": "right",
+          "mass_ratio": 0.8653281927108765,
+          "energy": 0.01813649572432041
+        }
+      },
+      "total_energy": 0.04007171839475632
+    },
+    "layout_b_swapped": {
+      "objects": {
+        "apple": {
+          "region": "right",
+          "mass_ratio": 0.1481054723262787,
+          "energy": 0.7257242202758789
+        },
+        "cup": {
+          "region": "left",
+          "mass_ratio": 0.13467173278331757,
+          "energy": 0.7487930059432983
+        }
+      },
+      "total_energy": 1.4745172262191772
+    },
+    "energy_gap_b_minus_a": 1.434445507824421,
+    "reliability_criterion": "A<B and baseline-consistent apple-left/cup-right mass ratios both exceed 0.5",
+    "reliable_for_update": true
+  },
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux-1-schnell_t750-inner-loop_baseline_seed-42_steps-4.png",
+    "pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "matches_original_pipeline_baseline": true,
+    "runtime_seconds_from_t750": 12.464258786290884,
+    "color_centroids": {
+      "apple_red_proxy": {
+        "pixel_count": 50769,
+        "centroid_xy_pixels": [
+          277.63881502491677,
+          562.6710591108747
+        ],
+        "centroid_xy_normalized": [
+          0.3615088737303604,
+          0.7326446082172847
+        ]
+      },
+      "cup_blue_proxy": {
+        "pixel_count": 75525,
+        "centroid_xy_pixels": [
+          589.3853558424363,
+          528.4400794438927
+        ],
+        "centroid_xy_normalized": [
+          0.7674288487531723,
+          0.6880730201092353
+        ]
+      }
+    }
+  },
+  "iteration_records": [
+    {
+      "iteration": 1,
+      "total_objective_before_update": 1.4745172262191772,
+      "apple_right_mass_before_update": 0.1481054723262787,
+      "cup_left_mass_before_update": 0.13467173278331757,
+      "gradient_norm_l2": 0.047751717269420624,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "effective_eta": 34.29738998413086,
+      "actual_bf16_update_norm": 1.6735100746154785,
+      "actual_step_relative_to_current_latent": 0.005109145771712065,
+      "cumulative_delta_norm_from_initial_t750": 1.6735100746154785,
+      "cumulative_relative_delta_from_initial_t750": 0.005109145771712065
+    },
+    {
+      "iteration": 2,
+      "total_objective_before_update": 1.4172344207763672,
+      "apple_right_mass_before_update": 0.16157971322536469,
+      "cup_left_mass_before_update": 0.15484566986560822,
+      "gradient_norm_l2": 0.04752589762210846,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "effective_eta": 34.46086883544922,
+      "actual_bf16_update_norm": 1.6737698316574097,
+      "actual_step_relative_to_current_latent": 0.005109862424433231,
+      "cumulative_delta_norm_from_initial_t750": 2.9343485832214355,
+      "cumulative_relative_delta_from_initial_t750": 0.0089584244415164
+    },
+    {
+      "iteration": 3,
+      "total_objective_before_update": 1.3606514930725098,
+      "apple_right_mass_before_update": 0.1865367442369461,
+      "cup_left_mass_before_update": 0.16398030519485474,
+      "gradient_norm_l2": 0.07095138728618622,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "effective_eta": 23.083433151245117,
+      "actual_bf16_update_norm": 1.6623132228851318,
+      "actual_step_relative_to_current_latent": 0.00507483072578907,
+      "cumulative_delta_norm_from_initial_t750": 4.034594535827637,
+      "cumulative_relative_delta_from_initial_t750": 0.012317422777414322
+    },
+    {
+      "iteration": 4,
+      "total_objective_before_update": 1.3027362823486328,
+      "apple_right_mass_before_update": 0.19960139691829681,
+      "cup_left_mass_before_update": 0.1863057017326355,
+      "gradient_norm_l2": 0.06043810024857521,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "effective_eta": 27.100399017333984,
+      "actual_bf16_update_norm": 1.6723105907440186,
+      "actual_step_relative_to_current_latent": 0.005105054937303066,
+      "cumulative_delta_norm_from_initial_t750": 5.1288251876831055,
+      "cumulative_relative_delta_from_initial_t750": 0.015658056363463402
+    },
+    {
+      "iteration": 5,
+      "total_objective_before_update": 1.214063286781311,
+      "apple_right_mass_before_update": 0.2311183363199234,
+      "cup_left_mass_before_update": 0.21076984703540802,
+      "gradient_norm_l2": 0.06957010179758072,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "effective_eta": 23.54259490966797,
+      "actual_bf16_update_norm": 1.6684937477111816,
+      "actual_step_relative_to_current_latent": 0.005093514919281006,
+      "cumulative_delta_norm_from_initial_t750": 6.234010696411133,
+      "cumulative_relative_delta_from_initial_t750": 0.019032133743166924
+    }
+  ],
+  "guided_results": [
+    {
+      "inner_loop_count": 1,
+      "iterations": [
+        {
+          "iteration": 1,
+          "total_objective_before_update": 1.4745172262191772,
+          "apple_right_mass_before_update": 0.1481054723262787,
+          "cup_left_mass_before_update": 0.13467173278331757,
+          "gradient_norm_l2": 0.047751717269420624,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 34.29738998413086,
+          "actual_bf16_update_norm": 1.6735100746154785,
+          "actual_step_relative_to_current_latent": 0.005109145771712065,
+          "cumulative_delta_norm_from_initial_t750": 1.6735100746154785,
+          "cumulative_relative_delta_from_initial_t750": 0.005109145771712065
+        }
+      ],
+      "layout_after_final_update": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.16157971322536469,
+            "energy": 0.7029485702514648
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.15484566986560822,
+            "energy": 0.7142858505249023
+          }
+        },
+        "total_energy": 1.4172344207763672
+      },
+      "objective_delta_final_minus_initial": -0.05728280544281006,
+      "mass_ratio_delta_final_minus_initial": {
+        "apple": 0.013474240899085999,
+        "cup": 0.02017393708229065
+      },
+      "cumulative_relative_delta_from_initial_t750": 0.005109145771712065,
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux-1-schnell_t750-inner-loop-1_rel-0p005_seed-42_steps-4.png",
+      "pixel_sha256": "a9bf1e9e5b943171c2f2d83473823635970a70e2c45c9d739e031174ab376fa0",
+      "pixel_difference_vs_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 76.0,
+        "mean_absolute_pixel_difference": 0.6194045543670654,
+        "rmse": 1.2393373250961304,
+        "changed_pixel_fraction": 0.786224365234375,
+        "mean_signed_rgb_difference": [
+          -0.1305711567401886,
+          -0.1442311555147171,
+          -0.0622355155646801
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 50786,
+          "centroid_xy_pixels": [
+            277.8485803174103,
+            562.7297089749144
+          ],
+          "centroid_xy_normalized": [
+            0.36178200562162804,
+            0.7327209752277531
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75508,
+          "centroid_xy_pixels": [
+            589.3901176034327,
+            528.3146686443821
+          ],
+          "centroid_xy_normalized": [
+            0.767435048962803,
+            0.6879097247973726
+          ]
+        }
+      },
+      "color_proxy_centroid_shift_x_pixels": {
+        "apple_red_proxy": 0.20976529249355735,
+        "cup_blue_proxy": 0.004761760996416342
+      },
+      "target_direction_by_color_proxy": {
+        "apple_right": true,
+        "cup_left": false
+      },
+      "checkpoint_denoise_and_decode_runtime_seconds": 13.517019206658006
+    },
+    {
+      "inner_loop_count": 3,
+      "iterations": [
+        {
+          "iteration": 1,
+          "total_objective_before_update": 1.4745172262191772,
+          "apple_right_mass_before_update": 0.1481054723262787,
+          "cup_left_mass_before_update": 0.13467173278331757,
+          "gradient_norm_l2": 0.047751717269420624,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 34.29738998413086,
+          "actual_bf16_update_norm": 1.6735100746154785,
+          "actual_step_relative_to_current_latent": 0.005109145771712065,
+          "cumulative_delta_norm_from_initial_t750": 1.6735100746154785,
+          "cumulative_relative_delta_from_initial_t750": 0.005109145771712065
+        },
+        {
+          "iteration": 2,
+          "total_objective_before_update": 1.4172344207763672,
+          "apple_right_mass_before_update": 0.16157971322536469,
+          "cup_left_mass_before_update": 0.15484566986560822,
+          "gradient_norm_l2": 0.04752589762210846,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 34.46086883544922,
+          "actual_bf16_update_norm": 1.6737698316574097,
+          "actual_step_relative_to_current_latent": 0.005109862424433231,
+          "cumulative_delta_norm_from_initial_t750": 2.9343485832214355,
+          "cumulative_relative_delta_from_initial_t750": 0.0089584244415164
+        },
+        {
+          "iteration": 3,
+          "total_objective_before_update": 1.3606514930725098,
+          "apple_right_mass_before_update": 0.1865367442369461,
+          "cup_left_mass_before_update": 0.16398030519485474,
+          "gradient_norm_l2": 0.07095138728618622,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 23.083433151245117,
+          "actual_bf16_update_norm": 1.6623132228851318,
+          "actual_step_relative_to_current_latent": 0.00507483072578907,
+          "cumulative_delta_norm_from_initial_t750": 4.034594535827637,
+          "cumulative_relative_delta_from_initial_t750": 0.012317422777414322
+        }
+      ],
+      "layout_after_final_update": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.19960139691829681,
+            "energy": 0.6406378746032715
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.1863057017326355,
+            "energy": 0.6620984077453613
+          }
+        },
+        "total_energy": 1.3027362823486328
+      },
+      "objective_delta_final_minus_initial": -0.17178094387054443,
+      "mass_ratio_delta_final_minus_initial": {
+        "apple": 0.05149592459201813,
+        "cup": 0.05163396894931793
+      },
+      "cumulative_relative_delta_from_initial_t750": 0.012317422777414322,
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux-1-schnell_t750-inner-loop-3_rel-0p005_seed-42_steps-4.png",
+      "pixel_sha256": "ccd1c21712ec35ad051cf7319f19c37d745145d3ae677328a665e66089015174",
+      "pixel_difference_vs_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 103.0,
+        "mean_absolute_pixel_difference": 3.105842351913452,
+        "rmse": 4.786726951599121,
+        "changed_pixel_fraction": 0.9724460177951388,
+        "mean_signed_rgb_difference": [
+          -0.4301469624042511,
+          -0.5897742509841919,
+          -0.6691877841949463
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 50135,
+          "centroid_xy_pixels": [
+            278.1177620424853,
+            562.0531764236562
+          ],
+          "centroid_xy_normalized": [
+            0.3621325026594861,
+            0.7318400734683023
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75352,
+          "centroid_xy_pixels": [
+            589.6909040237817,
+            528.0386452914322
+          ],
+          "centroid_xy_normalized": [
+            0.7678266979476325,
+            0.6875503193898856
+          ]
+        }
+      },
+      "color_proxy_centroid_shift_x_pixels": {
+        "apple_red_proxy": 0.47894701756854374,
+        "cup_blue_proxy": 0.3055481813454435
+      },
+      "target_direction_by_color_proxy": {
+        "apple_right": true,
+        "cup_left": false
+      },
+      "checkpoint_denoise_and_decode_runtime_seconds": 12.411330163478851
+    },
+    {
+      "inner_loop_count": 5,
+      "iterations": [
+        {
+          "iteration": 1,
+          "total_objective_before_update": 1.4745172262191772,
+          "apple_right_mass_before_update": 0.1481054723262787,
+          "cup_left_mass_before_update": 0.13467173278331757,
+          "gradient_norm_l2": 0.047751717269420624,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 34.29738998413086,
+          "actual_bf16_update_norm": 1.6735100746154785,
+          "actual_step_relative_to_current_latent": 0.005109145771712065,
+          "cumulative_delta_norm_from_initial_t750": 1.6735100746154785,
+          "cumulative_relative_delta_from_initial_t750": 0.005109145771712065
+        },
+        {
+          "iteration": 2,
+          "total_objective_before_update": 1.4172344207763672,
+          "apple_right_mass_before_update": 0.16157971322536469,
+          "cup_left_mass_before_update": 0.15484566986560822,
+          "gradient_norm_l2": 0.04752589762210846,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 34.46086883544922,
+          "actual_bf16_update_norm": 1.6737698316574097,
+          "actual_step_relative_to_current_latent": 0.005109862424433231,
+          "cumulative_delta_norm_from_initial_t750": 2.9343485832214355,
+          "cumulative_relative_delta_from_initial_t750": 0.0089584244415164
+        },
+        {
+          "iteration": 3,
+          "total_objective_before_update": 1.3606514930725098,
+          "apple_right_mass_before_update": 0.1865367442369461,
+          "cup_left_mass_before_update": 0.16398030519485474,
+          "gradient_norm_l2": 0.07095138728618622,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 23.083433151245117,
+          "actual_bf16_update_norm": 1.6623132228851318,
+          "actual_step_relative_to_current_latent": 0.00507483072578907,
+          "cumulative_delta_norm_from_initial_t750": 4.034594535827637,
+          "cumulative_relative_delta_from_initial_t750": 0.012317422777414322
+        },
+        {
+          "iteration": 4,
+          "total_objective_before_update": 1.3027362823486328,
+          "apple_right_mass_before_update": 0.19960139691829681,
+          "cup_left_mass_before_update": 0.1863057017326355,
+          "gradient_norm_l2": 0.06043810024857521,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 27.100399017333984,
+          "actual_bf16_update_norm": 1.6723105907440186,
+          "actual_step_relative_to_current_latent": 0.005105054937303066,
+          "cumulative_delta_norm_from_initial_t750": 5.1288251876831055,
+          "cumulative_relative_delta_from_initial_t750": 0.015658056363463402
+        },
+        {
+          "iteration": 5,
+          "total_objective_before_update": 1.214063286781311,
+          "apple_right_mass_before_update": 0.2311183363199234,
+          "cup_left_mass_before_update": 0.21076984703540802,
+          "gradient_norm_l2": 0.06957010179758072,
+          "gradient_is_finite": true,
+          "model_parameter_grad_count": 0,
+          "model_parameters_with_grad": [],
+          "effective_eta": 23.54259490966797,
+          "actual_bf16_update_norm": 1.6684937477111816,
+          "actual_step_relative_to_current_latent": 0.005093514919281006,
+          "cumulative_delta_norm_from_initial_t750": 6.234010696411133,
+          "cumulative_relative_delta_from_initial_t750": 0.019032133743166924
+        }
+      ],
+      "layout_after_final_update": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.271158903837204,
+            "energy": 0.5312092900276184
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.23738005757331848,
+            "energy": 0.5815892219543457
+          }
+        },
+        "total_energy": 1.1127984523773193
+      },
+      "objective_delta_final_minus_initial": -0.3617187738418579,
+      "mass_ratio_delta_final_minus_initial": {
+        "apple": 0.12305343151092529,
+        "cup": 0.10270832479000092
+      },
+      "cumulative_relative_delta_from_initial_t750": 0.019032133743166924,
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux-1-schnell_t750-inner-loop-5_rel-0p005_seed-42_steps-4.png",
+      "pixel_sha256": "2d3eecf828b4a88f6760d46933a3df36d40043ff55a8358444736863e422a615",
+      "pixel_difference_vs_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 120.0,
+        "mean_absolute_pixel_difference": 2.4996423721313477,
+        "rmse": 3.9490976333618164,
+        "changed_pixel_fraction": 0.9729275173611112,
+        "mean_signed_rgb_difference": [
+          -0.2173427939414978,
+          -0.5471225380897522,
+          -0.7093997597694397
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 49719,
+          "centroid_xy_pixels": [
+            278.2819847543193,
+            561.9759448098313
+          ],
+          "centroid_xy_normalized": [
+            0.36234633431551994,
+            0.7317395114711345
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75578,
+          "centroid_xy_pixels": [
+            589.7667972161211,
+            528.3914498928259
+          ],
+          "centroid_xy_normalized": [
+            0.767925517208491,
+            0.6880097003812837
+          ]
+        }
+      },
+      "color_proxy_centroid_shift_x_pixels": {
+        "apple_red_proxy": 0.6431697294025298,
+        "cup_blue_proxy": 0.3814413736847655
+      },
+      "target_direction_by_color_proxy": {
+        "apple_right": true,
+        "cup_left": false
+      },
+      "checkpoint_denoise_and_decode_runtime_seconds": 12.041571529582143
+    }
+  ],
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux-1-schnell_t750-inner-loop-guidance_comparison.png",
+  "optimization_and_checkpoint_generation_runtime_seconds": 72.10772021114826,
+  "total_runtime_seconds_including_load": 99.2432111473754,
+  "peak_cuda_allocated_mib": 2002.19580078125,
+  "peak_cuda_reserved_mib": 2136.0
+}

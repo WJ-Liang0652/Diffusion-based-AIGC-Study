@@ -1,0 +1,382 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "block_index": 18,
+  "denoising_index": 1,
+  "timestep": 750.0,
+  "layout_b": {
+    "apple": "right",
+    "cup": "left"
+  },
+  "normalized_regions": {
+    "left": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "right": [
+      0.5,
+      0.0,
+      1.0,
+      1.0
+    ]
+  },
+  "target_spans": {
+    "apple": {
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple"
+    },
+    "cup": {
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup"
+    }
+  },
+  "optimization_variable": {
+    "name": "packed_latents_at_transformer_input_before_t750",
+    "shape": [
+      1,
+      2304,
+      64
+    ],
+    "dtype": "torch.bfloat16"
+  },
+  "update_definition": {
+    "formula": "x_new = x - eta*g",
+    "gradient": "g = d(E_layout_b)/dx",
+    "eta": "relative_step * ||x||_2 / ||g||_2",
+    "interpretation": "identical to t=500; BF16-rounded update norm is recorded"
+  },
+  "spatial_signal_check": {
+    "layout_a_baseline_consistent": {
+      "objects": {
+        "apple": {
+          "region": "left",
+          "mass_ratio": 0.8518945574760437,
+          "energy": 0.021935222670435905
+        },
+        "cup": {
+          "region": "right",
+          "mass_ratio": 0.8653281927108765,
+          "energy": 0.01813649572432041
+        }
+      },
+      "total_energy": 0.04007171839475632
+    },
+    "layout_b_swapped": {
+      "objects": {
+        "apple": {
+          "region": "right",
+          "mass_ratio": 0.1481054723262787,
+          "energy": 0.7257242202758789
+        },
+        "cup": {
+          "region": "left",
+          "mass_ratio": 0.13467173278331757,
+          "energy": 0.7487930059432983
+        }
+      },
+      "total_energy": 1.4745172262191772
+    },
+    "energy_gap_b_minus_a": 1.434445507824421,
+    "reliability_criterion": "A<B and baseline-consistent apple-left/cup-right mass ratios both exceed 0.5",
+    "reliable_for_update": true
+  },
+  "stopped_before_update": false,
+  "initial_layout_b": {
+    "objects": {
+      "apple": {
+        "target_region": "right",
+        "mass_ratio": 0.1481054723262787,
+        "energy": 0.7257242202758789
+      },
+      "cup": {
+        "target_region": "left",
+        "mass_ratio": 0.13467173278331757,
+        "energy": 0.7487930059432983
+      }
+    },
+    "total_energy": 1.4745172262191772
+  },
+  "gradient": {
+    "objective_backward_succeeded": true,
+    "gradient_norm_l2": 0.04774358123540878,
+    "gradient_abs_mean": 7.772108801873401e-05,
+    "gradient_is_finite": true,
+    "gradient_is_nonzero": true,
+    "model_parameter_grad_count": 0,
+    "model_parameters_with_grad": []
+  },
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/early_step_guidance/flux-1-schnell_t750-single-step_baseline_seed-42_steps-4.png",
+    "pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+    "matches_original_pipeline_baseline": true,
+    "runtime_seconds_from_t750": 12.537961130030453,
+    "color_centroids": {
+      "apple_red_proxy": {
+        "pixel_count": 50769,
+        "centroid_xy_pixels": [
+          277.63881502491677,
+          562.6710591108747
+        ],
+        "centroid_xy_normalized": [
+          0.3615088737303604,
+          0.7326446082172847
+        ]
+      },
+      "cup_blue_proxy": {
+        "pixel_count": 75525,
+        "centroid_xy_pixels": [
+          589.3853558424363,
+          528.4400794438927
+        ],
+        "centroid_xy_normalized": [
+          0.7674288487531723,
+          0.6880730201092353
+        ]
+      }
+    }
+  },
+  "guided_results": [
+    {
+      "relative_step_size": 0.002,
+      "effective_eta": 13.721294403076172,
+      "desired_update_norm": 0.6551037430763245,
+      "actual_bf16_update_norm": 0.652966320514679,
+      "actual_relative_update_norm": 0.0019934747833758593,
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.1481054723262787,
+            "energy": 0.7257242202758789
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.13467173278331757,
+            "energy": 0.7487930059432983
+          }
+        },
+        "total_energy": 1.4745172262191772
+      },
+      "updated_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.15405842661857605,
+            "energy": 0.7156171202659607
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.1434308886528015,
+            "energy": 0.7337106466293335
+          }
+        },
+        "total_energy": 1.4493277072906494
+      },
+      "objective_delta_updated_minus_initial": -0.025189518928527832,
+      "mass_ratio_delta": {
+        "apple": 0.005952954292297363,
+        "cup": 0.008759155869483948
+      },
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/early_step_guidance/flux-1-schnell_t750-single-step-guided_rel-0p002_seed-42_steps-4.png",
+      "pixel_sha256": "01fa224127bc644473fdd26b861def396d1b04de973830bc8f41951e543294c0",
+      "pixel_difference_vs_branch_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 63.0,
+        "mean_absolute_pixel_difference": 0.37911930680274963,
+        "rmse": 0.9707643389701843,
+        "changed_pixel_fraction": 0.5531056722005209,
+        "mean_signed_rgb_difference": [
+          0.0781572163105011,
+          0.007922702468931675,
+          -0.0755733922123909
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 50825,
+          "centroid_xy_pixels": [
+            277.81749139203146,
+            563.0750418101328
+          ],
+          "centroid_xy_normalized": [
+            0.36174152525004094,
+            0.7331706273569437
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75422,
+          "centroid_xy_pixels": [
+            589.417835644772,
+            528.2670706160006
+          ],
+          "centroid_xy_normalized": [
+            0.7674711401624635,
+            0.6878477481979175
+          ]
+        }
+      },
+      "color_proxy_centroid_shift_x_pixels": {
+        "apple_red_proxy": 0.17867636711469004,
+        "cup_blue_proxy": 0.03247980233572889
+      },
+      "target_direction_by_color_proxy": {
+        "apple_right": true,
+        "cup_left": false
+      },
+      "branch_runtime_seconds": 13.19464110583067
+    },
+    {
+      "relative_step_size": 0.005,
+      "effective_eta": 34.3032341003418,
+      "desired_update_norm": 1.6377592086791992,
+      "actual_bf16_update_norm": 1.6732197999954224,
+      "actual_relative_update_norm": 0.005108259152621031,
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.1481054723262787,
+            "energy": 0.7257242202758789
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.13467173278331757,
+            "energy": 0.7487930059432983
+          }
+        },
+        "total_energy": 1.4745172262191772
+      },
+      "updated_layout_b": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "mass_ratio": 0.16180650889873505,
+            "energy": 0.7025682926177979
+          },
+          "cup": {
+            "target_region": "left",
+            "mass_ratio": 0.15460486710071564,
+            "energy": 0.7146929502487183
+          }
+        },
+        "total_energy": 1.4172612428665161
+      },
+      "objective_delta_updated_minus_initial": -0.05725598335266113,
+      "mass_ratio_delta": {
+        "apple": 0.01370103657245636,
+        "cup": 0.01993313431739807
+      },
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/early_step_guidance/flux-1-schnell_t750-single-step-guided_rel-0p005_seed-42_steps-4.png",
+      "pixel_sha256": "1b5af5e82d0557bcff7ee0c720909d52877706537d3007c9db5ff4edee2df3a6",
+      "pixel_difference_vs_branch_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 83.0,
+        "mean_absolute_pixel_difference": 0.605163037776947,
+        "rmse": 1.2271422147750854,
+        "changed_pixel_fraction": 0.775665283203125,
+        "mean_signed_rgb_difference": [
+          0.013890583999454975,
+          -0.1115943044424057,
+          -0.01906500943005085
+        ]
+      },
+      "color_centroids": {
+        "apple_red_proxy": {
+          "pixel_count": 50909,
+          "centroid_xy_pixels": [
+            277.8515586634976,
+            563.1774538883105
+          ],
+          "centroid_xy_normalized": [
+            0.36178588367642917,
+            0.733303976417071
+          ]
+        },
+        "cup_blue_proxy": {
+          "pixel_count": 75545,
+          "centroid_xy_pixels": [
+            589.3598385068502,
+            528.4175921636111
+          ],
+          "centroid_xy_normalized": [
+            0.7673956230557946,
+            0.6880437397963686
+          ]
+        }
+      },
+      "color_proxy_centroid_shift_x_pixels": {
+        "apple_red_proxy": 0.21274363858083234,
+        "cup_blue_proxy": -0.025517335586073386
+      },
+      "target_direction_by_color_proxy": {
+        "apple_right": true,
+        "cup_left": true
+      },
+      "branch_runtime_seconds": 12.666737620718777
+    }
+  ],
+  "t750_vs_t500": {
+    "0.002": {
+      "objective_delta": {
+        "t750": -0.025189518928527832,
+        "t500": -0.026105880737304688
+      },
+      "mean_absolute_pixel_difference": {
+        "t750": 0.37911930680274963,
+        "t500": 0.24578236043453217,
+        "t750_over_t500": 1.5425000644166804
+      },
+      "rmse": {
+        "t750": 0.9707643389701843,
+        "t500": 0.6343551874160767
+      }
+    },
+    "0.005": {
+      "objective_delta": {
+        "t750": -0.05725598335266113,
+        "t500": -0.06980383396148682
+      },
+      "mean_absolute_pixel_difference": {
+        "t750": 0.605163037776947,
+        "t500": 0.32416337728500366,
+        "t750_over_t500": 1.8668457949982706
+      },
+      "rmse": {
+        "t750": 1.2271422147750854,
+        "t500": 0.7688262462615967
+      }
+    }
+  },
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/early_step_guidance/flux-1-schnell_t750-single-step-guidance_comparison.png",
+  "gradient_runtime_seconds": 7.0435401778668165,
+  "total_runtime_seconds_including_load": 60.60340279340744,
+  "peak_cuda_allocated_mib": 1996.63330078125,
+  "peak_cuda_reserved_mib": 2134.0
+}
