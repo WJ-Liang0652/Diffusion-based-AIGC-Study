@@ -1,0 +1,224 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "t5_non_padding_token_sequence": [
+    {
+      "index": 0,
+      "id": 3,
+      "token": "\u2581"
+    },
+    {
+      "index": 1,
+      "id": 9,
+      "token": "a"
+    },
+    {
+      "index": 2,
+      "id": 1131,
+      "token": "\u2581red"
+    },
+    {
+      "index": 3,
+      "id": 8947,
+      "token": "\u2581apple"
+    },
+    {
+      "index": 4,
+      "id": 11,
+      "token": "\u2581and"
+    },
+    {
+      "index": 5,
+      "id": 3,
+      "token": "\u2581"
+    },
+    {
+      "index": 6,
+      "id": 9,
+      "token": "a"
+    },
+    {
+      "index": 7,
+      "id": 1692,
+      "token": "\u2581blue"
+    },
+    {
+      "index": 8,
+      "id": 4119,
+      "token": "\u2581cup"
+    },
+    {
+      "index": 9,
+      "id": 6,
+      "token": ","
+    },
+    {
+      "index": 10,
+      "id": 9555,
+      "token": "\u2581realistic"
+    },
+    {
+      "index": 11,
+      "id": 1202,
+      "token": "\u2581photo"
+    },
+    {
+      "index": 12,
+      "id": 1,
+      "token": "</s>"
+    }
+  ],
+  "target_token_indices": {
+    "apple": 3,
+    "cup": 8
+  },
+  "probe_denoising_index": 1,
+  "probe_timestep": 750.0,
+  "double_block_index": 0,
+  "single_block_index": 0,
+  "double_stream": {
+    "stream_type": "double",
+    "processor_class": "FluxAttnProcessor2_0",
+    "heads": 24,
+    "head_dim": 128,
+    "text_token_count": 512,
+    "image_token_count": 2304,
+    "joint_token_count": 2816,
+    "joint_qkv": [
+      1,
+      24,
+      2816,
+      128
+    ],
+    "value": [
+      1,
+      24,
+      2816,
+      128
+    ],
+    "projection_shapes": {
+      "text_qkv": [
+        1,
+        24,
+        512,
+        128
+      ],
+      "image_qkv": [
+        1,
+        24,
+        2304,
+        128
+      ]
+    },
+    "full_attention_elements": 190316544,
+    "full_attention_bf16_mib": 363.0,
+    "full_attention_fp32_mib": 726.0,
+    "extraction": "exact selected softmax columns with chunked full-key denominator",
+    "direction": "image queries -> selected text keys",
+    "probability_normalization_keys": "all text and image keys",
+    "key_chunk_size": 128
+  },
+  "single_stream": {
+    "stream_type": "single",
+    "processor_class": "FluxAttnProcessor2_0",
+    "heads": 24,
+    "head_dim": 128,
+    "text_token_count": 512,
+    "image_token_count": 2304,
+    "joint_token_count": 2816,
+    "joint_qkv": [
+      1,
+      24,
+      2816,
+      128
+    ],
+    "value": [
+      1,
+      24,
+      2816,
+      128
+    ],
+    "projection_shapes": {
+      "joint_qkv": [
+        1,
+        24,
+        2816,
+        128
+      ]
+    },
+    "full_attention_elements": 190316544,
+    "full_attention_bf16_mib": 363.0,
+    "full_attention_fp32_mib": 726.0,
+    "extraction": "exact selected softmax columns with chunked full-key denominator",
+    "direction": "image queries -> selected text keys",
+    "probability_normalization_keys": "all text and image keys",
+    "key_chunk_size": 128
+  },
+  "heatmaps": {
+    "double_block_0:apple": {
+      "path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/double_block_0_t750_apple_image-to-text_probability.png",
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "min": 0.00013723192387260497,
+        "max": 0.0001858462201198563,
+        "mean": 0.00015479922876693308,
+        "sum": 0.3566574156284332
+      }
+    },
+    "double_block_0:cup": {
+      "path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/double_block_0_t750_cup_image-to-text_probability.png",
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "min": 0.00010342661698814481,
+        "max": 0.00016109956777654588,
+        "mean": 0.00012188716209493577,
+        "sum": 0.2808280289173126
+      }
+    },
+    "single_block_0:apple": {
+      "path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/single_block_0_t750_apple_image-to-text_probability.png",
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "min": 5.6071363360388204e-05,
+        "max": 0.0389920137822628,
+        "mean": 0.002380281686782837,
+        "sum": 5.484169006347656
+      }
+    },
+    "single_block_0:cup": {
+      "path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/single_block_0_t750_cup_image-to-text_probability.png",
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "min": 0.00014055219071451575,
+        "max": 0.03419727087020874,
+        "mean": 0.003205807413905859,
+        "sum": 7.386180400848389
+      }
+    }
+  },
+  "runtime_seconds": 21.22326793614775,
+  "peak_cuda_allocated_mib": 1383.8330078125,
+  "peak_cuda_reserved_mib": 1392.0,
+  "generation_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux-1-schnell_attention-probe_seed-42_steps-4.png"
+}

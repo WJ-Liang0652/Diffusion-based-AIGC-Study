@@ -1,0 +1,2936 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-schnell",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 4,
+  "guidance_scale": 0.0,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "target_spans": {
+    "apple": {
+      "character_span": [
+        6,
+        11
+      ],
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple",
+      "is_single_token": true
+    },
+    "cup": {
+      "character_span": [
+        23,
+        26
+      ],
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup",
+      "is_single_token": true
+    }
+  },
+  "t5_non_padding_token_sequence": [
+    {
+      "index": 0,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 2,
+      "id": 1131,
+      "token": "\u2581red",
+      "character_offset": [
+        1,
+        5
+      ]
+    },
+    {
+      "index": 3,
+      "id": 8947,
+      "token": "\u2581apple",
+      "character_offset": [
+        5,
+        11
+      ]
+    },
+    {
+      "index": 4,
+      "id": 11,
+      "token": "\u2581and",
+      "character_offset": [
+        11,
+        15
+      ]
+    },
+    {
+      "index": 5,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        15,
+        16
+      ]
+    },
+    {
+      "index": 6,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        16,
+        17
+      ]
+    },
+    {
+      "index": 7,
+      "id": 1692,
+      "token": "\u2581blue",
+      "character_offset": [
+        17,
+        22
+      ]
+    },
+    {
+      "index": 8,
+      "id": 4119,
+      "token": "\u2581cup",
+      "character_offset": [
+        22,
+        26
+      ]
+    },
+    {
+      "index": 9,
+      "id": 6,
+      "token": ",",
+      "character_offset": [
+        26,
+        27
+      ]
+    },
+    {
+      "index": 10,
+      "id": 9555,
+      "token": "\u2581realistic",
+      "character_offset": [
+        27,
+        37
+      ]
+    },
+    {
+      "index": 11,
+      "id": 1202,
+      "token": "\u2581photo",
+      "character_offset": [
+        37,
+        43
+      ]
+    },
+    {
+      "index": 12,
+      "id": 1,
+      "token": "</s>",
+      "character_offset": [
+        0,
+        0
+      ]
+    }
+  ],
+  "text_key_denominator_note": "all 512 model text positions, including padded positions used by FLUX",
+  "signals": {
+    "joint": "native P(target text-key span | image query), denominator is all 512 text + 2304 image keys",
+    "text_only": "diagnostic renormalization using the same FLUX Q/K logits but only 512 text keys; not native FLUX attention probability",
+    "target_span_aggregation": "sum token probabilities within each target word span, then mean over heads"
+  },
+  "selected_denoising_indices": [
+    0,
+    2,
+    3
+  ],
+  "actual_timesteps": [
+    1000.0,
+    750.0,
+    500.0,
+    250.0
+  ],
+  "selected_double_blocks": [
+    0,
+    9,
+    18
+  ],
+  "selected_single_blocks": [
+    0,
+    18,
+    37
+  ],
+  "reference_boxes_48x48": {
+    "apple": {
+      "xyxy": [
+        6,
+        23,
+        25,
+        44
+      ],
+      "role": "manual diagnostic annotation, not a layout target"
+    },
+    "cup": {
+      "xyxy": [
+        25,
+        20,
+        48,
+        44
+      ],
+      "role": "manual diagnostic annotation, not a layout target"
+    }
+  },
+  "probe_qk_metadata": {
+    "double_block_0": {
+      "base_processor": "FluxAttnProcessor2_0",
+      "heads": 24,
+      "head_dim": 128,
+      "text_tokens": 512,
+      "image_tokens": 2304,
+      "joint_tokens": 2816,
+      "joint_qk_shape": [
+        1,
+        24,
+        2816,
+        128
+      ],
+      "projection_organization": "separate text added-QK and image QK, concatenated [text,image]",
+      "full_joint_probability_bf16_mib": 363.0,
+      "key_chunk_size": 128
+    },
+    "double_block_9": {
+      "base_processor": "FluxAttnProcessor2_0",
+      "heads": 24,
+      "head_dim": 128,
+      "text_tokens": 512,
+      "image_tokens": 2304,
+      "joint_tokens": 2816,
+      "joint_qk_shape": [
+        1,
+        24,
+        2816,
+        128
+      ],
+      "projection_organization": "separate text added-QK and image QK, concatenated [text,image]",
+      "full_joint_probability_bf16_mib": 363.0,
+      "key_chunk_size": 128
+    },
+    "double_block_18": {
+      "base_processor": "FluxAttnProcessor2_0",
+      "heads": 24,
+      "head_dim": 128,
+      "text_tokens": 512,
+      "image_tokens": 2304,
+      "joint_tokens": 2816,
+      "joint_qk_shape": [
+        1,
+        24,
+        2816,
+        128
+      ],
+      "projection_organization": "separate text added-QK and image QK, concatenated [text,image]",
+      "full_joint_probability_bf16_mib": 363.0,
+      "key_chunk_size": 128
+    },
+    "single_block_0": {
+      "base_processor": "FluxAttnProcessor2_0",
+      "heads": 24,
+      "head_dim": 128,
+      "text_tokens": 512,
+      "image_tokens": 2304,
+      "joint_tokens": 2816,
+      "joint_qk_shape": [
+        1,
+        24,
+        2816,
+        128
+      ],
+      "projection_organization": "shared QK over already concatenated [text,image] tokens",
+      "full_joint_probability_bf16_mib": 363.0,
+      "key_chunk_size": 128
+    },
+    "single_block_18": {
+      "base_processor": "FluxAttnProcessor2_0",
+      "heads": 24,
+      "head_dim": 128,
+      "text_tokens": 512,
+      "image_tokens": 2304,
+      "joint_tokens": 2816,
+      "joint_qk_shape": [
+        1,
+        24,
+        2816,
+        128
+      ],
+      "projection_organization": "shared QK over already concatenated [text,image] tokens",
+      "full_joint_probability_bf16_mib": 363.0,
+      "key_chunk_size": 128
+    },
+    "single_block_37": {
+      "base_processor": "FluxAttnProcessor2_0",
+      "heads": 24,
+      "head_dim": 128,
+      "text_tokens": 512,
+      "image_tokens": 2304,
+      "joint_tokens": 2816,
+      "joint_qk_shape": [
+        1,
+        24,
+        2816,
+        128
+      ],
+      "projection_organization": "shared QK over already concatenated [text,image] tokens",
+      "full_joint_probability_bf16_mib": 363.0,
+      "key_chunk_size": 128
+    }
+  },
+  "map_records": [
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0001527060376247391,
+        "raw_max": 0.00020293470879551023,
+        "raw_mean": 0.00017420000916798826,
+        "peak_xy": [
+          13,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.42800048129833,
+          23.56273261452091
+        ],
+        "center_distance_to_reference_box_center": 12.652794466748924,
+        "normalized_spatial_entropy": 0.999899694835678,
+        "spatial_concentration_1_minus_entropy": 0.00010030516432202319,
+        "reference_box_mass": 0.17709255765169926,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0226096562143234
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00012137614976381883,
+        "raw_max": 0.00018190377159044147,
+        "raw_mean": 0.0001426721002878316,
+        "peak_xy": [
+          13,
+          23
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.23720837690617,
+          23.555832786772598
+        ],
+        "center_distance_to_reference_box_center": 15.033251236051077,
+        "normalized_spatial_entropy": 0.9997681622779166,
+        "spatial_concentration_1_minus_entropy": 0.00023183772208335007,
+        "reference_box_mass": 0.23869309372388547,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9962842172823045
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00661049410700798,
+        "raw_max": 0.008542019873857498,
+        "raw_mean": 0.007546805810205923,
+        "peak_xy": [
+          6,
+          2
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.309067008619973,
+          23.318320051759933
+        ],
+        "center_distance_to_reference_box_center": 12.758351036630504,
+        "normalized_spatial_entropy": 0.999921407370035,
+        "spatial_concentration_1_minus_entropy": 7.859262996501304e-05,
+        "reference_box_mass": 0.1744217056054492,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0071869917668044
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.004805803298950195,
+        "raw_max": 0.006161969155073166,
+        "raw_mean": 0.005466044194892877,
+        "peak_xy": [
+          7,
+          24
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.149421105057712,
+          23.270319265092798
+        ],
+        "center_distance_to_reference_box_center": 15.259915561156912,
+        "normalized_spatial_entropy": 0.999895643688149,
+        "spatial_concentration_1_minus_entropy": 0.00010435631185101713,
+        "reference_box_mass": 0.23264957597019104,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9710590997016669
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00012713376781903207,
+        "raw_max": 0.0001664814044488594,
+        "raw_mean": 0.0001419628873501703,
+        "peak_xy": [
+          14,
+          22
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.492070559093367,
+          23.696908404759952
+        ],
+        "center_distance_to_reference_box_center": 12.596141298431291,
+        "normalized_spatial_entropy": 0.9998771608682063,
+        "spatial_concentration_1_minus_entropy": 0.00012283913179367278,
+        "reference_box_mass": 0.17987473250966404,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0386751471234734
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 9.282381506636739e-05,
+        "raw_max": 0.00014565480523742735,
+        "raw_mean": 0.00011006831712102717,
+        "peak_xy": [
+          14,
+          22
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.306552731595453,
+          23.78933792493936
+        ],
+        "center_distance_to_reference_box_center": 14.851865646831893,
+        "normalized_spatial_entropy": 0.9996630849378016,
+        "spatial_concentration_1_minus_entropy": 0.00033691506219835077,
+        "reference_box_mass": 0.24383968376366533,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.017765636578777
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.008301726542413235,
+        "raw_max": 0.009744023904204369,
+        "raw_mean": 0.009115679724345682,
+        "peak_xy": [
+          7,
+          3
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.338789681389724,
+          23.3455962031213
+        ],
+        "center_distance_to_reference_box_center": 12.757073568167488,
+        "normalized_spatial_entropy": 0.9999664566479651,
+        "spatial_concentration_1_minus_entropy": 3.3543352034870466e-05,
+        "reference_box_mass": 0.17473834292625945,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0090153937396034
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.005056335125118494,
+        "raw_max": 0.00623030960559845,
+        "raw_mean": 0.005726618992816334,
+        "peak_xy": [
+          8,
+          7
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.18606288540609,
+          23.311143640671446
+        ],
+        "center_distance_to_reference_box_center": 15.207049445914318,
+        "normalized_spatial_entropy": 0.9999324094528238,
+        "spatial_concentration_1_minus_entropy": 6.75905471761995e-05,
+        "reference_box_mass": 0.2339518857246857,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9764948273726012
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00012246186088304967,
+        "raw_max": 0.0001589928288012743,
+        "raw_mean": 0.00013958131225106426,
+        "peak_xy": [
+          14,
+          35
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.526581269319855,
+          23.72585083788354
+        ],
+        "center_distance_to_reference_box_center": 12.598112192844672,
+        "normalized_spatial_entropy": 0.9998912264558986,
+        "spatial_concentration_1_minus_entropy": 0.00010877354410143703,
+        "reference_box_mass": 0.18000752136855225,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0394419279026175
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 8.440910460194573e-05,
+        "raw_max": 0.00013362755998969078,
+        "raw_mean": 0.00010691462278739689,
+        "peak_xy": [
+          27,
+          24
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.280557380089338,
+          23.808078470558826
+        ],
+        "center_distance_to_reference_box_center": 14.864382845455793,
+        "normalized_spatial_entropy": 0.9996833174487597,
+        "spatial_concentration_1_minus_entropy": 0.0003166825512402882,
+        "reference_box_mass": 0.24264741515504068,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.0127892110819088
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.009009801782667637,
+        "raw_max": 0.010393480770289898,
+        "raw_mean": 0.00986274024924367,
+        "peak_xy": [
+          7,
+          20
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.31257105434286,
+          23.326231434072866
+        ],
+        "center_distance_to_reference_box_center": 12.754631935129241,
+        "normalized_spatial_entropy": 0.9999656048826024,
+        "spatial_concentration_1_minus_entropy": 3.439511739755652e-05,
+        "reference_box_mass": 0.174970324021189,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0103549537464147
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00517096184194088,
+        "raw_max": 0.0063473377376794815,
+        "raw_mean": 0.005873729033636563,
+        "peak_xy": [
+          7,
+          20
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.156235539908444,
+          23.280933686801934
+        ],
+        "center_distance_to_reference_box_center": 15.248453579529244,
+        "normalized_spatial_entropy": 0.9999276465865453,
+        "spatial_concentration_1_minus_entropy": 7.235341345468438e-05,
+        "reference_box_mass": 0.23296263854853028,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9723657956808219
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0005081438575871289,
+        "raw_max": 0.146469846367836,
+        "raw_mean": 0.023438997982187477,
+        "peak_xy": [
+          15,
+          13
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          21.69152351316832,
+          24.0969575795588
+        ],
+        "center_distance_to_reference_box_center": 11.137353871879082,
+        "normalized_spatial_entropy": 0.9529657279493484,
+        "spatial_concentration_1_minus_entropy": 0.04703427205065158,
+        "reference_box_mass": 0.26922897124263356,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.5546454880777636
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.000428338156780228,
+        "raw_max": 0.08003729581832886,
+        "raw_mean": 0.02017359326170107,
+        "peak_xy": [
+          34,
+          33
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          25.449611755957314,
+          24.21335296951824
+        ],
+        "center_distance_to_reference_box_center": 12.822087078430826,
+        "normalized_spatial_entropy": 0.9776873330430339,
+        "spatial_concentration_1_minus_entropy": 0.0223126669569661,
+        "reference_box_mass": 0.3398160146896699,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.4183624960960133
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.005806097760796547,
+        "raw_max": 0.21000373363494873,
+        "raw_mean": 0.05431381692243223,
+        "peak_xy": [
+          15,
+          13
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          22.440810539696685,
+          23.99059212403687
+        ],
+        "center_distance_to_reference_box_center": 11.684823137862539,
+        "normalized_spatial_entropy": 0.9752322708455865,
+        "spatial_concentration_1_minus_entropy": 0.024767729154413498,
+        "reference_box_mass": 0.24008619098411296,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.3863623659834492
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.007469808682799339,
+        "raw_max": 0.13367462158203125,
+        "raw_mean": 0.0521320007772172,
+        "peak_xy": [
+          34,
+          28
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          25.110050094784285,
+          23.005390341822224
+        ],
+        "center_distance_to_reference_box_center": 13.811205674484574,
+        "normalized_spatial_entropy": 0.9902823177986587,
+        "spatial_concentration_1_minus_entropy": 0.009717682201341282,
+        "reference_box_mass": 0.2957053139008922,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.2342482667167676
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 4.1045830585062504e-05,
+        "raw_max": 0.033983439207077026,
+        "raw_mean": 0.0024115582970788787,
+        "peak_xy": [
+          14,
+          29
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          17.355842641537663,
+          33.350199745749165
+        ],
+        "center_distance_to_reference_box_center": 2.381729290580677,
+        "normalized_spatial_entropy": 0.8287800951773285,
+        "spatial_concentration_1_minus_entropy": 0.17121990482267146,
+        "reference_box_mass": 0.7194903874475029,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 4.154651259847235
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 5.0396512961015105e-05,
+        "raw_max": 0.023951150476932526,
+        "raw_mean": 0.0016245073551775452,
+        "peak_xy": [
+          32,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          30.594070550694163,
+          28.990798781946822
+        ],
+        "center_distance_to_reference_box_center": 5.959879525925978,
+        "normalized_spatial_entropy": 0.8913056492181127,
+        "spatial_concentration_1_minus_entropy": 0.10869435078188727,
+        "reference_box_mass": 0.649100773274347,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.709290184101622
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.001767106237821281,
+        "raw_max": 0.10711845010519028,
+        "raw_mean": 0.01485074819351616,
+        "peak_xy": [
+          14,
+          47
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          20.790606846207105,
+          29.100037109393355
+        ],
+        "center_distance_to_reference_box_center": 6.98146390060491,
+        "normalized_spatial_entropy": 0.9522970683078631,
+        "spatial_concentration_1_minus_entropy": 0.04770293169213691,
+        "reference_box_mass": 0.42051226685044085,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.4282212100837484
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0017123573925346136,
+        "raw_max": 0.04735846072435379,
+        "raw_mean": 0.012554767262877754,
+        "peak_xy": [
+          30,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          25.90246824374186,
+          26.173820382375187
+        ],
+        "center_distance_to_reference_box_center": 11.416143696005388,
+        "normalized_spatial_entropy": 0.9800948316141166,
+        "spatial_concentration_1_minus_entropy": 0.01990516838588341,
+        "reference_box_mass": 0.3868241959071553,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.6145705568298654
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.209749072790146e-05,
+        "raw_max": 0.028329698368906975,
+        "raw_mean": 0.0018030051733385715,
+        "peak_xy": [
+          16,
+          27
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          17.52247417819817,
+          33.542140463819834
+        ],
+        "center_distance_to_reference_box_center": 2.580076018683813,
+        "normalized_spatial_entropy": 0.8270086280935539,
+        "spatial_concentration_1_minus_entropy": 0.1729913719064461,
+        "reference_box_mass": 0.7323449229697299,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 4.228878953689868
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.7364079869585112e-05,
+        "raw_max": 0.017429282888770103,
+        "raw_mean": 0.0009667127713205067,
+        "peak_xy": [
+          32,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          30.53180914950997,
+          29.694202782330688
+        ],
+        "center_distance_to_reference_box_center": 5.758646956423452,
+        "normalized_spatial_entropy": 0.8859440284258265,
+        "spatial_concentration_1_minus_entropy": 0.11405597157417346,
+        "reference_box_mass": 0.655514425553732,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.736060211006881
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0018832804635167122,
+        "raw_max": 0.09040212631225586,
+        "raw_mean": 0.013851065539610217,
+        "peak_xy": [
+          16,
+          35
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          21.149840395709706,
+          29.06146603676534
+        ],
+        "center_distance_to_reference_box_center": 7.302916312833925,
+        "normalized_spatial_entropy": 0.9577077216785771,
+        "spatial_concentration_1_minus_entropy": 0.042292278321422905,
+        "reference_box_mass": 0.40201135836459057,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.3213888964210945
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 9,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0018328161677345634,
+        "raw_max": 0.035685136914253235,
+        "raw_mean": 0.009781536518302245,
+        "peak_xy": [
+          30,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          25.108882761099316,
+          26.492657909392054
+        ],
+        "center_distance_to_reference_box_center": 11.987072600257896,
+        "normalized_spatial_entropy": 0.983748758745528,
+        "spatial_concentration_1_minus_entropy": 0.01625124125447197,
+        "reference_box_mass": 0.3681446207076873,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.5366036342581728
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 9.009814675664529e-05,
+        "raw_max": 0.17597292363643646,
+        "raw_mean": 0.017399712457407505,
+        "peak_xy": [
+          11,
+          28
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          16.21899637489201,
+          26.358686749215277
+        ],
+        "center_distance_to_reference_box_center": 6.7522584264117596,
+        "normalized_spatial_entropy": 0.8644418402736174,
+        "spatial_concentration_1_minus_entropy": 0.13555815972638263,
+        "reference_box_mass": 0.5451035658576905,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 3.147665703599295
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0002430819731671363,
+        "raw_max": 0.20248620212078094,
+        "raw_mean": 0.025418215002534654,
+        "peak_xy": [
+          36,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          31.55841918195009,
+          23.677490573757222
+        ],
+        "center_distance_to_reference_box_center": 8.995515209643417,
+        "normalized_spatial_entropy": 0.9170842297498418,
+        "spatial_concentration_1_minus_entropy": 0.08291577025015817,
+        "reference_box_mass": 0.5014276649720069,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.092915471187507
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.001340647111646831,
+        "raw_max": 0.22653429210186005,
+        "raw_mean": 0.03336939487624275,
+        "peak_xy": [
+          11,
+          28
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          17.12803525111344,
+          25.964635393491406
+        ],
+        "center_distance_to_reference_box_center": 7.350162527216338,
+        "normalized_spatial_entropy": 0.9136879294420355,
+        "spatial_concentration_1_minus_entropy": 0.08631207055796453,
+        "reference_box_mass": 0.4553425215144966,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.629346289647619
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0024695282336324453,
+        "raw_max": 0.2519747018814087,
+        "raw_mean": 0.052050587554630406,
+        "peak_xy": [
+          35,
+          21
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          29.989944535918106,
+          24.403576713697074
+        ],
+        "center_distance_to_reference_box_center": 9.299461819897056,
+        "normalized_spatial_entropy": 0.9533598371950648,
+        "spatial_concentration_1_minus_entropy": 0.046640162804935215,
+        "reference_box_mass": 0.45372929151817704,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.8938266080758692
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.7466525352792814e-05,
+        "raw_max": 0.1461750566959381,
+        "raw_mean": 0.007179725427229123,
+        "peak_xy": [
+          16,
+          28
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          17.815793453232978,
+          30.621775095826095
+        ],
+        "center_distance_to_reference_box_center": 3.68573553936018,
+        "normalized_spatial_entropy": 0.8349033682784629,
+        "spatial_concentration_1_minus_entropy": 0.1650966317215371,
+        "reference_box_mass": 0.7744708449847352,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 4.472132398107343
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 4.305689799366519e-05,
+        "raw_max": 0.09545763581991196,
+        "raw_mean": 0.005623483545284734,
+        "peak_xy": [
+          36,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          31.742500713432612,
+          28.646169090660408
+        ],
+        "center_distance_to_reference_box_center": 5.125490321347203,
+        "normalized_spatial_entropy": 0.8691051193661431,
+        "spatial_concentration_1_minus_entropy": 0.1308948806338569,
+        "reference_box_mass": 0.7327191057143838,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 3.0583058325469934
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0012194071896374226,
+        "raw_max": 0.2458120435476303,
+        "raw_mean": 0.022935231519164115,
+        "peak_xy": [
+          16,
+          28
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          19.98663057988778,
+          30.151414821727716
+        ],
+        "center_distance_to_reference_box_center": 5.742901884774324,
+        "normalized_spatial_entropy": 0.9058091327286696,
+        "spatial_concentration_1_minus_entropy": 0.09419086727133041,
+        "reference_box_mass": 0.6161455192170552,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 3.557892922997732
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0009245335822924972,
+        "raw_max": 0.20859107375144958,
+        "raw_mean": 0.021113269899918425,
+        "peak_xy": [
+          36,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          30.789225994558677,
+          28.02481160722006
+        ],
+        "center_distance_to_reference_box_center": 6.263313827447531,
+        "normalized_spatial_entropy": 0.9148924259832157,
+        "spatial_concentration_1_minus_entropy": 0.08510757401678426,
+        "reference_box_mass": 0.6644918268872644,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.7735311035294514
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.1596937585854903e-05,
+        "raw_max": 0.09975271672010422,
+        "raw_mean": 0.0043882668497635295,
+        "peak_xy": [
+          15,
+          27
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          18.158883877891054,
+          31.629489677981653
+        ],
+        "center_distance_to_reference_box_center": 3.443377106382462,
+        "normalized_spatial_entropy": 0.8243589948991852,
+        "spatial_concentration_1_minus_entropy": 0.17564100510081482,
+        "reference_box_mass": 0.7819887153334556,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 4.515543859970631
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 5.6363634939771146e-05,
+        "raw_max": 0.07721538841724396,
+        "raw_mean": 0.0039914257346917266,
+        "peak_xy": [
+          34,
+          30
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          31.179395111773097,
+          30.02665265788321
+        ],
+        "center_distance_to_reference_box_center": 5.0407324744445345,
+        "normalized_spatial_entropy": 0.8568763004253732,
+        "spatial_concentration_1_minus_entropy": 0.14312369957462678,
+        "reference_box_mass": 0.7248013722214542,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 3.0252579014460697
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0011946975719183683,
+        "raw_max": 0.20042353868484497,
+        "raw_mean": 0.01807706298723133,
+        "peak_xy": [
+          16,
+          28
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          20.92332000470283,
+          30.73762469351828
+        ],
+        "center_distance_to_reference_box_center": 6.340667307586086,
+        "normalized_spatial_entropy": 0.9066664323672992,
+        "spatial_concentration_1_minus_entropy": 0.09333356763270084,
+        "reference_box_mass": 0.584693200088158,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 3.376273516298536
+      }
+    },
+    {
+      "stream": "double",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0008213630644604564,
+        "raw_max": 0.17938479781150818,
+        "raw_mean": 0.018437245754992344,
+        "peak_xy": [
+          34,
+          30
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          30.45195231895717,
+          28.643360256521433
+        ],
+        "center_distance_to_reference_box_center": 6.240290353432766,
+        "normalized_spatial_entropy": 0.9110486085082443,
+        "spatial_concentration_1_minus_entropy": 0.08895139149175568,
+        "reference_box_mass": 0.6537407114447288,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.7286568825519115
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 6.975149153731763e-05,
+        "raw_max": 0.06296567618846893,
+        "raw_mean": 0.008225685935668834,
+        "peak_xy": [
+          12,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          18.557001779944926,
+          23.14116970830369
+        ],
+        "center_distance_to_reference_box_center": 10.480877653278858,
+        "normalized_spatial_entropy": 0.9399959671027829,
+        "spatial_concentration_1_minus_entropy": 0.06000403289721712,
+        "reference_box_mass": 0.2990225366641159,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.7266865275040675
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00016595993656665087,
+        "raw_max": 0.12549999356269836,
+        "raw_mean": 0.017310690170259276,
+        "peak_xy": [
+          32,
+          15
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          26.983903861914108,
+          22.91591227415543
+        ],
+        "center_distance_to_reference_box_center": 12.448957854222286,
+        "normalized_spatial_entropy": 0.951884762027708,
+        "spatial_concentration_1_minus_entropy": 0.048115237972292,
+        "reference_box_mass": 0.30403035812264223,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.2689962773814631
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0007894646842032671,
+        "raw_max": 0.12622550129890442,
+        "raw_mean": 0.024435427836907466,
+        "peak_xy": [
+          12,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          19.399743330531074,
+          24.728058119006544
+        ],
+        "center_distance_to_reference_box_center": 9.369245639702601,
+        "normalized_spatial_entropy": 0.9631329546566431,
+        "spatial_concentration_1_minus_entropy": 0.03686704534335694,
+        "reference_box_mass": 0.3196097753102837,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.8455662213405852
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0016437291633337736,
+        "raw_max": 0.20831625163555145,
+        "raw_mean": 0.051066244726219644,
+        "peak_xy": [
+          32,
+          15
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          27.131957814458083,
+          24.38917449917009
+        ],
+        "center_distance_to_reference_box_center": 11.36688222459457,
+        "normalized_spatial_entropy": 0.9736736192918334,
+        "spatial_concentration_1_minus_entropy": 0.02632638070816662,
+        "reference_box_mass": 0.3361435009614711,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.4030337431435316
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 7.677519897697493e-05,
+        "raw_max": 0.05782381445169449,
+        "raw_mean": 0.0016629649470871755,
+        "peak_xy": [
+          15,
+          25
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          20.73411027316349,
+          27.58824738414636
+        ],
+        "center_distance_to_reference_box_center": 7.884610770354984,
+        "normalized_spatial_entropy": 0.8947327587938845,
+        "spatial_concentration_1_minus_entropy": 0.10526724120611552,
+        "reference_box_mass": 0.4693848493209761,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.7104328141241325
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00017826512339524925,
+        "raw_max": 0.042295776307582855,
+        "raw_mean": 0.002759072331577449,
+        "peak_xy": [
+          33,
+          29
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          29.326208468764094,
+          28.373520933308658
+        ],
+        "center_distance_to_reference_box_center": 7.369828000493313,
+        "normalized_spatial_entropy": 0.9144728618423453,
+        "spatial_concentration_1_minus_entropy": 0.08552713815765467,
+        "reference_box_mass": 0.5546687887254627,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.315139292071496
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0007392531260848045,
+        "raw_max": 0.15777283906936646,
+        "raw_mean": 0.012671393399740636,
+        "peak_xy": [
+          8,
+          27
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          21.962331021655174,
+          28.738770548241593
+        ],
+        "center_distance_to_reference_box_center": 8.162850586384344,
+        "normalized_spatial_entropy": 0.9319068418640697,
+        "spatial_concentration_1_minus_entropy": 0.06809315813593031,
+        "reference_box_mass": 0.4242605951067164,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.4498656920447983
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0010789656080305576,
+        "raw_max": 0.17817047238349915,
+        "raw_mean": 0.019425298686857988,
+        "peak_xy": [
+          33,
+          29
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          28.670535074553868,
+          28.91640694896688
+        ],
+        "center_distance_to_reference_box_center": 7.771486932800679,
+        "normalized_spatial_entropy": 0.9396149188547128,
+        "spatial_concentration_1_minus_entropy": 0.06038508114528718,
+        "reference_box_mass": 0.5332002086921708,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.2255313058455823
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 6.930395466042683e-05,
+        "raw_max": 0.059656523168087006,
+        "raw_mean": 0.0013972878641494743,
+        "peak_xy": [
+          15,
+          25
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          21.82510708810961,
+          30.180724987244865
+        ],
+        "center_distance_to_reference_box_center": 7.3844700799522185,
+        "normalized_spatial_entropy": 0.8870809960136796,
+        "spatial_concentration_1_minus_entropy": 0.11291900398632038,
+        "reference_box_mass": 0.49779804240422376,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.874502981702585
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0001644529984332621,
+        "raw_max": 0.05389180779457092,
+        "raw_mean": 0.003000072080245294,
+        "peak_xy": [
+          33,
+          40
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          29.237680301654137,
+          29.681458363713254
+        ],
+        "center_distance_to_reference_box_center": 7.002575339512239,
+        "normalized_spatial_entropy": 0.8983216403488646,
+        "spatial_concentration_1_minus_entropy": 0.10167835965113536,
+        "reference_box_mass": 0.5853895034406975,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.4433648839263897
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0010026056552305818,
+        "raw_max": 0.15562501549720764,
+        "raw_mean": 0.011017993118305943,
+        "peak_xy": [
+          15,
+          25
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.207012524728636,
+          30.300091734698334
+        ],
+        "center_distance_to_reference_box_center": 8.63970828339111,
+        "normalized_spatial_entropy": 0.9302782733821857,
+        "spatial_concentration_1_minus_entropy": 0.06972172661781428,
+        "reference_box_mass": 0.4143114361654164,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.392414909586765
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 0,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0018802580889314413,
+        "raw_max": 0.23839646577835083,
+        "raw_mean": 0.020867171267834946,
+        "peak_xy": [
+          33,
+          40
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          28.516504836942,
+          29.30128474303772
+        ],
+        "center_distance_to_reference_box_center": 7.799810807751119,
+        "normalized_spatial_entropy": 0.9356390396843945,
+        "spatial_concentration_1_minus_entropy": 0.06436096031560545,
+        "reference_box_mass": 0.5336069669667347,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.2272290795133274
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 4.515614637057297e-05,
+        "raw_max": 0.008281121030449867,
+        "raw_mean": 0.0003622595940492425,
+        "peak_xy": [
+          11,
+          26
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          18.649564956724213,
+          24.244457257019608
+        ],
+        "center_distance_to_reference_box_center": 9.485718375405524,
+        "normalized_spatial_entropy": 0.9286810681742003,
+        "spatial_concentration_1_minus_entropy": 0.07131893182579974,
+        "reference_box_mass": 0.41681405951636036,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.4068661481846974
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0004187376471236348,
+        "raw_max": 0.015589594841003418,
+        "raw_mean": 0.002222167508698981,
+        "peak_xy": [
+          37,
+          2
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          25.189296164944487,
+          24.39427269935406
+        ],
+        "center_distance_to_reference_box_center": 12.936872801431921,
+        "normalized_spatial_entropy": 0.9785710737185702,
+        "spatial_concentration_1_minus_entropy": 0.021428926281429783,
+        "reference_box_mass": 0.3339481508347298,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.3938705426145244
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0002633447293192148,
+        "raw_max": 0.02582658641040325,
+        "raw_mean": 0.0015307153516535739,
+        "peak_xy": [
+          11,
+          26
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          19.267194959515738,
+          27.326606049771108
+        ],
+        "center_distance_to_reference_box_center": 7.099038789653872,
+        "normalized_spatial_entropy": 0.9384159368116033,
+        "spatial_concentration_1_minus_entropy": 0.06158406318839671,
+        "reference_box_mass": 0.45946017247311877,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.653123401950039
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0017002884997054935,
+        "raw_max": 0.03431691229343414,
+        "raw_mean": 0.00737033962296765,
+        "peak_xy": [
+          43,
+          25
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          25.689924187017738,
+          26.63593185046939
+        ],
+        "center_distance_to_reference_box_center": 11.399860623390094,
+        "normalized_spatial_entropy": 0.9818108849343307,
+        "spatial_concentration_1_minus_entropy": 0.018189115065669337,
+        "reference_box_mass": 0.3619100031226061,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.5105808825987037
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.1564424969255924e-05,
+        "raw_max": 0.002474867505952716,
+        "raw_mean": 0.00012032337503045356,
+        "peak_xy": [
+          1,
+          26
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          21.90767946381397,
+          24.173091369500035
+        ],
+        "center_distance_to_reference_box_center": 11.208494615513361,
+        "normalized_spatial_entropy": 0.969008043444919,
+        "spatial_concentration_1_minus_entropy": 0.030991956555081024,
+        "reference_box_mass": 0.3143025159394237,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.8149197912893038
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.9624225135194138e-05,
+        "raw_max": 0.003322129137814045,
+        "raw_mean": 0.00022227131944734739,
+        "peak_xy": [
+          45,
+          21
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          20.11684936548697,
+          22.3134004824662
+        ],
+        "center_distance_to_reference_box_center": 18.34851723639226,
+        "normalized_spatial_entropy": 0.9745775617503095,
+        "spatial_concentration_1_minus_entropy": 0.025422438249690482,
+        "reference_box_mass": 0.21042572772458243,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.8782986896330397
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00014622192247770727,
+        "raw_max": 0.012559916824102402,
+        "raw_mean": 0.0008979184695350442,
+        "peak_xy": [
+          1,
+          26
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          21.414314636735845,
+          25.591247165443
+        ],
+        "center_distance_to_reference_box_center": 9.799645443718873,
+        "normalized_spatial_entropy": 0.9673917224289698,
+        "spatial_concentration_1_minus_entropy": 0.03260827757103024,
+        "reference_box_mass": 0.3247961292539515,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.8755144907295846
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00034498347667977214,
+        "raw_max": 0.009294579736888409,
+        "raw_mean": 0.0013866848197115662,
+        "peak_xy": [
+          3,
+          29
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          20.715764337767627,
+          24.079154503618703
+        ],
+        "center_distance_to_reference_box_center": 16.99049168387479,
+        "normalized_spatial_entropy": 0.9835102842635,
+        "spatial_concentration_1_minus_entropy": 0.016489715736500044,
+        "reference_box_mass": 0.225190979098493,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9399275649328404
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 2.6056337446789257e-05,
+        "raw_max": 0.0015194698935374618,
+        "raw_mean": 0.0001328089738568868,
+        "peak_xy": [
+          15,
+          26
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          22.41638438209684,
+          25.189738258612344
+        ],
+        "center_distance_to_reference_box_center": 10.770466367432455,
+        "normalized_spatial_entropy": 0.9756715134249929,
+        "spatial_concentration_1_minus_entropy": 0.02432848657500708,
+        "reference_box_mass": 0.317740269794876,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.8347708812215395
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 4.5817516365787014e-05,
+        "raw_max": 0.002884332789108157,
+        "raw_mean": 0.00023128494561951306,
+        "peak_xy": [
+          5,
+          45
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          20.74992336176104,
+          23.43457685957377
+        ],
+        "center_distance_to_reference_box_center": 17.251547406139675,
+        "normalized_spatial_entropy": 0.9822037292903097,
+        "spatial_concentration_1_minus_entropy": 0.017796270709690254,
+        "reference_box_mass": 0.231104547322968,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9646102844784751
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0001700016437098384,
+        "raw_max": 0.009012791328132153,
+        "raw_mean": 0.0007834672866553976,
+        "peak_xy": [
+          16,
+          35
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          21.823407883168457,
+          26.374094491917493
+        ],
+        "center_distance_to_reference_box_center": 9.511126060678807,
+        "normalized_spatial_entropy": 0.9737664596858183,
+        "spatial_concentration_1_minus_entropy": 0.02623354031418168,
+        "reference_box_mass": 0.31925516405202503,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.8435185412928963
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 18,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00038272139499895275,
+        "raw_max": 0.011752388440072536,
+        "raw_mean": 0.0013629630429047917,
+        "peak_xy": [
+          5,
+          45
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          21.398325870246403,
+          25.056103163408398
+        ],
+        "center_distance_to_reference_box_center": 15.96034754734842,
+        "normalized_spatial_entropy": 0.984250031772741,
+        "spatial_concentration_1_minus_entropy": 0.015749968227259048,
+        "reference_box_mass": 0.23423247363635072,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 0.9776659769169421
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0007356425048783422,
+        "raw_max": 0.0013352979440242052,
+        "raw_mean": 0.0008890949791041041,
+        "peak_xy": [
+          18,
+          33
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.521590617975342,
+          24.160787715921675
+        ],
+        "center_distance_to_reference_box_center": 12.277995783651603,
+        "normalized_spatial_entropy": 0.9992601978581593,
+        "spatial_concentration_1_minus_entropy": 0.000739802141840662,
+        "reference_box_mass": 0.19002956831437534,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0973135974845132
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.005216892343014479,
+        "raw_max": 0.008891012519598007,
+        "raw_mean": 0.0068712959590710755,
+        "peak_xy": [
+          40,
+          22
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.3024138455227,
+          23.885032480030215
+        ],
+        "center_distance_to_reference_box_center": 14.805959086819348,
+        "normalized_spatial_entropy": 0.9996093973202564,
+        "spatial_concentration_1_minus_entropy": 0.0003906026797435569,
+        "reference_box_mass": 0.24724397206350487,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.0319748399172377
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0019228201126679778,
+        "raw_max": 0.0035671829245984554,
+        "raw_mean": 0.0023057664006955747,
+        "peak_xy": [
+          13,
+          27
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.564041945430045,
+          24.033408188528558
+        ],
+        "center_distance_to_reference_box_center": 12.399297688039914,
+        "normalized_spatial_entropy": 0.9993836831252786,
+        "spatial_concentration_1_minus_entropy": 0.0006163168747214121,
+        "reference_box_mass": 0.18931325552847952,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.0931772950817464
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.009544046595692635,
+        "raw_max": 0.013835934922099113,
+        "raw_mean": 0.011107803025273219,
+        "peak_xy": [
+          39,
+          24
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.387487442775665,
+          23.675393845938082
+        ],
+        "center_distance_to_reference_box_center": 14.842504319430908,
+        "normalized_spatial_entropy": 0.9997572086291722,
+        "spatial_concentration_1_minus_entropy": 0.00024279137082783286,
+        "reference_box_mass": 0.24553385264689903,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.0248369501783612
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0001263582962565124,
+        "raw_max": 0.00044021045323461294,
+        "raw_mean": 0.00019505999851313996,
+        "peak_xy": [
+          18,
+          34
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.60222434170092,
+          26.20257579217339
+        ],
+        "center_distance_to_reference_box_center": 10.963723796507237,
+        "normalized_spatial_entropy": 0.9943427564774552,
+        "spatial_concentration_1_minus_entropy": 0.005657243522544819,
+        "reference_box_mass": 0.2408539427852123,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.390795699692053
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.000522505899425596,
+        "raw_max": 0.001403696252964437,
+        "raw_mean": 0.0007613541746549243,
+        "peak_xy": [
+          18,
+          34
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.78276124621595,
+          25.074126940235054
+        ],
+        "center_distance_to_reference_box_center": 13.804085168788829,
+        "normalized_spatial_entropy": 0.9973180960348487,
+        "spatial_concentration_1_minus_entropy": 0.0026819039651513332,
+        "reference_box_mass": 0.2739431204265612,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.1434147635195597
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0009089320665225387,
+        "raw_max": 0.002207998652011156,
+        "raw_mean": 0.0012985214948963,
+        "peak_xy": [
+          14,
+          35
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.64543817807674,
+          25.225862196380312
+        ],
+        "center_distance_to_reference_box_center": 11.626728683538445,
+        "normalized_spatial_entropy": 0.9978827216616672,
+        "spatial_concentration_1_minus_entropy": 0.002117278338332751,
+        "reference_box_mass": 0.20785641176399294,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.2002535656747864
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 2,
+      "timestep": 500.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.002418282674625516,
+        "raw_max": 0.004469673614948988,
+        "raw_mean": 0.003337610021743684,
+        "peak_xy": [
+          22,
+          27
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.602605205585235,
+          23.694308191284364
+        ],
+        "center_distance_to_reference_box_center": 14.65005878149411,
+        "normalized_spatial_entropy": 0.9994346217988437,
+        "spatial_concentration_1_minus_entropy": 0.0005653782011563191,
+        "reference_box_mass": 0.24673635484445405,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.0298560897855473
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.00018845865270122886,
+        "raw_max": 0.0005966590251773596,
+        "raw_mean": 0.0002922845121449629,
+        "peak_xy": [
+          37,
+          30
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          24.040180002513218,
+          26.124293645290933
+        ],
+        "center_distance_to_reference_box_center": 11.35782515951124,
+        "normalized_spatial_entropy": 0.9954524107934255,
+        "spatial_concentration_1_minus_entropy": 0.004547589206574498,
+        "reference_box_mass": 0.22446642442862524,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.2961670222645427
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0007911195862106979,
+        "raw_max": 0.0018304558470845222,
+        "raw_mean": 0.0011362887380022989,
+        "peak_xy": [
+          17,
+          34
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.343624171616472,
+          24.275779654901765
+        ],
+        "center_distance_to_reference_box_center": 14.573030182629214,
+        "normalized_spatial_entropy": 0.9987623170027476,
+        "spatial_concentration_1_minus_entropy": 0.001237682997252354,
+        "reference_box_mass": 0.24872657216845628,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.0381630838335567
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0010347099741920829,
+        "raw_max": 0.002276638289913535,
+        "raw_mean": 0.0014017533324780136,
+        "peak_xy": [
+          16,
+          35
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          23.99024547841836,
+          25.04712178906838
+        ],
+        "center_distance_to_reference_box_center": 12.003032350207704,
+        "normalized_spatial_entropy": 0.998325620929788,
+        "spatial_concentration_1_minus_entropy": 0.001674379070211951,
+        "reference_box_mass": 0.20309629458328224,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 1.1727665732327877
+      }
+    },
+    {
+      "stream": "single",
+      "block_index": 37,
+      "denoising_index": 3,
+      "timestep": 250.0,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.002720118034631014,
+        "raw_max": 0.005780540406703949,
+        "raw_mean": 0.003970483929555889,
+        "peak_xy": [
+          12,
+          27
+        ],
+        "peak_in_reference_box": false,
+        "center_of_mass_xy": [
+          23.352340107573205,
+          23.763954297332656
+        ],
+        "center_distance_to_reference_box_center": 14.825980705108828,
+        "normalized_spatial_entropy": 0.9992176463270487,
+        "spatial_concentration_1_minus_entropy": 0.0007823536729513192,
+        "reference_box_mass": 0.24065323180860915,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 1.0044656632011513
+      }
+    }
+  ],
+  "summary": {
+    "reference_alignment": {
+      "double:joint": {
+        "mean_reference_box_enrichment": 2.4022930864367016,
+        "peak_in_reference_box_rate": 0.7777777777777778,
+        "mean_center_distance": 8.682190528104279,
+        "mean_spatial_concentration": 0.08170866879310619
+      },
+      "double:text_only": {
+        "mean_reference_box_enrichment": 1.8570777397445626,
+        "peak_in_reference_box_rate": 0.5555555555555556,
+        "mean_center_distance": 10.466994342718388,
+        "mean_spatial_concentration": 0.03642019423094557
+      },
+      "single:joint": {
+        "mean_reference_box_enrichment": 1.6461271178246206,
+        "peak_in_reference_box_rate": 0.6111111111111112,
+        "mean_center_distance": 11.686419759890919,
+        "mean_spatial_concentration": 0.04000293603225226
+      },
+      "single:text_only": {
+        "mean_reference_box_enrichment": 1.6038515526138877,
+        "peak_in_reference_box_rate": 0.6666666666666666,
+        "mean_center_distance": 11.34544984172829,
+        "mean_spatial_concentration": 0.027922640549855524
+      }
+    },
+    "cross_block_timestep_stability": {
+      "double:joint:apple": {
+        "mean_pairwise_pearson": 0.4352547349585424,
+        "min_pairwise_pearson": 0.10621647658030668,
+        "map_count": 9
+      },
+      "double:joint:cup": {
+        "mean_pairwise_pearson": 0.31989415132850885,
+        "min_pairwise_pearson": -0.04646460327525596,
+        "map_count": 9
+      },
+      "double:text_only:apple": {
+        "mean_pairwise_pearson": 0.35138649500003405,
+        "min_pairwise_pearson": -0.014557670719970885,
+        "map_count": 9
+      },
+      "double:text_only:cup": {
+        "mean_pairwise_pearson": 0.16525583939088673,
+        "min_pairwise_pearson": -0.34872800499898415,
+        "map_count": 9
+      },
+      "single:joint:apple": {
+        "mean_pairwise_pearson": 0.3757185878627004,
+        "min_pairwise_pearson": -0.02268847573797361,
+        "map_count": 9
+      },
+      "single:joint:cup": {
+        "mean_pairwise_pearson": 0.18191155484607446,
+        "min_pairwise_pearson": -0.14324770147690497,
+        "map_count": 9
+      },
+      "single:text_only:apple": {
+        "mean_pairwise_pearson": 0.4509973086799093,
+        "min_pairwise_pearson": 0.12554849963482906,
+        "map_count": 9
+      },
+      "single:text_only:cup": {
+        "mean_pairwise_pearson": 0.19461175256785845,
+        "min_pairwise_pearson": -0.10869780165937554,
+        "map_count": 9
+      }
+    }
+  },
+  "panel_paths": [
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_0_denoise-0_t-1000_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_0_denoise-2_t-500_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_0_denoise-3_t-250_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_9_denoise-0_t-1000_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_9_denoise-2_t-500_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_9_denoise-3_t-250_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_18_denoise-0_t-1000_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_18_denoise-2_t-500_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/double_block_18_denoise-3_t-250_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_0_denoise-0_t-1000_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_0_denoise-2_t-500_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_0_denoise-3_t-250_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_18_denoise-0_t-1000_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_18_denoise-2_t-500_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_18_denoise-3_t-250_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_37_denoise-0_t-1000_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_37_denoise-2_t-500_signals.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/single_block_37_denoise-3_t-250_signals.png"
+  ],
+  "generation_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/spatial_validation/flux-1-schnell_spatial-validation_seed-42_steps-4.png",
+  "generation_pixel_sha256": "083e0c1274c1eedf0e735184bb08f68b186d0d7638aa2cd8048470248f9f6295",
+  "runtime_seconds": 20.49875984620303,
+  "peak_cuda_allocated_mib": 1383.8330078125,
+  "peak_cuda_reserved_mib": 1392.0
+}
