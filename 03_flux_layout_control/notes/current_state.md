@@ -106,6 +106,23 @@ Not yet established:
 - That repeated optimization remains stable, preserves quality, and avoids graph/memory growth.
 - Any claim of method-level complete reproduction or equivalence to SDXL cross-attention guidance.
 
-## Next and only task
+## Latest valid progress: FLUX.1-dev Stage 1
 
-At `t=750`, Double block 18, Layout B, and `relative_step=0.005`, compare inner-loop counts `1 / 3 / 5`. Every inner iteration must run a fresh transformer forward, recompute the objective, recompute its gradient with respect to the current packed latents, apply the same normalized update definition, and release the old graph. Then continue ordinary denoising and determine whether sustained attention optimization produces genuine apple-right/cup-left spatial structure movement rather than only texture or pixel changes.
+- Added `src/09_flux_dev_baseline.py` and `src/10_flux_dev_explicit_sampling.py`; existing schnell scripts and outputs were not modified.
+- The dev baseline uses the fixed prompt `a red apple and a blue cup, realistic photo`, seed `42`, resolution `768x768`, `50` steps, BF16, sequential CPU offload, and `guidance_scale=3.5`.
+- The baseline creates one initial packed latent tensor with shape `[1, 2304, 64]`, passes it explicitly to the official `FluxPipeline`, and saves all 50 post-scheduler packed latent states for alignment.
+- Dev-specific behavior was confirmed: `transformer.config.guidance_embeds=True`; guidance tensor shape `[1]` with value `3.5`; `FlowMatchEulerDiscreteScheduler` with `shift=3.0`, `use_dynamic_shifting=True`; sequence-length shift `mu=0.8466666667`.
+- Explicit sampling follows the installed Diffusers `0.32.2` Pipeline path for prompt encoding, latent/image-ID preparation, dynamic-shifted timesteps, guidance tensor, Transformer calls, scheduler steps, unpacking, and VAE decode.
+- The explicit run reused the exact saved initial latent. All 50 intermediate packed latent states matched the Pipeline exactly. Final packed latent max/mean absolute differences were `0.0 / 0.0`; decoded RGB image max/mean absolute differences were `0 / 0`, with exact pixel equality.
+- Baseline runtime was `213.1 s`; explicit runtime was `214.9 s`; peak CUDA allocation was about `1384.7 / 1384.4 MiB`, with no OOM or abnormal memory growth.
+
+Outputs:
+
+- `outputs/baseline/flux_dev_baseline_seed-42_steps-50.png`
+- `outputs/baseline/flux_dev_baseline_metrics.json`
+- `outputs/baseline/flux_dev_baseline_state.pt` (initial latent and Pipeline step states)
+- `outputs/explicit_sampling/flux_dev_explicit_seed-42_steps-50.png`
+- `outputs/explicit_sampling/flux_dev_explicit_sampling_metrics.json`
+- `outputs/explicit_sampling/flux_dev_explicit_state.pt`
+
+Stage 1 is complete for this fixed configuration. The next stage is dev attention probing, rechecking token spans and image-query → text-key spatial signal before any dev guidance implementation.

@@ -1,0 +1,41 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "initial_latents_shape": [
+    1,
+    2304,
+    64
+  ],
+  "initial_latents_sha256": "ae3c7bd3742597f7881546de96177481f24d92dfd30de63cd54f6ffc46cb2c01",
+  "pipeline_final_packed_latents_shape": [
+    1,
+    2304,
+    64
+  ],
+  "pipeline_final_packed_latents_sha256": "1e583b44570383266c3c307dd8fd312710c725c9045dc23a5138855302730281",
+  "pipeline_step_count": 50,
+  "scheduler_class": "FlowMatchEulerDiscreteScheduler",
+  "scheduler_config": {
+    "shift": 3.0,
+    "use_dynamic_shifting": true,
+    "base_shift": 0.5,
+    "max_shift": 1.15
+  },
+  "transformer_guidance_embeds": true,
+  "runtime_seconds": 213.07197958882898,
+  "model_load_seconds": 2.355852889828384,
+  "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/baseline/flux_dev_baseline_seed-42_steps-50.png",
+  "state_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/baseline/flux_dev_baseline_state.pt",
+  "pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+  "peak_cuda_allocated_mib": 1384.6904296875,
+  "peak_cuda_reserved_mib": 1394.0
+}
