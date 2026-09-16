@@ -48,6 +48,15 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - Block 9: loss `1.341281`; gradient L2/max/mean `0.037479 / 0.001549 / 6.69663e-05`. A normalized `5e-4` step lowers loss to `1.339235` (`-0.002046`).
 - Both gradients are finite and all `147456/147456` elements are nonzero; both blocks pass. Overall peak CUDA allocation was `2004.13 MiB`; no OOM occurred.
 
+### Stage 5 — dev single-step Backward Guidance
+
+- Added `src/15_flux_dev_single_step_guidance.py`; baseline and guided branches share the exact saved index-35 input state. Baseline continuation matches Stage 1 final latent and pixels exactly.
+- One Double-block-18 intervention was tested at `t=499.842194` for `relative_step=5e-4`, then once more at the schnell-tested `0.005` after the default was visually imperceptible. No inner loop or multi-timestep guidance was used.
+- At `5e-4`, actual BF16 update L2/relative norm is `0.121205 / 0.000394`; Layout B energy falls `1.399058 → 1.395609`. Apple-right/cup-left attention mass increases by `0.000817 / 0.001262` and attention COM moves `+0.0111 / -0.0275` image tokens.
+- At `0.005`, actual BF16 update L2/relative norm is `1.565214 / 0.005089`; Layout B energy falls `1.399058 → 1.319662`. Apple-right/cup-left attention mass increases by `0.027678 / 0.020259` and attention COM moves `+0.5024 / -0.3728` image tokens.
+- Both strengths move attention in the requested swapped direction, but neither produces visible apple/cup relocation in the final image. At `0.005`, color-proxy x shifts are only apple `+0.0338 px`, cup `-0.0335 px`; differences are local pixel/texture perturbations. Single-step propagation is mechanically valid but does not satisfy visible layout control.
+- Peak CUDA allocation was `2002.92 MiB`; no OOM or abnormal memory growth occurred.
+
 ## Current key scripts
 
 - `src/09_flux_dev_baseline.py`: official dev baseline and saved initial/intermediate packed latents.
@@ -56,6 +65,7 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - `src/12_flux_dev_spatial_signal_validation.py`: representative block/timestep validation and schnell comparison.
 - `src/13_flux_dev_layout_objective.py`: dev Eq. (2) layout-objective validation.
 - `src/14_flux_dev_gradient_probe.py`: dev single-step latent-gradient validation.
+- `src/15_flux_dev_single_step_guidance.py`: dev single-intervention guidance and final-image comparison.
 - `src/04_flux_schnell_layout_objective.py`: schnell layout-energy reference.
 - `src/05_flux_schnell_gradient_probe.py`: schnell gradient-stage reference.
 - `src/06_flux_schnell_single_step_guidance.py` and `08_flux_schnell_inner_loop_guidance.py`: later Backward Guidance references.
@@ -68,6 +78,7 @@ Key metrics:
 - `outputs/spatial_validation/flux_dev_spatial_signal_validation_metrics.json`
 - `outputs/layout_objective/flux_dev_layout_objective_metrics.json`
 - `outputs/gradient_probe/flux_dev_gradient_probe_metrics.json`
+- `outputs/single_step_guidance/flux_dev_single_step_guidance_rel-{0p0005,0p005}_metrics.json`
 
 ## Verified dev configuration
 
@@ -115,9 +126,9 @@ Use the Stage 1 saved initial latent for direct comparisons. Keep `local_files_o
 
 ## Next and only next task
 
-Stage 5: build the minimal `FLUX.1-dev` Backward Guidance run.
+Stage 6: test a minimal limited-inner-loop `FLUX.1-dev` Backward Guidance MVP.
 
-- Reuse the verified dev sampling path and Stage 4 update, with Double block 18 as the objective source and Layout B as the requested target.
-- Start with the smallest single-timestep/limited-inner-loop intervention needed to complete normal denoising and compare baseline versus guided output.
-- Record objective change, final image effect, runtime, and VRAM; require a spatial/layout change rather than only color, brightness, or texture changes before claiming control.
-- Do not begin systematic timestep/block/strength sweeps in the same stage.
+- Reuse the verified block-18 Layout B objective and normalized latent update at index 35; add only a small, fixed inner-loop count at that single timestep.
+- Compare against the exact Stage 1 baseline and Stage 5 single-step result; record per-iteration energy, attention movement, final layout effect, runtime, and VRAM.
+- Require visible object-position change rather than only attention-energy or texture changes before calling the Backward Guidance MVP successful.
+- Do not start multi-timestep guidance or systematic sweeps in the same stage.

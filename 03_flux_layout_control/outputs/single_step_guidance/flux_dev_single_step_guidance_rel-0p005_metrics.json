@@ -1,0 +1,241 @@
+{
+  "stage": "Stage 5 - dev single-step Backward Guidance",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "block_index": 18,
+  "denoising_index": 35,
+  "timestep": 499.8421936035156,
+  "layout_optimized": {
+    "apple": "right",
+    "cup": "left"
+  },
+  "single_intervention_only": true,
+  "inner_loop_count": 1,
+  "guided_timestep_count": 1,
+  "relative_step_size": 0.005,
+  "update_definition": {
+    "formula": "x_new = x - eta*g",
+    "gradient": "g = d(E_layout_b)/dx",
+    "eta": "relative_step * ||x||_2 / ||g||_2",
+    "desired_update_norm": 1.5379889011383057,
+    "actual_bf16_update_norm": 1.5652140378952026,
+    "actual_relative_update_norm": 0.005088509060442448,
+    "effective_eta": 24.14244270324707
+  },
+  "gradient": {
+    "gradient_norm_l2": 0.06370477378368378,
+    "gradient_abs_max": 0.004058837890625,
+    "gradient_abs_mean": 9.248826972907409e-05,
+    "gradient_is_finite": true,
+    "gradient_is_nonzero": true,
+    "model_parameter_grad_count": 0,
+    "model_parameters_with_grad": []
+  },
+  "layout_objective": {
+    "before": {
+      "objects": {
+        "apple": {
+          "region": "right",
+          "mass_ratio": 0.13480530679225922,
+          "energy": 0.7485618591308594
+        },
+        "cup": {
+          "region": "left",
+          "mass_ratio": 0.19346678256988525,
+          "energy": 0.6504958271980286
+        }
+      },
+      "total_energy": 1.3990576267242432
+    },
+    "after": {
+      "objects": {
+        "apple": {
+          "region": "right",
+          "mass_ratio": 0.1624830961227417,
+          "energy": 0.7014345526695251
+        },
+        "cup": {
+          "region": "left",
+          "mass_ratio": 0.2137257605791092,
+          "energy": 0.6182271838188171
+        }
+      },
+      "total_energy": 1.3196617364883423
+    },
+    "delta_after_minus_before": -0.07939589023590088,
+    "decreased": true
+  },
+  "attention_movement": {
+    "objects": {
+      "apple": {
+        "target_region": "right",
+        "target_mass_before": 0.13480530679225922,
+        "target_mass_after": 0.1624830961227417,
+        "target_mass_delta": 0.027677789330482483,
+        "center_of_mass_before_xy": [
+          15.587201761940026,
+          28.605031567937942
+        ],
+        "center_of_mass_after_xy": [
+          16.089593979996113,
+          28.289170170714414
+        ],
+        "center_of_mass_delta_xy": [
+          0.5023922180560874,
+          -0.3158613972235287
+        ],
+        "target_mass_increased": true,
+        "center_moves_toward_target": true
+      },
+      "cup": {
+        "target_region": "left",
+        "target_mass_before": 0.19346678256988525,
+        "target_mass_after": 0.2137257605791092,
+        "target_mass_delta": 0.020258978009223938,
+        "center_of_mass_before_xy": [
+          30.04098456789157,
+          27.48411713280028
+        ],
+        "center_of_mass_after_xy": [
+          29.668150828644613,
+          27.36197839515241
+        ],
+        "center_of_mass_delta_xy": [
+          -0.37283373924695695,
+          -0.12213873764786953
+        ],
+        "target_mass_increased": true,
+        "center_moves_toward_target": true
+      }
+    },
+    "both_attention_maps_move_toward_target": true
+  },
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_baseline_seed-42_steps-50.png",
+    "pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+    "matches_stage1_final_latent_exactly": true,
+    "final_latent_max_abs_difference": 0.0,
+    "final_latent_mean_abs_difference": 0.0,
+    "matches_stage1_image_exactly": true,
+    "color_centroids": {
+      "apple_red_proxy": {
+        "pixel_count": 39529,
+        "centroid_xy_pixels": [
+          240.51670925143566,
+          504.32085304460014
+        ],
+        "centroid_xy_normalized": [
+          0.3131727985044735,
+          0.6566677774018231
+        ]
+      },
+      "cup_blue_proxy": {
+        "pixel_count": 64623,
+        "centroid_xy_pixels": [
+          579.5396840134317,
+          496.3089921544961
+        ],
+        "centroid_xy_normalized": [
+          0.7546089635591559,
+          0.6462356668678334
+        ]
+      }
+    }
+  },
+  "guided": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_guided_rel-0p005_seed-42_steps-50.png",
+    "pixel_sha256": "4e93c221fefc42bc15ef7376ef3ddbb343b4614b6c5c2414ccf961f05b52ebf4",
+    "pixel_difference_vs_baseline": {
+      "pixel_exact_match": false,
+      "max_absolute_pixel_difference": 82.0,
+      "mean_absolute_pixel_difference": 0.27302268147468567,
+      "rmse": 0.7997230291366577,
+      "changed_pixel_fraction": 0.4268968370225694,
+      "mean_signed_rgb_difference": [
+        -0.011891682632267475,
+        -0.0032280816230922937,
+        -0.01898871548473835
+      ]
+    },
+    "color_centroids": {
+      "apple_red_proxy": {
+        "pixel_count": 39478,
+        "centroid_xy_pixels": [
+          240.5505344748974,
+          504.29087086478546
+        ],
+        "centroid_xy_normalized": [
+          0.31321684176418935,
+          0.6566287381051894
+        ]
+      },
+      "cup_blue_proxy": {
+        "pixel_count": 64639,
+        "centroid_xy_pixels": [
+          579.5062114203499,
+          496.3531923451786
+        ],
+        "centroid_xy_normalized": [
+          0.7545653794535806,
+          0.6462932191994514
+        ]
+      }
+    },
+    "color_centroid_changes_vs_baseline": {
+      "apple_red_proxy": {
+        "baseline_centroid_xy_pixels": [
+          240.51670925143566,
+          504.32085304460014
+        ],
+        "guided_centroid_xy_pixels": [
+          240.5505344748974,
+          504.29087086478546
+        ],
+        "delta_xy_pixels": [
+          0.0338252234617471,
+          -0.029982179814680876
+        ],
+        "baseline_pixel_count": 39529,
+        "guided_pixel_count": 39478
+      },
+      "cup_blue_proxy": {
+        "baseline_centroid_xy_pixels": [
+          579.5396840134317,
+          496.3089921544961
+        ],
+        "guided_centroid_xy_pixels": [
+          579.5062114203499,
+          496.3531923451786
+        ],
+        "delta_xy_pixels": [
+          -0.03347259308179673,
+          0.044200190682545326
+        ],
+        "baseline_pixel_count": 64623,
+        "guided_pixel_count": 64639
+      }
+    },
+    "final_packed_latent_l2_difference_vs_baseline": 11.556709289550781
+  },
+  "manual_visual_assessment": "No visible apple/cup position or layout change; differences are subtle local pixel/texture perturbations.",
+  "visible_layout_change": false,
+  "baseline_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_baseline_seed-42_steps-50.png",
+  "guided_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_guided_rel-0p005_seed-42_steps-50.png",
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_comparison_rel-0p005.png",
+  "attention_comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_attention_rel-0p005.png",
+  "baseline_runtime_seconds_from_index_35": 72.05160490330309,
+  "gradient_runtime_seconds": 7.681751534342766,
+  "guided_runtime_seconds_from_index_35": 68.90486456826329,
+  "total_runtime_seconds_including_load": 155.40307477023453,
+  "peak_cuda_allocated_mib": 2002.9150390625,
+  "peak_cuda_reserved_mib": 2140.0
+}
