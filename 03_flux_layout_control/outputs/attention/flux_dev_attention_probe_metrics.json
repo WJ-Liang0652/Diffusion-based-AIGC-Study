@@ -1,0 +1,385 @@
+{
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "target_spans": {
+    "apple": {
+      "character_span": [
+        6,
+        11
+      ],
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple",
+      "is_single_token": true
+    },
+    "cup": {
+      "character_span": [
+        23,
+        26
+      ],
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup",
+      "is_single_token": true
+    }
+  },
+  "t5_non_padding_token_sequence": [
+    {
+      "index": 0,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 2,
+      "id": 1131,
+      "token": "\u2581red",
+      "character_offset": [
+        1,
+        5
+      ]
+    },
+    {
+      "index": 3,
+      "id": 8947,
+      "token": "\u2581apple",
+      "character_offset": [
+        5,
+        11
+      ]
+    },
+    {
+      "index": 4,
+      "id": 11,
+      "token": "\u2581and",
+      "character_offset": [
+        11,
+        15
+      ]
+    },
+    {
+      "index": 5,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        15,
+        16
+      ]
+    },
+    {
+      "index": 6,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        16,
+        17
+      ]
+    },
+    {
+      "index": 7,
+      "id": 1692,
+      "token": "\u2581blue",
+      "character_offset": [
+        17,
+        22
+      ]
+    },
+    {
+      "index": 8,
+      "id": 4119,
+      "token": "\u2581cup",
+      "character_offset": [
+        22,
+        26
+      ]
+    },
+    {
+      "index": 9,
+      "id": 6,
+      "token": ",",
+      "character_offset": [
+        26,
+        27
+      ]
+    },
+    {
+      "index": 10,
+      "id": 9555,
+      "token": "\u2581realistic",
+      "character_offset": [
+        27,
+        37
+      ]
+    },
+    {
+      "index": 11,
+      "id": 1202,
+      "token": "\u2581photo",
+      "character_offset": [
+        37,
+        43
+      ]
+    },
+    {
+      "index": 12,
+      "id": 1,
+      "token": "</s>",
+      "character_offset": [
+        0,
+        0
+      ]
+    }
+  ],
+  "probe_block": 18,
+  "probe_denoising_index": 35,
+  "probe_timestep": 499.8421936035156,
+  "attention_definition": "native joint-normalized P(target text-key span | image query)",
+  "target_span_aggregation": "sum token probabilities within span, then mean over heads",
+  "diagnostic_signal": "text-only renormalization over the same FLUX Q/K logits",
+  "reference_boxes_48x48": {
+    "apple": [
+      6,
+      23,
+      25,
+      44
+    ],
+    "cup": [
+      25,
+      20,
+      48,
+      44
+    ]
+  },
+  "qk_metadata": {
+    "base_processor": "FluxAttnProcessor2_0",
+    "stream": "double",
+    "block_index": 18,
+    "heads": 24,
+    "head_dim": 128,
+    "text_tokens": 512,
+    "image_tokens": 2304,
+    "joint_tokens": 2816,
+    "joint_qk_shape": [
+      1,
+      24,
+      2816,
+      128
+    ],
+    "projection_organization": "separate text added-QK and image QK, concatenated [text,image]",
+    "full_joint_probability_bf16_mib": 363.0,
+    "key_chunk_size": 128,
+    "attention_direction": "image query -> text key",
+    "target_aggregation": "sum over target token span, then mean over heads"
+  },
+  "map_records": [
+    {
+      "block_index": 18,
+      "denoising_index": 35,
+      "timestep": 499.8421936035156,
+      "normalization": "joint",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 3.846619074465707e-05,
+        "raw_max": 0.14457963407039642,
+        "raw_mean": 0.006167952071654288,
+        "peak_xy": [
+          13,
+          25
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          15.587201761940026,
+          28.605031567937942
+        ],
+        "normalized_spatial_entropy": 0.8215318703218869,
+        "spatial_concentration_1_minus_entropy": 0.1784681296781131,
+        "reference_box_mass": 0.7044761721289894,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 4.067952633045593,
+        "competing_object_box_mass": 0.09851589020550874,
+        "target_to_competing_box_mass_ratio": 7.150888761796896,
+        "left_half_mass": 0.8651946961766577,
+        "right_half_mass": 0.13480530382334235
+      },
+      "heatmap_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_apple_joint_heatmap.png"
+    },
+    {
+      "block_index": 18,
+      "denoising_index": 35,
+      "timestep": 499.8421936035156,
+      "normalization": "joint",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 3.826431566267274e-05,
+        "raw_max": 0.07727484405040741,
+        "raw_mean": 0.0031794023497992738,
+        "peak_xy": [
+          35,
+          23
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          30.04098456789157,
+          27.48411713280028
+        ],
+        "normalized_spatial_entropy": 0.8458993973192418,
+        "spatial_concentration_1_minus_entropy": 0.1541006026807582,
+        "reference_box_mass": 0.7206207291810712,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 3.0078082609296883,
+        "competing_object_box_mass": 0.10618440783210545,
+        "target_to_competing_box_mass_ratio": 6.786502311342057,
+        "left_half_mass": 0.1934667856645434,
+        "right_half_mass": 0.8065332143354567
+      },
+      "heatmap_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_cup_joint_heatmap.png"
+    },
+    {
+      "block_index": 18,
+      "denoising_index": 35,
+      "timestep": 499.8421936035156,
+      "normalization": "text_only",
+      "word": "apple",
+      "token_indices": [
+        3
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.0014473653864115477,
+        "raw_max": 0.2524392008781433,
+        "raw_mean": 0.02364481369598555,
+        "peak_xy": [
+          13,
+          25
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          18.27136806935193,
+          27.09276265892484
+        ],
+        "normalized_spatial_entropy": 0.9139793613110111,
+        "spatial_concentration_1_minus_entropy": 0.0860206386889889,
+        "reference_box_mass": 0.4684056966734775,
+        "reference_box_area_fraction": 0.17317708333333334,
+        "reference_box_enrichment_over_uniform": 2.7047787597385766,
+        "competing_object_box_mass": 0.1983901830802039,
+        "target_to_competing_box_mass_ratio": 2.3610326347857318,
+        "left_half_mass": 0.7239423020477598,
+        "right_half_mass": 0.27605769795224033
+      },
+      "heatmap_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_apple_text_only_heatmap.png"
+    },
+    {
+      "block_index": 18,
+      "denoising_index": 35,
+      "timestep": 499.8421936035156,
+      "normalization": "text_only",
+      "word": "cup",
+      "token_indices": [
+        8
+      ],
+      "shape": [
+        48,
+        48
+      ],
+      "statistics": {
+        "raw_min": 0.001012994907796383,
+        "raw_max": 0.16353808343410492,
+        "raw_mean": 0.015812255466244096,
+        "peak_xy": [
+          46,
+          29
+        ],
+        "peak_in_reference_box": true,
+        "center_of_mass_xy": [
+          29.16923772433593,
+          26.95766415667438
+        ],
+        "normalized_spatial_entropy": 0.916215487665655,
+        "spatial_concentration_1_minus_entropy": 0.08378451233434503,
+        "reference_box_mass": 0.6088628367563524,
+        "reference_box_area_fraction": 0.23958333333333334,
+        "reference_box_enrichment_over_uniform": 2.5413405360265147,
+        "competing_object_box_mass": 0.11571894968119076,
+        "target_to_competing_box_mass_ratio": 5.261565529533306,
+        "left_half_mass": 0.25399497924638936,
+        "right_half_mass": 0.7460050207536106
+      },
+      "heatmap_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_cup_text_only_heatmap.png"
+    }
+  ],
+  "joint_signal_evaluation": {
+    "apple_target_box_preferred": true,
+    "cup_target_box_preferred": true,
+    "apple_center_left_of_cup": true,
+    "both_reference_boxes_enriched_over_1p2": true,
+    "reliable_spatial_signal": true
+  },
+  "generation_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_attention_probe_seed-42_steps-50.png",
+  "output_paths": [
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_apple_joint_heatmap.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_apple_joint_overlay.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_cup_joint_heatmap.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_cup_joint_overlay.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_apple_text_only_heatmap.png",
+    "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_cup_text_only_heatmap.png"
+  ],
+  "runtime_seconds": 237.44149559084326,
+  "peak_cuda_allocated_mib": 1383.83349609375,
+  "peak_cuda_reserved_mib": 1392.0,
+  "generation_pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+  "baseline_pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+  "probe_non_invasive": true
+}

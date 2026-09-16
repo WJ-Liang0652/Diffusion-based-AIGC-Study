@@ -100,7 +100,7 @@ Experimentally supported:
 
 Not yet established:
 
-- That the selected signal/block generalizes across prompts, layouts, seeds, or FLUX.1-dev.
+- That the selected signal/block generalizes across prompts, layouts, or seeds on FLUX.1-dev.
 - That block 18 is globally optimal rather than the best current MVP choice.
 - That attention-energy reduction reliably causes object geometry or position changes.
 - That repeated optimization remains stable, preserves quality, and avoids graph/memory growth.
@@ -125,4 +125,26 @@ Outputs:
 - `outputs/explicit_sampling/flux_dev_explicit_sampling_metrics.json`
 - `outputs/explicit_sampling/flux_dev_explicit_state.pt`
 
-Stage 1 is complete for this fixed configuration. The next stage is dev attention probing, rechecking token spans and image-query → text-key spatial signal before any dev guidance implementation.
+Stage 1 is complete for this fixed configuration.
+
+## Latest valid progress: FLUX.1-dev Stage 2
+
+- Added `src/11_flux_dev_attention_probe.py` and `src/12_flux_dev_spatial_signal_validation.py`; schnell files were not modified.
+- Reused the Stage 1 fixed prompt, saved initial packed latents, 50-step official Pipeline path, BF16, sequential CPU offload, `guidance_scale=3.5`, and dynamic-shifted dev schedule.
+- Reused the schnell attention definition without redesign: RMS-normalized and RoPE-applied Double Stream Q/K, native joint normalization over all 512 text and 2304 image keys, probability sum over each target token span, then head mean. Text-only renormalization remains diagnostic only.
+- T5 spans match schnell exactly: `apple` is character span `[6,11]`, token index `[3]`, id `[8947]`, piece `▁apple`; `cup` is character span `[23,26]`, token index `[8]`, id `[4119]`, piece `▁cup`.
+- Minimal probe at Double block 18 / denoising index 35 / `t=499.842` passed. Apple/cup peaks were `[13,25]` and `[35,23]`, both inside their observed-object boxes. Reference-box enrichment was `4.068x / 3.008x`; target-to-competing-box mass ratio was `7.151 / 6.787`.
+- Representative validation used Double blocks `0/9/18` at denoising indices `0/35/44`, corresponding to actual dev timesteps `1000.0/499.842/241.264` and schnell comparison points `1000/500/250`.
+- Block 0 remained nearly spatially uniform (mean joint reference enrichment `1.017x`). All four block-9/18 mid/late configurations passed the predeclared object-separation criterion, with mean joint reference enrichment `3.434x`.
+- The mechanism profile is consistent with schnell: early Double block 0 is weak/uniform, while middle/late Double blocks 9 and 18 carry strong apple-left/cup-right spatial semantics at middle/late timesteps. This conclusion is limited to the fixed prompt/seed/layout.
+- Both probe runs were non-invasive: generated image hashes exactly matched the Stage 1 baseline. Runtimes were `237.4 s / 237.8 s`; peak CUDA allocation was about `1383.8 MiB`, with no OOM or abnormal memory growth.
+
+Key outputs:
+
+- `outputs/attention/flux_dev_attention_probe_metrics.json`
+- `outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_*_heatmap.png`
+- `outputs/attention/flux_dev_double_block_18_denoise-35_t-499p842_*_joint_overlay.png`
+- `outputs/spatial_validation/flux_dev_spatial_signal_validation_metrics.json`
+- `outputs/spatial_validation/flux_dev_double_block_{0,9,18}_denoise-{0,35,44}_*_joint_signals.png`
+
+Stage 2 is complete for this fixed configuration. Stage 3 can migrate the existing layout objective without changing its attention signal definition; Double block 18 at `t≈500` remains the primary starting point, with block 9 as the representative control.
