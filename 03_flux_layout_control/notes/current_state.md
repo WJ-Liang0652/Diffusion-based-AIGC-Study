@@ -40,6 +40,14 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - All energies are finite; observed Layout A is lower-energy than swapped Layout B at both blocks. The probe is non-invasive: its generated pixel hash exactly matches Stage 1.
 - Runtime was `235.85 s`; peak CUDA allocation was `1383.83 MiB`, with no OOM or abnormal VRAM growth.
 
+### Stage 4 — dev gradient probe
+
+- Added `src/14_flux_dev_gradient_probe.py`; the sole optimization variable is the saved packed latent entering denoising index `35` (`t=499.842194`, shape `[1,2304,64]`).
+- The unchanged Stage 3 Layout B objective matches within `1e-5`, `requires_grad=True`, and no model parameter accumulates gradients.
+- Block 18: loss `1.399058`; gradient L2/max/mean `0.063709 / 0.004059 / 9.24861e-05`. A normalized `5e-4` step lowers loss to `1.395208` (`-0.003850`).
+- Block 9: loss `1.341281`; gradient L2/max/mean `0.037479 / 0.001549 / 6.69663e-05`. A normalized `5e-4` step lowers loss to `1.339235` (`-0.002046`).
+- Both gradients are finite and all `147456/147456` elements are nonzero; both blocks pass. Overall peak CUDA allocation was `2004.13 MiB`; no OOM occurred.
+
 ## Current key scripts
 
 - `src/09_flux_dev_baseline.py`: official dev baseline and saved initial/intermediate packed latents.
@@ -47,8 +55,9 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - `src/11_flux_dev_attention_probe.py`: selected-column attention capture, heatmaps, overlays, and reusable probe helpers.
 - `src/12_flux_dev_spatial_signal_validation.py`: representative block/timestep validation and schnell comparison.
 - `src/13_flux_dev_layout_objective.py`: dev Eq. (2) layout-objective validation.
+- `src/14_flux_dev_gradient_probe.py`: dev single-step latent-gradient validation.
 - `src/04_flux_schnell_layout_objective.py`: schnell layout-energy reference.
-- `src/05_flux_schnell_gradient_probe.py`: later gradient-stage reference.
+- `src/05_flux_schnell_gradient_probe.py`: schnell gradient-stage reference.
 - `src/06_flux_schnell_single_step_guidance.py` and `08_flux_schnell_inner_loop_guidance.py`: later Backward Guidance references.
 
 Key metrics:
@@ -58,6 +67,7 @@ Key metrics:
 - `outputs/attention/flux_dev_attention_probe_metrics.json`
 - `outputs/spatial_validation/flux_dev_spatial_signal_validation_metrics.json`
 - `outputs/layout_objective/flux_dev_layout_objective_metrics.json`
+- `outputs/gradient_probe/flux_dev_gradient_probe_metrics.json`
 
 ## Verified dev configuration
 
@@ -105,9 +115,9 @@ Use the Stage 1 saved initial latent for direct comparisons. Keep `local_files_o
 
 ## Next and only next task
 
-Stage 4: migrate and validate the single-step gradient probe on `FLUX.1-dev`.
+Stage 5: build the minimal `FLUX.1-dev` Backward Guidance run.
 
-- Reuse the verified Stage 3 signal, Eq. (2), fixed dev configuration, saved initial latent, Double block 18 primary / block 9 control, and denoising index 35.
-- Differentiate only with respect to the packed latent entering the selected transformer step; keep model parameters frozen and text encoders/VAE outside backward.
-- Verify finite/nonzero latent gradients, zero model-parameter gradients, a small negative-gradient update that lowers Layout B energy, and no graph/memory leak.
-- Stop after gradient-probe validation. Do not begin full Backward Guidance in the same stage.
+- Reuse the verified dev sampling path and Stage 4 update, with Double block 18 as the objective source and Layout B as the requested target.
+- Start with the smallest single-timestep/limited-inner-loop intervention needed to complete normal denoising and compare baseline versus guided output.
+- Record objective change, final image effect, runtime, and VRAM; require a spatial/layout change rather than only color, brightness, or texture changes before claiming control.
+- Do not begin systematic timestep/block/strength sweeps in the same stage.

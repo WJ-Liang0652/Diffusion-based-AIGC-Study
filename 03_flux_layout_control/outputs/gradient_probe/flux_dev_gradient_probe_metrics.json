@@ -1,0 +1,224 @@
+{
+  "stage": "Stage 4 - dev gradient probe",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "gradient_checkpointing": true,
+  "target_spans": {
+    "apple": {
+      "character_span": [
+        6,
+        11
+      ],
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple",
+      "is_single_token": true
+    },
+    "cup": {
+      "character_span": [
+        23,
+        26
+      ],
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup",
+      "is_single_token": true
+    }
+  },
+  "equation": "E(A,B,i) = (1 - sum_{u in B} A[u,i] / sum_u A[u,i])^2",
+  "optimization_variable": {
+    "name": "packed_latents_at_transformer_input_before_denoising_index_35",
+    "source": "Stage-1 saved post-scheduler state at index 34 (input to denoising index 35)",
+    "shape": [
+      1,
+      2304,
+      64
+    ],
+    "dtype": "torch.bfloat16",
+    "timestep": 499.8421936035156
+  },
+  "relative_step_size": 0.0005,
+  "blocks": {
+    "18": {
+      "block_index": 18,
+      "layout_optimized": "layout_b",
+      "initial_layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "mass_ratio": 0.8651946783065796,
+            "energy": 0.018172474578022957
+          },
+          "cup": {
+            "region": "right",
+            "mass_ratio": 0.8065332174301147,
+            "energy": 0.03742939606308937
+          }
+        },
+        "total_energy": 0.05560187250375748
+      },
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.13480530679225922,
+            "energy": 0.7485618591308594
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.19346678256988525,
+            "energy": 0.6504958271980286
+          }
+        },
+        "total_energy": 1.3990576267242432
+      },
+      "stage3_objective_match_within_1e-5": true,
+      "latent_requires_grad": true,
+      "latent_is_leaf": true,
+      "gradient_is_none": false,
+      "gradient_nonzero_count": 147456,
+      "gradient_element_count": 147456,
+      "gradient_is_nonzero": true,
+      "gradient_is_finite": true,
+      "gradient_norm_l2": 0.06370862573385239,
+      "gradient_abs_max": 0.004058837890625,
+      "gradient_abs_mean": 9.248610876966268e-05,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "single_update": {
+        "relative_step_size": 0.0005,
+        "effective_eta": 2.4140985012054443,
+        "desired_update_norm": 0.1537988930940628,
+        "actual_bf16_update_norm": 0.12125755101442337,
+        "actual_relative_update_norm": 0.0003942081530112773,
+        "objective_before": 1.3990576267242432,
+        "objective_after": 1.3952080011367798,
+        "objective_delta_after_minus_before": -0.003849625587463379,
+        "objective_decreased": true,
+        "updated_layout_b": {
+          "objects": {
+            "apple": {
+              "region": "right",
+              "mass_ratio": 0.13642917573451996,
+              "energy": 0.7457545399665833
+            },
+            "cup": {
+              "region": "left",
+              "mass_ratio": 0.19411326944828033,
+              "energy": 0.6494534611701965
+            }
+          },
+          "total_energy": 1.3952080011367798
+        }
+      },
+      "validation_passed": true,
+      "runtime_seconds": 13.573280735872686,
+      "peak_cuda_allocated_mib": 2004.13330078125,
+      "peak_cuda_reserved_mib": 2138.0
+    },
+    "9": {
+      "block_index": 9,
+      "layout_optimized": "layout_b",
+      "initial_layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "mass_ratio": 0.8600573539733887,
+            "energy": 0.019583944231271744
+          },
+          "cup": {
+            "region": "right",
+            "mass_ratio": 0.7756174206733704,
+            "energy": 0.05034754052758217
+          }
+        },
+        "total_energy": 0.06993148475885391
+      },
+      "initial_layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.13994275033473969,
+            "energy": 0.7396984696388245
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.22438251972198486,
+            "energy": 0.6015824675559998
+          }
+        },
+        "total_energy": 1.3412809371948242
+      },
+      "stage3_objective_match_within_1e-5": true,
+      "latent_requires_grad": true,
+      "latent_is_leaf": true,
+      "gradient_is_none": false,
+      "gradient_nonzero_count": 147456,
+      "gradient_element_count": 147456,
+      "gradient_is_nonzero": true,
+      "gradient_is_finite": true,
+      "gradient_norm_l2": 0.037479035556316376,
+      "gradient_abs_max": 0.00154876708984375,
+      "gradient_abs_mean": 6.69663495500572e-05,
+      "model_parameter_grad_count": 0,
+      "model_parameters_with_grad": [],
+      "single_update": {
+        "relative_step_size": 0.0005,
+        "effective_eta": 4.103598117828369,
+        "desired_update_norm": 0.1537988930940628,
+        "actual_bf16_update_norm": 0.1069720908999443,
+        "actual_relative_update_norm": 0.0003477661230135709,
+        "objective_before": 1.3412809371948242,
+        "objective_after": 1.3392348289489746,
+        "objective_delta_after_minus_before": -0.0020461082458496094,
+        "objective_decreased": true,
+        "updated_layout_b": {
+          "objects": {
+            "apple": {
+              "region": "right",
+              "mass_ratio": 0.14090506732463837,
+              "energy": 0.7380440831184387
+            },
+            "cup": {
+              "region": "left",
+              "mass_ratio": 0.22463513910770416,
+              "energy": 0.6011906862258911
+            }
+          },
+          "total_energy": 1.3392348289489746
+        }
+      },
+      "validation_passed": true,
+      "runtime_seconds": 9.9888289058581,
+      "peak_cuda_allocated_mib": 1850.63330078125,
+      "peak_cuda_reserved_mib": 1980.0
+    }
+  },
+  "all_blocks_passed": true,
+  "total_runtime_seconds_including_load_and_state_preparation": 28.19836348760873,
+  "peak_cuda_allocated_mib_overall": 2004.13330078125,
+  "peak_cuda_reserved_mib_overall": 2138.0
+}
