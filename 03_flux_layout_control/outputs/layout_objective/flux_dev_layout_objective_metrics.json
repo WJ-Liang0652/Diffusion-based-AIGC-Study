@@ -1,0 +1,482 @@
+{
+  "stage": "Stage 3 - dev layout objective",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "probe_denoising_index": 35,
+  "probe_timestep": 499.8421936035156,
+  "selected_double_blocks": [
+    18,
+    9
+  ],
+  "attention_definition": "native joint-normalized P(target text-key span | image query)",
+  "equation": "E(A,B,i) = (1 - sum_{u in B} A[u,i] / sum_u A[u,i])^2",
+  "target_spans": {
+    "apple": {
+      "character_span": [
+        6,
+        11
+      ],
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        8947
+      ],
+      "token_pieces": [
+        "\u2581apple"
+      ],
+      "decoded_span": "apple",
+      "is_single_token": true
+    },
+    "cup": {
+      "character_span": [
+        23,
+        26
+      ],
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4119
+      ],
+      "token_pieces": [
+        "\u2581cup"
+      ],
+      "decoded_span": "cup",
+      "is_single_token": true
+    }
+  },
+  "t5_non_padding_token_sequence": [
+    {
+      "index": 0,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 2,
+      "id": 1131,
+      "token": "\u2581red",
+      "character_offset": [
+        1,
+        5
+      ]
+    },
+    {
+      "index": 3,
+      "id": 8947,
+      "token": "\u2581apple",
+      "character_offset": [
+        5,
+        11
+      ]
+    },
+    {
+      "index": 4,
+      "id": 11,
+      "token": "\u2581and",
+      "character_offset": [
+        11,
+        15
+      ]
+    },
+    {
+      "index": 5,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        15,
+        16
+      ]
+    },
+    {
+      "index": 6,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        16,
+        17
+      ]
+    },
+    {
+      "index": 7,
+      "id": 1692,
+      "token": "\u2581blue",
+      "character_offset": [
+        17,
+        22
+      ]
+    },
+    {
+      "index": 8,
+      "id": 4119,
+      "token": "\u2581cup",
+      "character_offset": [
+        22,
+        26
+      ]
+    },
+    {
+      "index": 9,
+      "id": 6,
+      "token": ",",
+      "character_offset": [
+        26,
+        27
+      ]
+    },
+    {
+      "index": 10,
+      "id": 9555,
+      "token": "\u2581realistic",
+      "character_offset": [
+        27,
+        37
+      ]
+    },
+    {
+      "index": 11,
+      "id": 1202,
+      "token": "\u2581photo",
+      "character_offset": [
+        37,
+        43
+      ]
+    },
+    {
+      "index": 12,
+      "id": 1,
+      "token": "</s>",
+      "character_offset": [
+        0,
+        0
+      ]
+    }
+  ],
+  "grid_shape": [
+    48,
+    48
+  ],
+  "normalized_regions": {
+    "left": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "right": [
+      0.5,
+      0.0,
+      1.0,
+      1.0
+    ]
+  },
+  "layouts": {
+    "layout_a": {
+      "apple": "left",
+      "cup": "right"
+    },
+    "layout_b": {
+      "apple": "right",
+      "cup": "left"
+    }
+  },
+  "region_validation": {
+    "regions": {
+      "left": {
+        "normalized_bbox_xyxy": [
+          0.0,
+          0.0,
+          0.5,
+          1.0
+        ],
+        "grid_bbox_xyxy": [
+          0,
+          0,
+          24,
+          48
+        ],
+        "token_count": 1152
+      },
+      "right": {
+        "normalized_bbox_xyxy": [
+          0.5,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "grid_bbox_xyxy": [
+          24,
+          0,
+          48,
+          48
+        ],
+        "token_count": 1152
+      }
+    },
+    "partition_48x48_exactly_once": true
+  },
+  "blocks": {
+    "18": {
+      "block_index": 18,
+      "qk_metadata": {
+        "base_processor": "FluxAttnProcessor2_0",
+        "stream": "double",
+        "block_index": 18,
+        "heads": 24,
+        "head_dim": 128,
+        "text_tokens": 512,
+        "image_tokens": 2304,
+        "joint_tokens": 2816,
+        "joint_qk_shape": [
+          1,
+          24,
+          2816,
+          128
+        ],
+        "projection_organization": "separate text added-QK and image QK, concatenated [text,image]",
+        "full_joint_probability_bf16_mib": 363.0,
+        "key_chunk_size": 128,
+        "attention_direction": "image query -> text key",
+        "target_aggregation": "sum over target token span, then mean over heads"
+      },
+      "layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 14.210961573091481,
+            "in_box_attention_mass": 12.29524858060904,
+            "in_box_attention_mass_ratio": 0.8651946961766577,
+            "energy": 0.018172469938903632
+          },
+          "cup": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 7.325343013937527,
+            "in_box_attention_mass": 5.908132447140815,
+            "in_box_attention_mass_ratio": 0.8065332143354567,
+            "energy": 0.03742939715537035
+          }
+        },
+        "total_energy": 0.055601867094273984
+      },
+      "layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 14.210961573091481,
+            "in_box_attention_mass": 1.9157129924824403,
+            "in_box_attention_mass_ratio": 0.13480530382334235,
+            "energy": 0.748561862292219
+          },
+          "cup": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 7.325343013937527,
+            "in_box_attention_mass": 1.4172105667967116,
+            "in_box_attention_mass_ratio": 0.19346678566454337,
+            "energy": 0.6504958258262836
+          }
+        },
+        "total_energy": 1.3990576881185026
+      },
+      "comparison": {
+        "layout_a_lower_than_layout_b": true,
+        "energy_margin_b_minus_a": 1.3434558210242287,
+        "energy_ratio_b_over_a": 25.162063096664987,
+        "all_object_metrics_finite": true
+      }
+    },
+    "9": {
+      "block_index": 9,
+      "qk_metadata": {
+        "base_processor": "FluxAttnProcessor2_0",
+        "stream": "double",
+        "block_index": 9,
+        "heads": 24,
+        "head_dim": 128,
+        "text_tokens": 512,
+        "image_tokens": 2304,
+        "joint_tokens": 2816,
+        "joint_qk_shape": [
+          1,
+          24,
+          2816,
+          128
+        ],
+        "projection_organization": "separate text added-QK and image QK, concatenated [text,image]",
+        "full_joint_probability_bf16_mib": 363.0,
+        "key_chunk_size": 128,
+        "attention_direction": "image query -> text key",
+        "target_aggregation": "sum over target token span, then mean over heads"
+      },
+      "layout_a": {
+        "objects": {
+          "apple": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 4.355718049263487,
+            "in_box_attention_mass": 3.7461669447357053,
+            "in_box_attention_mass_ratio": 0.8600572632035144,
+            "energy": 0.01958396958209045
+          },
+          "cup": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 3.5277836549212225,
+            "in_box_attention_mass": 2.7362106093933107,
+            "in_box_attention_mass_ratio": 0.7756174632694169,
+            "energy": 0.050347522789651454
+          }
+        },
+        "total_energy": 0.0699314923717419
+      },
+      "layout_b": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "normalized_bbox_xyxy": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              24,
+              0,
+              48,
+              48
+            ],
+            "total_attention_mass": 4.355718049263487,
+            "in_box_attention_mass": 0.6095511045277817,
+            "in_box_attention_mass_ratio": 0.13994273679648556,
+            "energy": 0.7396984959891192
+          },
+          "cup": {
+            "region": "left",
+            "normalized_bbox_xyxy": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ],
+            "grid_bbox_xyxy": [
+              0,
+              0,
+              24,
+              48
+            ],
+            "total_attention_mass": 3.5277836549212225,
+            "in_box_attention_mass": 0.7915730455279117,
+            "in_box_attention_mass_ratio": 0.22438253673058306,
+            "energy": 0.6015824493284854
+          }
+        },
+        "total_energy": 1.3412809453176044
+      },
+      "comparison": {
+        "layout_a_lower_than_layout_b": true,
+        "energy_margin_b_minus_a": 1.2713494529458624,
+        "energy_ratio_b_over_a": 19.17992738075175,
+        "all_object_metrics_finite": true
+      }
+    }
+  },
+  "objective_validation_passed": true,
+  "visualization_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/layout_objective/flux_dev_layout_objective_joint_maps.png",
+  "runtime_seconds": 235.84956601355225,
+  "peak_cuda_allocated_mib": 1383.83349609375,
+  "peak_cuda_reserved_mib": 1392.0,
+  "generation_pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+  "baseline_pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+  "probe_non_invasive": true
+}
