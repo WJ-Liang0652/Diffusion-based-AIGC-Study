@@ -1,0 +1,494 @@
+{
+  "stage": "Stage 6B - dev sparse multi-timestep Backward Guidance MVP",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "block_index": 18,
+  "layout_optimized": {
+    "apple": "right",
+    "cup": "left"
+  },
+  "schedule_indices": [
+    20,
+    28,
+    35
+  ],
+  "k_per_intervention": 1,
+  "relative_step_size_per_intervention": 0.005,
+  "update_definition": "x_new = x - relative_step * ||x||_2/||g||_2 * g",
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/baseline/flux_dev_baseline_seed-42_steps-50.png",
+    "pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+    "matches_stage1_image_exactly": true,
+    "replay": {
+      "performed": true,
+      "final_latent_exact_match": true,
+      "image_exact_match": true,
+      "runtime_seconds": 225.56299506500363
+    }
+  },
+  "interventions": [
+    {
+      "denoising_index": 20,
+      "timestep": 777.668701171875,
+      "k_at_timestep": 1,
+      "pre_update_spatial_signal": {
+        "objects": {
+          "apple": {
+            "all_finite": true,
+            "total_attention_mass": 19.827117919921875,
+            "observed_box_xyxy": [
+              6,
+              23,
+              25,
+              44
+            ],
+            "observed_box_mass_ratio": 0.6178562641143799,
+            "observed_box_enrichment_over_uniform": 3.567771510074013,
+            "attention_centroid_xy": [
+              15.784774863337384,
+              26.796903588713526
+            ]
+          },
+          "cup": {
+            "all_finite": true,
+            "total_attention_mass": 10.578814506530762,
+            "observed_box_xyxy": [
+              25,
+              20,
+              48,
+              44
+            ],
+            "observed_box_mass_ratio": 0.7157307267189026,
+            "observed_box_enrichment_over_uniform": 2.987397815870202,
+            "attention_centroid_xy": [
+              31.333383150611773,
+              26.46525673938965
+            ]
+          }
+        },
+        "apple_cup_centroid_x_separation": 15.548608287274389,
+        "thresholds": {
+          "minimum_observed_box_enrichment": 1.1,
+          "minimum_centroid_x_separation": 1.0
+        },
+        "spatially_meaningful": true
+      },
+      "objective_before": 1.4422253370285034,
+      "objective_after": 1.378211498260498,
+      "objective_delta": -0.06401383876800537,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.04062921926379204,
+      "gradient_abs_max": 0.0012054443359375,
+      "gradient_abs_mean": 6.941681203898042e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 38.7708625793457,
+      "actual_bf16_update_norm": 1.61021888256073,
+      "actual_relative_update_norm": 0.0051110596396028996,
+      "attention_movement": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "target_mass_before": 0.14490510523319244,
+            "target_mass_after": 0.16562677919864655,
+            "target_mass_delta": 0.0207216739654541,
+            "center_of_mass_before_xy": [
+              15.784774863337384,
+              26.796903588713526
+            ],
+            "center_of_mass_after_xy": [
+              16.203372791176072,
+              26.53673581347507
+            ],
+            "center_of_mass_delta_xy": [
+              0.41859792783868777,
+              -0.26016777523845747
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          },
+          "cup": {
+            "target_region": "left",
+            "target_mass_before": 0.1567693054676056,
+            "target_mass_after": 0.17414726316928864,
+            "target_mass_delta": 0.017377957701683044,
+            "center_of_mass_before_xy": [
+              31.333383150611773,
+              26.46525673938965
+            ],
+            "center_of_mass_after_xy": [
+              31.122936190380436,
+              26.203057272961694
+            ],
+            "center_of_mass_delta_xy": [
+              -0.21044696023133724,
+              -0.2621994664279548
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          }
+        },
+        "both_attention_maps_move_toward_target": true
+      }
+    },
+    {
+      "denoising_index": 28,
+      "timestep": 646.9146728515625,
+      "k_at_timestep": 1,
+      "pre_update_spatial_signal": {
+        "objects": {
+          "apple": {
+            "all_finite": true,
+            "total_attention_mass": 18.842485427856445,
+            "observed_box_xyxy": [
+              6,
+              23,
+              25,
+              44
+            ],
+            "observed_box_mass_ratio": 0.664866030216217,
+            "observed_box_enrichment_over_uniform": 3.839226400045524,
+            "attention_centroid_xy": [
+              15.886747186410968,
+              28.031882669169136
+            ]
+          },
+          "cup": {
+            "all_finite": true,
+            "total_attention_mass": 8.5549955368042,
+            "observed_box_xyxy": [
+              25,
+              20,
+              48,
+              44
+            ],
+            "observed_box_mass_ratio": 0.7115359306335449,
+            "observed_box_enrichment_over_uniform": 2.969889101774796,
+            "attention_centroid_xy": [
+              30.56198790129789,
+              26.76938250890499
+            ]
+          }
+        },
+        "apple_cup_centroid_x_separation": 14.675240714886922,
+        "thresholds": {
+          "minimum_observed_box_enrichment": 1.1,
+          "minimum_centroid_x_separation": 1.0
+        },
+        "spatially_meaningful": true
+      },
+      "objective_before": 1.3953548669815063,
+      "objective_after": 1.329977035522461,
+      "objective_delta": -0.06537783145904541,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.046242594718933105,
+      "gradient_abs_max": 0.0019989013671875,
+      "gradient_abs_mean": 7.71924969740212e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 32.395362854003906,
+      "actual_bf16_update_norm": 1.5341025590896606,
+      "actual_relative_update_norm": 0.005120346322655678,
+      "attention_movement": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "target_mass_before": 0.14792725443840027,
+            "target_mass_after": 0.1704789102077484,
+            "target_mass_delta": 0.022551655769348145,
+            "center_of_mass_before_xy": [
+              15.886747186410968,
+              28.031882669169136
+            ],
+            "center_of_mass_after_xy": [
+              16.322863413607163,
+              27.703307710433528
+            ],
+            "center_of_mass_delta_xy": [
+              0.4361162271961945,
+              -0.32857495873560794
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          },
+          "cup": {
+            "target_region": "left",
+            "target_mass_before": 0.18187592923641205,
+            "target_mass_after": 0.1988309770822525,
+            "target_mass_delta": 0.016955047845840454,
+            "center_of_mass_before_xy": [
+              30.56198790129789,
+              26.76938250890499
+            ],
+            "center_of_mass_after_xy": [
+              30.224044869178215,
+              26.5935350470175
+            ],
+            "center_of_mass_delta_xy": [
+              -0.337943032119675,
+              -0.17584746188748923
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          }
+        },
+        "both_attention_maps_move_toward_target": true
+      }
+    },
+    {
+      "denoising_index": 35,
+      "timestep": 499.8421936035156,
+      "k_at_timestep": 1,
+      "pre_update_spatial_signal": {
+        "objects": {
+          "apple": {
+            "all_finite": true,
+            "total_attention_mass": 13.78011703491211,
+            "observed_box_xyxy": [
+              6,
+              23,
+              25,
+              44
+            ],
+            "observed_box_mass_ratio": 0.6742029786109924,
+            "observed_box_enrichment_over_uniform": 3.8931420118288886,
+            "attention_centroid_xy": [
+              15.940340285026203,
+              28.358705387365724
+            ]
+          },
+          "cup": {
+            "all_finite": true,
+            "total_attention_mass": 7.183994770050049,
+            "observed_box_xyxy": [
+              25,
+              20,
+              48,
+              44
+            ],
+            "observed_box_mass_ratio": 0.7069175243377686,
+            "observed_box_enrichment_over_uniform": 2.950612275496773,
+            "attention_centroid_xy": [
+              29.8155795202495,
+              27.377737321265926
+            ]
+          }
+        },
+        "apple_cup_centroid_x_separation": 13.875239235223297,
+        "thresholds": {
+          "minimum_observed_box_enrichment": 1.1,
+          "minimum_centroid_x_separation": 1.0
+        },
+        "spatially_meaningful": true
+      },
+      "objective_before": 1.346408486366272,
+      "objective_after": 1.2654392719268799,
+      "objective_delta": -0.08096921443939209,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.06088234484195709,
+      "gradient_abs_max": 0.00274658203125,
+      "gradient_abs_mean": 9.35484204092063e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 25.259836196899414,
+      "actual_bf16_update_norm": 1.5689753293991089,
+      "actual_relative_update_norm": 0.005101104266941547,
+      "attention_movement": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "target_mass_before": 0.1554618626832962,
+            "target_mass_after": 0.18246246874332428,
+            "target_mass_delta": 0.027000606060028076,
+            "center_of_mass_before_xy": [
+              15.940340285026203,
+              28.358705387365724
+            ],
+            "center_of_mass_after_xy": [
+              16.49108266814623,
+              28.167992046560563
+            ],
+            "center_of_mass_delta_xy": [
+              0.5507423831200278,
+              -0.19071334080516067
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          },
+          "cup": {
+            "target_region": "left",
+            "target_mass_before": 0.20428404211997986,
+            "target_mass_after": 0.22729584574699402,
+            "target_mass_delta": 0.02301180362701416,
+            "center_of_mass_before_xy": [
+              29.8155795202495,
+              27.377737321265926
+            ],
+            "center_of_mass_after_xy": [
+              29.37197495283498,
+              27.218186144149186
+            ],
+            "center_of_mass_delta_xy": [
+              -0.44360456741452126,
+              -0.1595511771167395
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          }
+        },
+        "both_attention_maps_move_toward_target": true
+      }
+    }
+  ],
+  "all_interventions_stable": true,
+  "guided": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/multi_timestep_guidance/flux_dev_multi_timestep_indices-20-28-35_rel-0p005.png",
+    "pixel_sha256": "88f6dc004ceb6420362d54a489263140d44d2f93515b8e5e0816e0a41343de64",
+    "pixel_difference_vs_baseline": {
+      "pixel_exact_match": false,
+      "max_absolute_pixel_difference": 124.0,
+      "mean_absolute_pixel_difference": 0.6547156572341919,
+      "rmse": 1.7416561841964722,
+      "changed_pixel_fraction": 0.7044999864366319,
+      "mean_signed_rgb_difference": [
+        -0.01335822232067585,
+        0.014926486648619175,
+        -0.0338134765625
+      ]
+    },
+    "color_centroid_changes_vs_baseline": {
+      "apple_red_proxy": {
+        "baseline_centroid_xy_pixels": [
+          240.51670925143566,
+          504.32085304460014
+        ],
+        "guided_centroid_xy_pixels": [
+          240.56369823011096,
+          504.5132932124629
+        ],
+        "delta_xy_pixels": [
+          0.046988978675301496,
+          0.19244016786274187
+        ],
+        "baseline_pixel_count": 39529,
+        "guided_pixel_count": 39381
+      },
+      "cup_blue_proxy": {
+        "baseline_centroid_xy_pixels": [
+          579.5396840134317,
+          496.3089921544961
+        ],
+        "guided_centroid_xy_pixels": [
+          579.4075608813297,
+          496.32530344027833
+        ],
+        "delta_xy_pixels": [
+          -0.13212313210203774,
+          0.01631128578225116
+        ],
+        "baseline_pixel_count": 64623,
+        "guided_pixel_count": 64675
+      }
+    },
+    "final_packed_latent_l2_difference_vs_baseline": 30.560136795043945
+  },
+  "comparison_with_stage6a_k5": {
+    "stage6a_image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux_dev_inner_loop_k-5_rel-0p005_seed-42_steps-50.png",
+    "stage6a_objective_at_index35_after_k5": 0.9943162202835083,
+    "pixel_difference_multi_vs_stage6a_k5": {
+      "pixel_exact_match": false,
+      "max_absolute_pixel_difference": 115.0,
+      "mean_absolute_pixel_difference": 0.7478366494178772,
+      "rmse": 1.915021300315857,
+      "changed_pixel_fraction": 0.7134670681423612,
+      "mean_signed_rgb_difference": [
+        0.0531548410654068,
+        0.01705254428088665,
+        -0.008514404296875
+      ]
+    },
+    "stage6a_color_centroid_changes_vs_baseline": {
+      "apple_red_proxy": {
+        "baseline_centroid_xy_pixels": [
+          240.51670925143566,
+          504.32085304460014
+        ],
+        "guided_centroid_xy_pixels": [
+          240.454623655914,
+          504.6699557242252
+        ],
+        "delta_xy_pixels": [
+          -0.06208559552166548,
+          0.34910267962504804
+        ],
+        "baseline_pixel_count": 39529,
+        "guided_pixel_count": 39525
+      },
+      "cup_blue_proxy": {
+        "baseline_centroid_xy_pixels": [
+          579.5396840134317,
+          496.3089921544961
+        ],
+        "guided_centroid_xy_pixels": [
+          579.5629829206732,
+          496.26205850017806
+        ],
+        "delta_xy_pixels": [
+          0.023298907241496636,
+          -0.046933654318024765
+        ],
+        "baseline_pixel_count": 64623,
+        "guided_pixel_count": 64581
+      }
+    },
+    "multi_color_centroid_changes_vs_baseline": {
+      "apple_red_proxy": {
+        "baseline_centroid_xy_pixels": [
+          240.51670925143566,
+          504.32085304460014
+        ],
+        "guided_centroid_xy_pixels": [
+          240.56369823011096,
+          504.5132932124629
+        ],
+        "delta_xy_pixels": [
+          0.046988978675301496,
+          0.19244016786274187
+        ],
+        "baseline_pixel_count": 39529,
+        "guided_pixel_count": 39381
+      },
+      "cup_blue_proxy": {
+        "baseline_centroid_xy_pixels": [
+          579.5396840134317,
+          496.3089921544961
+        ],
+        "guided_centroid_xy_pixels": [
+          579.4075608813297,
+          496.32530344027833
+        ],
+        "delta_xy_pixels": [
+          -0.13212313210203774,
+          0.01631128578225116
+        ],
+        "baseline_pixel_count": 64623,
+        "guided_pixel_count": 64675
+      }
+    }
+  },
+  "manual_visual_assessment": "No visible apple/cup relocation versus the exact baseline or Stage 6A K=5. Object geometry is effectively unchanged; differences are local appearance/texture perturbations. This is the best stable Stage 6B schedule because both final color-proxy x shifts retain the requested directions, but their magnitudes are only apple +0.047 px and cup -0.132 px.",
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/multi_timestep_guidance/flux_dev_multi_timestep_indices-20-28-35_rel-0p005_comparison.png",
+  "guided_runtime_seconds": 231.53541551809758,
+  "total_runtime_seconds_including_load": 462.5862229540944,
+  "peak_cuda_allocated_mib": 2003.9150390625,
+  "peak_cuda_reserved_mib": 2146.0
+}

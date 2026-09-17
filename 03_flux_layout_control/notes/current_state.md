@@ -65,6 +65,45 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - Final-image geometry remains visually unchanged at K=1/3/5. Color-proxy x shifts are tiny and not consistently directional; K=3 is apple `+0.0575 px`, cup `-0.0145 px`, while K=5 reverses to apple `-0.0621 px`, cup `+0.0233 px`.
 - K=5 is the strongest stable objective/attention configuration, but it is not successful visible layout control. More same-timestep inner iterations are not currently justified. Peak CUDA allocation was `2004.48 MiB`; no OOM occurred.
 
+
+### Stage 6B — dev sparse multi-timestep Backward Guidance MVP
+
+- Added `src/17_flux_dev_multi_timestep_guidance.py`; it replays the Stage 1 initial latent, applies one fresh block-18 Layout-B update per selected timestep at `relative_step=0.005`, and stops on failed spatial gating, non-finite gradients, parameter gradients, or a non-descending update.
+- Tested only two three-point schedules: indices `20/28/35` (`t=777.669/646.915/499.842`) and the one allowed earlier alternative `12/24/35` (`t=880.728/716.407/499.842`), always K=1 per intervention. The first run independently reproduced the Stage 1 final latent and image exactly.
+- Every new earlier signal was finite and spatially meaningful: observed-box enrichment remained `2.922x–3.839x`, and apple/cup attention centroids stayed separated by `14.675–16.687` image tokens. All six gradients were finite, no model parameter accumulated gradients, and peak CUDA allocation remained `2004.42 MiB` or lower.
+- All interventions lowered Layout-B energy and moved attention in the requested direction. For `20/28/35`, energy changes were `1.4422→1.3782`, `1.3954→1.3300`, and `1.3464→1.2654`; apple/cup centroid-x deltas were `+0.419/-0.210`, `+0.436/-0.338`, and `+0.551/-0.444` tokens. For `12/24/35`, the corresponding energy changes were `1.5237→1.4573`, `1.4176→1.3530`, and `1.3685→1.2893`; centroid-x deltas were `+0.505/-0.281`, `+0.427/-0.287`, and `+0.512/-0.425` tokens.
+- Neither schedule produces visible apple/cup relocation or a stronger geometric change than Stage 6A K=5. Final color-proxy x shifts are `+0.047/-0.132 px` for `20/28/35` and `+0.237/+0.139 px` for `12/24/35`; the earlier schedule mainly increases local appearance differences and loses joint final-direction consistency.
+- `20/28/35` is the best stable Stage 6B configuration, but it fails the visible-layout success criterion. A full strength/timestep/block hyperparameter sweep is not justified with the current objective-to-latent intervention; the next work should first test why strong attention movement does not propagate to geometry.
+
+
+### Stage 6C — paper-aligned FLUX Backward Guidance MVP
+
+- Added `src/18_flux_dev_paper_aligned_guidance.py`. Stage 1–4 remain unchanged, and Stage 5–6B remain diagnostic history. The implementation keeps Eq. (2) and Layout B but replaces per-update norm normalization with the author-code-style practical update `x_t ← x_t - eta * sigma_t^2 * grad(E)` using the native FlowMatch sigma sequence.
+- Eta was calibrated once from the validated Stage 6A index-35 update: `sigma_35=0.499842`, Stage 6A gradient coefficient `24.139091`, hence fixed `eta=24.139091/sigma_35^2=96.617341`. This reconstructs relative update `0.005` from the saved index-35 norms; eta is never recalibrated during sampling.
+- Guided only indices `0–9` (`sigma=1.000000→0.913963`) with Double block 18, at most K=5, and Eq. (2) threshold `0.2`. Every step stopped after K=1 because the first index-0 update reduced energy below threshold and later steps entered below threshold. All updates were finite and descending, no model parameter accumulated gradients, and peak CUDA allocation was `2004.41 MiB`.
+- Index 0 is the decisive intervention: energy `0.852478→0.153076`, relative update `0.030921`, apple centroid-x `19.813→29.514`, and cup centroid-x `27.341→18.506`. Across indices 1–9, energy remains low (`0.092347→0.070315` at index 1 and `0.027374→0.026347` at index 9), relative update decays `0.004803→0.000901`, and final attention centroids stabilize near apple `x=31.948`, cup `x=12.035`.
+- The final image shows a clear object-level Layout-B swap: the blue cup relocates from right to left and the red apple relocates from left to right. Color-proxy x shifts are apple `+321.49 px` and cup `-425.65 px`. This is genuine geometry/layout relocation, with a material fidelity cost: objects enlarge, the cup shape/handle is simplified, and composition/background/lighting change.
+- Because block 18 already produced stable visible relocation, the conditional blocks 9+18 control was not run. The paper-aligned FLUX Backward Guidance MVP is complete for this fixed prompt/seed/layout, but multi-seed repeatability, fidelity/control tradeoff, and method-level ablations remain open.
+
+### Stage 6D — Backward Guidance strength stabilization
+
+- Kept the successful Stage 6C configuration fixed (FLUX.1-dev, block 18, Layout B, indices 0–9, sigma-squared update, K<=5/threshold 0.2, seed/prompt/initial latent) and tested only eta scales `0.5` and `0.25` against the existing `1.0`; eta values are `96.617341 / 48.308670 / 24.154335`.
+- All updates were finite and descending with zero model-parameter gradients. Index 0 used `1 / 2 / 4` inner updates for `1.0 / 0.5 / 0.25`; its relative-update sequences were `0.030921`, `0.015519 -> 0.007964`, and `0.007853 -> 0.006635 -> 0.004438 -> 0.002877`. Later per-step updates remained smaller. Peak CUDA allocation was unchanged at `2004.41 MiB`; guided runtimes were `262.83 / 302.85 / 334.95 s`.
+- All three strengths visibly swap the apple to the right and cup to the left. Final block-18 centroid x positions at index 9 are apple/cup `31.948/12.035`, `31.172/13.997`, and `31.320/15.142`; color-proxy x shifts remain strongly directional.
+- Fidelity ranks `0.25 > 0.5 > 1.0`: pixel MAE/RMSE versus baseline are `61.98/77.90`, `66.71/82.55`, and `94.89/110.97`, and the lower strengths preserve apple shape/scale and realism better. However, even `0.25` changes the background/composition and turns the original handled ceramic cup into a handleless tall cup, so fidelity is improved but not fully preserved.
+- `eta=24.154335` (`0.25x`) was the smallest Stage 6D strength retaining clear relocation, but it is now provisional rather than a final frozen configuration: Stage 6E shows target-region geometry materially affects fidelity. Summary: `outputs/paper_aligned_guidance/flux_dev_stage6d_strength_summary.json`; visual grid: `outputs/paper_aligned_guidance/flux_dev_stage6d_strength_comparison.jpg`.
+
+
+### Stage 6E — tight bounding-box layout control check
+
+- Read-only verification confirmed the original Layout A/B targets are exact half-planes on the 48x48 grid: left `[0,0,24,48)` and right `[24,0,48,48)`, mapping to image coordinates `[0,0,384,768)` and `[384,0,768,768)`, with 1152 tokens each. Layout B assigns apple-right and cup-left.
+- Kept Eq. (2), block 18, indices 0–9, sigma-squared update, K≤5/threshold 0.2, sampling configuration, seed, prompt, initial latent, and provisional `eta_scale=0.25` unchanged. Replaced only the half-plane targets with object-sized boxes derived from baseline annotations.
+- Baseline source boxes are apple `[6,23,25,44)` (19x21) and cup `[25,20,48,44)` (23x24). Tight swap targets preserve each object's own size and y extent while translating 21 tokens horizontally: apple `[27,23,46,44)` / image `[432,368,736,704)`; cup `[4,20,27,44)` / image `[64,320,432,704)`.
+- Objective decreases normally on every update. Indices 0/1/2 use K=5 and reduce total energy `1.4324→0.8370`, `0.7436→0.4474`, and `0.3725→0.2317`; indices 3–9 stop after K=1, ending at `0.1661`. Gradients are finite, model parameters remain gradient-free, runtime is `430.99 s`, and peak CUDA allocation is `2004.41 MiB`.
+- Final attention centroids are apple `(32.203,28.607)` and cup `(17.064,27.994)`, both inside their target boxes. Final box-inside ratios are apple `0.7389` and cup `0.6870`. Both objects visibly relocate.
+- Tight boxes materially improve extent fidelity versus Stage 6D 0.25x: pixel MAE/RMSE fall from `61.98/77.90` to `53.46/74.52`; apple shape and both object scales are visibly more reasonable. However, the cup still loses its handle and the indoor tabletop background changes to outdoor foliage. Broad half-regions were a major cause of scale inflation, but not the sole cause of identity/shape and background drift.
+- Do not freeze the Backward Guidance MVP yet, and do not treat `eta_scale=0.25` as final. Relocation and scale control pass, while cup identity and background preservation remain unresolved.
+
 ## Current key scripts
 
 - `src/09_flux_dev_baseline.py`: official dev baseline and saved initial/intermediate packed latents.
@@ -75,6 +114,9 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - `src/14_flux_dev_gradient_probe.py`: dev single-step latent-gradient validation.
 - `src/15_flux_dev_single_step_guidance.py`: dev single-intervention guidance and final-image comparison.
 - `src/16_flux_dev_inner_loop_guidance.py`: dev K=1/3/5 single-timestep inner-loop validation.
+- `src/17_flux_dev_multi_timestep_guidance.py`: dev sparse three-timestep K=1 guidance with pre-update spatial-signal gating.
+- `src/18_flux_dev_paper_aligned_guidance.py`: paper-aligned early FlowMatch sigma-squared Backward Guidance; Stage 6D adds isolated `--eta-scale` outputs while preserving the Stage 6C default.
+- `src/19_flux_dev_tight_bbox_guidance.py`: Stage 6E finite object-sized target boxes with the Stage 6D 0.25x sampling/guidance path unchanged.
 - `src/04_flux_schnell_layout_objective.py`: schnell layout-energy reference.
 - `src/05_flux_schnell_gradient_probe.py`: schnell gradient-stage reference.
 - `src/06_flux_schnell_single_step_guidance.py` and `08_flux_schnell_inner_loop_guidance.py`: later Backward Guidance references.
@@ -89,6 +131,10 @@ Key metrics:
 - `outputs/gradient_probe/flux_dev_gradient_probe_metrics.json`
 - `outputs/single_step_guidance/flux_dev_single_step_guidance_rel-{0p0005,0p005}_metrics.json`
 - `outputs/inner_loop_guidance/flux_dev_inner_loop_k-1-3-5_rel-0p005_metrics.json`
+- `outputs/multi_timestep_guidance/flux_dev_multi_timestep_indices-{20-28-35,12-24-35}_rel-0p005_metrics.json`
+- `outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18{,_eta-scale-0p5,_eta-scale-0p25}_metrics.json`
+- `outputs/paper_aligned_guidance/flux_dev_stage6d_strength_summary.json`
+- `outputs/tight_bbox_guidance/flux_dev_tight_bbox_block-18_eta-scale-0p25_metrics.json`
 
 ## Verified dev configuration
 
@@ -130,15 +176,10 @@ Use the Stage 1 saved initial latent for direct comparisons. Keep `local_files_o
 
   `E(A,B,i) = (1 - sum_{u in B} A[u,i] / sum_u A[u,i])^2`
 
-- Desired regions remain left `[0,0,0.5,1]` and right `[0.5,0,1,1]`; Layout A is apple-left/cup-right and Layout B is apple-right/cup-left.
+- Historical Stage 3–6D regions are broad halves: left `[0,0,0.5,1]` and right `[0.5,0,1,1]`. Stage 6E keeps Layout B semantics but uses recorded finite apple/cup target boxes; do not silently substitute one target definition for the other.
 - Later guidance must optimize only the packed latent. Freeze all model parameters; text encoders and VAE do not participate in backward.
 - Do not modify `site-packages`; use project-local processors/wrappers. Do not save all-head/all-block/all-timestep raw attention.
 
 ## Next and only next task
 
-Stage 6B: test a minimal multi-timestep `FLUX.1-dev` Backward Guidance run.
-
-- Keep Double block 18, Layout B, the unchanged objective, and normalized `relative_step=0.005` update; use one fresh update at each of a small fixed set of timesteps rather than more inner iterations at index 35.
-- Verify the spatial signal at every selected timestep, then complete normal denoising and compare against the exact baseline plus Stage 6A K=5.
-- Record per-timestep objective/attention changes, final geometry, runtime, and VRAM; visible position change remains the success criterion.
-- Do not perform a systematic timestep/strength sweep in the same stage.
+Stage 6E is complete. Do not start additional-seed testing or freeze `eta_scale=0.25` yet. The fixed example now passes relocation and finite-extent control but still fails cup identity/handle and background preservation; the next algorithmic fidelity intervention requires an explicit choice and is not authorized in this checkpoint.

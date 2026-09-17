@@ -1,0 +1,673 @@
+{
+  "stage": "Stage 6D - Backward Guidance strength stabilization",
+  "invariants": {
+    "model": "black-forest-labs/FLUX.1-dev",
+    "block": 18,
+    "layout": "B (apple right, cup left)",
+    "guided_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "update_equation": "x_t <- x_t - eta * sigma_t^2 * grad_x E",
+    "max_inner_updates_per_index": 5,
+    "objective_threshold": 0.2,
+    "seed": 42,
+    "prompt": "a red apple and a blue cup, realistic photo",
+    "initial_latent": "same saved Stage-1 initial packed latent"
+  },
+  "variants": {
+    "1.0": {
+      "eta": 96.61734058869797,
+      "metrics_path": "03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_metrics.json",
+      "guided_image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_guided.png",
+      "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_comparison.png",
+      "per_update_relative_norms": [
+        0.030920883640646935,
+        0.004802699666470289,
+        0.004176160786300898,
+        0.0019578731153160334,
+        0.0016971681034192443,
+        0.0015421805437654257,
+        0.0012037449050694704,
+        0.001093552797101438,
+        0.0009809695184230804,
+        0.0009008621564134955
+      ],
+      "objective_trajectory": [
+        {
+          "denoising_index": 0,
+          "inner_index": 0,
+          "before": 0.8524775505065918,
+          "after": 0.15307629108428955
+        },
+        {
+          "denoising_index": 1,
+          "inner_index": 0,
+          "before": 0.09234733879566193,
+          "after": 0.07031511515378952
+        },
+        {
+          "denoising_index": 2,
+          "inner_index": 0,
+          "before": 0.06207697093486786,
+          "after": 0.04446990042924881
+        },
+        {
+          "denoising_index": 3,
+          "inner_index": 0,
+          "before": 0.039165087044239044,
+          "after": 0.03436333313584328
+        },
+        {
+          "denoising_index": 4,
+          "inner_index": 0,
+          "before": 0.031861644238233566,
+          "after": 0.02821968123316765
+        },
+        {
+          "denoising_index": 5,
+          "inner_index": 0,
+          "before": 0.027632925659418106,
+          "after": 0.024789080023765564
+        },
+        {
+          "denoising_index": 6,
+          "inner_index": 0,
+          "before": 0.025434432551264763,
+          "after": 0.023724742233753204
+        },
+        {
+          "denoising_index": 7,
+          "inner_index": 0,
+          "before": 0.02577374130487442,
+          "after": 0.0243595689535141
+        },
+        {
+          "denoising_index": 8,
+          "inner_index": 0,
+          "before": 0.02574942819774151,
+          "after": 0.024546116590499878
+        },
+        {
+          "denoising_index": 9,
+          "inner_index": 0,
+          "before": 0.02737417072057724,
+          "after": 0.026346614584326744
+        }
+      ],
+      "attention_centroid_trajectory": [
+        {
+          "denoising_index": 0,
+          "apple_xy": [
+            29.514004875626185,
+            20.30231918709996
+          ],
+          "cup_xy": [
+            18.505696710546566,
+            24.256659594256902
+          ]
+        },
+        {
+          "denoising_index": 1,
+          "apple_xy": [
+            31.69163320159297,
+            20.795274284348046
+          ],
+          "cup_xy": [
+            16.10817075090383,
+            22.29139791635137
+          ]
+        },
+        {
+          "denoising_index": 2,
+          "apple_xy": [
+            31.660880794106724,
+            21.229373198555194
+          ],
+          "cup_xy": [
+            14.133018176630088,
+            22.03296900958213
+          ]
+        },
+        {
+          "denoising_index": 3,
+          "apple_xy": [
+            31.758289931443894,
+            21.68649977096297
+          ],
+          "cup_xy": [
+            13.099238297586258,
+            21.718826205215777
+          ]
+        },
+        {
+          "denoising_index": 4,
+          "apple_xy": [
+            32.03856146307098,
+            22.044163843488604
+          ],
+          "cup_xy": [
+            12.61566877885137,
+            21.53130918508758
+          ]
+        },
+        {
+          "denoising_index": 5,
+          "apple_xy": [
+            32.10457976394106,
+            21.94240508412992
+          ],
+          "cup_xy": [
+            12.307103230555011,
+            21.43424807054038
+          ]
+        },
+        {
+          "denoising_index": 6,
+          "apple_xy": [
+            32.067201266928464,
+            21.947458348849317
+          ],
+          "cup_xy": [
+            12.210957472351321,
+            21.440071193916165
+          ]
+        },
+        {
+          "denoising_index": 7,
+          "apple_xy": [
+            31.979090566287994,
+            21.86232750212782
+          ],
+          "cup_xy": [
+            12.156846236962041,
+            21.276466301195924
+          ]
+        },
+        {
+          "denoising_index": 8,
+          "apple_xy": [
+            31.949907047954884,
+            21.85895756880543
+          ],
+          "cup_xy": [
+            12.043957214960724,
+            21.152609603616174
+          ]
+        },
+        {
+          "denoising_index": 9,
+          "apple_xy": [
+            31.948074072133572,
+            21.858112311919616
+          ],
+          "cup_xy": [
+            12.035226805328357,
+            21.449192371127634
+          ]
+        }
+      ],
+      "pixel_mae_vs_baseline": 94.8866195678711,
+      "pixel_rmse_vs_baseline": 110.9661865234375,
+      "color_proxy_x_shift_pixels": {
+        "apple": 321.49021939121513,
+        "cup": -425.6545064272432
+      },
+      "guided_runtime_seconds": 262.83202338498086,
+      "peak_cuda_allocated_mib": 2004.4140625,
+      "all_updates_finite_and_descending": true,
+      "manual_visual_assessment": "Clear swap; strongest distortion: oversized objects, simplified handleless cup, large background/composition/lighting change."
+    },
+    "0.5": {
+      "eta": 48.308670294348985,
+      "metrics_path": "03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_eta-scale-0p5_metrics.json",
+      "guided_image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_eta-scale-0p5_guided.png",
+      "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_eta-scale-0p5_comparison.png",
+      "per_update_relative_norms": [
+        0.015518519096076488,
+        0.00796400848776102,
+        0.002032843418419361,
+        0.002120034769177437,
+        0.0015224089147523046,
+        0.0011491928016766906,
+        0.0009978624293580651,
+        0.0007214228971861303,
+        0.0006418518023565412,
+        0.0006046272465027869,
+        0.0005916034569963813
+      ],
+      "objective_trajectory": [
+        {
+          "denoising_index": 0,
+          "inner_index": 0,
+          "before": 0.8524775505065918,
+          "after": 0.30327630043029785
+        },
+        {
+          "denoising_index": 0,
+          "inner_index": 1,
+          "before": 0.30327630043029785,
+          "after": 0.18013565242290497
+        },
+        {
+          "denoising_index": 1,
+          "inner_index": 0,
+          "before": 0.08083067834377289,
+          "after": 0.07197429239749908
+        },
+        {
+          "denoising_index": 2,
+          "inner_index": 0,
+          "before": 0.06183716654777527,
+          "after": 0.05245480313897133
+        },
+        {
+          "denoising_index": 3,
+          "inner_index": 0,
+          "before": 0.04214327782392502,
+          "after": 0.03687991946935654
+        },
+        {
+          "denoising_index": 4,
+          "inner_index": 0,
+          "before": 0.03790048509836197,
+          "after": 0.03476313129067421
+        },
+        {
+          "denoising_index": 5,
+          "inner_index": 0,
+          "before": 0.03661229461431503,
+          "after": 0.03448808193206787
+        },
+        {
+          "denoising_index": 6,
+          "inner_index": 0,
+          "before": 0.034948885440826416,
+          "after": 0.03377971798181534
+        },
+        {
+          "denoising_index": 7,
+          "inner_index": 0,
+          "before": 0.03544723242521286,
+          "after": 0.03439744934439659
+        },
+        {
+          "denoising_index": 8,
+          "inner_index": 0,
+          "before": 0.036250147968530655,
+          "after": 0.035430654883384705
+        },
+        {
+          "denoising_index": 9,
+          "inner_index": 0,
+          "before": 0.03834889084100723,
+          "after": 0.0375702939927578
+        }
+      ],
+      "attention_centroid_trajectory": [
+        {
+          "denoising_index": 0,
+          "apple_xy": [
+            28.857842482350186,
+            20.313950338573882
+          ],
+          "cup_xy": [
+            19.433445960886456,
+            24.61295979268432
+          ]
+        },
+        {
+          "denoising_index": 1,
+          "apple_xy": [
+            31.674691302184904,
+            20.76476724907849
+          ],
+          "cup_xy": [
+            16.30541104035339,
+            22.65468946220803
+          ]
+        },
+        {
+          "denoising_index": 2,
+          "apple_xy": [
+            31.540694821820928,
+            21.037823289612525
+          ],
+          "cup_xy": [
+            15.314018231247498,
+            22.12438371846459
+          ]
+        },
+        {
+          "denoising_index": 3,
+          "apple_xy": [
+            31.637871653094447,
+            21.25790971130057
+          ],
+          "cup_xy": [
+            14.534662112695232,
+            23.195183262608644
+          ]
+        },
+        {
+          "denoising_index": 4,
+          "apple_xy": [
+            31.599918309734853,
+            21.207445105897506
+          ],
+          "cup_xy": [
+            14.41545090707123,
+            23.545437843821315
+          ]
+        },
+        {
+          "denoising_index": 5,
+          "apple_xy": [
+            31.54066240818146,
+            21.228942566841887
+          ],
+          "cup_xy": [
+            14.397222624785101,
+            23.56473643368332
+          ]
+        },
+        {
+          "denoising_index": 6,
+          "apple_xy": [
+            31.450647066492657,
+            21.372766015459906
+          ],
+          "cup_xy": [
+            14.288888071480256,
+            23.719397056592992
+          ]
+        },
+        {
+          "denoising_index": 7,
+          "apple_xy": [
+            31.358935552562016,
+            21.41897670327136
+          ],
+          "cup_xy": [
+            14.164394666680625,
+            23.729773065409006
+          ]
+        },
+        {
+          "denoising_index": 8,
+          "apple_xy": [
+            31.28181727403294,
+            21.607974034105514
+          ],
+          "cup_xy": [
+            14.044649292850082,
+            23.777665696297113
+          ]
+        },
+        {
+          "denoising_index": 9,
+          "apple_xy": [
+            31.171539976159,
+            21.72286021330528
+          ],
+          "cup_xy": [
+            13.997017559371294,
+            23.829998157093037
+          ]
+        }
+      ],
+      "pixel_mae_vs_baseline": 66.71049499511719,
+      "pixel_rmse_vs_baseline": 82.5503921508789,
+      "color_proxy_x_shift_pixels": {
+        "apple": 337.1827694845222,
+        "cup": -252.53126311177033
+      },
+      "guided_runtime_seconds": 302.85374376829714,
+      "peak_cuda_allocated_mib": 2004.4140625,
+      "all_updates_finite_and_descending": true,
+      "manual_visual_assessment": "Clear swap retained; apple shape/scale and overall realism improve over 1.0x, but cup remains handleless and background/composition change materially."
+    },
+    "0.25": {
+      "eta": 24.154335147174493,
+      "metrics_path": "03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_eta-scale-0p25_metrics.json",
+      "guided_image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_eta-scale-0p25_guided.png",
+      "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18_eta-scale-0p25_comparison.png",
+      "per_update_relative_norms": [
+        0.007852684706449509,
+        0.00663547171279788,
+        0.004379042889922857,
+        0.002876628190279007,
+        0.0007024529622867703,
+        0.0008801580406725407,
+        0.0005842444370500743,
+        0.0005973299848847091,
+        0.0005992293008603156,
+        0.0004629723553080112,
+        0.00035574837238527834,
+        0.0002946601598523557,
+        0.0002773171872831881
+      ],
+      "objective_trajectory": [
+        {
+          "denoising_index": 0,
+          "inner_index": 0,
+          "before": 0.8524775505065918,
+          "after": 0.524357795715332
+        },
+        {
+          "denoising_index": 0,
+          "inner_index": 1,
+          "before": 0.524357795715332,
+          "after": 0.3180811405181885
+        },
+        {
+          "denoising_index": 0,
+          "inner_index": 2,
+          "before": 0.3180811405181885,
+          "after": 0.23158049583435059
+        },
+        {
+          "denoising_index": 0,
+          "inner_index": 3,
+          "before": 0.23158049583435059,
+          "after": 0.19460488855838776
+        },
+        {
+          "denoising_index": 1,
+          "inner_index": 0,
+          "before": 0.07501386106014252,
+          "after": 0.07293082773685455
+        },
+        {
+          "denoising_index": 2,
+          "inner_index": 0,
+          "before": 0.06482335925102234,
+          "after": 0.061441101133823395
+        },
+        {
+          "denoising_index": 3,
+          "inner_index": 0,
+          "before": 0.045918792486190796,
+          "after": 0.044204697012901306
+        },
+        {
+          "denoising_index": 4,
+          "inner_index": 0,
+          "before": 0.04599880054593086,
+          "after": 0.0443817600607872
+        },
+        {
+          "denoising_index": 5,
+          "inner_index": 0,
+          "before": 0.047342292964458466,
+          "after": 0.04552338272333145
+        },
+        {
+          "denoising_index": 6,
+          "inner_index": 0,
+          "before": 0.044889017939567566,
+          "after": 0.04401564598083496
+        },
+        {
+          "denoising_index": 7,
+          "inner_index": 0,
+          "before": 0.04411570727825165,
+          "after": 0.04353614151477814
+        },
+        {
+          "denoising_index": 8,
+          "inner_index": 0,
+          "before": 0.04366499185562134,
+          "after": 0.043071139603853226
+        },
+        {
+          "denoising_index": 9,
+          "inner_index": 0,
+          "before": 0.04456007480621338,
+          "after": 0.044152311980724335
+        }
+      ],
+      "attention_centroid_trajectory": [
+        {
+          "denoising_index": 0,
+          "apple_xy": [
+            28.47739147920333,
+            20.3725387946468
+          ],
+          "cup_xy": [
+            19.754503728589746,
+            24.704856652805425
+          ]
+        },
+        {
+          "denoising_index": 1,
+          "apple_xy": [
+            31.630106802157623,
+            20.691507047284382
+          ],
+          "cup_xy": [
+            16.45707326303146,
+            22.965539047946613
+          ]
+        },
+        {
+          "denoising_index": 2,
+          "apple_xy": [
+            31.252486593689063,
+            20.779724068131046
+          ],
+          "cup_xy": [
+            16.0618781389571,
+            23.2616532535862
+          ]
+        },
+        {
+          "denoising_index": 3,
+          "apple_xy": [
+            31.429680155099163,
+            21.068868395417233
+          ],
+          "cup_xy": [
+            15.144202859914895,
+            24.67769499004224
+          ]
+        },
+        {
+          "denoising_index": 4,
+          "apple_xy": [
+            31.347412027327326,
+            21.1762172297614
+          ],
+          "cup_xy": [
+            15.151932738036656,
+            23.967758375977887
+          ]
+        },
+        {
+          "denoising_index": 5,
+          "apple_xy": [
+            31.315434810404206,
+            21.164049460877425
+          ],
+          "cup_xy": [
+            15.276391778639958,
+            24.15452486110429
+          ]
+        },
+        {
+          "denoising_index": 6,
+          "apple_xy": [
+            31.345727540631785,
+            21.299725244215324
+          ],
+          "cup_xy": [
+            15.261883820853424,
+            24.27609845997609
+          ]
+        },
+        {
+          "denoising_index": 7,
+          "apple_xy": [
+            31.304205171979536,
+            21.321619501088172
+          ],
+          "cup_xy": [
+            15.184178190785268,
+            24.214028145873453
+          ]
+        },
+        {
+          "denoising_index": 8,
+          "apple_xy": [
+            31.36995068139275,
+            21.503476487911563
+          ],
+          "cup_xy": [
+            15.162357617646236,
+            24.16080412090045
+          ]
+        },
+        {
+          "denoising_index": 9,
+          "apple_xy": [
+            31.320131744114807,
+            21.672758957226925
+          ],
+          "cup_xy": [
+            15.142299398601782,
+            24.13153489078895
+          ]
+        }
+      ],
+      "pixel_mae_vs_baseline": 61.98484802246094,
+      "pixel_rmse_vs_baseline": 77.89955139160156,
+      "color_proxy_x_shift_pixels": {
+        "apple": 344.6911100490208,
+        "cup": -246.92678295862038
+      },
+      "guided_runtime_seconds": 334.9517935141921,
+      "peak_cuda_allocated_mib": 2004.4140625,
+      "all_updates_finite_and_descending": true,
+      "manual_visual_assessment": "Clear swap retained; best fidelity of the tested guided runs by visual inspection and pixel MAE/RMSE, but cup remains handleless and background/composition are not preserved."
+    }
+  },
+  "visual_ranking": [
+    "0.25",
+    "0.5",
+    "1.0"
+  ],
+  "recommended_eta_scale": 0.25,
+  "recommended_eta": 24.154335147174493,
+  "relocation_retained_at_recommended_eta": true,
+  "fidelity_fully_preserved": false,
+  "stage6_mvp_status": "freeze for the fixed prompt/seed/layout; multi-seed repeatability and method-level evaluation remain open",
+  "comparison_image": "03_flux_layout_control/outputs/paper_aligned_guidance/flux_dev_stage6d_strength_comparison.jpg"
+}
