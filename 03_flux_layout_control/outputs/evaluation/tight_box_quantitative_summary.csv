@@ -1,0 +1,5 @@
+case,prompt,seed,object_1,object_1_box_inside_ratio,object_2,object_2_box_inside_ratio,coarse_relocation_success,baseline_runtime_seconds,guided_runtime_seconds,runtime_multiplier
+apple_cup_seed42,"a red apple and a blue cup, realistic photo",42,apple,0.7389377951622009,cup,0.6870430111885071,True,213.07197958882898,430.9944878788665,2.0227647422742714
+apple_cup_seed123,"a red apple and a blue cup, realistic photo",123,apple,0.7420094609260559,cup,0.713944673538208,True,224.1568350708112,421.4090560209006,1.8799741524177809
+apple_cup_seed2024,"a red apple and a blue cup, realistic photo",2024,apple,0.748596727848053,cup,0.72186678647995,True,228.56068061944097,386.980808715336,1.693120652539832
+banana_bottle_seed31415,"a yellow banana and a green bottle, realistic photo",31415,banana,0.7641074061393738,bottle,0.6258848309516907,True,234.72392346616834,733.4871573895216,3.124893051198686

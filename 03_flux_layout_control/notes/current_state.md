@@ -104,6 +104,14 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - Tight boxes materially improve extent fidelity versus Stage 6D 0.25x: pixel MAE/RMSE fall from `61.98/77.90` to `53.46/74.52`; apple shape and both object scales are visibly more reasonable. However, the cup still loses its handle and the indoor tabletop background changes to outdoor foliage. Broad half-regions were a major cause of scale inflation, but not the sole cause of identity/shape and background drift.
 - Do not freeze the Backward Guidance MVP yet, and do not treat `eta_scale=0.25` as final. Relocation and scale control pass, while cup identity and background preservation remain unresolved.
 
+### Stage 7 — Backward Guidance repeatability sanity check
+
+- Froze the complete Stage 6E method: FLUX.1-dev, 768x768/50 steps/guidance 3.5, BF16 + sequential CPU offload, Eq. (2), Double block 18, guided indices 0–9, `eta_scale=0.25` (`eta=24.154335`), sigma-squared updates, K<=5, and threshold 0.2. Only seed, target token spans, and predeclared tight target boxes changed.
+- Exact official-Pipeline baselines and frozen guidance were run for apple/cup seeds 123 and 2024 plus `a yellow banana and a green bottle, realistic photo` at seed 31415. All gradients/updates were finite and descending, no parameter gradients accumulated, and peak CUDA allocation was stable at 2004.70 MiB.
+- All 3 new cases pass coarse visible relocation: both object centers/main bodies enter the intended swapped boxes. Final attention box-inside ratios are seed 123 apple/cup `0.7420/0.7139`, seed 2024 `0.7486/0.7219`, and banana/bottle `0.7641/0.6259`; all final attention centroids are inside their half-open targets. No case achieves full visible-instance extent containment.
+- Fidelity is not repeatable: every case changes background/composition. Apple/cup identities remain clear (seed 123 preserves the handle; seed 2024 is handleless already at baseline). The extra prompt has clear drift: two baseline bananas become one, and the thin glass bottle becomes a bulky plastic-like bottle.
+- Compute cost varies under the frozen threshold: inner updates/runtime are `21 / 421.41 s`, `18 / 386.98 s`, and `48 / 733.49 s`; the banana/bottle case reaches K=5 at indices 0–8 and K=3 at index 9. Conclusion: Stage 6E is repeatable for coarse relocation across the tested seeds/prompt, but not for strict box extent, fidelity preservation, or stable runtime. This is a sanity check, not a tuned or complete method-level evaluation.
+
 ## Current key scripts
 
 - `src/09_flux_dev_baseline.py`: official dev baseline and saved initial/intermediate packed latents.
@@ -117,6 +125,7 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - `src/17_flux_dev_multi_timestep_guidance.py`: dev sparse three-timestep K=1 guidance with pre-update spatial-signal gating.
 - `src/18_flux_dev_paper_aligned_guidance.py`: paper-aligned early FlowMatch sigma-squared Backward Guidance; Stage 6D adds isolated `--eta-scale` outputs while preserving the Stage 6C default.
 - `src/19_flux_dev_tight_bbox_guidance.py`: Stage 6E finite object-sized target boxes with the Stage 6D 0.25x sampling/guidance path unchanged.
+- `src/20_flux_dev_repeatability.py`: Stage 7 exact baselines and frozen Stage 6E repeatability runner.
 - `src/04_flux_schnell_layout_objective.py`: schnell layout-energy reference.
 - `src/05_flux_schnell_gradient_probe.py`: schnell gradient-stage reference.
 - `src/06_flux_schnell_single_step_guidance.py` and `08_flux_schnell_inner_loop_guidance.py`: later Backward Guidance references.
@@ -135,6 +144,7 @@ Key metrics:
 - `outputs/paper_aligned_guidance/flux_dev_paper_aligned_blocks-18{,_eta-scale-0p5,_eta-scale-0p25}_metrics.json`
 - `outputs/paper_aligned_guidance/flux_dev_stage6d_strength_summary.json`
 - `outputs/tight_bbox_guidance/flux_dev_tight_bbox_block-18_eta-scale-0p25_metrics.json`
+- `outputs/repeatability/stage7_repeatability_summary.json`
 
 ## Verified dev configuration
 
@@ -182,4 +192,4 @@ Use the Stage 1 saved initial latent for direct comparisons. Keep `local_files_o
 
 ## Next and only next task
 
-Stage 6E is complete. Do not start additional-seed testing or freeze `eta_scale=0.25` yet. The fixed example now passes relocation and finite-extent control but still fails cup identity/handle and background preservation; the next algorithmic fidelity intervention requires an explicit choice and is not authorized in this checkpoint.
+Stage 7 is complete. Treat `eta_scale=0.25` and the Stage 6E path as frozen only for this repeatability checkpoint, not as a final method configuration. The evidence supports repeatable coarse relocation but exposes strict-extent, fidelity, and cross-prompt runtime failures. Do not rescue individual Stage 7 cases or silently tune the frozen configuration. The next stage should explicitly choose between an isolated fidelity-preservation redesign and systematic frozen-method ablation/evaluation; no further high-cost run is authorized by this checkpoint.

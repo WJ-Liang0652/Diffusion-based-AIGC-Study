@@ -1,0 +1,252 @@
+{
+  "stage": "Stage 7 - Backward Guidance repeatability sanity check",
+  "frozen_configuration": {
+    "blocks": [
+      18
+    ],
+    "guided_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "max_inner_updates_per_index": 5,
+    "objective_threshold": 0.2,
+    "objective": "Eq. (2), sum over object target-box energies",
+    "update_equation": "x_t <- x_t - eta * sigma_t^2 * grad_x E",
+    "eta_scale": 0.25,
+    "base_eta": 96.61734058869797,
+    "eta": 24.154335147174493
+  },
+  "cases": [
+    {
+      "case": "apple_cup_seed123",
+      "prompt": "a red apple and a blue cup, realistic photo",
+      "seed": 123,
+      "source_boxes_grid_xyxy_half_open": {
+        "apple": [
+          22,
+          17,
+          42,
+          38
+        ],
+        "cup": [
+          0,
+          20,
+          25,
+          38
+        ]
+      },
+      "target_boxes_grid_xyxy_half_open": {
+        "apple": [
+          0,
+          17,
+          20,
+          38
+        ],
+        "cup": [
+          23,
+          20,
+          48,
+          38
+        ]
+      },
+      "final_box_inside_ratios": {
+        "apple": 0.7420094609260559,
+        "cup": 0.713944673538208
+      },
+      "final_attention_centroids_xy": {
+        "apple": [
+          13.700268444434034,
+          26.185604619975187
+        ],
+        "cup": [
+          31.46317718770225,
+          26.80349761964952
+        ]
+      },
+      "layout_success": true,
+      "both_objects_enter_intended_boxes": true,
+      "visible_extent_fully_contained": false,
+      "semantic_image_quality_failures": [
+        "Background/composition changes from a detailed indoor tabletop scene to a plain studio-like setting.",
+        "Object scale and pose change; identity remains clear and the cup handle is preserved."
+      ],
+      "inner_update_count": 21,
+      "inner_updates_per_guided_index": [
+        5,
+        5,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "guided_runtime_seconds": 421.4090560209006,
+      "peak_cuda_allocated_mib": 2004.6953125,
+      "all_updates_finite_and_descending": true,
+      "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/apple_cup_seed123/comparison.jpg"
+    },
+    {
+      "case": "apple_cup_seed2024",
+      "prompt": "a red apple and a blue cup, realistic photo",
+      "seed": 2024,
+      "source_boxes_grid_xyxy_half_open": {
+        "apple": [
+          3,
+          19,
+          24,
+          41
+        ],
+        "cup": [
+          22,
+          9,
+          44,
+          40
+        ]
+      },
+      "target_boxes_grid_xyxy_half_open": {
+        "apple": [
+          26,
+          19,
+          47,
+          41
+        ],
+        "cup": [
+          0,
+          9,
+          22,
+          40
+        ]
+      },
+      "final_box_inside_ratios": {
+        "apple": 0.748596727848053,
+        "cup": 0.72186678647995
+      },
+      "final_attention_centroids_xy": {
+        "apple": [
+          32.32364089106271,
+          27.512874725563336
+        ],
+        "cup": [
+          15.830819497528948,
+          25.341203408285708
+        ]
+      },
+      "layout_success": true,
+      "both_objects_enter_intended_boxes": true,
+      "visible_extent_fully_contained": false,
+      "semantic_image_quality_failures": [
+        "Background/table colors and composition change substantially.",
+        "Apple and cup identities remain clear; the cup is handleless in both baseline and guided images, so missing handle is not a new guidance failure."
+      ],
+      "inner_update_count": 18,
+      "inner_updates_per_guided_index": [
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "guided_runtime_seconds": 386.980808715336,
+      "peak_cuda_allocated_mib": 2004.6953125,
+      "all_updates_finite_and_descending": true,
+      "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/apple_cup_seed2024/comparison.jpg"
+    },
+    {
+      "case": "banana_bottle_seed31415",
+      "prompt": "a yellow banana and a green bottle, realistic photo",
+      "seed": 31415,
+      "source_boxes_grid_xyxy_half_open": {
+        "banana": [
+          9,
+          18,
+          32,
+          44
+        ],
+        "bottle": [
+          24,
+          6,
+          34,
+          42
+        ]
+      },
+      "target_boxes_grid_xyxy_half_open": {
+        "banana": [
+          25,
+          18,
+          48,
+          44
+        ],
+        "bottle": [
+          5,
+          6,
+          15,
+          42
+        ]
+      },
+      "final_box_inside_ratios": {
+        "banana": 0.7641074061393738,
+        "bottle": 0.6258848309516907
+      },
+      "final_attention_centroids_xy": {
+        "banana": [
+          31.191774160658255,
+          30.93266812682735
+        ],
+        "bottle": [
+          14.703846247531885,
+          24.058662017123723
+        ]
+      },
+      "layout_success": true,
+      "both_objects_enter_intended_boxes": true,
+      "visible_extent_fully_contained": false,
+      "semantic_image_quality_failures": [
+        "Bottle changes from a thin long-neck green glass bottle to a bulky plastic-like bottle, a clear shape/material fidelity failure.",
+        "Baseline contains two joined bananas while guided output contains one banana; prompt is singular, but instance content is not preserved.",
+        "Background and composition change, though the yellow studio character remains."
+      ],
+      "inner_update_count": 48,
+      "inner_updates_per_guided_index": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        3
+      ],
+      "guided_runtime_seconds": 733.4871573895216,
+      "peak_cuda_allocated_mib": 2004.6953125,
+      "all_updates_finite_and_descending": true,
+      "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/comparison.jpg"
+    }
+  ],
+  "aggregate": {
+    "new_cases_tested": 3,
+    "coarse_layout_successes": 3,
+    "both_objects_enter_box_successes": 3,
+    "full_visible_extent_containment_successes": 0,
+    "mechanical_validation_successes": 3,
+    "peak_cuda_allocated_mib_max": 2004.6953125,
+    "conclusion": "Frozen Stage 6E is repeatable for coarse two-object relocation in all three new cases, but not for strict full-extent box containment or fidelity preservation. Cross-prompt inner-loop cost is also variable."
+  }
+}

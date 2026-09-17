@@ -1,0 +1,3366 @@
+{
+  "stage": "Stage 7 - frozen Stage 6E repeatability",
+  "case": "banana_bottle_seed31415",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a yellow banana and a green bottle, realistic photo",
+  "seed": 31415,
+  "target_tokens": {
+    "banana": {
+      "character_span": [
+        9,
+        15
+      ],
+      "token_indices": [
+        3
+      ],
+      "token_ids": [
+        13634
+      ],
+      "token_pieces": [
+        "\u2581banana"
+      ],
+      "decoded_span": "banana",
+      "is_single_token": true
+    },
+    "bottle": {
+      "character_span": [
+        28,
+        34
+      ],
+      "token_indices": [
+        8
+      ],
+      "token_ids": [
+        4782
+      ],
+      "token_pieces": [
+        "\u2581bottle"
+      ],
+      "decoded_span": "bottle",
+      "is_single_token": true
+    }
+  },
+  "non_padding_tokens": [
+    {
+      "index": 0,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 2,
+      "id": 4459,
+      "token": "\u2581yellow",
+      "character_offset": [
+        1,
+        8
+      ]
+    },
+    {
+      "index": 3,
+      "id": 13634,
+      "token": "\u2581banana",
+      "character_offset": [
+        8,
+        15
+      ]
+    },
+    {
+      "index": 4,
+      "id": 11,
+      "token": "\u2581and",
+      "character_offset": [
+        15,
+        19
+      ]
+    },
+    {
+      "index": 5,
+      "id": 3,
+      "token": "\u2581",
+      "character_offset": [
+        19,
+        20
+      ]
+    },
+    {
+      "index": 6,
+      "id": 9,
+      "token": "a",
+      "character_offset": [
+        20,
+        21
+      ]
+    },
+    {
+      "index": 7,
+      "id": 1442,
+      "token": "\u2581green",
+      "character_offset": [
+        21,
+        27
+      ]
+    },
+    {
+      "index": 8,
+      "id": 4782,
+      "token": "\u2581bottle",
+      "character_offset": [
+        27,
+        34
+      ]
+    },
+    {
+      "index": 9,
+      "id": 6,
+      "token": ",",
+      "character_offset": [
+        34,
+        35
+      ]
+    },
+    {
+      "index": 10,
+      "id": 9555,
+      "token": "\u2581realistic",
+      "character_offset": [
+        35,
+        45
+      ]
+    },
+    {
+      "index": 11,
+      "id": 1202,
+      "token": "\u2581photo",
+      "character_offset": [
+        45,
+        51
+      ]
+    },
+    {
+      "index": 12,
+      "id": 1,
+      "token": "</s>",
+      "character_offset": [
+        0,
+        0
+      ]
+    }
+  ],
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "frozen_method": {
+    "blocks": [
+      18
+    ],
+    "guided_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "max_inner_updates_per_index": 5,
+    "objective_threshold": 0.2,
+    "objective": "Eq. (2), sum over object target-box energies",
+    "update_equation": "x_t <- x_t - eta * sigma_t^2 * grad_x E",
+    "eta_scale": 0.25,
+    "base_eta": 96.61734058869797,
+    "eta": 24.154335147174493
+  },
+  "source_boxes_grid_xyxy_half_open": {
+    "banana": [
+      9,
+      18,
+      32,
+      44
+    ],
+    "bottle": [
+      24,
+      6,
+      34,
+      42
+    ]
+  },
+  "target_boxes_grid_xyxy_half_open": {
+    "banana": [
+      25,
+      18,
+      48,
+      44
+    ],
+    "bottle": [
+      5,
+      6,
+      15,
+      42
+    ]
+  },
+  "target_boxes_image_xyxy_half_open": {
+    "banana": [
+      400,
+      288,
+      768,
+      704
+    ],
+    "bottle": [
+      80,
+      96,
+      240,
+      672
+    ]
+  },
+  "inner_updates": [
+    {
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "sigma": 1.0,
+      "sigma_squared": 1.0,
+      "inner_index": 0,
+      "objective_before": 1.2994425296783447,
+      "objective_after": 1.1546317338943481,
+      "objective_delta": -0.14481079578399658,
+      "gradient_norm_l2": 0.08420423418283463,
+      "latent_norm_l2": 381.5310363769531,
+      "eta_sigma_squared": 24.154335021972656,
+      "actual_update_norm_l2": 2.0698506832122803,
+      "actual_relative_update_norm": 0.005425117444247007,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 1.2994425296783447,
+          "objective_after": 1.1546317338943481,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.24586881697177887,
+              "target_mass_after": 0.3131067752838135,
+              "attention_centroid_before_xy": [
+                22.18521713020954,
+                23.65767818404807
+              ],
+              "attention_centroid_after_xy": [
+                23.859086440673266,
+                23.897158027613962
+              ],
+              "attention_centroid_delta_xy": [
+                1.6738693104637257,
+                0.23947984356589203
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.1451733261346817,
+              "target_mass_after": 0.17367714643478394,
+              "attention_centroid_before_xy": [
+                25.048593008640083,
+                22.701511390330403
+              ],
+              "attention_centroid_after_xy": [
+                24.08529169220327,
+                22.48098085142083
+              ],
+              "attention_centroid_delta_xy": [
+                -0.9633013164368123,
+                -0.2205305389095713
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "sigma": 1.0,
+      "sigma_squared": 1.0,
+      "inner_index": 1,
+      "objective_before": 1.1546317338943481,
+      "objective_after": 1.0224108695983887,
+      "objective_delta": -0.13222086429595947,
+      "gradient_norm_l2": 0.07838800549507141,
+      "latent_norm_l2": 381.53558349609375,
+      "eta_sigma_squared": 24.154335021972656,
+      "actual_update_norm_l2": 1.9307305812835693,
+      "actual_relative_update_norm": 0.005060420837253332,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 1.1546317338943481,
+          "objective_after": 1.0224108695983887,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.3131067752838135,
+              "target_mass_after": 0.3714945614337921,
+              "attention_centroid_before_xy": [
+                23.859086440673266,
+                23.897158027613962
+              ],
+              "attention_centroid_after_xy": [
+                25.361022423289086,
+                23.94685052152539
+              ],
+              "attention_centroid_delta_xy": [
+                1.5019359826158194,
+                0.04969249391142938
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.17367714643478394,
+              "target_mass_after": 0.20791928470134735,
+              "attention_centroid_before_xy": [
+                24.08529169220327,
+                22.48098085142083
+              ],
+              "attention_centroid_after_xy": [
+                23.13786461006914,
+                22.443103549993815
+              ],
+              "attention_centroid_delta_xy": [
+                -0.94742708213413,
+                -0.03787730142701662
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "sigma": 1.0,
+      "sigma_squared": 1.0,
+      "inner_index": 2,
+      "objective_before": 1.0224108695983887,
+      "objective_after": 0.9404142498970032,
+      "objective_delta": -0.0819966197013855,
+      "gradient_norm_l2": 0.0645303726196289,
+      "latent_norm_l2": 381.5248718261719,
+      "eta_sigma_squared": 24.154335021972656,
+      "actual_update_norm_l2": 1.5928314924240112,
+      "actual_relative_update_norm": 0.004174908623099327,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 1.0224108695983887,
+          "objective_after": 0.9404142498970032,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.3714945614337921,
+              "target_mass_after": 0.41107475757598877,
+              "attention_centroid_before_xy": [
+                25.361022423289086,
+                23.94685052152539
+              ],
+              "attention_centroid_after_xy": [
+                26.357143241844163,
+                24.038570789226732
+              ],
+              "attention_centroid_delta_xy": [
+                0.9961208185550774,
+                0.09172026770134067
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.20791928470134735,
+              "target_mass_after": 0.22955767810344696,
+              "attention_centroid_before_xy": [
+                23.13786461006914,
+                22.443103549993815
+              ],
+              "attention_centroid_after_xy": [
+                22.44980854729828,
+                22.31751067324953
+              ],
+              "attention_centroid_delta_xy": [
+                -0.6880560627708618,
+                -0.12559287674428532
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "sigma": 1.0,
+      "sigma_squared": 1.0,
+      "inner_index": 3,
+      "objective_before": 0.9404142498970032,
+      "objective_after": 0.8840489983558655,
+      "objective_delta": -0.056365251541137695,
+      "gradient_norm_l2": 0.05546167492866516,
+      "latent_norm_l2": 381.49896240234375,
+      "eta_sigma_squared": 24.154335021972656,
+      "actual_update_norm_l2": 1.3673335313796997,
+      "actual_relative_update_norm": 0.003584108082577586,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.9404142498970032,
+          "objective_after": 0.8840489983558655,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.41107475757598877,
+              "target_mass_after": 0.4381609857082367,
+              "attention_centroid_before_xy": [
+                26.357143241844163,
+                24.038570789226732
+              ],
+              "attention_centroid_after_xy": [
+                27.11135851301831,
+                24.117739865427996
+              ],
+              "attention_centroid_delta_xy": [
+                0.7542152711741466,
+                0.07916907620126423
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.22955767810344696,
+              "target_mass_after": 0.2460862249135971,
+              "attention_centroid_before_xy": [
+                22.44980854729828,
+                22.31751067324953
+              ],
+              "attention_centroid_after_xy": [
+                21.99197840841925,
+                22.258327114839755
+              ],
+              "attention_centroid_delta_xy": [
+                -0.4578301388790287,
+                -0.059183558409774406
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "sigma": 1.0,
+      "sigma_squared": 1.0,
+      "inner_index": 4,
+      "objective_before": 0.8840489983558655,
+      "objective_after": 0.8497875332832336,
+      "objective_delta": -0.034261465072631836,
+      "gradient_norm_l2": 0.04286283627152443,
+      "latent_norm_l2": 381.4703369140625,
+      "eta_sigma_squared": 24.154335021972656,
+      "actual_update_norm_l2": 1.0564171075820923,
+      "actual_relative_update_norm": 0.002769329585134983,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.8840489983558655,
+          "objective_after": 0.8497875332832336,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.4381609857082367,
+              "target_mass_after": 0.45565685629844666,
+              "attention_centroid_before_xy": [
+                27.11135851301831,
+                24.117739865427996
+              ],
+              "attention_centroid_after_xy": [
+                27.566750058127717,
+                24.14354725659294
+              ],
+              "attention_centroid_delta_xy": [
+                0.45539154510940705,
+                0.025807391164942572
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.2460862249135971,
+              "target_mass_after": 0.25603893399238586,
+              "attention_centroid_before_xy": [
+                21.99197840841925,
+                22.258327114839755
+              ],
+              "attention_centroid_after_xy": [
+                21.73058485428079,
+                22.223569463098894
+              ],
+              "attention_centroid_delta_xy": [
+                -0.2613935541384613,
+                -0.034757651740861206
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 1,
+      "timestep": 991.3240966796875,
+      "sigma": 0.9913240671157837,
+      "sigma_squared": 0.9827234148979187,
+      "inner_index": 0,
+      "objective_before": 0.7627002000808716,
+      "objective_after": 0.6429193019866943,
+      "objective_delta": -0.11978089809417725,
+      "gradient_norm_l2": 0.08120883256196976,
+      "latent_norm_l2": 378.1882019042969,
+      "eta_sigma_squared": 23.737030029296875,
+      "actual_update_norm_l2": 1.987575650215149,
+      "actual_relative_update_norm": 0.00525551987811923,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.7627002000808716,
+          "objective_after": 0.6429193019866943,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.41909438371658325,
+              "target_mass_after": 0.4632640480995178,
+              "attention_centroid_before_xy": [
+                27.110037009459013,
+                23.04696103890773
+              ],
+              "attention_centroid_after_xy": [
+                27.864113110474882,
+                23.575930131103327
+              ],
+              "attention_centroid_delta_xy": [
+                0.754076101015869,
+                0.5289690921955952
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.3478889763355255,
+              "target_mass_after": 0.40432068705558777,
+              "attention_centroid_before_xy": [
+                19.270623317130216,
+                23.426545584581984
+              ],
+              "attention_centroid_after_xy": [
+                18.43611602443008,
+                22.833898342150793
+              ],
+              "attention_centroid_delta_xy": [
+                -0.8345072927001347,
+                -0.592647242431191
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 1,
+      "timestep": 991.3240966796875,
+      "sigma": 0.9913240671157837,
+      "sigma_squared": 0.9827234148979187,
+      "inner_index": 1,
+      "objective_before": 0.6429193019866943,
+      "objective_after": 0.5826970338821411,
+      "objective_delta": -0.06022226810455322,
+      "gradient_norm_l2": 0.053984541445970535,
+      "latent_norm_l2": 378.1094665527344,
+      "eta_sigma_squared": 23.737030029296875,
+      "actual_update_norm_l2": 1.3287502527236938,
+      "actual_relative_update_norm": 0.003514194628223777,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.6429193019866943,
+          "objective_after": 0.5826970338821411,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.4632640480995178,
+              "target_mass_after": 0.49007388949394226,
+              "attention_centroid_before_xy": [
+                27.864113110474882,
+                23.575930131103327
+              ],
+              "attention_centroid_after_xy": [
+                28.261399463291266,
+                24.037667184550514
+              ],
+              "attention_centroid_delta_xy": [
+                0.39728635281638347,
+                0.4617370534471874
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.40432068705558777,
+              "target_mass_after": 0.4319573938846588,
+              "attention_centroid_before_xy": [
+                18.43611602443008,
+                22.833898342150793
+              ],
+              "attention_centroid_after_xy": [
+                18.02726239271647,
+                22.603081665597074
+              ],
+              "attention_centroid_delta_xy": [
+                -0.4088536317136118,
+                -0.23081667655371874
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 1,
+      "timestep": 991.3240966796875,
+      "sigma": 0.9913240671157837,
+      "sigma_squared": 0.9827234148979187,
+      "inner_index": 2,
+      "objective_before": 0.5826970338821411,
+      "objective_after": 0.5414155125617981,
+      "objective_delta": -0.04128152132034302,
+      "gradient_norm_l2": 0.04514680057764053,
+      "latent_norm_l2": 378.06573486328125,
+      "eta_sigma_squared": 23.737030029296875,
+      "actual_update_norm_l2": 1.1033262014389038,
+      "actual_relative_update_norm": 0.002918344922363758,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.5826970338821411,
+          "objective_after": 0.5414155125617981,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.49007388949394226,
+              "target_mass_after": 0.5091487169265747,
+              "attention_centroid_before_xy": [
+                28.261399463291266,
+                24.037667184550514
+              ],
+              "attention_centroid_after_xy": [
+                28.45894980227858,
+                24.473661958629663
+              ],
+              "attention_centroid_delta_xy": [
+                0.19755033898731256,
+                0.43599477407914833
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.4319573938846588,
+              "target_mass_after": 0.4518389403820038,
+              "attention_centroid_before_xy": [
+                18.02726239271647,
+                22.603081665597074
+              ],
+              "attention_centroid_after_xy": [
+                17.69681062414258,
+                22.496458261025445
+              ],
+              "attention_centroid_delta_xy": [
+                -0.3304517685738908,
+                -0.10662340457162856
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 1,
+      "timestep": 991.3240966796875,
+      "sigma": 0.9913240671157837,
+      "sigma_squared": 0.9827234148979187,
+      "inner_index": 3,
+      "objective_before": 0.5414155125617981,
+      "objective_after": 0.5037004947662354,
+      "objective_delta": -0.037715017795562744,
+      "gradient_norm_l2": 0.041855741292238235,
+      "latent_norm_l2": 378.03857421875,
+      "eta_sigma_squared": 23.737030029296875,
+      "actual_update_norm_l2": 1.0192509889602661,
+      "actual_relative_update_norm": 0.0026961560361087322,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.5414155125617981,
+          "objective_after": 0.5037004947662354,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.5091487169265747,
+              "target_mass_after": 0.5271768569946289,
+              "attention_centroid_before_xy": [
+                28.45894980227858,
+                24.473661958629663
+              ],
+              "attention_centroid_after_xy": [
+                28.59936483037847,
+                24.958154610319234
+              ],
+              "attention_centroid_delta_xy": [
+                0.14041502809989126,
+                0.4844926516895711
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.4518389403820038,
+              "target_mass_after": 0.470718652009964,
+              "attention_centroid_before_xy": [
+                17.69681062414258,
+                22.496458261025445
+              ],
+              "attention_centroid_after_xy": [
+                17.344996299358932,
+                22.439915979583034
+              ],
+              "attention_centroid_delta_xy": [
+                -0.35181432478364627,
+                -0.056542281442411024
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 1,
+      "timestep": 991.3240966796875,
+      "sigma": 0.9913240671157837,
+      "sigma_squared": 0.9827234148979187,
+      "inner_index": 4,
+      "objective_before": 0.5037004947662354,
+      "objective_after": 0.47150105237960815,
+      "objective_delta": -0.0321994423866272,
+      "gradient_norm_l2": 0.03918103128671646,
+      "latent_norm_l2": 378.0191345214844,
+      "eta_sigma_squared": 23.737030029296875,
+      "actual_update_norm_l2": 0.9493727684020996,
+      "actual_relative_update_norm": 0.002511441009119153,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.5037004947662354,
+          "objective_after": 0.47150105237960815,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.5271768569946289,
+              "target_mass_after": 0.5438796877861023,
+              "attention_centroid_before_xy": [
+                28.59936483037847,
+                24.958154610319234
+              ],
+              "attention_centroid_after_xy": [
+                28.704459797667944,
+                25.427017710130375
+              ],
+              "attention_centroid_delta_xy": [
+                0.10509496728947454,
+                0.4688630998111414
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.470718652009964,
+              "target_mass_after": 0.486721009016037,
+              "attention_centroid_before_xy": [
+                17.344996299358932,
+                22.439915979583034
+              ],
+              "attention_centroid_after_xy": [
+                17.041915258965556,
+                22.41703189111686
+              ],
+              "attention_centroid_delta_xy": [
+                -0.30308104039337636,
+                -0.02288408846617429
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 2,
+      "timestep": 982.4452514648438,
+      "sigma": 0.982445240020752,
+      "sigma_squared": 0.9651986360549927,
+      "inner_index": 0,
+      "objective_before": 0.4262002110481262,
+      "objective_after": 0.4054297208786011,
+      "objective_delta": -0.020770490169525146,
+      "gradient_norm_l2": 0.03304709866642952,
+      "latent_norm_l2": 374.9195251464844,
+      "eta_sigma_squared": 23.313732147216797,
+      "actual_update_norm_l2": 0.7721912264823914,
+      "actual_relative_update_norm": 0.0020596187096089125,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.4262002110481262,
+          "objective_after": 0.4054297208786011,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.5833254456520081,
+              "target_mass_after": 0.5928661823272705,
+              "attention_centroid_before_xy": [
+                28.806390788933967,
+                27.42502455372467
+              ],
+              "attention_centroid_after_xy": [
+                28.921760894234886,
+                27.658671246872743
+              ],
+              "attention_centroid_delta_xy": [
+                0.11537010530091862,
+                0.2336466931480743
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.49742409586906433,
+              "target_mass_after": 0.5104371309280396,
+              "attention_centroid_before_xy": [
+                16.68271319461865,
+                22.138755949904578
+              ],
+              "attention_centroid_after_xy": [
+                16.434893159239756,
+                22.24338421068175
+              ],
+              "attention_centroid_delta_xy": [
+                -0.24782003537889352,
+                0.10462826077717224
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 2,
+      "timestep": 982.4452514648438,
+      "sigma": 0.982445240020752,
+      "sigma_squared": 0.9651986360549927,
+      "inner_index": 1,
+      "objective_before": 0.4054297208786011,
+      "objective_after": 0.38902702927589417,
+      "objective_delta": -0.01640269160270691,
+      "gradient_norm_l2": 0.02945856750011444,
+      "latent_norm_l2": 374.9230041503906,
+      "eta_sigma_squared": 23.313732147216797,
+      "actual_update_norm_l2": 0.6820611953735352,
+      "actual_relative_update_norm": 0.0018192033749073744,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.4054297208786011,
+          "objective_after": 0.38902702927589417,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.5928661823272705,
+              "target_mass_after": 0.6025722026824951,
+              "attention_centroid_before_xy": [
+                28.921760894234886,
+                27.658671246872743
+              ],
+              "attention_centroid_after_xy": [
+                29.06328537442612,
+                27.811105013183465
+              ],
+              "attention_centroid_delta_xy": [
+                0.14152448019123298,
+                0.1524337663107218
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5104371309280396,
+              "target_mass_after": 0.5192940831184387,
+              "attention_centroid_before_xy": [
+                16.434893159239756,
+                22.24338421068175
+              ],
+              "attention_centroid_after_xy": [
+                16.28352656841433,
+                22.324579746957816
+              ],
+              "attention_centroid_delta_xy": [
+                -0.15136659082542536,
+                0.08119553627606635
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 2,
+      "timestep": 982.4452514648438,
+      "sigma": 0.982445240020752,
+      "sigma_squared": 0.9651986360549927,
+      "inner_index": 2,
+      "objective_before": 0.38902702927589417,
+      "objective_after": 0.3758605718612671,
+      "objective_delta": -0.013166457414627075,
+      "gradient_norm_l2": 0.027146439999341965,
+      "latent_norm_l2": 374.92645263671875,
+      "eta_sigma_squared": 23.313732147216797,
+      "actual_update_norm_l2": 0.6214660406112671,
+      "actual_relative_update_norm": 0.0016575679183006287,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.38902702927589417,
+          "objective_after": 0.3758605718612671,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6025722026824951,
+              "target_mass_after": 0.6108431220054626,
+              "attention_centroid_before_xy": [
+                29.06328537442612,
+                27.811105013183465
+              ],
+              "attention_centroid_after_xy": [
+                29.195632459862846,
+                27.913882928764096
+              ],
+              "attention_centroid_delta_xy": [
+                0.13234708543672724,
+                0.10277791558063143
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5192940831184387,
+              "target_mass_after": 0.5262727737426758,
+              "attention_centroid_before_xy": [
+                16.28352656841433,
+                22.324579746957816
+              ],
+              "attention_centroid_after_xy": [
+                16.15640933605929,
+                22.389622047642668
+              ],
+              "attention_centroid_delta_xy": [
+                -0.12711723235504024,
+                0.06504230068485128
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 2,
+      "timestep": 982.4452514648438,
+      "sigma": 0.982445240020752,
+      "sigma_squared": 0.9651986360549927,
+      "inner_index": 3,
+      "objective_before": 0.3758605718612671,
+      "objective_after": 0.3647892475128174,
+      "objective_delta": -0.011071324348449707,
+      "gradient_norm_l2": 0.025534989312291145,
+      "latent_norm_l2": 374.9299011230469,
+      "eta_sigma_squared": 23.313732147216797,
+      "actual_update_norm_l2": 0.5828171372413635,
+      "actual_relative_update_norm": 0.0015544695779681206,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3758605718612671,
+          "objective_after": 0.3647892475128174,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6108431220054626,
+              "target_mass_after": 0.6180863976478577,
+              "attention_centroid_before_xy": [
+                29.195632459862846,
+                27.913882928764096
+              ],
+              "attention_centroid_after_xy": [
+                29.315119326099634,
+                28.000085452104475
+              ],
+              "attention_centroid_delta_xy": [
+                0.11948686623678739,
+                0.08620252334037914
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5262727737426758,
+              "target_mass_after": 0.5320991277694702,
+              "attention_centroid_before_xy": [
+                16.15640933605929,
+                22.389622047642668
+              ],
+              "attention_centroid_after_xy": [
+                16.054074280810816,
+                22.437479877720662
+              ],
+              "attention_centroid_delta_xy": [
+                -0.1023350552484743,
+                0.04785783007799438
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 2,
+      "timestep": 982.4452514648438,
+      "sigma": 0.982445240020752,
+      "sigma_squared": 0.9651986360549927,
+      "inner_index": 4,
+      "objective_before": 0.3647892475128174,
+      "objective_after": 0.35314881801605225,
+      "objective_delta": -0.011640429496765137,
+      "gradient_norm_l2": 0.024397267028689384,
+      "latent_norm_l2": 374.9332580566406,
+      "eta_sigma_squared": 23.313732147216797,
+      "actual_update_norm_l2": 0.5548633337020874,
+      "actual_relative_update_norm": 0.0014798989286646247,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3647892475128174,
+          "objective_after": 0.35314881801605225,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6180863976478577,
+              "target_mass_after": 0.626166582107544,
+              "attention_centroid_before_xy": [
+                29.315119326099634,
+                28.000085452104475
+              ],
+              "attention_centroid_after_xy": [
+                29.454509288995453,
+                28.079056584629228
+              ],
+              "attention_centroid_delta_xy": [
+                0.1393899628958195,
+                0.07897113252475307
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5320991277694702,
+              "target_mass_after": 0.5380504131317139,
+              "attention_centroid_before_xy": [
+                16.054074280810816,
+                22.437479877720662
+              ],
+              "attention_centroid_after_xy": [
+                15.947055500344044,
+                22.46843560915517
+              ],
+              "attention_centroid_delta_xy": [
+                -0.10701878046677216,
+                0.03095573143450636
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 3,
+      "timestep": 973.3563842773438,
+      "sigma": 0.9733563661575317,
+      "sigma_squared": 0.9474226236343384,
+      "inner_index": 0,
+      "objective_before": 0.3874278962612152,
+      "objective_after": 0.37485113739967346,
+      "objective_delta": -0.012576758861541748,
+      "gradient_norm_l2": 0.026203161105513573,
+      "latent_norm_l2": 371.8894958496094,
+      "eta_sigma_squared": 22.884363174438477,
+      "actual_update_norm_l2": 0.5879315137863159,
+      "actual_relative_update_norm": 0.001580930664204061,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3874278962612152,
+          "objective_after": 0.37485113739967346,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6236171126365662,
+              "target_mass_after": 0.634233832359314,
+              "attention_centroid_before_xy": [
+                29.250144568535443,
+                29.23094332275798
+              ],
+              "attention_centroid_after_xy": [
+                29.465987732473874,
+                29.219419638881654
+              ],
+              "attention_centroid_delta_xy": [
+                0.2158431639384304,
+                -0.01152368387632663
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5042542815208435,
+              "target_mass_after": 0.5090150237083435,
+              "attention_centroid_before_xy": [
+                16.360947089072198,
+                22.55298095806389
+              ],
+              "attention_centroid_after_xy": [
+                16.281058520661873,
+                22.57968724760589
+              ],
+              "attention_centroid_delta_xy": [
+                -0.07988856841032543,
+                0.026706289541998274
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 3,
+      "timestep": 973.3563842773438,
+      "sigma": 0.9733563661575317,
+      "sigma_squared": 0.9474226236343384,
+      "inner_index": 1,
+      "objective_before": 0.37485113739967346,
+      "objective_after": 0.36474597454071045,
+      "objective_delta": -0.010105162858963013,
+      "gradient_norm_l2": 0.024999534711241722,
+      "latent_norm_l2": 371.8934020996094,
+      "eta_sigma_squared": 22.884363174438477,
+      "actual_update_norm_l2": 0.5568939447402954,
+      "actual_relative_update_norm": 0.0014974558725953102,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.37485113739967346,
+          "objective_after": 0.36474597454071045,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.634233832359314,
+              "target_mass_after": 0.6432468891143799,
+              "attention_centroid_before_xy": [
+                29.465987732473874,
+                29.219419638881654
+              ],
+              "attention_centroid_after_xy": [
+                29.62894657578819,
+                29.202716327482584
+              ],
+              "attention_centroid_delta_xy": [
+                0.16295884331431765,
+                -0.016703311399069776
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5090150237083435,
+              "target_mass_after": 0.5126878023147583,
+              "attention_centroid_before_xy": [
+                16.281058520661873,
+                22.57968724760589
+              ],
+              "attention_centroid_after_xy": [
+                16.235223276182793,
+                22.60245647599535
+              ],
+              "attention_centroid_delta_xy": [
+                -0.04583524447907905,
+                0.022769228389460494
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 3,
+      "timestep": 973.3563842773438,
+      "sigma": 0.9733563661575317,
+      "sigma_squared": 0.9474226236343384,
+      "inner_index": 2,
+      "objective_before": 0.36474597454071045,
+      "objective_after": 0.35387754440307617,
+      "objective_delta": -0.010868430137634277,
+      "gradient_norm_l2": 0.024319669231772423,
+      "latent_norm_l2": 371.8978271484375,
+      "eta_sigma_squared": 22.884363174438477,
+      "actual_update_norm_l2": 0.5385051965713501,
+      "actual_relative_update_norm": 0.0014479922829195857,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.36474597454071045,
+          "objective_after": 0.35387754440307617,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6432468891143799,
+              "target_mass_after": 0.6522715091705322,
+              "attention_centroid_before_xy": [
+                29.62894657578819,
+                29.202716327482584
+              ],
+              "attention_centroid_after_xy": [
+                29.76539694960538,
+                29.20752062545299
+              ],
+              "attention_centroid_delta_xy": [
+                0.13645037381718694,
+                0.004804297970405713
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5126878023147583,
+              "target_mass_after": 0.5173381567001343,
+              "attention_centroid_before_xy": [
+                16.235223276182793,
+                22.60245647599535
+              ],
+              "attention_centroid_after_xy": [
+                16.170924388617582,
+                22.6131480392671
+              ],
+              "attention_centroid_delta_xy": [
+                -0.06429888756521152,
+                0.010691563271748805
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 3,
+      "timestep": 973.3563842773438,
+      "sigma": 0.9733563661575317,
+      "sigma_squared": 0.9474226236343384,
+      "inner_index": 3,
+      "objective_before": 0.35387754440307617,
+      "objective_after": 0.3456377387046814,
+      "objective_delta": -0.008239805698394775,
+      "gradient_norm_l2": 0.023492639884352684,
+      "latent_norm_l2": 371.90228271484375,
+      "eta_sigma_squared": 22.884363174438477,
+      "actual_update_norm_l2": 0.5167789459228516,
+      "actual_relative_update_norm": 0.0013895557494834065,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.35387754440307617,
+          "objective_after": 0.3456377387046814,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6522715091705322,
+              "target_mass_after": 0.65859454870224,
+              "attention_centroid_before_xy": [
+                29.76539694960538,
+                29.20752062545299
+              ],
+              "attention_centroid_after_xy": [
+                29.851228775038596,
+                29.19287940181
+              ],
+              "attention_centroid_delta_xy": [
+                0.08583182543321755,
+                -0.014641223642989587
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5173381567001343,
+              "target_mass_after": 0.52137690782547,
+              "attention_centroid_before_xy": [
+                16.170924388617582,
+                22.6131480392671
+              ],
+              "attention_centroid_after_xy": [
+                16.115755125989637,
+                22.634603386142807
+              ],
+              "attention_centroid_delta_xy": [
+                -0.055169262627945415,
+                0.02145534687570816
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 3,
+      "timestep": 973.3563842773438,
+      "sigma": 0.9733563661575317,
+      "sigma_squared": 0.9474226236343384,
+      "inner_index": 4,
+      "objective_before": 0.3456377387046814,
+      "objective_after": 0.3371399939060211,
+      "objective_delta": -0.008497744798660278,
+      "gradient_norm_l2": 0.02196936309337616,
+      "latent_norm_l2": 371.9071960449219,
+      "eta_sigma_squared": 22.884363174438477,
+      "actual_update_norm_l2": 0.4775889217853546,
+      "actual_relative_update_norm": 0.0012841615825891495,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3456377387046814,
+          "objective_after": 0.3371399939060211,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.65859454870224,
+              "target_mass_after": 0.6639100909233093,
+              "attention_centroid_before_xy": [
+                29.851228775038596,
+                29.19287940181
+              ],
+              "attention_centroid_after_xy": [
+                29.90898237833432,
+                29.199667692188278
+              ],
+              "attention_centroid_delta_xy": [
+                0.057753603295722655,
+                0.006788290378278106
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.52137690782547,
+              "target_mass_after": 0.5265197157859802,
+              "attention_centroid_before_xy": [
+                16.115755125989637,
+                22.634603386142807
+              ],
+              "attention_centroid_after_xy": [
+                16.042424837703827,
+                22.64931919399689
+              ],
+              "attention_centroid_delta_xy": [
+                -0.07333028828580979,
+                0.014715807854084773
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 4,
+      "timestep": 964.0499877929688,
+      "sigma": 0.9640499949455261,
+      "sigma_squared": 0.929392397403717,
+      "inner_index": 0,
+      "objective_before": 0.3479754328727722,
+      "objective_after": 0.3373875319957733,
+      "objective_delta": -0.010587900876998901,
+      "gradient_norm_l2": 0.024604009464383125,
+      "latent_norm_l2": 368.8144226074219,
+      "eta_sigma_squared": 22.448854446411133,
+      "actual_update_norm_l2": 0.5348785519599915,
+      "actual_relative_update_norm": 0.0014502647100016475,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3479754328727722,
+          "objective_after": 0.3373875319957733,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6586833596229553,
+              "target_mass_after": 0.6673815846443176,
+              "attention_centroid_before_xy": [
+                29.67686786274553,
+                29.37939250942018
+              ],
+              "attention_centroid_after_xy": [
+                29.80527538805554,
+                29.41928317646626
+              ],
+              "attention_centroid_delta_xy": [
+                0.12840752531000987,
+                0.0398906670460768
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5188779830932617,
+              "target_mass_after": 0.5238146185874939,
+              "attention_centroid_before_xy": [
+                16.299709852099337,
+                22.855779153183885
+              ],
+              "attention_centroid_after_xy": [
+                16.217891270858438,
+                22.89578732797532
+              ],
+              "attention_centroid_delta_xy": [
+                -0.08181858124089914,
+                0.040008174791434925
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 4,
+      "timestep": 964.0499877929688,
+      "sigma": 0.9640499949455261,
+      "sigma_squared": 0.929392397403717,
+      "inner_index": 1,
+      "objective_before": 0.3373875319957733,
+      "objective_after": 0.3279131352901459,
+      "objective_delta": -0.009474396705627441,
+      "gradient_norm_l2": 0.023281119763851166,
+      "latent_norm_l2": 368.818603515625,
+      "eta_sigma_squared": 22.448854446411133,
+      "actual_update_norm_l2": 0.5025128126144409,
+      "actual_relative_update_norm": 0.0013624931452795863,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3373875319957733,
+          "objective_after": 0.3279131352901459,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6673815846443176,
+              "target_mass_after": 0.6745069026947021,
+              "attention_centroid_before_xy": [
+                29.80527538805554,
+                29.41928317646626
+              ],
+              "attention_centroid_after_xy": [
+                29.90258016281909,
+                29.45680708200476
+              ],
+              "attention_centroid_delta_xy": [
+                0.09730477476354693,
+                0.037523905538503044
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5238146185874939,
+              "target_mass_after": 0.5288658738136292,
+              "attention_centroid_before_xy": [
+                16.217891270858438,
+                22.89578732797532
+              ],
+              "attention_centroid_after_xy": [
+                16.138634155650692,
+                22.933248060463427
+              ],
+              "attention_centroid_delta_xy": [
+                -0.0792571152077457,
+                0.037460732488106885
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 4,
+      "timestep": 964.0499877929688,
+      "sigma": 0.9640499949455261,
+      "sigma_squared": 0.929392397403717,
+      "inner_index": 2,
+      "objective_before": 0.3279131352901459,
+      "objective_after": 0.3200465440750122,
+      "objective_delta": -0.007866591215133667,
+      "gradient_norm_l2": 0.022521326318383217,
+      "latent_norm_l2": 368.82305908203125,
+      "eta_sigma_squared": 22.448854446411133,
+      "actual_update_norm_l2": 0.4816398620605469,
+      "actual_relative_update_norm": 0.0013058832846581936,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3279131352901459,
+          "objective_after": 0.3200465440750122,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6745069026947021,
+              "target_mass_after": 0.680388331413269,
+              "attention_centroid_before_xy": [
+                29.90258016281909,
+                29.45680708200476
+              ],
+              "attention_centroid_after_xy": [
+                29.983545331018338,
+                29.491833724208533
+              ],
+              "attention_centroid_delta_xy": [
+                0.08096516819924915,
+                0.035026642203771274
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5288658738136292,
+              "target_mass_after": 0.5332078337669373,
+              "attention_centroid_before_xy": [
+                16.138634155650692,
+                22.933248060463427
+              ],
+              "attention_centroid_after_xy": [
+                16.072329761210753,
+                22.97728411974837
+              ],
+              "attention_centroid_delta_xy": [
+                -0.06630439443993907,
+                0.04403605928494159
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 4,
+      "timestep": 964.0499877929688,
+      "sigma": 0.9640499949455261,
+      "sigma_squared": 0.929392397403717,
+      "inner_index": 3,
+      "objective_before": 0.3200465440750122,
+      "objective_after": 0.311631441116333,
+      "objective_delta": -0.0084151029586792,
+      "gradient_norm_l2": 0.02168208733201027,
+      "latent_norm_l2": 368.82720947265625,
+      "eta_sigma_squared": 22.448854446411133,
+      "actual_update_norm_l2": 0.45946934819221497,
+      "actual_relative_update_norm": 0.0012457576813176274,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3200465440750122,
+          "objective_after": 0.311631441116333,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.680388331413269,
+              "target_mass_after": 0.6865406036376953,
+              "attention_centroid_before_xy": [
+                29.983545331018338,
+                29.491833724208533
+              ],
+              "attention_centroid_after_xy": [
+                30.063348155632013,
+                29.534205605192245
+              ],
+              "attention_centroid_delta_xy": [
+                0.07980282461367594,
+                0.04237188098371192
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5332078337669373,
+              "target_mass_after": 0.5380750894546509,
+              "attention_centroid_before_xy": [
+                16.072329761210753,
+                22.97728411974837
+              ],
+              "attention_centroid_after_xy": [
+                15.992598527940626,
+                23.006242465904506
+              ],
+              "attention_centroid_delta_xy": [
+                -0.07973123327012743,
+                0.028958346156137793
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 4,
+      "timestep": 964.0499877929688,
+      "sigma": 0.9640499949455261,
+      "sigma_squared": 0.929392397403717,
+      "inner_index": 4,
+      "objective_before": 0.311631441116333,
+      "objective_after": 0.30559074878692627,
+      "objective_delta": -0.006040692329406738,
+      "gradient_norm_l2": 0.020868998020887375,
+      "latent_norm_l2": 368.8310546875,
+      "eta_sigma_squared": 22.448854446411133,
+      "actual_update_norm_l2": 0.43729788064956665,
+      "actual_relative_update_norm": 0.0011856319615617394,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.311631441116333,
+          "objective_after": 0.30559074878692627,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6865406036376953,
+              "target_mass_after": 0.6909021735191345,
+              "attention_centroid_before_xy": [
+                30.063348155632013,
+                29.534205605192245
+              ],
+              "attention_centroid_after_xy": [
+                30.120951853431507,
+                29.565553433671354
+              ],
+              "attention_centroid_delta_xy": [
+                0.05760369779949315,
+                0.03134782847910955
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5380750894546509,
+              "target_mass_after": 0.5416886806488037,
+              "attention_centroid_before_xy": [
+                15.992598527940626,
+                23.006242465904506
+              ],
+              "attention_centroid_after_xy": [
+                15.936485103946147,
+                23.025832573470208
+              ],
+              "attention_centroid_delta_xy": [
+                -0.056113423994478495,
+                0.01959010756570123
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 5,
+      "timestep": 954.5180053710938,
+      "sigma": 0.9545180201530457,
+      "sigma_squared": 0.911104679107666,
+      "inner_index": 0,
+      "objective_before": 0.31006404757499695,
+      "objective_after": 0.3012757897377014,
+      "objective_delta": -0.008788257837295532,
+      "gradient_norm_l2": 0.023390237241983414,
+      "latent_norm_l2": 365.75665283203125,
+      "eta_sigma_squared": 22.00712776184082,
+      "actual_update_norm_l2": 0.4941635727882385,
+      "actual_relative_update_norm": 0.0013510719873011112,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.31006404757499695,
+          "objective_after": 0.3012757897377014,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6863948702812195,
+              "target_mass_after": 0.6930145621299744,
+              "attention_centroid_before_xy": [
+                30.014821553123454,
+                29.6693139884744
+              ],
+              "attention_centroid_after_xy": [
+                30.097290992174774,
+                29.74969682151649
+              ],
+              "attention_centroid_delta_xy": [
+                0.08246943905131943,
+                0.0803828330420906
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5398740768432617,
+              "target_mass_after": 0.544988214969635,
+              "attention_centroid_before_xy": [
+                16.083198910182226,
+                23.17486089988175
+              ],
+              "attention_centroid_after_xy": [
+                15.990817325661084,
+                23.202331902257278
+              ],
+              "attention_centroid_delta_xy": [
+                -0.0923815845211422,
+                0.027471002375527576
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 5,
+      "timestep": 954.5180053710938,
+      "sigma": 0.9545180201530457,
+      "sigma_squared": 0.911104679107666,
+      "inner_index": 1,
+      "objective_before": 0.3012757897377014,
+      "objective_after": 0.2927652895450592,
+      "objective_delta": -0.008510500192642212,
+      "gradient_norm_l2": 0.022296354174613953,
+      "latent_norm_l2": 365.76171875,
+      "eta_sigma_squared": 22.00712776184082,
+      "actual_update_norm_l2": 0.4656212329864502,
+      "actual_relative_update_norm": 0.0012730179587379098,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.3012757897377014,
+          "objective_after": 0.2927652895450592,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6930145621299744,
+              "target_mass_after": 0.6989119052886963,
+              "attention_centroid_before_xy": [
+                30.097290992174774,
+                29.74969682151649
+              ],
+              "attention_centroid_after_xy": [
+                30.16908417190782,
+                29.831211654350206
+              ],
+              "attention_centroid_delta_xy": [
+                0.07179317973304578,
+                0.08151483283371519
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.544988214969635,
+              "target_mass_after": 0.5504321455955505,
+              "attention_centroid_before_xy": [
+                15.990817325661084,
+                23.202331902257278
+              ],
+              "attention_centroid_after_xy": [
+                15.892746803657795,
+                23.238298091023275
+              ],
+              "attention_centroid_delta_xy": [
+                -0.09807052200328847,
+                0.035966188765996776
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 5,
+      "timestep": 954.5180053710938,
+      "sigma": 0.9545180201530457,
+      "sigma_squared": 0.911104679107666,
+      "inner_index": 2,
+      "objective_before": 0.2927652895450592,
+      "objective_after": 0.2869156002998352,
+      "objective_delta": -0.005849689245223999,
+      "gradient_norm_l2": 0.021380474790930748,
+      "latent_norm_l2": 365.76654052734375,
+      "eta_sigma_squared": 22.00712776184082,
+      "actual_update_norm_l2": 0.441169410943985,
+      "actual_relative_update_norm": 0.0012061502784490585,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.2927652895450592,
+          "objective_after": 0.2869156002998352,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.6989119052886963,
+              "target_mass_after": 0.703345537185669,
+              "attention_centroid_before_xy": [
+                30.16908417190782,
+                29.831211654350206
+              ],
+              "attention_centroid_after_xy": [
+                30.229417171469883,
+                29.886672079620226
+              ],
+              "attention_centroid_delta_xy": [
+                0.06033299956206406,
+                0.05546042527002015
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5504321455955505,
+              "target_mass_after": 0.5540047883987427,
+              "attention_centroid_before_xy": [
+                15.892746803657795,
+                23.238298091023275
+              ],
+              "attention_centroid_after_xy": [
+                15.832411782862684,
+                23.274308123529185
+              ],
+              "attention_centroid_delta_xy": [
+                -0.06033502079511166,
+                0.03601003250591006
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 5,
+      "timestep": 954.5180053710938,
+      "sigma": 0.9545180201530457,
+      "sigma_squared": 0.911104679107666,
+      "inner_index": 3,
+      "objective_before": 0.2869156002998352,
+      "objective_after": 0.2790110111236572,
+      "objective_delta": -0.007904589176177979,
+      "gradient_norm_l2": 0.020688805729150772,
+      "latent_norm_l2": 365.7705993652344,
+      "eta_sigma_squared": 22.00712776184082,
+      "actual_update_norm_l2": 0.42328187823295593,
+      "actual_relative_update_norm": 0.0011572331422939897,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.2869156002998352,
+          "objective_after": 0.2790110111236572,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.703345537185669,
+              "target_mass_after": 0.7085256576538086,
+              "attention_centroid_before_xy": [
+                30.229417171469883,
+                29.886672079620226
+              ],
+              "attention_centroid_after_xy": [
+                30.28730820306722,
+                29.971939854917
+              ],
+              "attention_centroid_delta_xy": [
+                0.057891031597335996,
+                0.08526777529677432
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5540047883987427,
+              "target_mass_after": 0.5594847202301025,
+              "attention_centroid_before_xy": [
+                15.832411782862684,
+                23.274308123529185
+              ],
+              "attention_centroid_after_xy": [
+                15.729947280832285,
+                23.306380473701957
+              ],
+              "attention_centroid_delta_xy": [
+                -0.10246450203039892,
+                0.03207235017277199
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 5,
+      "timestep": 954.5180053710938,
+      "sigma": 0.9545180201530457,
+      "sigma_squared": 0.911104679107666,
+      "inner_index": 4,
+      "objective_before": 0.2790110111236572,
+      "objective_after": 0.27475762367248535,
+      "objective_delta": -0.004253387451171875,
+      "gradient_norm_l2": 0.019840337336063385,
+      "latent_norm_l2": 365.77386474609375,
+      "eta_sigma_squared": 22.00712776184082,
+      "actual_update_norm_l2": 0.4009062349796295,
+      "actual_relative_update_norm": 0.0010960494400933385,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.2790110111236572,
+          "objective_after": 0.27475762367248535,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7085256576538086,
+              "target_mass_after": 0.7126203179359436,
+              "attention_centroid_before_xy": [
+                30.28730820306722,
+                29.971939854917
+              ],
+              "attention_centroid_after_xy": [
+                30.337641506873858,
+                30.0247702858719
+              ],
+              "attention_centroid_delta_xy": [
+                0.050333303806638696,
+                0.05283043095489859
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5594847202301025,
+              "target_mass_after": 0.5616273880004883,
+              "attention_centroid_before_xy": [
+                15.729947280832285,
+                23.306380473701957
+              ],
+              "attention_centroid_after_xy": [
+                15.691561117618061,
+                23.332702048311525
+              ],
+              "attention_centroid_delta_xy": [
+                -0.0383861632142235,
+                0.026321574609568188
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 6,
+      "timestep": 944.7523803710938,
+      "sigma": 0.9447523951530457,
+      "sigma_squared": 0.8925570845603943,
+      "inner_index": 0,
+      "objective_before": 0.2831832468509674,
+      "objective_after": 0.27310192584991455,
+      "objective_delta": -0.010081321001052856,
+      "gradient_norm_l2": 0.024606915190815926,
+      "latent_norm_l2": 362.7485656738281,
+      "eta_sigma_squared": 21.55912208557129,
+      "actual_update_norm_l2": 0.5154765248298645,
+      "actual_relative_update_norm": 0.0014210297958925366,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.2831832468509674,
+          "objective_after": 0.27310192584991455,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7047091722488403,
+              "target_mass_after": 0.7124232053756714,
+              "attention_centroid_before_xy": [
+                30.27232369257171,
+                30.113400597195
+              ],
+              "attention_centroid_after_xy": [
+                30.38536531851573,
+                30.190238921296615
+              ],
+              "attention_centroid_delta_xy": [
+                0.11304162594402101,
+                0.07683832410161529
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5572962760925293,
+              "target_mass_after": 0.5636497735977173,
+              "attention_centroid_before_xy": [
+                15.804125953368487,
+                23.518460332724498
+              ],
+              "attention_centroid_after_xy": [
+                15.678179333716178,
+                23.55185974442871
+              ],
+              "attention_centroid_delta_xy": [
+                -0.1259466196523089,
+                0.03339941170421312
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 6,
+      "timestep": 944.7523803710938,
+      "sigma": 0.9447523951530457,
+      "sigma_squared": 0.8925570845603943,
+      "inner_index": 1,
+      "objective_before": 0.27310192584991455,
+      "objective_after": 0.26555174589157104,
+      "objective_delta": -0.007550179958343506,
+      "gradient_norm_l2": 0.022396840155124664,
+      "latent_norm_l2": 362.75347900390625,
+      "eta_sigma_squared": 21.55912208557129,
+      "actual_update_norm_l2": 0.46094706654548645,
+      "actual_relative_update_norm": 0.0012706895358860493,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.27310192584991455,
+          "objective_after": 0.26555174589157104,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7124232053756714,
+              "target_mass_after": 0.7183544039726257,
+              "attention_centroid_before_xy": [
+                30.38536531851573,
+                30.190238921296615
+              ],
+              "attention_centroid_after_xy": [
+                30.469035009505923,
+                30.242694062136867
+              ],
+              "attention_centroid_delta_xy": [
+                0.08366969099019173,
+                0.0524551408402516
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5636497735977173,
+              "target_mass_after": 0.568459153175354,
+              "attention_centroid_before_xy": [
+                15.678179333716178,
+                23.55185974442871
+              ],
+              "attention_centroid_after_xy": [
+                15.589714479788675,
+                23.584587811224424
+              ],
+              "attention_centroid_delta_xy": [
+                -0.08846485392750303,
+                0.03272806679571261
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 6,
+      "timestep": 944.7523803710938,
+      "sigma": 0.9447523951530457,
+      "sigma_squared": 0.8925570845603943,
+      "inner_index": 2,
+      "objective_before": 0.26555174589157104,
+      "objective_after": 0.25853946805000305,
+      "objective_delta": -0.007012277841567993,
+      "gradient_norm_l2": 0.02113979682326317,
+      "latent_norm_l2": 362.7583923339844,
+      "eta_sigma_squared": 21.55912208557129,
+      "actual_update_norm_l2": 0.4275832772254944,
+      "actual_relative_update_norm": 0.0011786998948082328,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.26555174589157104,
+          "objective_after": 0.25853946805000305,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7183544039726257,
+              "target_mass_after": 0.7235651612281799,
+              "attention_centroid_before_xy": [
+                30.469035009505923,
+                30.242694062136867
+              ],
+              "attention_centroid_after_xy": [
+                30.53872903742728,
+                30.28949127175216
+              ],
+              "attention_centroid_delta_xy": [
+                0.06969402792135782,
+                0.04679720961529199
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.568459153175354,
+              "target_mass_after": 0.5732409954071045,
+              "attention_centroid_before_xy": [
+                15.589714479788675,
+                23.584587811224424
+              ],
+              "attention_centroid_after_xy": [
+                15.497047948789113,
+                23.60647712087052
+              ],
+              "attention_centroid_delta_xy": [
+                -0.09266653099956201,
+                0.021889309646095256
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 6,
+      "timestep": 944.7523803710938,
+      "sigma": 0.9447523951530457,
+      "sigma_squared": 0.8925570845603943,
+      "inner_index": 3,
+      "objective_before": 0.25853946805000305,
+      "objective_after": 0.2530211806297302,
+      "objective_delta": -0.005518287420272827,
+      "gradient_norm_l2": 0.020168574526906013,
+      "latent_norm_l2": 362.7624816894531,
+      "eta_sigma_squared": 21.55912208557129,
+      "actual_update_norm_l2": 0.4052295982837677,
+      "actual_relative_update_norm": 0.001117065898142755,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.25853946805000305,
+          "objective_after": 0.2530211806297302,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7235651612281799,
+              "target_mass_after": 0.7276516556739807,
+              "attention_centroid_before_xy": [
+                30.53872903742728,
+                30.28949127175216
+              ],
+              "attention_centroid_after_xy": [
+                30.600913803734755,
+                30.323840861889703
+              ],
+              "attention_centroid_delta_xy": [
+                0.062184766307474604,
+                0.034349590137544794
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5732409954071045,
+              "target_mass_after": 0.5770962834358215,
+              "attention_centroid_before_xy": [
+                15.497047948789113,
+                23.60647712087052
+              ],
+              "attention_centroid_after_xy": [
+                15.436317910212056,
+                23.635742655331928
+              ],
+              "attention_centroid_delta_xy": [
+                -0.0607300385770575,
+                0.029265534461409004
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 6,
+      "timestep": 944.7523803710938,
+      "sigma": 0.9447523951530457,
+      "sigma_squared": 0.8925570845603943,
+      "inner_index": 4,
+      "objective_before": 0.2530211806297302,
+      "objective_after": 0.2476281225681305,
+      "objective_delta": -0.0053930580615997314,
+      "gradient_norm_l2": 0.019526932388544083,
+      "latent_norm_l2": 362.7661437988281,
+      "eta_sigma_squared": 21.55912208557129,
+      "actual_update_norm_l2": 0.3872419595718384,
+      "actual_relative_update_norm": 0.0010674699442461133,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.2530211806297302,
+          "objective_after": 0.2476281225681305,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7276516556739807,
+              "target_mass_after": 0.7322751879692078,
+              "attention_centroid_before_xy": [
+                30.600913803734755,
+                30.323840861889703
+              ],
+              "attention_centroid_after_xy": [
+                30.662715280490296,
+                30.365961599355902
+              ],
+              "attention_centroid_delta_xy": [
+                0.06180147675554082,
+                0.04212073746619893
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5770962834358215,
+              "target_mass_after": 0.5805342197418213,
+              "attention_centroid_before_xy": [
+                15.436317910212056,
+                23.635742655331928
+              ],
+              "attention_centroid_after_xy": [
+                15.384818200890336,
+                23.652289077360564
+              ],
+              "attention_centroid_delta_xy": [
+                -0.05149970932171932,
+                0.016546422028635988
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 7,
+      "timestep": 934.7440795898438,
+      "sigma": 0.9347440600395203,
+      "sigma_squared": 0.8737464547157288,
+      "inner_index": 0,
+      "objective_before": 0.251151442527771,
+      "objective_after": 0.24425283074378967,
+      "objective_delta": -0.006898611783981323,
+      "gradient_norm_l2": 0.021607762202620506,
+      "latent_norm_l2": 359.7720947265625,
+      "eta_sigma_squared": 21.104764938354492,
+      "actual_update_norm_l2": 0.43180662393569946,
+      "actual_relative_update_norm": 0.0012002226430922747,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.251151442527771,
+          "objective_after": 0.24425283074378967,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7286339402198792,
+              "target_mass_after": 0.7343528270721436,
+              "attention_centroid_before_xy": [
+                30.663404472899742,
+                30.430893298395024
+              ],
+              "attention_centroid_after_xy": [
+                30.7425109086154,
+                30.473085282111207
+              ],
+              "attention_centroid_delta_xy": [
+                0.07910643571565856,
+                0.042191983716183046
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5786783695220947,
+              "target_mass_after": 0.5832453966140747,
+              "attention_centroid_before_xy": [
+                15.514409199162245,
+                23.79185413988689
+              ],
+              "attention_centroid_after_xy": [
+                15.429112916561845,
+                23.794998496645093
+              ],
+              "attention_centroid_delta_xy": [
+                -0.08529628260039956,
+                0.003144356758202349
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 7,
+      "timestep": 934.7440795898438,
+      "sigma": 0.9347440600395203,
+      "sigma_squared": 0.8737464547157288,
+      "inner_index": 1,
+      "objective_before": 0.24425283074378967,
+      "objective_after": 0.23779669404029846,
+      "objective_delta": -0.006456136703491211,
+      "gradient_norm_l2": 0.0204108115285635,
+      "latent_norm_l2": 359.7772521972656,
+      "eta_sigma_squared": 21.104764938354492,
+      "actual_update_norm_l2": 0.40220919251441956,
+      "actual_relative_update_norm": 0.0011179394787177444,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.24425283074378967,
+          "objective_after": 0.23779669404029846,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7343528270721436,
+              "target_mass_after": 0.7388831973075867,
+              "attention_centroid_before_xy": [
+                30.7425109086154,
+                30.473085282111207
+              ],
+              "attention_centroid_after_xy": [
+                30.797281963489546,
+                30.508716577505577
+              ],
+              "attention_centroid_delta_xy": [
+                0.05477105487414491,
+                0.03563129539437071
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5832453966140747,
+              "target_mass_after": 0.5881569385528564,
+              "attention_centroid_before_xy": [
+                15.429112916561845,
+                23.794998496645093
+              ],
+              "attention_centroid_after_xy": [
+                15.330195800934938,
+                23.818498862194595
+              ],
+              "attention_centroid_delta_xy": [
+                -0.0989171156269073,
+                0.023500365549502078
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 7,
+      "timestep": 934.7440795898438,
+      "sigma": 0.9347440600395203,
+      "sigma_squared": 0.8737464547157288,
+      "inner_index": 2,
+      "objective_before": 0.23779669404029846,
+      "objective_after": 0.23282290995121002,
+      "objective_delta": -0.00497378408908844,
+      "gradient_norm_l2": 0.019400978460907936,
+      "latent_norm_l2": 359.78204345703125,
+      "eta_sigma_squared": 21.104764938354492,
+      "actual_update_norm_l2": 0.3759649097919464,
+      "actual_relative_update_norm": 0.0010449796682223678,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.23779669404029846,
+          "objective_after": 0.23282290995121002,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7388831973075867,
+              "target_mass_after": 0.7433226704597473,
+              "attention_centroid_before_xy": [
+                30.797281963489546,
+                30.508716577505577
+              ],
+              "attention_centroid_after_xy": [
+                30.856649223671514,
+                30.530667922305305
+              ],
+              "attention_centroid_delta_xy": [
+                0.05936726018196836,
+                0.021951344799727934
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5881569385528564,
+              "target_mass_after": 0.5914174914360046,
+              "attention_centroid_before_xy": [
+                15.330195800934938,
+                23.818498862194595
+              ],
+              "attention_centroid_after_xy": [
+                15.2706492209484,
+                23.817129111353054
+              ],
+              "attention_centroid_delta_xy": [
+                -0.059546579986538006,
+                -0.0013697508415404513
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 7,
+      "timestep": 934.7440795898438,
+      "sigma": 0.9347440600395203,
+      "sigma_squared": 0.8737464547157288,
+      "inner_index": 3,
+      "objective_before": 0.23282290995121002,
+      "objective_after": 0.22801777720451355,
+      "objective_delta": -0.004805132746696472,
+      "gradient_norm_l2": 0.018728269264101982,
+      "latent_norm_l2": 359.78485107421875,
+      "eta_sigma_squared": 21.104764938354492,
+      "actual_update_norm_l2": 0.3594056963920593,
+      "actual_relative_update_norm": 0.000998946139588952,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.23282290995121002,
+          "objective_after": 0.22801777720451355,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7433226704597473,
+              "target_mass_after": 0.7466659545898438,
+              "attention_centroid_before_xy": [
+                30.856649223671514,
+                30.530667922305305
+              ],
+              "attention_centroid_after_xy": [
+                30.89663766730442,
+                30.550584918844265
+              ],
+              "attention_centroid_delta_xy": [
+                0.03998844363290743,
+                0.019916996538960063
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5914174914360046,
+              "target_mass_after": 0.595228910446167,
+              "attention_centroid_before_xy": [
+                15.2706492209484,
+                23.817129111353054
+              ],
+              "attention_centroid_after_xy": [
+                15.203839881231033,
+                23.824143128324632
+              ],
+              "attention_centroid_delta_xy": [
+                -0.06680933971736636,
+                0.0070140169715777745
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 7,
+      "timestep": 934.7440795898438,
+      "sigma": 0.9347440600395203,
+      "sigma_squared": 0.8737464547157288,
+      "inner_index": 4,
+      "objective_before": 0.22801777720451355,
+      "objective_after": 0.2235535979270935,
+      "objective_delta": -0.004464179277420044,
+      "gradient_norm_l2": 0.018131796270608902,
+      "latent_norm_l2": 359.78778076171875,
+      "eta_sigma_squared": 21.104764938354492,
+      "actual_update_norm_l2": 0.34373295307159424,
+      "actual_relative_update_norm": 0.0009553769486956298,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.22801777720451355,
+          "objective_after": 0.2235535979270935,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7466659545898438,
+              "target_mass_after": 0.7500411868095398,
+              "attention_centroid_before_xy": [
+                30.89663766730442,
+                30.550584918844265
+              ],
+              "attention_centroid_after_xy": [
+                30.93757740182531,
+                30.57014079401021
+              ],
+              "attention_centroid_delta_xy": [
+                0.04093973452088662,
+                0.01955587516594548
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.595228910446167,
+              "target_mass_after": 0.5986595153808594,
+              "attention_centroid_before_xy": [
+                15.203839881231033,
+                23.824143128324632
+              ],
+              "attention_centroid_after_xy": [
+                15.14370334890413,
+                23.82883773284858
+              ],
+              "attention_centroid_delta_xy": [
+                -0.060136532326902525,
+                0.004694604523947987
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 8,
+      "timestep": 924.4842529296875,
+      "sigma": 0.9244842529296875,
+      "sigma_squared": 0.8546711206436157,
+      "inner_index": 0,
+      "objective_before": 0.22852930426597595,
+      "objective_after": 0.22283491492271423,
+      "objective_delta": -0.005694389343261719,
+      "gradient_norm_l2": 0.020368453115224838,
+      "latent_norm_l2": 356.85955810546875,
+      "eta_sigma_squared": 20.644012451171875,
+      "actual_update_norm_l2": 0.3907102644443512,
+      "actual_relative_update_norm": 0.0010948572307825089,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.22852930426597595,
+          "objective_after": 0.22283491492271423,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7427713871002197,
+              "target_mass_after": 0.7470036149024963,
+              "attention_centroid_before_xy": [
+                30.91168355828823,
+                30.665351975068887
+              ],
+              "attention_centroid_after_xy": [
+                30.962076717131083,
+                30.679879555387068
+              ],
+              "attention_centroid_delta_xy": [
+                0.05039315884285145,
+                0.014527580318180355
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.5970574021339417,
+              "target_mass_after": 0.601468026638031,
+              "attention_centroid_before_xy": [
+                15.20797032213186,
+                23.964954515997178
+              ],
+              "attention_centroid_after_xy": [
+                15.1341682241823,
+                23.953108755992176
+              ],
+              "attention_centroid_delta_xy": [
+                -0.07380209794956016,
+                -0.011845760005002148
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 8,
+      "timestep": 924.4842529296875,
+      "sigma": 0.9244842529296875,
+      "sigma_squared": 0.8546711206436157,
+      "inner_index": 1,
+      "objective_before": 0.22283491492271423,
+      "objective_after": 0.21682721376419067,
+      "objective_delta": -0.00600770115852356,
+      "gradient_norm_l2": 0.019880060106515884,
+      "latent_norm_l2": 356.8641052246094,
+      "eta_sigma_squared": 20.644012451171875,
+      "actual_update_norm_l2": 0.3787872791290283,
+      "actual_relative_update_norm": 0.0010614328784868121,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.22283491492271423,
+          "objective_after": 0.21682721376419067,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7470036149024963,
+              "target_mass_after": 0.7514922022819519,
+              "attention_centroid_before_xy": [
+                30.962076717131083,
+                30.679879555387068
+              ],
+              "attention_centroid_after_xy": [
+                31.01821109626065,
+                30.69480309238398
+              ],
+              "attention_centroid_delta_xy": [
+                0.05613437912956698,
+                0.014923536996914066
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.601468026638031,
+              "target_mass_after": 0.6062093377113342,
+              "attention_centroid_before_xy": [
+                15.1341682241823,
+                23.953108755992176
+              ],
+              "attention_centroid_after_xy": [
+                15.050380091651878,
+                23.957683584328247
+              ],
+              "attention_centroid_delta_xy": [
+                -0.08378813253042239,
+                0.00457482833607159
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 8,
+      "timestep": 924.4842529296875,
+      "sigma": 0.9244842529296875,
+      "sigma_squared": 0.8546711206436157,
+      "inner_index": 2,
+      "objective_before": 0.21682721376419067,
+      "objective_after": 0.2124393731355667,
+      "objective_delta": -0.004387840628623962,
+      "gradient_norm_l2": 0.019152212888002396,
+      "latent_norm_l2": 356.8682556152344,
+      "eta_sigma_squared": 20.644012451171875,
+      "actual_update_norm_l2": 0.36107537150382996,
+      "actual_relative_update_norm": 0.0010117889614775777,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.21682721376419067,
+          "objective_after": 0.2124393731355667,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7514922022819519,
+              "target_mass_after": 0.7544614672660828,
+              "attention_centroid_before_xy": [
+                31.01821109626065,
+                30.69480309238398
+              ],
+              "attention_centroid_after_xy": [
+                31.044439428876657,
+                30.70123272115393
+              ],
+              "attention_centroid_delta_xy": [
+                0.02622833261600732,
+                0.006429628769947016
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.6062093377113342,
+              "target_mass_after": 0.6099356412887573,
+              "attention_centroid_before_xy": [
+                15.050380091651878,
+                23.957683584328247
+              ],
+              "attention_centroid_after_xy": [
+                14.981656343508897,
+                23.98063355611132
+              ],
+              "attention_centroid_delta_xy": [
+                -0.06872374814298077,
+                0.02294997178307412
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 8,
+      "timestep": 924.4842529296875,
+      "sigma": 0.9244842529296875,
+      "sigma_squared": 0.8546711206436157,
+      "inner_index": 3,
+      "objective_before": 0.2124393731355667,
+      "objective_after": 0.20788946747779846,
+      "objective_delta": -0.0045499056577682495,
+      "gradient_norm_l2": 0.018350383266806602,
+      "latent_norm_l2": 356.8721008300781,
+      "eta_sigma_squared": 20.644012451171875,
+      "actual_update_norm_l2": 0.3396858870983124,
+      "actual_relative_update_norm": 0.0009518421138636768,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.2124393731355667,
+          "objective_after": 0.20788946747779846,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7544614672660828,
+              "target_mass_after": 0.7581632733345032,
+              "attention_centroid_before_xy": [
+                31.044439428876657,
+                30.70123272115393
+              ],
+              "attention_centroid_after_xy": [
+                31.08723955663916,
+                30.71808935014254
+              ],
+              "attention_centroid_delta_xy": [
+                0.0428001277625043,
+                0.016856628988612954
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.6099356412887573,
+              "target_mass_after": 0.613471269607544,
+              "attention_centroid_before_xy": [
+                14.981656343508897,
+                23.98063355611132
+              ],
+              "attention_centroid_after_xy": [
+                14.918871947013617,
+                23.97881261660134
+              ],
+              "attention_centroid_delta_xy": [
+                -0.06278439649527989,
+                -0.0018209395099830772
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 8,
+      "timestep": 924.4842529296875,
+      "sigma": 0.9244842529296875,
+      "sigma_squared": 0.8546711206436157,
+      "inner_index": 4,
+      "objective_before": 0.20788946747779846,
+      "objective_after": 0.2044350802898407,
+      "objective_delta": -0.0034543871879577637,
+      "gradient_norm_l2": 0.017750848084688187,
+      "latent_norm_l2": 356.87542724609375,
+      "eta_sigma_squared": 20.644012451171875,
+      "actual_update_norm_l2": 0.3249981999397278,
+      "actual_relative_update_norm": 0.0009106768993660808,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.20788946747779846,
+          "objective_after": 0.2044350802898407,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7581632733345032,
+              "target_mass_after": 0.7606434226036072,
+              "attention_centroid_before_xy": [
+                31.08723955663916,
+                30.71808935014254
+              ],
+              "attention_centroid_after_xy": [
+                31.1083682402476,
+                30.727426111920053
+              ],
+              "attention_centroid_delta_xy": [
+                0.021128683608438337,
+                0.009336761777511526
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.613471269607544,
+              "target_mass_after": 0.6164070963859558,
+              "attention_centroid_before_xy": [
+                14.918871947013617,
+                23.97881261660134
+              ],
+              "attention_centroid_after_xy": [
+                14.875367744126796,
+                23.97669243009478
+              ],
+              "attention_centroid_delta_xy": [
+                -0.043504202886820664,
+                -0.0021201865065592074
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 9,
+      "timestep": 913.9630737304688,
+      "sigma": 0.9139630794525146,
+      "sigma_squared": 0.8353285193443298,
+      "inner_index": 0,
+      "objective_before": 0.21177539229393005,
+      "objective_after": 0.20569723844528198,
+      "objective_delta": -0.006078153848648071,
+      "gradient_norm_l2": 0.021127520129084587,
+      "latent_norm_l2": 354.0206298828125,
+      "eta_sigma_squared": 20.17680549621582,
+      "actual_update_norm_l2": 0.4001587927341461,
+      "actual_relative_update_norm": 0.001130326185375452,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.21177539229393005,
+          "objective_after": 0.20569723844528198,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7532605528831482,
+              "target_mass_after": 0.7572749853134155,
+              "attention_centroid_before_xy": [
+                31.08465629998311,
+                30.887251272169053
+              ],
+              "attention_centroid_after_xy": [
+                31.128629539657055,
+                30.905072143989994
+              ],
+              "attention_centroid_delta_xy": [
+                0.04397323967394584,
+                0.017820871820941164
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.6115478873252869,
+              "target_mass_after": 0.616878867149353,
+              "attention_centroid_before_xy": [
+                14.915259713035002,
+                24.041390618427954
+              ],
+              "attention_centroid_after_xy": [
+                14.838626793921295,
+                24.042009924947404
+              ],
+              "attention_centroid_delta_xy": [
+                -0.07663291911370784,
+                0.0006193065194501912
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 9,
+      "timestep": 913.9630737304688,
+      "sigma": 0.9139630794525146,
+      "sigma_squared": 0.8353285193443298,
+      "inner_index": 1,
+      "objective_before": 0.20569723844528198,
+      "objective_after": 0.20050504803657532,
+      "objective_delta": -0.005192190408706665,
+      "gradient_norm_l2": 0.019969455897808075,
+      "latent_norm_l2": 354.02685546875,
+      "eta_sigma_squared": 20.17680549621582,
+      "actual_update_norm_l2": 0.3712615668773651,
+      "actual_relative_update_norm": 0.001048681908287108,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.20569723844528198,
+          "objective_after": 0.20050504803657532,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7572749853134155,
+              "target_mass_after": 0.7604987025260925,
+              "attention_centroid_before_xy": [
+                31.128629539657055,
+                30.905072143989994
+              ],
+              "attention_centroid_after_xy": [
+                31.15916733677596,
+                30.911480845086945
+              ],
+              "attention_centroid_delta_xy": [
+                0.030537797118903143,
+                0.0064087010969515745
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.616878867149353,
+              "target_mass_after": 0.6216560006141663,
+              "attention_centroid_before_xy": [
+                14.838626793921295,
+                24.042009924947404
+              ],
+              "attention_centroid_after_xy": [
+                14.75558107503393,
+                24.049021310134858
+              ],
+              "attention_centroid_delta_xy": [
+                -0.08304571888736412,
+                0.007011385187453811
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "denoising_index": 9,
+      "timestep": 913.9630737304688,
+      "sigma": 0.9139630794525146,
+      "sigma_squared": 0.8353285193443298,
+      "inner_index": 2,
+      "objective_before": 0.20050504803657532,
+      "objective_after": 0.1956074833869934,
+      "objective_delta": -0.004897564649581909,
+      "gradient_norm_l2": 0.01925007998943329,
+      "latent_norm_l2": 354.0321350097656,
+      "eta_sigma_squared": 20.17680549621582,
+      "actual_update_norm_l2": 0.35180509090423584,
+      "actual_relative_update_norm": 0.000993709429167211,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "blocks": {
+        "18": {
+          "objective_before": 0.20050504803657532,
+          "objective_after": 0.1956074833869934,
+          "objects": {
+            "banana": {
+              "target_region": "banana_target",
+              "target_mass_before": 0.7604987025260925,
+              "target_mass_after": 0.7641074061393738,
+              "attention_centroid_before_xy": [
+                31.15916733677596,
+                30.911480845086945
+              ],
+              "attention_centroid_after_xy": [
+                31.191774160658255,
+                30.93266812682735
+              ],
+              "attention_centroid_delta_xy": [
+                0.032606823882296965,
+                0.021187281740402852
+              ]
+            },
+            "bottle": {
+              "target_region": "bottle_target",
+              "target_mass_before": 0.6216560006141663,
+              "target_mass_after": 0.6258848309516907,
+              "attention_centroid_before_xy": [
+                14.75558107503393,
+                24.049021310134858
+              ],
+              "attention_centroid_after_xy": [
+                14.703846247531885,
+                24.058662017123723
+              ],
+              "attention_centroid_delta_xy": [
+                -0.05173482750204528,
+                0.009640706988864878
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "step_summaries": [
+    {
+      "denoising_index": 0,
+      "timestep": 1000.0,
+      "sigma": 1.0,
+      "sigma_squared": 1.0,
+      "executed_inner_updates": 5,
+      "objective_initial": 1.2994425296783447,
+      "objective_final": 0.8497875332832336,
+      "relative_update_first": 0.005425117444247007,
+      "relative_update_last": 0.002769329585134983,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            27.566750058127717,
+            24.14354725659294
+          ],
+          "bottle": [
+            21.73058485428079,
+            22.223569463098894
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 1,
+      "timestep": 991.3240966796875,
+      "sigma": 0.9913240671157837,
+      "sigma_squared": 0.9827234148979187,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.7627002000808716,
+      "objective_final": 0.47150105237960815,
+      "relative_update_first": 0.00525551987811923,
+      "relative_update_last": 0.002511441009119153,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            28.704459797667944,
+            25.427017710130375
+          ],
+          "bottle": [
+            17.041915258965556,
+            22.41703189111686
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 2,
+      "timestep": 982.4452514648438,
+      "sigma": 0.982445240020752,
+      "sigma_squared": 0.9651986360549927,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.4262002110481262,
+      "objective_final": 0.35314881801605225,
+      "relative_update_first": 0.0020596187096089125,
+      "relative_update_last": 0.0014798989286646247,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            29.454509288995453,
+            28.079056584629228
+          ],
+          "bottle": [
+            15.947055500344044,
+            22.46843560915517
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 3,
+      "timestep": 973.3563842773438,
+      "sigma": 0.9733563661575317,
+      "sigma_squared": 0.9474226236343384,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.3874278962612152,
+      "objective_final": 0.3371399939060211,
+      "relative_update_first": 0.001580930664204061,
+      "relative_update_last": 0.0012841615825891495,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            29.90898237833432,
+            29.199667692188278
+          ],
+          "bottle": [
+            16.042424837703827,
+            22.64931919399689
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 4,
+      "timestep": 964.0499877929688,
+      "sigma": 0.9640499949455261,
+      "sigma_squared": 0.929392397403717,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.3479754328727722,
+      "objective_final": 0.30559074878692627,
+      "relative_update_first": 0.0014502647100016475,
+      "relative_update_last": 0.0011856319615617394,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            30.120951853431507,
+            29.565553433671354
+          ],
+          "bottle": [
+            15.936485103946147,
+            23.025832573470208
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 5,
+      "timestep": 954.5180053710938,
+      "sigma": 0.9545180201530457,
+      "sigma_squared": 0.911104679107666,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.31006404757499695,
+      "objective_final": 0.27475762367248535,
+      "relative_update_first": 0.0013510719873011112,
+      "relative_update_last": 0.0010960494400933385,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            30.337641506873858,
+            30.0247702858719
+          ],
+          "bottle": [
+            15.691561117618061,
+            23.332702048311525
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 6,
+      "timestep": 944.7523803710938,
+      "sigma": 0.9447523951530457,
+      "sigma_squared": 0.8925570845603943,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.2831832468509674,
+      "objective_final": 0.2476281225681305,
+      "relative_update_first": 0.0014210297958925366,
+      "relative_update_last": 0.0010674699442461133,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            30.662715280490296,
+            30.365961599355902
+          ],
+          "bottle": [
+            15.384818200890336,
+            23.652289077360564
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 7,
+      "timestep": 934.7440795898438,
+      "sigma": 0.9347440600395203,
+      "sigma_squared": 0.8737464547157288,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.251151442527771,
+      "objective_final": 0.2235535979270935,
+      "relative_update_first": 0.0012002226430922747,
+      "relative_update_last": 0.0009553769486956298,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            30.93757740182531,
+            30.57014079401021
+          ],
+          "bottle": [
+            15.14370334890413,
+            23.82883773284858
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 8,
+      "timestep": 924.4842529296875,
+      "sigma": 0.9244842529296875,
+      "sigma_squared": 0.8546711206436157,
+      "executed_inner_updates": 5,
+      "objective_initial": 0.22852930426597595,
+      "objective_final": 0.2044350802898407,
+      "relative_update_first": 0.0010948572307825089,
+      "relative_update_last": 0.0009106768993660808,
+      "stopped_on_objective_threshold": false,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            31.1083682402476,
+            30.727426111920053
+          ],
+          "bottle": [
+            14.875367744126796,
+            23.97669243009478
+          ]
+        }
+      }
+    },
+    {
+      "denoising_index": 9,
+      "timestep": 913.9630737304688,
+      "sigma": 0.9139630794525146,
+      "sigma_squared": 0.8353285193443298,
+      "executed_inner_updates": 3,
+      "objective_initial": 0.21177539229393005,
+      "objective_final": 0.1956074833869934,
+      "relative_update_first": 0.001130326185375452,
+      "relative_update_last": 0.000993709429167211,
+      "stopped_on_objective_threshold": true,
+      "final_attention_centroids": {
+        "18": {
+          "banana": [
+            31.191774160658255,
+            30.93266812682735
+          ],
+          "bottle": [
+            14.703846247531885,
+            24.058662017123723
+          ]
+        }
+      }
+    }
+  ],
+  "final_box_inside_ratios": {
+    "banana": 0.7641074061393738,
+    "bottle": 0.6258848309516907
+  },
+  "final_attention_centroids_xy": {
+    "banana": [
+      31.191774160658255,
+      30.93266812682735
+    ],
+    "bottle": [
+      14.703846247531885,
+      24.058662017123723
+    ]
+  },
+  "all_updates_finite_and_descending": true,
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/baseline.png",
+    "pixel_sha256": "cb31a7f8e0e8bf306ee6d8526f9d987de969ee04fccc32e0ef1bde7adde23a78"
+  },
+  "guided": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/guided.png",
+    "pixel_sha256": "9cc84b547234d1574a8306638da8dac3263cbc3892d2777bc4bcfa2bef9ecde4",
+    "pixel_difference_vs_baseline": {
+      "pixel_exact_match": false,
+      "max_absolute_pixel_difference": 253.0,
+      "mean_absolute_pixel_difference": 48.692874908447266,
+      "rmse": 75.0478286743164,
+      "changed_pixel_fraction": 0.9999983045789931,
+      "mean_signed_rgb_difference": [
+        -2.738762855529785,
+        13.153135299682617,
+        30.23162841796875
+      ]
+    },
+    "final_packed_latent_l2_difference_vs_baseline": 507.1589660644531
+  },
+  "manual_visual_assessment": {
+    "layout_success": true,
+    "both_objects_enter_intended_boxes": true,
+    "visible_extent_fully_contained": false,
+    "assessment": "PASS for coarse swapped layout: banana relocates left-to-right and bottle right-to-left; both centers and main bodies enter their targets. The bottle is wider than its tight target and spills across the right edge.",
+    "semantic_image_quality_failures": [
+      "Bottle changes from a thin long-neck green glass bottle to a bulky plastic-like bottle, a clear shape/material fidelity failure.",
+      "Baseline contains two joined bananas while guided output contains one banana; prompt is singular, but instance content is not preserved.",
+      "Background and composition change, though the yellow studio character remains."
+    ]
+  },
+  "baseline_metrics_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/baseline_metrics.json",
+  "target_overlay_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/target_overlay.png",
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/comparison.jpg",
+  "guided_runtime_seconds": 733.4871573895216,
+  "total_runtime_seconds_including_prompt_encoding": 733.9335912242532,
+  "peak_cuda_allocated_mib": 2004.6953125,
+  "peak_cuda_reserved_mib": 2140.0
+}

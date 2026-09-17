@@ -1,0 +1,21 @@
+{
+  "stage": "Stage 7 exact baseline",
+  "case": "apple_cup_seed123",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 123,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "pixel_sha256": "ed14759b4ba31326da7a8f9c90fd172f7e932b3e18e2554a8bcca883f379fbef",
+  "runtime_seconds": 224.1568350708112,
+  "peak_cuda_allocated_mib": 1384.6904296875,
+  "peak_cuda_reserved_mib": 1394.0,
+  "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/apple_cup_seed123/baseline.png",
+  "state_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/apple_cup_seed123/baseline_state.pt"
+}

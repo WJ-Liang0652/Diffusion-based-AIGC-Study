@@ -1,0 +1,21 @@
+{
+  "stage": "Stage 7 exact baseline",
+  "case": "banana_bottle_seed31415",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a yellow banana and a green bottle, realistic photo",
+  "seed": 31415,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "pixel_sha256": "cb31a7f8e0e8bf306ee6d8526f9d987de969ee04fccc32e0ef1bde7adde23a78",
+  "runtime_seconds": 234.72392346616834,
+  "peak_cuda_allocated_mib": 1384.6904296875,
+  "peak_cuda_reserved_mib": 1394.0,
+  "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/baseline.png",
+  "state_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/repeatability/banana_bottle_seed31415/baseline_state.pt"
+}
