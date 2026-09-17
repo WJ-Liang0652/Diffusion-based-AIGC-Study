@@ -57,6 +57,14 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - Both strengths move attention in the requested swapped direction, but neither produces visible apple/cup relocation in the final image. At `0.005`, color-proxy x shifts are only apple `+0.0338 px`, cup `-0.0335 px`; differences are local pixel/texture perturbations. Single-step propagation is mechanically valid but does not satisfy visible layout control.
 - Peak CUDA allocation was `2002.92 MiB`; no OOM or abnormal memory growth occurred.
 
+### Stage 6A — dev single-timestep inner-loop Backward Guidance
+
+- Added `src/16_flux_dev_inner_loop_guidance.py`; one shared index-35 trajectory uses `relative_step=0.005` and fresh forward/backward gradients on every update, evaluated at K=`1/3/5`. No other timestep is guided.
+- Layout B energy decreases monotonically: `1.399058 → 1.319962` (K=1), `1.156224` (K=3), `0.994316` (K=5); every individual update lowers the objective with finite gradients and zero parameter gradients.
+- Cumulative attention-centroid x movement at K=`1/3/5`: apple `+0.4971 / +1.6049 / +2.7830` tokens toward right; cup `-0.3713 / -1.3335 / -2.3050` tokens toward left. Direction is consistent across all five iterations.
+- Final-image geometry remains visually unchanged at K=1/3/5. Color-proxy x shifts are tiny and not consistently directional; K=3 is apple `+0.0575 px`, cup `-0.0145 px`, while K=5 reverses to apple `-0.0621 px`, cup `+0.0233 px`.
+- K=5 is the strongest stable objective/attention configuration, but it is not successful visible layout control. More same-timestep inner iterations are not currently justified. Peak CUDA allocation was `2004.48 MiB`; no OOM occurred.
+
 ## Current key scripts
 
 - `src/09_flux_dev_baseline.py`: official dev baseline and saved initial/intermediate packed latents.
@@ -66,6 +74,7 @@ Complete a method-level reproduction of Training-Free Layout Control / Attention
 - `src/13_flux_dev_layout_objective.py`: dev Eq. (2) layout-objective validation.
 - `src/14_flux_dev_gradient_probe.py`: dev single-step latent-gradient validation.
 - `src/15_flux_dev_single_step_guidance.py`: dev single-intervention guidance and final-image comparison.
+- `src/16_flux_dev_inner_loop_guidance.py`: dev K=1/3/5 single-timestep inner-loop validation.
 - `src/04_flux_schnell_layout_objective.py`: schnell layout-energy reference.
 - `src/05_flux_schnell_gradient_probe.py`: schnell gradient-stage reference.
 - `src/06_flux_schnell_single_step_guidance.py` and `08_flux_schnell_inner_loop_guidance.py`: later Backward Guidance references.
@@ -79,6 +88,7 @@ Key metrics:
 - `outputs/layout_objective/flux_dev_layout_objective_metrics.json`
 - `outputs/gradient_probe/flux_dev_gradient_probe_metrics.json`
 - `outputs/single_step_guidance/flux_dev_single_step_guidance_rel-{0p0005,0p005}_metrics.json`
+- `outputs/inner_loop_guidance/flux_dev_inner_loop_k-1-3-5_rel-0p005_metrics.json`
 
 ## Verified dev configuration
 
@@ -126,9 +136,9 @@ Use the Stage 1 saved initial latent for direct comparisons. Keep `local_files_o
 
 ## Next and only next task
 
-Stage 6: test a minimal limited-inner-loop `FLUX.1-dev` Backward Guidance MVP.
+Stage 6B: test a minimal multi-timestep `FLUX.1-dev` Backward Guidance run.
 
-- Reuse the verified block-18 Layout B objective and normalized latent update at index 35; add only a small, fixed inner-loop count at that single timestep.
-- Compare against the exact Stage 1 baseline and Stage 5 single-step result; record per-iteration energy, attention movement, final layout effect, runtime, and VRAM.
-- Require visible object-position change rather than only attention-energy or texture changes before calling the Backward Guidance MVP successful.
-- Do not start multi-timestep guidance or systematic sweeps in the same stage.
+- Keep Double block 18, Layout B, the unchanged objective, and normalized `relative_step=0.005` update; use one fresh update at each of a small fixed set of timesteps rather than more inner iterations at index 35.
+- Verify the spatial signal at every selected timestep, then complete normal denoising and compare against the exact baseline plus Stage 6A K=5.
+- Record per-timestep objective/attention changes, final geometry, runtime, and VRAM; visible position change remains the success criterion.
+- Do not perform a systematic timestep/strength sweep in the same stage.

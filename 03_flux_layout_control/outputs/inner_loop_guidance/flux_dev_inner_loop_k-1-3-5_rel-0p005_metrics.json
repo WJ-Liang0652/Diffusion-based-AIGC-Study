@@ -1,0 +1,717 @@
+{
+  "stage": "Stage 6A - dev single-timestep inner-loop Backward Guidance",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "dtype": "torch.bfloat16",
+  "offload_strategy": "enable_sequential_cpu_offload",
+  "block_index": 18,
+  "denoising_index": 35,
+  "timestep": 499.8421936035156,
+  "layout_optimized": {
+    "apple": "right",
+    "cup": "left"
+  },
+  "relative_step_size_per_update": 0.005,
+  "inner_loop_checkpoints": [
+    1,
+    3,
+    5
+  ],
+  "guided_timestep_count": 1,
+  "trajectory_design": "one shared five-update trajectory evaluated at K=1/3/5",
+  "update_definition": {
+    "formula": "x_new = x - eta*g",
+    "gradient": "fresh g = d(E_layout_b)/dx at the current latent for every iteration",
+    "eta": "relative_step * ||current_x||_2 / ||g||_2",
+    "graph_lifetime": "fresh leaf/graph per iteration; detach after every update"
+  },
+  "baseline": {
+    "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/single_step_guidance/flux_dev_single_step_baseline_seed-42_steps-50.png",
+    "pixel_sha256": "9f7786c7fec6ac97436109a31bd256cf5b8980ad3b84bea2d8c461d26b5541f9",
+    "matches_stage1_image_exactly": true
+  },
+  "initial_layout_b": {
+    "objects": {
+      "apple": {
+        "region": "right",
+        "mass_ratio": 0.13480530679225922,
+        "energy": 0.7485618591308594
+      },
+      "cup": {
+        "region": "left",
+        "mass_ratio": 0.19346678256988525,
+        "energy": 0.6504958271980286
+      }
+    },
+    "total_energy": 1.3990576267242432
+  },
+  "iteration_records": [
+    {
+      "iteration": 1,
+      "objective_before": 1.3990576267242432,
+      "objective_after": 1.3199617862701416,
+      "objective_delta": -0.07909584045410156,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.06371361762285233,
+      "gradient_abs_max": 0.00408935546875,
+      "gradient_abs_mean": 9.248738206224516e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 24.13909149169922,
+      "actual_bf16_update_norm": 1.5652378797531128,
+      "actual_relative_update_norm": 0.005088586360216141,
+      "cumulative_delta_norm_from_initial": 1.5652378797531128,
+      "cumulative_relative_delta_from_initial": 0.005088586360216141,
+      "objects": {
+        "apple": {
+          "target_region": "right",
+          "target_mass_before": 0.13480530679225922,
+          "target_mass_after": 0.1622665375471115,
+          "target_mass_delta": 0.027461230754852295,
+          "attention_centroid_before_xy": [
+            15.587201761940026,
+            28.605031567937942
+          ],
+          "attention_centroid_after_xy": [
+            16.084276420423453,
+            28.280925154030207
+          ],
+          "attention_centroid_delta_xy": [
+            0.49707465848342736,
+            -0.3241064139077352
+          ],
+          "moves_toward_target": true
+        },
+        "cup": {
+          "target_region": "left",
+          "target_mass_before": 0.19346678256988525,
+          "target_mass_after": 0.21376566588878632,
+          "target_mass_delta": 0.020298883318901062,
+          "attention_centroid_before_xy": [
+            30.04098456789157,
+            27.48411713280028
+          ],
+          "attention_centroid_after_xy": [
+            29.66973045824764,
+            27.36413453219501
+          ],
+          "attention_centroid_delta_xy": [
+            -0.3712541096439317,
+            -0.11998260060526889
+          ],
+          "moves_toward_target": true
+        }
+      }
+    },
+    {
+      "iteration": 2,
+      "objective_before": 1.3199617862701416,
+      "objective_after": 1.2383813858032227,
+      "objective_delta": -0.08158040046691895,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.05662332475185394,
+      "gradient_abs_max": 0.00244140625,
+      "gradient_abs_mean": 8.820689981803298e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 27.160720825195312,
+      "actual_bf16_update_norm": 1.5692228078842163,
+      "actual_relative_update_norm": 0.005101735237985849,
+      "cumulative_delta_norm_from_initial": 2.9080312252044678,
+      "cumulative_relative_delta_from_initial": 0.00945400632917881,
+      "objects": {
+        "apple": {
+          "target_region": "right",
+          "target_mass_before": 0.1622665375471115,
+          "target_mass_after": 0.18985779583454132,
+          "target_mass_delta": 0.02759125828742981,
+          "attention_centroid_before_xy": [
+            16.084276420423453,
+            28.280925154030207
+          ],
+          "attention_centroid_after_xy": [
+            16.626381273592873,
+            28.13547272837395
+          ],
+          "attention_centroid_delta_xy": [
+            0.5421048531694197,
+            -0.1454524256562557
+          ],
+          "moves_toward_target": true
+        },
+        "cup": {
+          "target_region": "left",
+          "target_mass_before": 0.21376566588878632,
+          "target_mass_after": 0.23707737028598785,
+          "target_mass_delta": 0.023311704397201538,
+          "attention_centroid_before_xy": [
+            29.66973045824764,
+            27.36413453219501
+          ],
+          "attention_centroid_after_xy": [
+            29.21045283995273,
+            27.317048666650525
+          ],
+          "attention_centroid_delta_xy": [
+            -0.45927761829490876,
+            -0.04708586554448502
+          ],
+          "moves_toward_target": true
+        }
+      }
+    },
+    {
+      "iteration": 3,
+      "objective_before": 1.2383813858032227,
+      "objective_after": 1.1562237739562988,
+      "objective_delta": -0.08215761184692383,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.059212200343608856,
+      "gradient_abs_max": 0.0023040771484375,
+      "gradient_abs_mean": 9.142173075815663e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 25.971162796020508,
+      "actual_bf16_update_norm": 1.5677651166915894,
+      "actual_relative_update_norm": 0.005097396206110716,
+      "cumulative_delta_norm_from_initial": 4.231599807739258,
+      "cumulative_relative_delta_from_initial": 0.01375692617148161,
+      "objects": {
+        "apple": {
+          "target_region": "right",
+          "target_mass_before": 0.18985779583454132,
+          "target_mass_after": 0.21910247206687927,
+          "target_mass_delta": 0.02924467623233795,
+          "attention_centroid_before_xy": [
+            16.626381273592873,
+            28.13547272837395
+          ],
+          "attention_centroid_after_xy": [
+            17.192063475703858,
+            28.0580446425114
+          ],
+          "attention_centroid_delta_xy": [
+            0.5656822021109846,
+            -0.07742808586255023
+          ],
+          "moves_toward_target": true
+        },
+        "cup": {
+          "target_region": "left",
+          "target_mass_before": 0.23707737028598785,
+          "target_mass_after": 0.2607957124710083,
+          "target_mass_delta": 0.023718342185020447,
+          "attention_centroid_before_xy": [
+            29.21045283995273,
+            27.317048666650525
+          ],
+          "attention_centroid_after_xy": [
+            28.707440983891566,
+            27.298321521573506
+          ],
+          "attention_centroid_delta_xy": [
+            -0.503011856061164,
+            -0.018727145077019003
+          ],
+          "moves_toward_target": true
+        }
+      }
+    },
+    {
+      "iteration": 4,
+      "objective_before": 1.1562237739562988,
+      "objective_after": 1.0787609815597534,
+      "objective_delta": -0.07746279239654541,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.06816469132900238,
+      "gradient_abs_max": 0.00537109375,
+      "gradient_abs_mean": 9.976817818824202e-05,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 22.558839797973633,
+      "actual_bf16_update_norm": 1.5660544633865356,
+      "actual_relative_update_norm": 0.005092143546789885,
+      "cumulative_delta_norm_from_initial": 5.431024074554443,
+      "cumulative_relative_delta_from_initial": 0.017656251788139343,
+      "objects": {
+        "apple": {
+          "target_region": "right",
+          "target_mass_before": 0.21910247206687927,
+          "target_mass_after": 0.24860961735248566,
+          "target_mass_delta": 0.029507145285606384,
+          "attention_centroid_before_xy": [
+            17.192063475703858,
+            28.0580446425114
+          ],
+          "attention_centroid_after_xy": [
+            17.75533867641091,
+            28.026607719567455
+          ],
+          "attention_centroid_delta_xy": [
+            0.5632752007070536,
+            -0.0314369229439464
+          ],
+          "moves_toward_target": true
+        },
+        "cup": {
+          "target_region": "left",
+          "target_mass_before": 0.2607957124710083,
+          "target_mass_after": 0.28294113278388977,
+          "target_mass_delta": 0.02214542031288147,
+          "attention_centroid_before_xy": [
+            28.707440983891566,
+            27.298321521573506
+          ],
+          "attention_centroid_after_xy": [
+            28.233716414206256,
+            27.236733168080104
+          ],
+          "attention_centroid_delta_xy": [
+            -0.4737245696853094,
+            -0.06158835349340208
+          ],
+          "moves_toward_target": true
+        }
+      }
+    },
+    {
+      "iteration": 5,
+      "objective_before": 1.0787609815597534,
+      "objective_after": 0.9943162202835083,
+      "objective_delta": -0.08444476127624512,
+      "objective_decreased": true,
+      "gradient_norm_l2": 0.06825235486030579,
+      "gradient_abs_max": 0.007415771484375,
+      "gradient_abs_mean": 0.00010062566434498876,
+      "gradient_is_finite": true,
+      "model_parameter_grad_count": 0,
+      "effective_eta": 22.52884864807129,
+      "actual_bf16_update_norm": 1.5642428398132324,
+      "actual_relative_update_norm": 0.005086482036858797,
+      "cumulative_delta_norm_from_initial": 6.621002197265625,
+      "cumulative_relative_delta_from_initial": 0.02152487076818943,
+      "objects": {
+        "apple": {
+          "target_region": "right",
+          "target_mass_before": 0.24860961735248566,
+          "target_mass_after": 0.2835543751716614,
+          "target_mass_delta": 0.03494475781917572,
+          "attention_centroid_before_xy": [
+            17.75533867641091,
+            28.026607719567455
+          ],
+          "attention_centroid_after_xy": [
+            18.370251202411524,
+            28.03462516932473
+          ],
+          "attention_centroid_delta_xy": [
+            0.6149125260006123,
+            0.008017449757275585
+          ],
+          "moves_toward_target": true
+        },
+        "cup": {
+          "target_region": "left",
+          "target_mass_before": 0.28294113278388977,
+          "target_mass_after": 0.30644264817237854,
+          "target_mass_delta": 0.02350151538848877,
+          "attention_centroid_before_xy": [
+            28.233716414206256,
+            27.236733168080104
+          ],
+          "attention_centroid_after_xy": [
+            27.73598113900777,
+            27.234150985729286
+          ],
+          "attention_centroid_delta_xy": [
+            -0.4977352751984867,
+            -0.002582182350817419
+          ],
+          "moves_toward_target": true
+        }
+      }
+    }
+  ],
+  "guided_results": [
+    {
+      "inner_loop_count": 1,
+      "layout_after_final_update": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.1622665375471115,
+            "energy": 0.7017973065376282
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.21376566588878632,
+            "energy": 0.6181644201278687
+          }
+        },
+        "total_energy": 1.3199617862701416
+      },
+      "objective_delta_final_minus_initial": -0.07909584045410156,
+      "cumulative_attention_movement": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "target_mass_before": 0.13480530679225922,
+            "target_mass_after": 0.1622665375471115,
+            "target_mass_delta": 0.027461230754852295,
+            "center_of_mass_before_xy": [
+              15.587201761940026,
+              28.605031567937942
+            ],
+            "center_of_mass_after_xy": [
+              16.084276420423453,
+              28.280925154030207
+            ],
+            "center_of_mass_delta_xy": [
+              0.49707465848342736,
+              -0.3241064139077352
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          },
+          "cup": {
+            "target_region": "left",
+            "target_mass_before": 0.19346678256988525,
+            "target_mass_after": 0.21376566588878632,
+            "target_mass_delta": 0.020298883318901062,
+            "center_of_mass_before_xy": [
+              30.04098456789157,
+              27.48411713280028
+            ],
+            "center_of_mass_after_xy": [
+              29.66973045824764,
+              27.36413453219501
+            ],
+            "center_of_mass_delta_xy": [
+              -0.3712541096439317,
+              -0.11998260060526889
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          }
+        },
+        "both_attention_maps_move_toward_target": true
+      },
+      "cumulative_relative_latent_delta": 0.005088586360216141,
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux_dev_inner_loop_k-1_rel-0p005_seed-42_steps-50.png",
+      "pixel_sha256": "9c3654a0ab49e8f42e522ad721b1cae66645d9580e8664cd2caa315dfd429037",
+      "pixel_difference_vs_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 82.0,
+        "mean_absolute_pixel_difference": 0.2730678915977478,
+        "rmse": 0.8032345175743103,
+        "changed_pixel_fraction": 0.4252421061197917,
+        "mean_signed_rgb_difference": [
+          -0.0240037702023983,
+          -0.011928982101380825,
+          -0.0261196568608284
+        ]
+      },
+      "color_centroid_changes_vs_baseline": {
+        "apple_red_proxy": {
+          "baseline_centroid_xy_pixels": [
+            240.51670925143566,
+            504.32085304460014
+          ],
+          "guided_centroid_xy_pixels": [
+            240.56438002078002,
+            504.2642355743646
+          ],
+          "delta_xy_pixels": [
+            0.04767076934436432,
+            -0.05661747023555108
+          ],
+          "baseline_pixel_count": 39529,
+          "guided_pixel_count": 39461
+        },
+        "cup_blue_proxy": {
+          "baseline_centroid_xy_pixels": [
+            579.5396840134317,
+            496.3089921544961
+          ],
+          "guided_centroid_xy_pixels": [
+            579.5415338429636,
+            496.32281575933894
+          ],
+          "delta_xy_pixels": [
+            0.0018498295319204772,
+            0.013823604842855275
+          ],
+          "baseline_pixel_count": 64623,
+          "guided_pixel_count": 64622
+        }
+      },
+      "final_packed_latent_l2_difference_vs_baseline": 11.92518424987793,
+      "continuation_runtime_seconds": 52.79709483124316
+    },
+    {
+      "inner_loop_count": 3,
+      "layout_after_final_update": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.21910247206687927,
+            "energy": 0.6098008751869202
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.2607957124710083,
+            "energy": 0.5464229583740234
+          }
+        },
+        "total_energy": 1.1562237739562988
+      },
+      "objective_delta_final_minus_initial": -0.24283385276794434,
+      "cumulative_attention_movement": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "target_mass_before": 0.13480530679225922,
+            "target_mass_after": 0.21910247206687927,
+            "target_mass_delta": 0.08429716527462006,
+            "center_of_mass_before_xy": [
+              15.587201761940026,
+              28.605031567937942
+            ],
+            "center_of_mass_after_xy": [
+              17.192063475703858,
+              28.0580446425114
+            ],
+            "center_of_mass_delta_xy": [
+              1.6048617137638317,
+              -0.5469869254265411
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          },
+          "cup": {
+            "target_region": "left",
+            "target_mass_before": 0.19346678256988525,
+            "target_mass_after": 0.2607957124710083,
+            "target_mass_delta": 0.06732892990112305,
+            "center_of_mass_before_xy": [
+              30.04098456789157,
+              27.48411713280028
+            ],
+            "center_of_mass_after_xy": [
+              28.707440983891566,
+              27.298321521573506
+            ],
+            "center_of_mass_delta_xy": [
+              -1.3335435840000045,
+              -0.1857956112267729
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          }
+        },
+        "both_attention_maps_move_toward_target": true
+      },
+      "cumulative_relative_latent_delta": 0.01375692617148161,
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux_dev_inner_loop_k-3_rel-0p005_seed-42_steps-50.png",
+      "pixel_sha256": "0450e9e409b3fd8ae1f105b0984599b178d6b0087fac53adcbb5b72a290b317a",
+      "pixel_difference_vs_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 117.0,
+        "mean_absolute_pixel_difference": 0.48399069905281067,
+        "rmse": 1.35086190700531,
+        "changed_pixel_fraction": 0.5605672200520834,
+        "mean_signed_rgb_difference": [
+          -0.0459408238530159,
+          -0.0202823206782341,
+          -0.0336032435297966
+        ]
+      },
+      "color_centroid_changes_vs_baseline": {
+        "apple_red_proxy": {
+          "baseline_centroid_xy_pixels": [
+            240.51670925143566,
+            504.32085304460014
+          ],
+          "guided_centroid_xy_pixels": [
+            240.57417359561956,
+            504.4567785439059
+          ],
+          "delta_xy_pixels": [
+            0.057464344183898675,
+            0.13592549930575615
+          ],
+          "baseline_pixel_count": 39529,
+          "guided_pixel_count": 39448
+        },
+        "cup_blue_proxy": {
+          "baseline_centroid_xy_pixels": [
+            579.5396840134317,
+            496.3089921544961
+          ],
+          "guided_centroid_xy_pixels": [
+            579.5252309549231,
+            496.2897110935735
+          ],
+          "delta_xy_pixels": [
+            -0.01445305850859313,
+            -0.019281060922594406
+          ],
+          "baseline_pixel_count": 64623,
+          "guided_pixel_count": 64623
+        }
+      },
+      "final_packed_latent_l2_difference_vs_baseline": 20.404010772705078,
+      "continuation_runtime_seconds": 52.0840508621186
+    },
+    {
+      "inner_loop_count": 5,
+      "layout_after_final_update": {
+        "objects": {
+          "apple": {
+            "region": "right",
+            "mass_ratio": 0.2835543751716614,
+            "energy": 0.5132943391799927
+          },
+          "cup": {
+            "region": "left",
+            "mass_ratio": 0.30644264817237854,
+            "energy": 0.48102185130119324
+          }
+        },
+        "total_energy": 0.9943162202835083
+      },
+      "objective_delta_final_minus_initial": -0.40474140644073486,
+      "cumulative_attention_movement": {
+        "objects": {
+          "apple": {
+            "target_region": "right",
+            "target_mass_before": 0.13480530679225922,
+            "target_mass_after": 0.2835543751716614,
+            "target_mass_delta": 0.14874906837940216,
+            "center_of_mass_before_xy": [
+              15.587201761940026,
+              28.605031567937942
+            ],
+            "center_of_mass_after_xy": [
+              18.370251202411524,
+              28.03462516932473
+            ],
+            "center_of_mass_delta_xy": [
+              2.7830494404714976,
+              -0.570406398613212
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          },
+          "cup": {
+            "target_region": "left",
+            "target_mass_before": 0.19346678256988525,
+            "target_mass_after": 0.30644264817237854,
+            "target_mass_delta": 0.11297586560249329,
+            "center_of_mass_before_xy": [
+              30.04098456789157,
+              27.48411713280028
+            ],
+            "center_of_mass_after_xy": [
+              27.73598113900777,
+              27.234150985729286
+            ],
+            "center_of_mass_delta_xy": [
+              -2.3050034288838006,
+              -0.2499661470709924
+            ],
+            "target_mass_increased": true,
+            "center_moves_toward_target": true
+          }
+        },
+        "both_attention_maps_move_toward_target": true
+      },
+      "cumulative_relative_latent_delta": 0.02152487076818943,
+      "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux_dev_inner_loop_k-5_rel-0p005_seed-42_steps-50.png",
+      "pixel_sha256": "a07a5bd07dc7b45ac589de93c88799cfb018d30f1e7b3507f73ae835e93fd486",
+      "pixel_difference_vs_baseline": {
+        "pixel_exact_match": false,
+        "max_absolute_pixel_difference": 133.0,
+        "mean_absolute_pixel_difference": 0.7202301025390625,
+        "rmse": 1.907519817352295,
+        "changed_pixel_fraction": 0.6514739990234375,
+        "mean_signed_rgb_difference": [
+          -0.0665130615234375,
+          -0.0021260578650981188,
+          -0.025299072265625
+        ]
+      },
+      "color_centroid_changes_vs_baseline": {
+        "apple_red_proxy": {
+          "baseline_centroid_xy_pixels": [
+            240.51670925143566,
+            504.32085304460014
+          ],
+          "guided_centroid_xy_pixels": [
+            240.454623655914,
+            504.6699557242252
+          ],
+          "delta_xy_pixels": [
+            -0.06208559552166548,
+            0.34910267962504804
+          ],
+          "baseline_pixel_count": 39529,
+          "guided_pixel_count": 39525
+        },
+        "cup_blue_proxy": {
+          "baseline_centroid_xy_pixels": [
+            579.5396840134317,
+            496.3089921544961
+          ],
+          "guided_centroid_xy_pixels": [
+            579.5629829206732,
+            496.26205850017806
+          ],
+          "delta_xy_pixels": [
+            0.023298907241496636,
+            -0.046933654318024765
+          ],
+          "baseline_pixel_count": 64623,
+          "guided_pixel_count": 64581
+        }
+      },
+      "final_packed_latent_l2_difference_vs_baseline": 26.718944549560547,
+      "continuation_runtime_seconds": 52.70841711387038
+    }
+  ],
+  "objective_stable_decrease": true,
+  "attention_direction_consistent_across_iterations": true,
+  "k1_comparison_with_stage5_rel_0p005": {
+    "objective_absolute_difference": 0.0003000497817993164,
+    "pixel_hash_exact_match": false,
+    "pixel_difference": {
+      "pixel_exact_match": false,
+      "max_absolute_pixel_difference": 16.0,
+      "mean_absolute_pixel_difference": 0.1628485769033432,
+      "rmse": 0.4602700471878052,
+      "changed_pixel_fraction": 0.3310818142361111,
+      "mean_signed_rgb_difference": [
+        -0.012112087570130825,
+        -0.008700900711119175,
+        -0.0071309409104287624
+      ]
+    }
+  },
+  "manual_visual_assessment": "No visible apple/cup geometric relocation at K=1, 3, or 5; final differences remain subtle appearance/texture perturbations.",
+  "visible_geometric_change": false,
+  "best_stable_configuration": "K=5, relative_step=0.005 (strongest stable objective and attention movement, but no visible layout control)",
+  "multi_timestep_guidance_worth_testing": true,
+  "comparison_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux_dev_inner_loop_k-1-3-5_rel-0p005_comparison.png",
+  "attention_trajectory_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/inner_loop_guidance/flux_dev_inner_loop_k-1-3-5_rel-0p005_attention.png",
+  "optimization_and_checkpoint_runtime_seconds": 217.3757870523259,
+  "total_runtime_seconds_including_load": 221.86656505335122,
+  "peak_cuda_allocated_mib": 2004.47802734375,
+  "peak_cuda_reserved_mib": 2140.0
+}
