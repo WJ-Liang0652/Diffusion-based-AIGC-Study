@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checkpoint_bytes": 1795170,
+  "boundary": "after scheduler.step",
+  "next_index": 5,
+  "old_checkpoint_fingerprints_exact": true,
+  "packed_latent_dtype": "float16",
+  "packed_latent_shape": [
+    1,
+    4,
+    128,
+    128
+  ],
+  "derivative_count": 4,
+  "reference_finite": true,
+  "maximum_inner_updates": 130
+}

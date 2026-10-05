@@ -1,0 +1,457 @@
+{
+  "task": "stage03",
+  "status": "incomplete",
+  "experiment_completed": false,
+  "answer_G20_repaired_new_relation": null,
+  "answer": "Cannot assess: G5 instrumentation exact-equality gate failed; G20 not started.",
+  "interpretation": "invalid_comparability_not_a_G20_negative_result",
+  "base_commit": "16f70132e316949e866e839192a45f417d222b03",
+  "config": {
+    "task": "stage03",
+    "base_commit": "16f70132e316949e866e839192a45f417d222b03",
+    "model": "stabilityai/stable-diffusion-xl-base-1.0",
+    "model_revision": "462165984030d82259a11f4367a4eed129e94a7b",
+    "height": 1024,
+    "width": 1024,
+    "dtype": "float16",
+    "scheduler": "lms",
+    "steps": 51,
+    "cfg_scale": 7.0,
+    "batch_size": 1,
+    "cfg_forward_batch_size": 2,
+    "target_word": "apple",
+    "target_box": [
+      0.0,
+      0.1,
+      1.0,
+      0.35
+    ],
+    "checkpoint_after": 5,
+    "guided_index_start": 5,
+    "guided_index_stop_exclusive": 10,
+    "loss_scale": 30.0,
+    "loss_threshold": 0.2,
+    "safety_max_relative_update": 0.1,
+    "relation_thresholds": {
+      "nominal_success": 0.05,
+      "clear_failure_max": 0.04,
+      "clear_success_min": 0.06
+    },
+    "baseline_requires": {
+      "dx_min": 0.06,
+      "dy_max": 0.0,
+      "unique_clear_untruncated": true
+    },
+    "output_dir": "04_relation_preservation/outputs/stage03",
+    "seed": 19,
+    "prompt": "A red apple to the left of a blue ceramic cup, against a plain neutral background, studio photograph, both objects fully visible.",
+    "negative_prompt": null,
+    "branches": {
+      "U": 0,
+      "G5": 5,
+      "G20": 20
+    },
+    "checkpoint": "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt",
+    "reference": "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt",
+    "old_lock": "04_relation_preservation/outputs/stage02b/protocol_lock.json",
+    "gpu_work_limit_seconds": 570,
+    "gpu_no_new_branch_seconds": 540,
+    "maximum_inner_updates": 130,
+    "maximum_full_continuations": 3,
+    "late_diagnostic_index": 50
+  },
+  "gates": {
+    "U_first_step": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "U_final_latent": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "U_image": {
+      "pixel_exact": true,
+      "max_abs_error": 0
+    },
+    "instrumentation_guidance": {
+      "max_abs_error": 0.015625,
+      "mean_abs_error": 9.74392460193485e-05,
+      "torch_equal": false,
+      "dtype_equal": true,
+      "finite": true
+    }
+  },
+  "branches": {
+    "U": {
+      "status": "complete",
+      "relation_result": {
+        "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+        "method": "manual visual recheck of U, with reviewed 02B bbox reused after exact pixel equality",
+        "review_status": "ready_for_user_review",
+        "notes": "Visible apple stem and cup handle included; shadows excluded. Identical pixels to reviewed 02B baseline.",
+        "objects": {
+          "A": {
+            "name": "red apple",
+            "present": true,
+            "unique": true,
+            "identity_clear": true,
+            "truncated": false,
+            "bbox_pixels": [
+              160,
+              637,
+              385,
+              875
+            ],
+            "occluded": false,
+            "confidence": "high",
+            "bbox_normalized": [
+              0.15625,
+              0.6220703125,
+              0.3759765625,
+              0.8544921875
+            ],
+            "center_normalized": [
+              0.26611328125,
+              0.73828125
+            ]
+          },
+          "B": {
+            "name": "blue ceramic cup",
+            "present": true,
+            "unique": true,
+            "identity_clear": true,
+            "truncated": false,
+            "bbox_pixels": [
+              483,
+              580,
+              836,
+              864
+            ],
+            "occluded": false,
+            "confidence": "high; right handle included",
+            "bbox_normalized": [
+              0.4716796875,
+              0.56640625,
+              0.81640625,
+              0.84375
+            ],
+            "center_normalized": [
+              0.64404296875,
+              0.705078125
+            ]
+          }
+        },
+        "branch": "U",
+        "extra_objects": [],
+        "dx": 0.3779296875,
+        "dy": -0.033203125,
+        "old_relation": "clear_success",
+        "new_relation": "clear_failure",
+        "old_nominal_success": true,
+        "new_nominal_success": false,
+        "objects_alive": true,
+        "identity_or_instances_uncertain": false,
+        "invalid_truncated": false,
+        "uncertain": false,
+        "baseline_qualified": true,
+        "joint_success": false
+      }
+    },
+    "G5": {
+      "status": "incomplete",
+      "evaluated": false,
+      "objects_alive": null,
+      "dx": null,
+      "dy": null,
+      "old_relation": "not_evaluated",
+      "new_relation": "not_evaluated",
+      "joint_success": null,
+      "reason": "guidance equality failed before index5 scheduler.step"
+    },
+    "G20": {
+      "status": "not_run",
+      "evaluated": false,
+      "objects_alive": null,
+      "dx": null,
+      "dy": null,
+      "old_relation": "not_evaluated",
+      "new_relation": "not_evaluated",
+      "joint_success": null,
+      "reason": "blocked by G5 gate"
+    }
+  },
+  "cost": {
+    "full_continuations_completed": 1,
+    "inner_updates_including_probe": 10,
+    "gpu_work_seconds": 16.242289248853922,
+    "gpu_budget_charge_conservative_seconds": 16.586844293400645,
+    "total_run_process_seconds": 16.586844293400645,
+    "peak_allocated_mib": 11898.322265625,
+    "peak_reserved_mib": 12048.0
+  },
+  "diagnostic": {
+    "locked_sources_and_inputs_unchanged": true,
+    "no_G20_started": true,
+    "G5_final_absent": true,
+    "U_vs_G5_initial_heatmaps": {
+      "mid": {
+        "array_exact": true,
+        "max_abs_error": 0.0
+      },
+      "up": {
+        "array_exact": true,
+        "max_abs_error": 0.0
+      }
+    },
+    "G5_vs_stage02b_scalar_differences": [
+      {
+        "inner_index": 0,
+        "different_fields": {
+          "gradient_norm_fp32": {
+            "stage02b": "0.04422464966773987",
+            "stage03": "0.04423284903168678"
+          }
+        }
+      },
+      {
+        "inner_index": 1,
+        "different_fields": {
+          "mid_ratio": {
+            "stage02b": "0.2835015654563904",
+            "stage03": "0.28350067138671875"
+          },
+          "up_ratio": {
+            "stage02b": "0.24160288274288177",
+            "stage03": "0.24160335958003998"
+          },
+          "aggregate_energy": {
+            "stage02b": "0.5442680716514587",
+            "stage03": "0.5442683696746826"
+          },
+          "loss_scaled": {
+            "stage02b": "16.32804298400879",
+            "stage03": "16.32805061340332"
+          },
+          "gradient_norm": {
+            "stage02b": "0.04412841796875",
+            "stage03": "0.044158935546875"
+          },
+          "gradient_norm_fp32": {
+            "stage02b": "0.04413433372974396",
+            "stage03": "0.04415434971451759"
+          },
+          "update_norm": {
+            "stage02b": "1.962890625",
+            "stage03": "1.9638671875"
+          }
+        }
+      },
+      {
+        "inner_index": 2,
+        "different_fields": {
+          "mid_ratio": {
+            "stage02b": "0.2838056683540344",
+            "stage03": "0.2838137745857239"
+          },
+          "up_ratio": {
+            "stage02b": "0.24509233236312866",
+            "stage03": "0.24509461224079132"
+          },
+          "aggregate_energy": {
+            "stage02b": "0.541409969329834",
+            "stage03": "0.5414024591445923"
+          },
+          "loss_scaled": {
+            "stage02b": "16.242298126220703",
+            "stage03": "16.24207305908203"
+          },
+          "gradient_norm": {
+            "stage02b": "0.0439453125",
+            "stage03": "0.043975830078125"
+          },
+          "gradient_norm_fp32": {
+            "stage02b": "0.04393618181347847",
+            "stage03": "0.04397018998861313"
+          },
+          "update_norm": {
+            "stage02b": "1.9541015625",
+            "stage03": "1.955078125"
+          }
+        }
+      },
+      {
+        "inner_index": 3,
+        "different_fields": {
+          "mid_ratio": {
+            "stage02b": "0.2840659022331238",
+            "stage03": "0.28406792879104614"
+          },
+          "up_ratio": {
+            "stage02b": "0.24869698286056519",
+            "stage03": "0.24871382117271423"
+          },
+          "aggregate_energy": {
+            "stage02b": "0.5385088920593262",
+            "stage03": "0.5384948253631592"
+          },
+          "loss_scaled": {
+            "stage02b": "16.15526580810547",
+            "stage03": "16.154844284057617"
+          },
+          "gradient_norm_fp32": {
+            "stage02b": "0.045315347611904144",
+            "stage03": "0.04531609266996384"
+          }
+        }
+      },
+      {
+        "inner_index": 4,
+        "different_fields": {
+          "mid_ratio": {
+            "stage02b": "0.284282922744751",
+            "stage03": "0.2842850089073181"
+          },
+          "up_ratio": {
+            "stage02b": "0.2526406943798065",
+            "stage03": "0.25265392661094666"
+          },
+          "aggregate_energy": {
+            "stage02b": "0.5353984236717224",
+            "stage03": "0.5353870391845703"
+          },
+          "loss_scaled": {
+            "stage02b": "16.061952590942383",
+            "stage03": "16.06161117553711"
+          },
+          "gradient_norm_fp32": {
+            "stage02b": "0.046586889773607254",
+            "stage03": "0.046601682901382446"
+          }
+        }
+      }
+    ],
+    "first_observed_historical_divergence": "inner0 gradient_norm_fp32; pre-update E/mid/up ratios exactly match",
+    "first_gradient_norm_fp32_delta": 8.199363946914673e-06,
+    "probe_vs_instrumented_guidance": {
+      "max_abs_error": 0.015625,
+      "mean_abs_error": 9.74392460193485e-05,
+      "torch_equal": false,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "numerical_root_cause": "unresolved; no additional GPU attempt permitted by the failed gate",
+    "original_probe_scalar_arrays_persisted": false,
+    "raw_array_audit": [
+      {
+        "path": "04_relation_preservation/outputs/stage03/G5/heat_05_apple_after.npz",
+        "bytes": 7763,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/G5/heat_05_apple_before.npz",
+        "bytes": 7763,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_05_apple_before.npz",
+        "bytes": 7763,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_06_apple_before.npz",
+        "bytes": 7752,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_07_apple_before.npz",
+        "bytes": 7750,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_08_apple_before.npz",
+        "bytes": 7753,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_09_apple_before.npz",
+        "bytes": 7759,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_50_apple_late.npz",
+        "bytes": 7710,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      },
+      {
+        "path": "04_relation_preservation/outputs/stage03/U/heat_50_cup_late.npz",
+        "bytes": 7695,
+        "finite": true,
+        "mask_area_ratio": 0.28125,
+        "grid": [
+          32,
+          32
+        ]
+      }
+    ],
+    "cpu_delivery_source_sha256": "4d6186e1f0d4418b678408050b6aa1f2ab9de5f7fb30e8bfb197ce17bf186db3"
+  },
+  "artifacts": {
+    "run_metrics": "run_metrics.json",
+    "failure_diagnostic": "failure_diagnostic.json",
+    "protocol_lock": "protocol_lock.json",
+    "bbox_comparison": "branch_status_bbox_comparison.png",
+    "heat_panels": [
+      "heat_index5.png",
+      "heat_U_window.png",
+      "heat_U_late.png"
+    ]
+  },
+  "stopped_after_failed_gate": true,
+  "no_threshold_relaxation": true
+}

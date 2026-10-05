@@ -1,0 +1,54 @@
+{
+  "task": "stage03",
+  "base_commit": "16f70132e316949e866e839192a45f417d222b03",
+  "model": "stabilityai/stable-diffusion-xl-base-1.0",
+  "model_revision": "462165984030d82259a11f4367a4eed129e94a7b",
+  "height": 1024,
+  "width": 1024,
+  "dtype": "float16",
+  "scheduler": "lms",
+  "steps": 51,
+  "cfg_scale": 7.0,
+  "batch_size": 1,
+  "cfg_forward_batch_size": 2,
+  "target_word": "apple",
+  "target_box": [
+    0.0,
+    0.1,
+    1.0,
+    0.35
+  ],
+  "checkpoint_after": 5,
+  "guided_index_start": 5,
+  "guided_index_stop_exclusive": 10,
+  "loss_scale": 30.0,
+  "loss_threshold": 0.2,
+  "safety_max_relative_update": 0.1,
+  "relation_thresholds": {
+    "nominal_success": 0.05,
+    "clear_failure_max": 0.04,
+    "clear_success_min": 0.06
+  },
+  "baseline_requires": {
+    "dx_min": 0.06,
+    "dy_max": 0.0,
+    "unique_clear_untruncated": true
+  },
+  "output_dir": "04_relation_preservation/outputs/stage03",
+  "seed": 19,
+  "prompt": "A red apple to the left of a blue ceramic cup, against a plain neutral background, studio photograph, both objects fully visible.",
+  "negative_prompt": null,
+  "branches": {
+    "U": 0,
+    "G5": 5,
+    "G20": 20
+  },
+  "checkpoint": "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt",
+  "reference": "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt",
+  "old_lock": "04_relation_preservation/outputs/stage02b/protocol_lock.json",
+  "gpu_work_limit_seconds": 570,
+  "gpu_no_new_branch_seconds": 540,
+  "maximum_inner_updates": 130,
+  "maximum_full_continuations": 3,
+  "late_diagnostic_index": 50
+}

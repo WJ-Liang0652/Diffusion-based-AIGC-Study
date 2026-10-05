@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "04_relation_preservation/src/stage03_inner_budget.py",
+    "run"
+  ],
+  "locked_before_first_gpu": true
+}

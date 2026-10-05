@@ -1,0 +1,28 @@
+{
+  "locked_files_unchanged": {
+    "04_relation_preservation/configs/stage03.json": true,
+    "04_relation_preservation/notes/stage03_protocol.md": true,
+    "04_relation_preservation/src/stage03_inner_budget.py": true,
+    "AGENTS.md": true,
+    "04_relation_preservation/configs/stage02b.json": true,
+    "04_relation_preservation/notes/stage02b_protocol.md": true,
+    "04_relation_preservation/src/stage02b_relations.py": true,
+    "04_relation_preservation/src/stage02_relations.py": true,
+    "04_relation_preservation/src/stage01_sdxl.py": true,
+    "04_relation_preservation/src/attention_processor.py": true,
+    "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt": true,
+    "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt": true,
+    "04_relation_preservation/outputs/stage02b/protocol_lock.json": true,
+    "04_relation_preservation/outputs/stage02b/P1/seed19/baseline.png": true,
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided.png": true,
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_inner_iteration_metrics.csv": true,
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_step_metrics.csv": true
+  },
+  "report_local_links_valid": true,
+  "report_link_count": 28,
+  "summary_incomplete_and_G20_unevaluated": true,
+  "inner_updates_including_probe": 10,
+  "latent_file_git_ignored": "04_relation_preservation/outputs/stage03/U/latents.pt",
+  "no_G20_directory": true,
+  "no_G5_final_image": true
+}

@@ -1,0 +1,25 @@
+{
+  "fingerprints": {
+    "04_relation_preservation/configs/stage03.json": "c04a6b12151a35c0bee34d1bdc1aca56053227ab46b5e9786e94210fdd7f22d0",
+    "04_relation_preservation/notes/stage03_protocol.md": "1d6ac94057633fc8346f0488ed3c0037128d8c65a086083a93921cb447e610b8",
+    "04_relation_preservation/src/stage03_inner_budget.py": "535eb293ee96655e8ebaec80b06c34e4a681466a28b2d931c472f09bff2ce7f7",
+    "AGENTS.md": "1c7780b74758c88451c06645341a48092a5213049953ce9ddcbd8d7d02f11392",
+    "04_relation_preservation/configs/stage02b.json": "172623647e2f931a735c5609177b51ff5f103f663593b4ae0eb4a660083c4093",
+    "04_relation_preservation/notes/stage02b_protocol.md": "c523d2649a631f0b7babfa103fb941ddf28362144d99189f228fe6b8e6197f5f",
+    "04_relation_preservation/src/stage02b_relations.py": "296ba5bb8ea93a3290f8e68ef0e84715a949803ffc0c2e3c41e45bba79fd18e5",
+    "04_relation_preservation/src/stage02_relations.py": "96e3ea125a799d87c855f9225eb7f5ddbbb050834c656561d2d9eaf0d3497ceb",
+    "04_relation_preservation/src/stage01_sdxl.py": "38950a7bd21d5e6c5fcc683c92a3649b1d9d625a6cbbf64916456b596056c456",
+    "04_relation_preservation/src/attention_processor.py": "d5bf6239613199a66441ddaab64d01c8117c2555a3552219b73d87412b8b8481",
+    "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d",
+    "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt": "c7444a602c0416f1a0e83510bf148fddb35568af99195561542636375e17d572",
+    "04_relation_preservation/outputs/stage02b/protocol_lock.json": "e070aa86c45d1d3f5764851f3e470acac83c9a5b947ad6e574dafea31ba36427",
+    "04_relation_preservation/outputs/stage02b/P1/seed19/baseline.png": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided.png": "1bafcb58697de012d4606bbcc7775d8231c37cd953ec95cb9a4226cef9ea6ca0",
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_inner_iteration_metrics.csv": "9bf52a50cd6a047b6f63a9edf9e3bc48b36ec45e3ea80069f6183a99ec7390b7",
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_step_metrics.csv": "455172a4216caf9eaa2f47255edc7a91c7010dd9f7180d42da20e38fbe624293"
+  },
+  "locked_at_utc": "2026-10-05 10:55:01 UTC",
+  "git_head": "16f70132e316949e866e839192a45f417d222b03",
+  "git_status_before_gpu": " M AGENTS.md\n?? 04_relation_preservation/configs/stage03.json\n?? 04_relation_preservation/notes/stage03_protocol.md\n?? 04_relation_preservation/outputs/stage03/\n?? 04_relation_preservation/src/stage03_inner_budget.py\n",
+  "old_checkpoint_identity": "validated against complete stage02b fingerprint dictionary"
+}

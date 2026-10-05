@@ -1,0 +1,69 @@
+[
+  {
+    "file": "heat_index5.png",
+    "scales": [
+      {
+        "layer": "mid",
+        "vmin": 0.0,
+        "vmax": 0.04062088206410408,
+        "raw_unit": "mean attention probability"
+      },
+      {
+        "layer": "up",
+        "vmin": 0.0,
+        "vmax": 0.16780176758766174,
+        "raw_unit": "mean attention probability"
+      }
+    ],
+    "inputs": [
+      "04_relation_preservation/outputs/stage03/U/heat_05_apple_before.npz",
+      "04_relation_preservation/outputs/stage03/G5/heat_05_apple_before.npz",
+      "04_relation_preservation/outputs/stage03/G5/heat_05_apple_after.npz"
+    ]
+  },
+  {
+    "file": "heat_U_window.png",
+    "scales": [
+      {
+        "layer": "mid",
+        "vmin": 0.0,
+        "vmax": 0.04384440928697586,
+        "raw_unit": "mean attention probability"
+      },
+      {
+        "layer": "up",
+        "vmin": 0.0,
+        "vmax": 0.16780176758766174,
+        "raw_unit": "mean attention probability"
+      }
+    ],
+    "inputs": [
+      "04_relation_preservation/outputs/stage03/U/heat_05_apple_before.npz",
+      "04_relation_preservation/outputs/stage03/U/heat_06_apple_before.npz",
+      "04_relation_preservation/outputs/stage03/U/heat_07_apple_before.npz",
+      "04_relation_preservation/outputs/stage03/U/heat_08_apple_before.npz",
+      "04_relation_preservation/outputs/stage03/U/heat_09_apple_before.npz"
+    ]
+  },
+  {
+    "file": "heat_U_late.png",
+    "scales": [
+      {
+        "layer": "mid",
+        "vmin": 0.0,
+        "vmax": 0.04914456978440285,
+        "raw_unit": "mean attention probability"
+      },
+      {
+        "layer": "up",
+        "vmin": 0.0,
+        "vmax": 0.16900354623794556,
+        "raw_unit": "mean attention probability"
+      }
+    ],
+    "inputs": [
+      "04_relation_preservation/outputs/stage03/U/heat_50_apple_late.npz",
+      "04_relation_preservation/outputs/stage03/U/heat_50_cup_late.npz"
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+  "method": "manual visual recheck of U, with reviewed 02B bbox reused after exact pixel equality",
+  "review_status": "ready_for_user_review",
+  "notes": "Visible apple stem and cup handle included; shadows excluded. Identical pixels to reviewed 02B baseline.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        160,
+        637,
+        385,
+        875
+      ],
+      "occluded": false,
+      "confidence": "high"
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        483,
+        580,
+        836,
+        864
+      ],
+      "occluded": false,
+      "confidence": "high; right handle included"
+    }
+  },
+  "branch": "U",
+  "extra_objects": []
+}

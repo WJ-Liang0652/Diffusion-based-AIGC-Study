@@ -1,0 +1,4 @@
+branch,status,dx,dy,objects_alive,old_relation,new_relation,joint_success
+U,complete,0.3779296875,-0.033203125,True,clear_success,clear_failure,False
+G5,incomplete,,,,not_evaluated,not_evaluated,
+G20,not_run,,,,not_evaluated,not_evaluated,
