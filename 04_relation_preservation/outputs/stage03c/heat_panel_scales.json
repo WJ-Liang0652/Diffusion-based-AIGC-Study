@@ -1,0 +1,48 @@
+[
+  {
+    "file": "heat_index5.png",
+    "scales": [
+      {
+        "layer": "mid",
+        "vmin": 0.0,
+        "vmax": 0.04062625765800476,
+        "unit": "mean attention probability"
+      },
+      {
+        "layer": "up",
+        "vmin": 0.0,
+        "vmax": 0.16780176758766174,
+        "unit": "mean attention probability"
+      }
+    ],
+    "inputs": [
+      "04_relation_preservation/outputs/stage03c/repair01/G5/heat_05_before.npz",
+      "04_relation_preservation/outputs/stage03c/repair01/G5/heat_05_after.npz",
+      "04_relation_preservation/outputs/stage03c/repair01/G20/heat_05_before.npz",
+      "04_relation_preservation/outputs/stage03c/repair01/G20/heat_05_after.npz"
+    ]
+  },
+  {
+    "file": "heat_index9.png",
+    "scales": [
+      {
+        "layer": "mid",
+        "vmin": 0.0,
+        "vmax": 0.0436820350587368,
+        "unit": "mean attention probability"
+      },
+      {
+        "layer": "up",
+        "vmin": 0.0,
+        "vmax": 0.28432005643844604,
+        "unit": "mean attention probability"
+      }
+    ],
+    "inputs": [
+      "04_relation_preservation/outputs/stage03c/repair01/G5/heat_09_before.npz",
+      "04_relation_preservation/outputs/stage03c/repair01/G5/heat_09_after.npz",
+      "04_relation_preservation/outputs/stage03c/repair01/G20/heat_09_before.npz",
+      "04_relation_preservation/outputs/stage03c/repair01/G20/heat_09_after.npz"
+    ]
+  }
+]

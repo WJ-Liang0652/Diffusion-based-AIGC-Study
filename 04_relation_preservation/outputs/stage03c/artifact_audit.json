@@ -1,0 +1,17 @@
+{
+  "all_original_and_repair_lock_fingerprints_unchanged": true,
+  "old_sources_inputs_preserved": true,
+  "repair_history_preserved": true,
+  "restoration_exact_from_disk": true,
+  "initial_latent_exact_to_old_saved": true,
+  "conditioning_exact_to_old_saved": true,
+  "R_final_latent_audited_again_on_CPU": true,
+  "G5_G20_first5_index5_scalar_metrics_exact": true,
+  "all_guidance_finite_parameter_grad_absent": true,
+  "local_pt_count": 5,
+  "local_pt_bytes": 2463355,
+  "all_pt_git_ignored": true,
+  "heat_raw_count": 8,
+  "post_sampling_cpu_cuda_initialized": false,
+  "cpu_delivery_source_sha256": "1b10adeec15cf24209872df0b2a457009facbbcfcb050e41a3253a4665d715b4"
+}

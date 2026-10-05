@@ -1,0 +1,84 @@
+{
+  "branch": "G20",
+  "image_sha256": "7d2eb811cfe5913a8dc440b6946fd5f1d696afde91e8c9042581452f70953824",
+  "method": "manual annotation of original1024 image, with coordinate-grid crop check; no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "notes": "One clear red apple hangs above and left of the dominant dark-blue cup. Fruit bbox includes its short pedicel, excludes the long supporting branch/leaves. Primary cup bbox includes handle; shadows excluded. Additional red-white mug at former apple position means scene has two cup-shaped objects; it is explicitly recorded and not counted as a second dominant-blue target cup. Overall scene content/temporal identity is not preserved.",
+  "extra_objects": [
+    {
+      "kind": "additional red-white mug with blue-gray handle",
+      "bbox_pixels": [
+        157,
+        653,
+        384,
+        873
+      ],
+      "target_instance": false,
+      "cup_category_instance": true,
+      "dominant_body_color": "red-white",
+      "truncated": false
+    },
+    {
+      "kind": "supporting branch and multiple leaves",
+      "target_instance": false,
+      "truncated_at_left_image_boundary": true
+    }
+  ],
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        466,
+        219,
+        641,
+        396
+      ],
+      "confidence": "high; G20 short stem/supporting-branch boundary may vary by a few pixels",
+      "bbox_normalized": [
+        0.455078125,
+        0.2138671875,
+        0.6259765625,
+        0.38671875
+      ],
+      "center_normalized": [
+        0.54052734375,
+        0.30029296875
+      ]
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        482,
+        580,
+        831,
+        864
+      ],
+      "confidence": "high for dominant blue cup; G20 additional differently colored mug explicitly catalogued",
+      "bbox_normalized": [
+        0.470703125,
+        0.56640625,
+        0.8115234375,
+        0.84375
+      ],
+      "center_normalized": [
+        0.64111328125,
+        0.705078125
+      ]
+    }
+  },
+  "target_red_apple_count": 1,
+  "cup_category_total_count": 2,
+  "scene_content_preserved": false,
+  "temporal_instance_identity_tracking": "not measured; category/color identification only",
+  "target_blue_cup_count": 1
+}

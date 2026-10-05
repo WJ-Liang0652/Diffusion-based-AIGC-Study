@@ -1,0 +1,19 @@
+{
+  "error": "strict raw scheduler config dictionary comparison before first step",
+  "cpu_observed_only_difference": {
+    "_use_default_values": {
+      "old": [
+        "use_exponential_sigmas",
+        "use_beta_sigmas"
+      ],
+      "reconstructed": [
+        "use_beta_sigmas",
+        "use_exponential_sigmas"
+      ]
+    }
+  },
+  "new_entry": "04_relation_preservation/src/stage03c_sdxl_repair01.py",
+  "repairs_used": 1,
+  "numeric_acceptance_thresholds_unchanged": true,
+  "failed_attempt_gpu_seconds": 12.837648747488856
+}

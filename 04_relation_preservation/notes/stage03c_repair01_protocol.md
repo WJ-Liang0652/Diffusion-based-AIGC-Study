@@ -1,0 +1,7 @@
+# 03C唯一修复attempt01
+
+沿用stage03c_protocol.md全部实验参数、确定性开关、轨迹/inner上限与几何/恢复精确门槛。初次attempt在采样前因比较scheduler配置字典失败，CPU重建缓存配置证实唯一差异为内部`_use_default_values`元素顺序（use_exponential_sigmas/use_beta_sigmas反序）。该列表是默认字段来源元数据，不是timestep/sigma/采样参数。
+
+唯一修复：所有配置有效键严格相等；仅比较此元数据列表时规范排序，保存原始双方config与canonical检查结果；实际scheduler/timesteps/sigmas/步数/order/数值不改变。U/R恢复仍要求torch.equal与逐像素一致，绝不放宽数值门槛。必要局部复验仅CPU元数据/真实参数改变拒绝测试，无额外GPUdiagnostic。
+
+原stage03c源码、config/protocol/lock/失败记录完整保留。新源码stage03c_sdxl_repair01.py、config/protocol/lock/输出独立，GPU前另锁。累计预算从stage03c根目录递归读取全部attempt计费，初次失败12.837648747488856秒与后续所有GPU活动均计入600秒/540秒停止规则。已用尽本轮一次局部修复机会，后续不再无依据重试。

@@ -1,0 +1,596 @@
+{
+  "task": "stage03c",
+  "status": "complete",
+  "completed": true,
+  "base_commit": "92020a3c9c5ce35ecc96e24baee06ec8349d7872",
+  "G20_new_relation_repaired": true,
+  "G5_new_relation_repaired": false,
+  "G20_old_relation_maintained": true,
+  "joint_success_by_prespecified_center_rules": true,
+  "pure_relation_degradation_candidate": false,
+  "interpretation": "single_case_joint_center_relation_success_with_extra_object_and_scene_fidelity_failure",
+  "quality_limits": [
+    "Additional red-white mug/gray-blue handle appears at prior apple position",
+    "Leafy supporting branch generated; partial left-border crop",
+    "Apple size/position and scene content change; temporal instance identity not tracked"
+  ],
+  "scene_content_preserved": false,
+  "protection_effectiveness_tested": false,
+  "fallback_to_FLUX_triggered": false,
+  "decision": "SDXL stop-loss trigger (both branches fail) not met. Stop this bounded experiment and return for review; no expansion.",
+  "config": {
+    "task": "stage03c",
+    "base_commit": "92020a3c9c5ce35ecc96e24baee06ec8349d7872",
+    "model": "stabilityai/stable-diffusion-xl-base-1.0",
+    "model_revision": "462165984030d82259a11f4367a4eed129e94a7b",
+    "height": 1024,
+    "width": 1024,
+    "dtype": "float16",
+    "scheduler": "lms",
+    "steps": 51,
+    "cfg_scale": 7.0,
+    "batch_size": 1,
+    "cfg_forward_batch_size": 2,
+    "target_word": "apple",
+    "target_box": [
+      0.0,
+      0.1,
+      1.0,
+      0.35
+    ],
+    "checkpoint_after": 5,
+    "guided_index_start": 5,
+    "guided_index_stop_exclusive": 10,
+    "loss_scale": 30.0,
+    "loss_threshold": 0.2,
+    "safety_max_relative_update": 0.1,
+    "relation_thresholds": {
+      "nominal_success": 0.05,
+      "clear_failure_max": 0.04,
+      "clear_success_min": 0.06
+    },
+    "baseline_requires": {
+      "dx_min": 0.06,
+      "dy_max": 0.0,
+      "unique_clear_untruncated": true
+    },
+    "output_dir": "04_relation_preservation/outputs/stage03c/repair01",
+    "seed": 19,
+    "prompt": "A red apple to the left of a blue ceramic cup, against a plain neutral background, studio photograph, both objects fully visible.",
+    "negative_prompt": null,
+    "checkpoint": "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt",
+    "reference": "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt",
+    "old_lock": "04_relation_preservation/outputs/stage02b/protocol_lock.json",
+    "gpu_work_limit_seconds": 600,
+    "gpu_no_new_branch_seconds": 540,
+    "maximum_inner_updates": 125,
+    "maximum_full_continuations": 4,
+    "maximum_local_repairs": 1,
+    "active_switches": {
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "deterministic_algorithms": true,
+      "deterministic_warn_only": false,
+      "allow_tf32_matmul": false,
+      "allow_tf32_cudnn": true,
+      "allow_fp16_reduced_precision_reduction": true,
+      "allow_bf16_reduced_precision_reduction": true,
+      "flash_sdp_enabled": true,
+      "mem_efficient_sdp_enabled": true,
+      "math_sdp_enabled": true,
+      "grad_enabled": true,
+      "autocast_enabled": false,
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "model_weight_hashes": {
+      "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+      "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+      "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+      "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+    },
+    "conditioning_source": "trusted stage02b checkpoint; unchanged saved tensors",
+    "heat_indices": [
+      5,
+      9
+    ],
+    "formal_branch_order": [
+      "U",
+      "R",
+      "G5",
+      "G20"
+    ],
+    "branches": {
+      "G5": 5,
+      "G20": 20
+    },
+    "gpu_budget_root": "04_relation_preservation/outputs/stage03c",
+    "repair_attempt": 1,
+    "repair_reason": "scheduler _use_default_values is unordered metadata; raw dictionary equality falsely rejected reversed metadata order before sampling"
+  },
+  "restoration": {
+    "scheduler_exact": true,
+    "conditioning_exact": true,
+    "processors_restored": true,
+    "cpu_rng_exact": true,
+    "cuda_rng_exact": true,
+    "generator_state_exact": true,
+    "first_step": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "final_latent": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "image": {
+      "pixel_exact": true,
+      "max_abs_error": 0
+    },
+    "passed": true
+  },
+  "relations": {
+    "U": {
+      "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+      "method": "manual recheck of new deterministic U; reviewed02B bbox reused only after exact pixel equality",
+      "review_status": "ready_for_user_review",
+      "notes": "New U visibly has one complete red apple on left and one complete handled blue cup on right. Stem/handle included, shadows excluded; no occlusion/truncation. Pixel-identical to reviewed02B baseline.",
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            160,
+            637,
+            385,
+            875
+          ],
+          "occluded": false,
+          "confidence": "high",
+          "bbox_normalized": [
+            0.15625,
+            0.6220703125,
+            0.3759765625,
+            0.8544921875
+          ],
+          "center_normalized": [
+            0.26611328125,
+            0.73828125
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            483,
+            580,
+            836,
+            864
+          ],
+          "occluded": false,
+          "confidence": "high; right handle included",
+          "bbox_normalized": [
+            0.4716796875,
+            0.56640625,
+            0.81640625,
+            0.84375
+          ],
+          "center_normalized": [
+            0.64404296875,
+            0.705078125
+          ]
+        }
+      },
+      "branch": "U",
+      "extra_objects": [],
+      "dx": 0.3779296875,
+      "dy": -0.033203125,
+      "old_relation": "clear_success",
+      "new_relation": "clear_failure",
+      "old_nominal_success": true,
+      "new_nominal_success": false,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": true,
+      "joint_success": false
+    },
+    "G5": {
+      "branch": "G5",
+      "image_sha256": "4e5fbe747480f0a2d99fa57837efe76a70b635e031103083de3d90a3e6007715",
+      "method": "manual annotation of original1024 image, with coordinate-grid crop check; no detector/attention-centroid bbox",
+      "review_status": "ready_for_user_review",
+      "notes": "One red apple and one dominant blue handled cup, both fully visible; additional bottle/branch at left. Stem/handle included; shadows excluded.",
+      "extra_objects": [
+        {
+          "kind": "transparent bottle/vase with leafy branch",
+          "target_instance": false,
+          "truncated": false
+        }
+      ],
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "occluded": false,
+          "bbox_pixels": [
+            159,
+            644,
+            383,
+            872
+          ],
+          "confidence": "high; visible apple stem included",
+          "bbox_normalized": [
+            0.1552734375,
+            0.62890625,
+            0.3740234375,
+            0.8515625
+          ],
+          "center_normalized": [
+            0.2646484375,
+            0.740234375
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "occluded": false,
+          "bbox_pixels": [
+            483,
+            580,
+            836,
+            865
+          ],
+          "confidence": "high; unique blue cup, right handle included",
+          "bbox_normalized": [
+            0.4716796875,
+            0.56640625,
+            0.81640625,
+            0.8447265625
+          ],
+          "center_normalized": [
+            0.64404296875,
+            0.70556640625
+          ]
+        }
+      },
+      "target_red_apple_count": 1,
+      "cup_category_total_count": 1,
+      "scene_content_preserved": false,
+      "temporal_instance_identity_tracking": "not measured; category/color identification only",
+      "dx": 0.37939453125,
+      "dy": -0.03466796875,
+      "old_relation": "clear_success",
+      "new_relation": "clear_failure",
+      "old_nominal_success": true,
+      "new_nominal_success": false,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": true,
+      "joint_success": false,
+      "target_blue_cup_count": 1
+    },
+    "G20": {
+      "branch": "G20",
+      "image_sha256": "7d2eb811cfe5913a8dc440b6946fd5f1d696afde91e8c9042581452f70953824",
+      "method": "manual annotation of original1024 image, with coordinate-grid crop check; no detector/attention-centroid bbox",
+      "review_status": "ready_for_user_review",
+      "notes": "One clear red apple hangs above and left of the dominant dark-blue cup. Fruit bbox includes its short pedicel, excludes the long supporting branch/leaves. Primary cup bbox includes handle; shadows excluded. Additional red-white mug at former apple position means scene has two cup-shaped objects; it is explicitly recorded and not counted as a second dominant-blue target cup. Overall scene content/temporal identity is not preserved.",
+      "extra_objects": [
+        {
+          "kind": "additional red-white mug with blue-gray handle",
+          "bbox_pixels": [
+            157,
+            653,
+            384,
+            873
+          ],
+          "target_instance": false,
+          "cup_category_instance": true,
+          "dominant_body_color": "red-white",
+          "truncated": false
+        },
+        {
+          "kind": "supporting branch and multiple leaves",
+          "target_instance": false,
+          "truncated_at_left_image_boundary": true
+        }
+      ],
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "occluded": false,
+          "bbox_pixels": [
+            466,
+            219,
+            641,
+            396
+          ],
+          "confidence": "high; G20 short stem/supporting-branch boundary may vary by a few pixels",
+          "bbox_normalized": [
+            0.455078125,
+            0.2138671875,
+            0.6259765625,
+            0.38671875
+          ],
+          "center_normalized": [
+            0.54052734375,
+            0.30029296875
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "occluded": false,
+          "bbox_pixels": [
+            482,
+            580,
+            831,
+            864
+          ],
+          "confidence": "high for dominant blue cup; G20 additional differently colored mug explicitly catalogued",
+          "bbox_normalized": [
+            0.470703125,
+            0.56640625,
+            0.8115234375,
+            0.84375
+          ],
+          "center_normalized": [
+            0.64111328125,
+            0.705078125
+          ]
+        }
+      },
+      "target_red_apple_count": 1,
+      "cup_category_total_count": 2,
+      "scene_content_preserved": false,
+      "temporal_instance_identity_tracking": "not measured; category/color identification only",
+      "dx": 0.1005859375,
+      "dy": 0.40478515625,
+      "old_relation": "clear_success",
+      "new_relation": "clear_success",
+      "old_nominal_success": true,
+      "new_nominal_success": true,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": false,
+      "joint_success": true,
+      "target_blue_cup_count": 1
+    }
+  },
+  "guidance": {
+    "G5": {
+      "inner_updates": 25,
+      "all_finite": true,
+      "parameter_grad_present": false,
+      "gradient_norm_range": [
+        0.043975830078125,
+        0.1375732421875
+      ],
+      "update_norm_range": [
+        1.8603515625,
+        3.0
+      ],
+      "max_relative_update": 0.0024700164794921875,
+      "steps": [
+        {
+          "denoising_index": "5",
+          "timestep": "856.0",
+          "sigma": "6.668572902679443",
+          "energy_first": "0.5472047328948975",
+          "energy_last_pre_update": "0.535407543182373",
+          "energy_final": "0.5321216583251953",
+          "mid_ratio_first": "0.2831710875034332",
+          "mid_ratio_last": "0.28445741534233093",
+          "up_ratio_first": "0.2380513697862625",
+          "up_ratio_last": "0.2568700313568115",
+          "executed_inner_iterations": "5"
+        },
+        {
+          "denoising_index": "6",
+          "timestep": "837.0",
+          "sigma": "6.078628063201904",
+          "energy_first": "0.5434949994087219",
+          "energy_last_pre_update": "0.5257047414779663",
+          "energy_final": "0.5206788182258606",
+          "mid_ratio_first": "0.2822709381580353",
+          "mid_ratio_last": "0.2832907736301422",
+          "up_ratio_first": "0.24378909170627594",
+          "up_ratio_last": "0.2735803723335266",
+          "executed_inner_iterations": "5"
+        },
+        {
+          "denoising_index": "7",
+          "timestep": "818.0",
+          "sigma": "5.554561614990234",
+          "energy_first": "0.5168541669845581",
+          "energy_last_pre_update": "0.4948582053184509",
+          "energy_final": "0.4907916188240051",
+          "mid_ratio_first": "0.2840677797794342",
+          "mid_ratio_last": "0.2865395247936249",
+          "up_ratio_first": "0.27809327840805054",
+          "up_ratio_last": "0.31257185339927673",
+          "executed_inner_iterations": "5"
+        },
+        {
+          "denoising_index": "8",
+          "timestep": "799.0",
+          "sigma": "5.087765216827393",
+          "energy_first": "0.51619553565979",
+          "energy_last_pre_update": "0.4909741282463074",
+          "energy_final": "0.48694726824760437",
+          "mid_ratio_first": "0.2837105691432953",
+          "mid_ratio_last": "0.2862480580806732",
+          "up_ratio_first": "0.27936097979545593",
+          "up_ratio_last": "0.3184923231601715",
+          "executed_inner_iterations": "5"
+        },
+        {
+          "denoising_index": "9",
+          "timestep": "780.0",
+          "sigma": "4.670868873596191",
+          "energy_first": "0.4857260584831238",
+          "energy_last_pre_update": "0.4553925693035126",
+          "energy_final": "0.44946199655532837",
+          "mid_ratio_first": "0.2870274782180786",
+          "mid_ratio_last": "0.2906992733478546",
+          "up_ratio_first": "0.3194690942764282",
+          "up_ratio_last": "0.37086060643196106",
+          "executed_inner_iterations": "5"
+        }
+      ]
+    },
+    "G20": {
+      "inner_updates": 100,
+      "all_finite": true,
+      "parameter_grad_present": false,
+      "gradient_norm_range": [
+        0.039154052734375,
+        0.2000732421875
+      ],
+      "update_norm_range": [
+        1.013671875,
+        5.32421875
+      ],
+      "max_relative_update": 0.0035877227783203125,
+      "steps": [
+        {
+          "denoising_index": "5",
+          "timestep": "856.0",
+          "sigma": "6.668572902679443",
+          "energy_first": "0.5472047328948975",
+          "energy_last_pre_update": "0.44571352005004883",
+          "energy_final": "0.4415951669216156",
+          "mid_ratio_first": "0.2831710875034332",
+          "mid_ratio_last": "0.2937440872192383",
+          "up_ratio_first": "0.2380513697862625",
+          "up_ratio_last": "0.38000574707984924",
+          "executed_inner_iterations": "20"
+        },
+        {
+          "denoising_index": "6",
+          "timestep": "837.0",
+          "sigma": "6.078628063201904",
+          "energy_first": "0.5029155015945435",
+          "energy_last_pre_update": "0.40191107988357544",
+          "energy_final": "0.3995719254016876",
+          "mid_ratio_first": "0.28428220748901367",
+          "mid_ratio_last": "0.29781439900398254",
+          "up_ratio_first": "0.29744821786880493",
+          "up_ratio_last": "0.4467557966709137",
+          "executed_inner_iterations": "20"
+        },
+        {
+          "denoising_index": "7",
+          "timestep": "818.0",
+          "sigma": "5.554561614990234",
+          "energy_first": "0.41646629571914673",
+          "energy_last_pre_update": "0.34404850006103516",
+          "energy_final": "0.3413519263267517",
+          "mid_ratio_first": "0.29951339960098267",
+          "mid_ratio_last": "0.3090307414531708",
+          "up_ratio_first": "0.41497769951820374",
+          "up_ratio_last": "0.5469378232955933",
+          "executed_inner_iterations": "20"
+        },
+        {
+          "denoising_index": "8",
+          "timestep": "799.0",
+          "sigma": "5.087765216827393",
+          "energy_first": "0.3857688307762146",
+          "energy_last_pre_update": "0.32360613346099854",
+          "energy_final": "0.3222639262676239",
+          "mid_ratio_first": "0.3036802411079407",
+          "mid_ratio_last": "0.31553447246551514",
+          "up_ratio_first": "0.4645783007144928",
+          "up_ratio_last": "0.5804349780082703",
+          "executed_inner_iterations": "20"
+        },
+        {
+          "denoising_index": "9",
+          "timestep": "780.0",
+          "sigma": "4.670868873596191",
+          "energy_first": "0.3354948163032532",
+          "energy_last_pre_update": "0.29047927260398865",
+          "energy_final": "0.28861919045448303",
+          "mid_ratio_first": "0.3092603385448456",
+          "mid_ratio_last": "0.31674113869667053",
+          "up_ratio_first": "0.5596950650215149",
+          "up_ratio_last": "0.667741596698761",
+          "executed_inner_iterations": "20"
+        }
+      ]
+    }
+  },
+  "cost": {
+    "gpu_activity_seconds_including_failure": 111.8423557151109,
+    "normal_trajectories_completed": 4,
+    "guidance_updates": 125,
+    "local_repairs_used": 1,
+    "peak_allocated_mib": 12035.68408203125,
+    "peak_reserved_mib": 12714.0
+  },
+  "attempts": [
+    {
+      "path": "04_relation_preservation/outputs/stage03c",
+      "mode": "prepare",
+      "completed": false,
+      "gpu_seconds": 12.837648747488856,
+      "argv": [
+        "04_relation_preservation/src/stage03c_sdxl.py",
+        "prepare"
+      ]
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03c/repair01",
+      "mode": "prepare",
+      "completed": true,
+      "gpu_seconds": 34.72568858973682,
+      "argv": [
+        "04_relation_preservation/src/stage03c_sdxl_repair01.py",
+        "prepare"
+      ]
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03c/repair01",
+      "mode": "guide",
+      "completed": true,
+      "gpu_seconds": 64.27901837788522,
+      "argv": [
+        "04_relation_preservation/src/stage03c_sdxl_repair01.py",
+        "guide"
+      ]
+    }
+  ],
+  "same_first5_G5_G20_index5_scalar_metrics_exact": true,
+  "no_extra_FLUX_GPU_run": true
+}

@@ -1,0 +1,253 @@
+{
+  "U": {
+    "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+    "method": "manual recheck of new deterministic U; reviewed02B bbox reused only after exact pixel equality",
+    "review_status": "ready_for_user_review",
+    "notes": "New U visibly has one complete red apple on left and one complete handled blue cup on right. Stem/handle included, shadows excluded; no occlusion/truncation. Pixel-identical to reviewed02B baseline.",
+    "objects": {
+      "A": {
+        "name": "red apple",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "bbox_pixels": [
+          160,
+          637,
+          385,
+          875
+        ],
+        "occluded": false,
+        "confidence": "high",
+        "bbox_normalized": [
+          0.15625,
+          0.6220703125,
+          0.3759765625,
+          0.8544921875
+        ],
+        "center_normalized": [
+          0.26611328125,
+          0.73828125
+        ]
+      },
+      "B": {
+        "name": "blue ceramic cup",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "bbox_pixels": [
+          483,
+          580,
+          836,
+          864
+        ],
+        "occluded": false,
+        "confidence": "high; right handle included",
+        "bbox_normalized": [
+          0.4716796875,
+          0.56640625,
+          0.81640625,
+          0.84375
+        ],
+        "center_normalized": [
+          0.64404296875,
+          0.705078125
+        ]
+      }
+    },
+    "branch": "U",
+    "extra_objects": [],
+    "dx": 0.3779296875,
+    "dy": -0.033203125,
+    "old_relation": "clear_success",
+    "new_relation": "clear_failure",
+    "old_nominal_success": true,
+    "new_nominal_success": false,
+    "objects_alive": true,
+    "identity_or_instances_uncertain": false,
+    "invalid_truncated": false,
+    "uncertain": false,
+    "baseline_qualified": true,
+    "joint_success": false
+  },
+  "G5": {
+    "branch": "G5",
+    "image_sha256": "4e5fbe747480f0a2d99fa57837efe76a70b635e031103083de3d90a3e6007715",
+    "method": "manual annotation of original1024 image, with coordinate-grid crop check; no detector/attention-centroid bbox",
+    "review_status": "ready_for_user_review",
+    "notes": "One red apple and one dominant blue handled cup, both fully visible; additional bottle/branch at left. Stem/handle included; shadows excluded.",
+    "extra_objects": [
+      {
+        "kind": "transparent bottle/vase with leafy branch",
+        "target_instance": false,
+        "truncated": false
+      }
+    ],
+    "objects": {
+      "A": {
+        "name": "red apple",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "occluded": false,
+        "bbox_pixels": [
+          159,
+          644,
+          383,
+          872
+        ],
+        "confidence": "high; visible apple stem included",
+        "bbox_normalized": [
+          0.1552734375,
+          0.62890625,
+          0.3740234375,
+          0.8515625
+        ],
+        "center_normalized": [
+          0.2646484375,
+          0.740234375
+        ]
+      },
+      "B": {
+        "name": "blue ceramic cup",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "occluded": false,
+        "bbox_pixels": [
+          483,
+          580,
+          836,
+          865
+        ],
+        "confidence": "high; unique blue cup, right handle included",
+        "bbox_normalized": [
+          0.4716796875,
+          0.56640625,
+          0.81640625,
+          0.8447265625
+        ],
+        "center_normalized": [
+          0.64404296875,
+          0.70556640625
+        ]
+      }
+    },
+    "target_red_apple_count": 1,
+    "cup_category_total_count": 1,
+    "scene_content_preserved": false,
+    "temporal_instance_identity_tracking": "not measured; category/color identification only",
+    "dx": 0.37939453125,
+    "dy": -0.03466796875,
+    "old_relation": "clear_success",
+    "new_relation": "clear_failure",
+    "old_nominal_success": true,
+    "new_nominal_success": false,
+    "objects_alive": true,
+    "identity_or_instances_uncertain": false,
+    "invalid_truncated": false,
+    "uncertain": false,
+    "baseline_qualified": true,
+    "joint_success": false,
+    "target_blue_cup_count": 1
+  },
+  "G20": {
+    "branch": "G20",
+    "image_sha256": "7d2eb811cfe5913a8dc440b6946fd5f1d696afde91e8c9042581452f70953824",
+    "method": "manual annotation of original1024 image, with coordinate-grid crop check; no detector/attention-centroid bbox",
+    "review_status": "ready_for_user_review",
+    "notes": "One clear red apple hangs above and left of the dominant dark-blue cup. Fruit bbox includes its short pedicel, excludes the long supporting branch/leaves. Primary cup bbox includes handle; shadows excluded. Additional red-white mug at former apple position means scene has two cup-shaped objects; it is explicitly recorded and not counted as a second dominant-blue target cup. Overall scene content/temporal identity is not preserved.",
+    "extra_objects": [
+      {
+        "kind": "additional red-white mug with blue-gray handle",
+        "bbox_pixels": [
+          157,
+          653,
+          384,
+          873
+        ],
+        "target_instance": false,
+        "cup_category_instance": true,
+        "dominant_body_color": "red-white",
+        "truncated": false
+      },
+      {
+        "kind": "supporting branch and multiple leaves",
+        "target_instance": false,
+        "truncated_at_left_image_boundary": true
+      }
+    ],
+    "objects": {
+      "A": {
+        "name": "red apple",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "occluded": false,
+        "bbox_pixels": [
+          466,
+          219,
+          641,
+          396
+        ],
+        "confidence": "high; G20 short stem/supporting-branch boundary may vary by a few pixels",
+        "bbox_normalized": [
+          0.455078125,
+          0.2138671875,
+          0.6259765625,
+          0.38671875
+        ],
+        "center_normalized": [
+          0.54052734375,
+          0.30029296875
+        ]
+      },
+      "B": {
+        "name": "blue ceramic cup",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "occluded": false,
+        "bbox_pixels": [
+          482,
+          580,
+          831,
+          864
+        ],
+        "confidence": "high for dominant blue cup; G20 additional differently colored mug explicitly catalogued",
+        "bbox_normalized": [
+          0.470703125,
+          0.56640625,
+          0.8115234375,
+          0.84375
+        ],
+        "center_normalized": [
+          0.64111328125,
+          0.705078125
+        ]
+      }
+    },
+    "target_red_apple_count": 1,
+    "cup_category_total_count": 2,
+    "scene_content_preserved": false,
+    "temporal_instance_identity_tracking": "not measured; category/color identification only",
+    "dx": 0.1005859375,
+    "dy": 0.40478515625,
+    "old_relation": "clear_success",
+    "new_relation": "clear_success",
+    "old_nominal_success": true,
+    "new_nominal_success": true,
+    "objects_alive": true,
+    "identity_or_instances_uncertain": false,
+    "invalid_truncated": false,
+    "uncertain": false,
+    "baseline_qualified": false,
+    "joint_success": true,
+    "target_blue_cup_count": 1
+  }
+}

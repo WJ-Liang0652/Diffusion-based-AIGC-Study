@@ -1,0 +1,8 @@
+{
+  "report_sha256": "db92d966c08aa5377ae1fa29354925225bd8792e5a15a33789b4a72cf93b7efc",
+  "local_report_links_exist": true,
+  "all_sampling_locks_unchanged": true,
+  "git_head": "92020a3c9c5ce35ecc96e24baee06ec8349d7872",
+  "git_status": " M AGENTS.md\n?? 04_relation_preservation/configs/stage03c.json\n?? 04_relation_preservation/configs/stage03c_repair01.json\n?? 04_relation_preservation/notes/stage03c_protocol.md\n?? 04_relation_preservation/notes/stage03c_repair01_protocol.md\n?? 04_relation_preservation/notes/stage03c_report.md\n?? 04_relation_preservation/outputs/stage03c/\n?? 04_relation_preservation/src/stage03c_cpu_delivery.py\n?? 04_relation_preservation/src/stage03c_sdxl.py\n?? 04_relation_preservation/src/stage03c_sdxl_repair01.py\n",
+  "no_new_gpu_work": true
+}

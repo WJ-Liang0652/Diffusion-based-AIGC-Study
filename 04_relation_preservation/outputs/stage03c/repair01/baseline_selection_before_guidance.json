@@ -1,0 +1,8 @@
+{
+  "qualified": true,
+  "dx": 0.3779296875,
+  "dy": -0.033203125,
+  "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+  "method": "manual recheck of new deterministic U; reviewed02B bbox reused only after exact pixel equality",
+  "recorded_before_guidance": true
+}

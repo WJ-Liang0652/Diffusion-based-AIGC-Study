@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "03b_deterministic_AA_AB_verified_from_raw_tensors": true,
+  "03b_guidance_step_latent_scheduler_verified_from_raw_tensors": true,
+  "old_checkpoint_fingerprints_exact": true,
+  "shared_initial_latent_sha256": "d314855341b482d81ae7ac11fd3854cb29d1ce342809e15f20f404b4fdf86b13",
+  "initial_latent_shape": [
+    1,
+    4,
+    128,
+    128
+  ],
+  "negative_prompt_source": "old fingerprinted encode explicitly None; saved conditioning unchanged",
+  "old_AGENTS_difference": "authorized stage03C update; historical locks unchanged"
+}

@@ -1,0 +1,89 @@
+{
+  "task": "stage03c",
+  "base_commit": "92020a3c9c5ce35ecc96e24baee06ec8349d7872",
+  "model": "stabilityai/stable-diffusion-xl-base-1.0",
+  "model_revision": "462165984030d82259a11f4367a4eed129e94a7b",
+  "height": 1024,
+  "width": 1024,
+  "dtype": "float16",
+  "scheduler": "lms",
+  "steps": 51,
+  "cfg_scale": 7.0,
+  "batch_size": 1,
+  "cfg_forward_batch_size": 2,
+  "target_word": "apple",
+  "target_box": [
+    0.0,
+    0.1,
+    1.0,
+    0.35
+  ],
+  "checkpoint_after": 5,
+  "guided_index_start": 5,
+  "guided_index_stop_exclusive": 10,
+  "loss_scale": 30.0,
+  "loss_threshold": 0.2,
+  "safety_max_relative_update": 0.1,
+  "relation_thresholds": {
+    "nominal_success": 0.05,
+    "clear_failure_max": 0.04,
+    "clear_success_min": 0.06
+  },
+  "baseline_requires": {
+    "dx_min": 0.06,
+    "dy_max": 0.0,
+    "unique_clear_untruncated": true
+  },
+  "output_dir": "04_relation_preservation/outputs/stage03c/repair01",
+  "seed": 19,
+  "prompt": "A red apple to the left of a blue ceramic cup, against a plain neutral background, studio photograph, both objects fully visible.",
+  "negative_prompt": null,
+  "checkpoint": "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt",
+  "reference": "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt",
+  "old_lock": "04_relation_preservation/outputs/stage02b/protocol_lock.json",
+  "gpu_work_limit_seconds": 600,
+  "gpu_no_new_branch_seconds": 540,
+  "maximum_inner_updates": 125,
+  "maximum_full_continuations": 4,
+  "maximum_local_repairs": 1,
+  "active_switches": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "model_weight_hashes": {
+    "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+    "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+    "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+    "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+  },
+  "conditioning_source": "trusted stage02b checkpoint; unchanged saved tensors",
+  "heat_indices": [
+    5,
+    9
+  ],
+  "formal_branch_order": [
+    "U",
+    "R",
+    "G5",
+    "G20"
+  ],
+  "branches": {
+    "G5": 5,
+    "G20": 20
+  },
+  "gpu_budget_root": "04_relation_preservation/outputs/stage03c",
+  "repair_attempt": 1,
+  "repair_reason": "scheduler _use_default_values is unordered metadata; raw dictionary equality falsely rejected reversed metadata order before sampling"
+}

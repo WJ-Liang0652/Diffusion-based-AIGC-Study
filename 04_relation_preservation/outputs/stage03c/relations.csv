@@ -1,0 +1,4 @@
+branch,dx,dy,old_relation,new_relation,joint_success,objects_alive,uncertain,extra_objects
+U,0.3779296875,-0.033203125,clear_success,clear_failure,False,True,False,[]
+G5,0.37939453125,-0.03466796875,clear_success,clear_failure,False,True,False,"[{""kind"": ""transparent bottle/vase with leafy branch"", ""target_instance"": false, ""truncated"": false}]"
+G20,0.1005859375,0.40478515625,clear_success,clear_success,True,True,False,"[{""kind"": ""additional red-white mug with blue-gray handle"", ""bbox_pixels"": [157, 653, 384, 873], ""target_instance"": false, ""cup_category_instance"": true, ""dominant_body_color"": ""red-white"", ""truncated"": false}, {""kind"": ""supporting branch and multiple leaves"", ""target_instance"": false, ""truncated_at_left_image_boundary"": true}]"
