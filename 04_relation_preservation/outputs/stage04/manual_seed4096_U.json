@@ -1,0 +1,45 @@
+{
+  "seed": 4096,
+  "branch": "U",
+  "image_sha256": "c525e7305168a13d65bf29fcda78a5e1c7792205de5c84e1a8768850c6ec22a3",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        402,
+        725,
+        593,
+        933
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded"
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        583,
+        643,
+        906,
+        925
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded"
+    }
+  },
+  "red_apple_count": 1,
+  "major_blue_cup_count": 1,
+  "all_cup_count": 1,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "extra_objects": [],
+  "screening_reason": "Qualified: red apple and primary blue cup each unique, clear and complete; apple left and lower (dx>=.06 and dy<=0), no truncation/occlusion."
+}

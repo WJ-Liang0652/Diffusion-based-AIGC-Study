@@ -1,0 +1,131 @@
+{
+  "status": "preparation_only_not_executable_this_turn",
+  "execution_authorized_in_this_turn": false,
+  "reason": "stage04 no clear repair among two completed new selected starts; one evaluable relation failure and one object loss/multiple vessels",
+  "model": "black-forest-labs/FLUX.1-dev",
+  "cached_revision": "3de623fc3c33e44ffbe2bad470d0f45bccf2eb21",
+  "local_files_only": true,
+  "dtype": "bfloat16",
+  "width": 768,
+  "height": 768,
+  "batch_size": 1,
+  "steps": 50,
+  "guidance_scale": 3.5,
+  "offload": "enable_sequential_cpu_offload",
+  "gradient_checkpointing": true,
+  "frozen_parameters": true,
+  "scheduler": "FlowMatchEulerDiscreteScheduler",
+  "dynamic_shifting": true,
+  "mu": 0.8466666667,
+  "candidate_seed": 42,
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "saved_state": "03_flux_layout_control/outputs/baseline/flux_dev_baseline_state.pt",
+  "saved_initial_latent_sha256": "ae3c7bd3742597f7881546de96177481f24d92dfd30de63cd54f6ffc46cb2c01",
+  "initial_shape": [
+    1,
+    2304,
+    64
+  ],
+  "state_completeness_warning": "Historical FLUX state stores initial/all Pipeline step/final latents and latent IDs, not complete conditioning/RNG/scheduler. It is not a resumable stage04 LMS checkpoint. Next wrapper must construct and save its own complete conditions/schedule/RNG and verify official reference before intervention.",
+  "required_start": {
+    "one_unique_clear_complete_red_apple": true,
+    "one_unique_clear_complete_primary_blue_cup": true,
+    "dx_min": 0.06,
+    "dy_max": 0,
+    "no_seed_search": true,
+    "if_candidate_replay_or_qualification_fails": "stop and report; do not substitute a new seed in this single-case task"
+  },
+  "objective": "native joint-normalized image-query/target-text attention, Eq(2) apple only; no cup or preservation loss",
+  "blocks": [
+    18
+  ],
+  "guided_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "max_inner_updates_per_index": 5,
+  "objective_threshold": 0.2,
+  "early_stop": "original Stage6E after-update energy check",
+  "base_eta": 96.61734058869797,
+  "eta_scale": 0.25,
+  "eta": 24.154335147174493,
+  "update_equation": "BF16 packed latent <- latent - cast_BF16(eta*sigma^2*FP32 gradient)",
+  "relative_update_safety_limit": 0.1,
+  "apple_source_box_grid_new_visible_fruit_rule": [
+    4,
+    23,
+    22,
+    41
+  ],
+  "apple_target_box_grid_proposed": [
+    4,
+    3,
+    22,
+    21
+  ],
+  "apple_target_box_normalized_proposed": [
+    0.08333333333333333,
+    0.0625,
+    0.4583333333333333,
+    0.4375
+  ],
+  "box_rule": "translate new visible fruit+own stem box up 20 tokens with unchanged x/size; compatible with old apple-left relation. Historical swap boxes are not used.",
+  "cup_role": "final geometry/content evaluation only; optional read-only heatmap outside loss",
+  "target_spans_for_guidance": [
+    "apple"
+  ],
+  "historical_t5_apple_span": [
+    3
+  ],
+  "historical_t5_cup_span": [
+    8
+  ],
+  "tokenizer_validation": "derive spans from actual offsets and verify, do not hardcode token IDs",
+  "formal_plan": [
+    "CPU identities and runtime/config lock",
+    "replay baseline from saved exact initial; verify step/final/pixels against historical reference or stop",
+    "freeze eligible candidate annotation and full independent branch input",
+    "one fixed apple-up guided branch, inspect old left/content",
+    "report and stop"
+  ],
+  "maximum_cases": 1,
+  "maximum_guidance_updates": 50,
+  "runtime_switches_status": "explicitly record and lock native FLUX settings before future GPU; SDXL deterministic flags are not implicitly asserted to be historical FLUX settings",
+  "GPU_budget_status": "not allocated here; future one-case budget must be authorized/frozen with historical costs, including baseline/replay. No FLUX GPU in stage04.",
+  "historical_costs": {
+    "baseline_seconds": 213.07197958882898,
+    "stage6e_guided_seconds": 430.9944878788665,
+    "stage6e_total_including_load_seconds": 437.0860005328432,
+    "stage6e_inner_updates": 22,
+    "stage6e_peak_allocated_mib": 2004.4140625,
+    "stage6e_peak_reserved_mib": 2140.0,
+    "stage7_cases": [
+      {
+        "case": "apple_cup_seed123",
+        "inner_updates": 21,
+        "guided_seconds": 421.4090560209006
+      },
+      {
+        "case": "apple_cup_seed2024",
+        "inner_updates": 18,
+        "guided_seconds": 386.980808715336
+      },
+      {
+        "case": "banana_bottle_seed31415",
+        "inner_updates": 48,
+        "guided_seconds": 733.4871573895216
+      }
+    ]
+  },
+  "geometry_rule": "visible bbox with own stem/handle; dx/dy centers clear success>=.06 failure<=.04 between uncertain; target missing or multiple blue cups separate; do not choose cup by desired answer",
+  "historical_swap_is_preservation_evidence": false,
+  "historical_runtime_guarantees_new_apple_only_runtime": false
+}

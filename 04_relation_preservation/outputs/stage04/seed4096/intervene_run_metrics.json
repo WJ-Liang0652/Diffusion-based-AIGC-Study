@@ -1,0 +1,295 @@
+{
+  "mode": "intervene",
+  "seed": 4096,
+  "argv": [
+    "04_relation_preservation/src/stage04_repeat.py",
+    "intervene",
+    "--seed",
+    "4096"
+  ],
+  "completed": true,
+  "timings": {
+    "model_load": {
+      "seconds": 4.917214188724756,
+      "peak_allocated_mib": 6732.70068359375,
+      "peak_reserved_mib": 6976.0
+    },
+    "model_content_hash": {
+      "seconds": 8.184863951057196,
+      "peak_allocated_mib": 6732.70068359375,
+      "peak_reserved_mib": 6976.0
+    },
+    "R_46_steps": {
+      "seconds": 8.087770234793425,
+      "peak_allocated_mib": 7091.77197265625,
+      "peak_reserved_mib": 7570.0
+    },
+    "R_decode": {
+      "seconds": 2.7061988078057766,
+      "peak_allocated_mib": 6766.23681640625,
+      "peak_reserved_mib": 7570.0
+    },
+    "G20_46_steps": {
+      "seconds": 34.27728293836117,
+      "peak_allocated_mib": 11945.7783203125,
+      "peak_reserved_mib": 12068.0
+    },
+    "G20_decode": {
+      "seconds": 2.624830411747098,
+      "peak_allocated_mib": 6696.5341796875,
+      "peak_reserved_mib": 12068.0
+    }
+  },
+  "previous_gpu_seconds": 210.91745898872614,
+  "previous_inner_updates": 100,
+  "config": {
+    "task": "stage04",
+    "base_commit": "d0bb664e4915b9ab82bee60cc374a2b3c1b06a5f",
+    "model": "stabilityai/stable-diffusion-xl-base-1.0",
+    "model_revision": "462165984030d82259a11f4367a4eed129e94a7b",
+    "height": 1024,
+    "width": 1024,
+    "dtype": "float16",
+    "scheduler": "lms",
+    "steps": 51,
+    "cfg_scale": 7.0,
+    "batch_size": 1,
+    "cfg_forward_batch_size": 2,
+    "target_word": "apple",
+    "target_box": [
+      0.0,
+      0.1,
+      1.0,
+      0.35
+    ],
+    "checkpoint_after": 5,
+    "guided_index_start": 5,
+    "guided_index_stop_exclusive": 10,
+    "loss_scale": 30.0,
+    "loss_threshold": 0.2,
+    "safety_max_relative_update": 0.1,
+    "relation_thresholds": {
+      "nominal_success": 0.05,
+      "clear_failure_max": 0.04,
+      "clear_success_min": 0.06
+    },
+    "baseline_requires": {
+      "dx_min": 0.06,
+      "dy_max": 0.0,
+      "unique_clear_untruncated": true
+    },
+    "output_dir": "04_relation_preservation/outputs/stage04",
+    "prompt": "A red apple to the left of a blue ceramic cup, against a plain neutral background, studio photograph, both objects fully visible.",
+    "negative_prompt": null,
+    "checkpoint": "04_relation_preservation/outputs/stage03c/repair01/U/checkpoint.pt",
+    "gpu_work_limit_seconds": 600,
+    "gpu_no_new_branch_seconds": 540,
+    "maximum_inner_updates": 300,
+    "maximum_full_continuations": 12,
+    "maximum_local_repairs": 0,
+    "active_switches": {
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "deterministic_algorithms": true,
+      "deterministic_warn_only": false,
+      "allow_tf32_matmul": false,
+      "allow_tf32_cudnn": true,
+      "allow_fp16_reduced_precision_reduction": true,
+      "allow_bf16_reduced_precision_reduction": true,
+      "flash_sdp_enabled": true,
+      "mem_efficient_sdp_enabled": true,
+      "math_sdp_enabled": true,
+      "grad_enabled": true,
+      "autocast_enabled": false,
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "model_weight_hashes": {
+      "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+      "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+      "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+      "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+    },
+    "conditioning_source": "trusted stage03c repair01 U saved conditioning, identical prompt and negative None",
+    "heat_indices": [
+      5,
+      9
+    ],
+    "formal_branch_order": [
+      "screen_all_U_and_freeze",
+      "per_selected_R_then_G20"
+    ],
+    "gpu_budget_root": "04_relation_preservation/outputs/stage04",
+    "seed_candidates": [
+      101,
+      314,
+      777,
+      1001,
+      2048,
+      4096
+    ],
+    "target_qualified": 3,
+    "maximum_baselines": 6,
+    "maximum_restorations": 3,
+    "maximum_guided": 3,
+    "inner_iters": 20,
+    "candidate_rule": "fixed queue; first three unique clear complete A/B with dx>=0.06 and dy<=0; no guided image before selection freeze",
+    "lms_order": 4
+  },
+  "fingerprints": {
+    "04_relation_preservation/configs/stage04.json": "3088ac7b2ec7ba6a76ab16ff11ffb152705bb4611f819cfd51ca4072629f89dd",
+    "04_relation_preservation/notes/stage04_protocol.md": "89a215deab0b3a6c7da209856b7b2b39975e90bd9dcf93a21a9562e7ab5fdf2e",
+    "04_relation_preservation/src/stage04_repeat.py": "dfc1c6c9302321770da072ce1c74ff2d04d4c5609ea784626e0e96f5fd27092a",
+    "04_relation_preservation/src/stage03c_sdxl_repair01.py": "4e5d5c09bcd00ac0196539e952a061d36ab9264e25fa2c506def7f56d3dc00e0",
+    "04_relation_preservation/outputs/stage03c/repair01/protocol_lock.json": "eb62cf111284e28895bb1d349001858c90b8a11587cfcf89a713a2337427905b",
+    "04_relation_preservation/outputs/stage03c/repair01/U/checkpoint.pt": "7b9ba3e1948fd4fd30d90c99e11c460850ab234ba22e36db50b90bb8e1409b55",
+    "04_relation_preservation/notes/stage03c_report.md": "db92d966c08aa5377ae1fa29354925225bd8792e5a15a33789b4a72cf93b7efc",
+    "04_relation_preservation/outputs/stage03c/stage03c_summary.json": "f990bb2104be78da4a79b5339ba5b12e4e24d0d0bcf47d0af3e51a826f20f176",
+    "04_relation_preservation/configs/stage03c_repair01.json": "ccbb3bf55f01fe0add7ba0282398fcac1dd1f0f36b95b9a7ad4b07bb22fe4000",
+    "04_relation_preservation/notes/stage03c_repair01_protocol.md": "f52aa9b7e0327adb8b887f6efe9a3b6567ad22f38c8452a62583ee80240049c5",
+    "04_relation_preservation/configs/stage03c.json": "3b9260b6ce82dde47f660ac26675d5710b439d4854b8fd843e6f75eb8555eae6",
+    "04_relation_preservation/notes/stage03c_protocol.md": "9bb8f6a1f63367b49624f5f790a39239845956eff9c34ffdb35981b6e0dd15bc",
+    "04_relation_preservation/src/stage03c_sdxl.py": "db268026cb9d8f9f205e1b9902fefd49509fbe4811094bc39541020ffb4164b8",
+    "04_relation_preservation/outputs/stage03c/protocol_lock.json": "d0821b11f32b9a867b06aa38b20ba6f2e6cc178b781691da84bab471b16c8357",
+    "04_relation_preservation/outputs/stage03c/prepare_run_metrics.json": "b617fb225fdc62b8c157d2aaa9256f2720d0aafe3c7892fd5af442f5bafd042b",
+    "04_relation_preservation/configs/stage03b.json": "564acfd03afb6f3aebe3ebff2af793ad1085f660f49a242b136baaed01dd2297",
+    "04_relation_preservation/notes/stage03b_protocol.md": "205a61bd8bc00b4abd95aad25d34a03f4ac9f12502b4cfe62365e53ab46a6ba7",
+    "04_relation_preservation/src/stage03b_diagnostic.py": "97963f81b88ff675801f35f81833e269198f5767284237f0e6b92eaa69cad9c6",
+    "04_relation_preservation/configs/stage03.json": "c04a6b12151a35c0bee34d1bdc1aca56053227ab46b5e9786e94210fdd7f22d0",
+    "04_relation_preservation/notes/stage03_protocol.md": "1d6ac94057633fc8346f0488ed3c0037128d8c65a086083a93921cb447e610b8",
+    "04_relation_preservation/src/stage03_inner_budget.py": "535eb293ee96655e8ebaec80b06c34e4a681466a28b2d931c472f09bff2ce7f7",
+    "04_relation_preservation/configs/stage02b.json": "172623647e2f931a735c5609177b51ff5f103f663593b4ae0eb4a660083c4093",
+    "04_relation_preservation/notes/stage02b_protocol.md": "c523d2649a631f0b7babfa103fb941ddf28362144d99189f228fe6b8e6197f5f",
+    "04_relation_preservation/src/stage02b_relations.py": "296ba5bb8ea93a3290f8e68ef0e84715a949803ffc0c2e3c41e45bba79fd18e5",
+    "04_relation_preservation/src/stage02_relations.py": "96e3ea125a799d87c855f9225eb7f5ddbbb050834c656561d2d9eaf0d3497ceb",
+    "04_relation_preservation/src/stage01_sdxl.py": "38950a7bd21d5e6c5fcc683c92a3649b1d9d625a6cbbf64916456b596056c456",
+    "04_relation_preservation/src/attention_processor.py": "d5bf6239613199a66441ddaab64d01c8117c2555a3552219b73d87412b8b8481",
+    "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d",
+    "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt": "c7444a602c0416f1a0e83510bf148fddb35568af99195561542636375e17d572",
+    "04_relation_preservation/outputs/stage02b/protocol_lock.json": "e070aa86c45d1d3f5764851f3e470acac83c9a5b947ad6e574dafea31ba36427",
+    "04_relation_preservation/outputs/stage02b/P1/seed19/baseline.png": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided.png": "1bafcb58697de012d4606bbcc7775d8231c37cd953ec95cb9a4226cef9ea6ca0",
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_inner_iteration_metrics.csv": "9bf52a50cd6a047b6f63a9edf9e3bc48b36ec45e3ea80069f6183a99ec7390b7",
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_step_metrics.csv": "455172a4216caf9eaa2f47255edc7a91c7010dd9f7180d42da20e38fbe624293",
+    "04_relation_preservation/outputs/stage03/protocol_lock.json": "41c0ad6b95faa7ba24daf6195f147e2fdb33f82096070d79df0805d38533a0fb",
+    "04_relation_preservation/notes/stage03_report.md": "31163f3314deefafd4765a3a9e338c09289f5e214049ab289c8ad49c1fdadf49",
+    "04_relation_preservation/outputs/stage03/run_metrics.json": "9fe3a3dedec753b676d19575c993825967627f4d9cef467346d2ae16d719a5c8",
+    "04_relation_preservation/outputs/stage03/failure_diagnostic.json": "201d905d368df54be0a2e986f839d0ff36f0a421162e72926f2b1fa94bf3c574",
+    "04_relation_preservation/outputs/stage03b/protocol_lock.json": "7e3102eaaaa1e45bb0092285fc8c0033a2b96c62a19aec0cf86572e196b2d0b0",
+    "04_relation_preservation/outputs/stage03b/stage03b_summary.json": "74e8cf5792fa5f96beb885a0d6e14ece4a3948383caa177a47933fcce9226963",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/worker_metrics.json": "2d9335d3d3fb12d74f2309029cdad1562a96321e52fc3a1d8b984ca377a5d5b4",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/comparisons.json": "825bf982aea663cfdccf4a805c60591ae21a9928b3ecbc575ab92f2eabbd278c",
+    "04_relation_preservation/outputs/stage03b/deterministic_confirm/worker_metrics.json": "b836eb49d31ca950eabe96bdfceb3373925ea9526928740538497b0e76f4f2f5",
+    "04_relation_preservation/outputs/stage03b/deterministic_confirm/confirmation.json": "fbfeea286b42c4786a162b2c7b482f8b8cfa728728dce732e328107b3ec25978",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/A1/trace.pt": "0be4fdcb8f85d69927b09c35cce980ba8ad662643c66b8b236270c50fb238ccc",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/A2/trace.pt": "0be4fdcb8f85d69927b09c35cce980ba8ad662643c66b8b236270c50fb238ccc",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/A3/trace.pt": "0be4fdcb8f85d69927b09c35cce980ba8ad662643c66b8b236270c50fb238ccc",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/B1/trace.pt": "0be4fdcb8f85d69927b09c35cce980ba8ad662643c66b8b236270c50fb238ccc",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/B2/trace.pt": "0be4fdcb8f85d69927b09c35cce980ba8ad662643c66b8b236270c50fb238ccc",
+    "04_relation_preservation/outputs/stage03b/deterministic_matrix/B3/trace.pt": "0be4fdcb8f85d69927b09c35cce980ba8ad662643c66b8b236270c50fb238ccc",
+    "04_relation_preservation/outputs/stage03b/deterministic_confirm/A/guidance.pt": "57f1aaa8b0ea83d3d33b32f4ba9db3d734609465157959288489f06c9d7b1b94",
+    "04_relation_preservation/outputs/stage03b/deterministic_confirm/D/guidance.pt": "57f1aaa8b0ea83d3d33b32f4ba9db3d734609465157959288489f06c9d7b1b94",
+    "04_relation_preservation/outputs/stage03b/deterministic_confirm/A/step.pt": "5f1d163be09172f50c79f521e521d93fa838395af5cc844bb81c9e7361bf3e7c",
+    "04_relation_preservation/outputs/stage03b/deterministic_confirm/D/step.pt": "5f1d163be09172f50c79f521e521d93fa838395af5cc844bb81c9e7361bf3e7c"
+  },
+  "switches_at_start": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "model_content_hashes": {
+    "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+    "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+    "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+    "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+  },
+  "environment": {
+    "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+    "executable": "/root/miniconda3/bin/python",
+    "torch": "2.3.0+cu121",
+    "diffusers": "0.32.2",
+    "transformers": "4.48.3",
+    "accelerate": "1.3.0",
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_bytes": 25252724736,
+    "hf_home": "/root/autodl-tmp/huggingface",
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": true,
+    "allow_tf32_matmul": false
+  },
+  "switches": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "trajectories_started": 2,
+  "last_completed": {
+    "branch": "G20",
+    "next_index": 51
+  },
+  "restoration": {
+    "scheduler_exact": true,
+    "conditioning_exact": true,
+    "processors_restored": true,
+    "cpu_rng_exact": true,
+    "cuda_rng_exact": true,
+    "generator_state_exact": true,
+    "first_step": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "final_latent": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "image": {
+      "pixel_exact": true,
+      "max_abs_error": 0
+    },
+    "passed": true
+  },
+  "trajectories_completed": 2,
+  "G20_load_checks": {
+    "scheduler_exact": true,
+    "conditioning_exact": true,
+    "processors_restored": true,
+    "cpu_rng_exact": true,
+    "cuda_rng_exact": true,
+    "generator_state_exact": true
+  },
+  "independent_snapshot": true,
+  "all_finite": true,
+  "parameter_grad_present": false,
+  "gpu_activity_wall_seconds": 62.24934555217624,
+  "inner_updates_total": 100,
+  "peak_allocated_mib": 11945.7783203125,
+  "peak_reserved_mib": 12068.0
+}

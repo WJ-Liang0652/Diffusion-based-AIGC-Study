@@ -1,0 +1,7 @@
+seed,item,max_abs_error,mean_abs_error,torch_equal,dtype_equal,finite
+2048,first_step,0.0,0.0,True,True,True
+2048,final_latent,0.0,0.0,True,True,True
+2048,image,0,,True,,
+4096,first_step,0.0,0.0,True,True,True
+4096,final_latent,0.0,0.0,True,True,True
+4096,image,0,,True,,

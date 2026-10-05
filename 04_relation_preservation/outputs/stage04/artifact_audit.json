@@ -1,0 +1,15 @@
+{
+  "historical_and_current_locks_unchanged": true,
+  "selection_lock_unchanged": true,
+  "all_initial_latents_distinct_once_saved": true,
+  "no_new_initial_latent_matches_historical_seed19": true,
+  "all_conditioning_exact_to_03C": true,
+  "selected_R_tensor_and_pixel_exact": true,
+  "all_guidance_finite_parameters_grad_absent": true,
+  "cumulative_budget_not_reset": true,
+  "all_pt_git_ignored": true,
+  "local_pt_count": 16,
+  "local_pt_bytes": 13197398,
+  "CPU_cuda_initialized": false,
+  "CPU_delivery_sha256": "e7300c8d1901ac85a4dafcc8b05bfc706ccc38e5f002c6e1f52067d5b6ff4f04"
+}

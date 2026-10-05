@@ -1,0 +1,45 @@
+{
+  "seed": 1001,
+  "branch": "U",
+  "image_sha256": "5ec97bd0806114cc3953fb2e35adcfaf0073c792e2a91cb061f60be5e24ee867",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        687,
+        632,
+        860,
+        814
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded"
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        251,
+        582,
+        602,
+        823
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded"
+    }
+  },
+  "red_apple_count": 1,
+  "major_blue_cup_count": 1,
+  "all_cup_count": 1,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "extra_objects": [],
+  "screening_reason": "Rejected: apple clearly right of primary blue cup, so old left relation fails; both target objects unique, clear and complete."
+}

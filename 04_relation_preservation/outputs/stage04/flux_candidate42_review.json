@@ -1,0 +1,35 @@
+{
+  "status": "candidate reviewed on historical image only; must verify exact saved state and runtime next turn",
+  "seed": 42,
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "image_sha256": "943f26ccbc57229b1624f61219f1df43da822a7d04885f1422fd8dc53023cc0d",
+  "apple_bbox_pixels": [
+    78,
+    368,
+    351,
+    651
+  ],
+  "blue_cup_bbox_pixels": [
+    388,
+    314,
+    758,
+    665
+  ],
+  "apple_center_normalized": [
+    0.279296875,
+    0.6634114583333334
+  ],
+  "cup_center_normalized": [
+    0.74609375,
+    0.6373697916666666
+  ],
+  "dx": 0.466796875,
+  "dy": -0.02604166666666674,
+  "baseline_candidate_qualified_by_centers": true,
+  "objects": "one red apple and one clear complete blue cup with handle",
+  "bbox_rule": "fruit with own short stem; long attached leaf excluded and recorded as existing extra object; shadows excluded",
+  "existing_extra_objects": [
+    "large leaf attached to apple stem"
+  ],
+  "temporal_identity": "not measured"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "seed": 101,
+    "tensor_sha256": "36bfbb236f4d359cfe407f70ac450acfd3558f6ba79dd6ff5501099cc167b7dc",
+    "checkpoint_sha256": "9098ccb8888622b19a3b3b4df3fc764fbc7ea8737e9572764ed16f252b3a8ccc"
+  },
+  {
+    "seed": 314,
+    "tensor_sha256": "039f1cd3cc87c9a6da21854a36423af7b71b7119b6f6d210df52e35642b35a3d",
+    "checkpoint_sha256": "6b746cdf69709f13d1c09229d567606a0ad6879f8ab0e18ce73a8c7f0e8776e4"
+  },
+  {
+    "seed": 777,
+    "tensor_sha256": "5beb4ac7868e0bdc5aae03f5cf68fa49b927b6c507c41cf5ad1e594d984ff2a3",
+    "checkpoint_sha256": "18538d919e36aab5569554692309d8fa38eddaeaba6bf46d309c2ba181f509be"
+  },
+  {
+    "seed": 1001,
+    "tensor_sha256": "33ebb5c2568b48ed649f5db8898200cec726cd1d16d73722326e6d89f1b6bee9",
+    "checkpoint_sha256": "6dbeadff7189e69c0116f1a6d7ce69f3149027937c0ac912bc1bb91722f3a2cd"
+  },
+  {
+    "seed": 2048,
+    "tensor_sha256": "2efcaf8affa3d0c431b2ebb5adfd540dac75cc1227f386103d938f349755978b",
+    "checkpoint_sha256": "09c23b050444a56dc841527d48014125da79991d443afcca847d22e00a23542f"
+  },
+  {
+    "seed": 4096,
+    "tensor_sha256": "23c23603c7414e3e355dff4c140d65b729300cb80816b9e6992175bddb7179b6",
+    "checkpoint_sha256": "34d04892696db868918d653307f82cbcbd3e150ff7a54d09f0a03625f068083e"
+  }
+]

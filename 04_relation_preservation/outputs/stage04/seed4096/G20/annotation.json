@@ -1,0 +1,101 @@
+{
+  "seed": 4096,
+  "branch": "G20",
+  "image_sha256": "7da16563a82ec814f19925d2daf6b366e745d65c7e356407e27cee38ebf79e4e",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": false,
+      "unique": false,
+      "identity_clear": false,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": null,
+      "confidence": "No identifiable red apple; former fruit position contains a red cup-shaped vessel, not an apple.",
+      "bbox_normalized": null,
+      "center_normalized": null
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": true,
+      "unique": false,
+      "identity_clear": false,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": null,
+      "confidence": "Multiple blue cup/vessel instances, including clipped upper-right cup; no uniquely reliable primary target identity, bbox left null.",
+      "bbox_normalized": null,
+      "center_normalized": null
+    }
+  },
+  "red_apple_count": 0,
+  "major_blue_cup_count": 2,
+  "all_cup_count": 3,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "all_cup_count_uncertain": true,
+  "all_cup_count_range": [
+    3,
+    4
+  ],
+  "cup_count_note": "Three definite cup-shaped vessels (red lower, light-blue lower, cropped dark-blue upper-right); additional rounded blue upper vessel could be bowl/container, counted separately and count remains uncertain.",
+  "extra_objects": [
+    {
+      "kind": "red cup-shaped vessel replacing former apple position",
+      "bbox_pixels": [
+        395,
+        714,
+        614,
+        942
+      ],
+      "target_instance": false
+    },
+    {
+      "kind": "light-blue lower cup without visible handle",
+      "bbox_pixels": [
+        594,
+        644,
+        815,
+        955
+      ],
+      "target_instance_identity": "uncertain among multiple blue vessels"
+    },
+    {
+      "kind": "cropped dark-blue cup/vessel upper-right",
+      "truncated": true,
+      "target_instance_identity": "uncertain among multiple blue vessels"
+    },
+    {
+      "kind": "rounded blue bowl/container on upper shelf",
+      "cup_identity_uncertain": true
+    },
+    {
+      "kind": "new upper shelf/platform"
+    }
+  ],
+  "new_objects_relative_to_baseline": [
+    "red cup-shaped vessel",
+    "additional blue vessel(s)",
+    "rounded blue bowl/container",
+    "upper shelf"
+  ],
+  "scene_content_preserved": false,
+  "scene_content_rule": "Target loss and extra salient objects violate content preservation; no pixel/instance identity claim.",
+  "assessment_reason": "Red apple missing; multiple blue cups/vessels prevent reliable B identification. No dx/dy or relationship assigned from guessed target boxes; this is an object/content failure, not a pure relation degradation candidate.",
+  "dx": null,
+  "dy": null,
+  "old_relation": "failure_object_missing",
+  "new_relation": "failure_object_missing",
+  "old_nominal_success": null,
+  "new_nominal_success": null,
+  "objects_alive": false,
+  "identity_or_instances_uncertain": true,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": false,
+  "joint_success": false,
+  "geometry_evaluable": false,
+  "target_B_uncertain": true,
+  "object_loss": true
+}

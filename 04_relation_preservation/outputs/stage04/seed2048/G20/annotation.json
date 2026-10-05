@@ -1,0 +1,81 @@
+{
+  "seed": 2048,
+  "branch": "G20",
+  "image_sha256": "46d1d9f4cfcc855a7228ecb8d3f13814ef189649844e6c947f9799670d17806b",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        145,
+        675,
+        348,
+        880
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.1416015625,
+        0.6591796875,
+        0.33984375,
+        0.859375
+      ],
+      "center_normalized": [
+        0.24072265625,
+        0.75927734375
+      ]
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        352,
+        596,
+        750,
+        874
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.34375,
+        0.58203125,
+        0.732421875,
+        0.853515625
+      ],
+      "center_normalized": [
+        0.5380859375,
+        0.7177734375
+      ]
+    }
+  },
+  "red_apple_count": 1,
+  "major_blue_cup_count": 1,
+  "all_cup_count": 1,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "extra_objects": [],
+  "new_objects_relative_to_baseline": [],
+  "scene_content_preserved": true,
+  "scene_content_rule": "Target categories/counts and absence of extra salient objects preserved; pixel/appearance identity not asserted.",
+  "appearance_changes": "Apple slightly smaller/shifted, stem angle and cup reflections/shape vary; no additional salient object.",
+  "assessment_reason": "New above relation remains clear failure. Old left relation maintained, targets each unique/complete; no additional cup/branch.",
+  "dx": 0.29736328125,
+  "dy": -0.04150390625,
+  "old_relation": "clear_success",
+  "new_relation": "clear_failure",
+  "old_nominal_success": true,
+  "new_nominal_success": false,
+  "objects_alive": true,
+  "identity_or_instances_uncertain": false,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": true,
+  "joint_success": false
+}

@@ -1,0 +1,82 @@
+{
+  "seed": 777,
+  "branch": "U",
+  "image_sha256": "69b63a28eb19e09835fcba5fc1d006c6dc1b2be4951483141e081aca3250e08f",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        522,
+        580,
+        703,
+        773
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.509765625,
+        0.56640625,
+        0.6865234375,
+        0.7548828125
+      ],
+      "center_normalized": [
+        0.59814453125,
+        0.66064453125
+      ]
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        274,
+        529,
+        536,
+        769
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.267578125,
+        0.5166015625,
+        0.5234375,
+        0.7509765625
+      ],
+      "center_normalized": [
+        0.3955078125,
+        0.6337890625
+      ]
+    }
+  },
+  "red_apple_count": 1,
+  "major_blue_cup_count": 1,
+  "all_cup_count": 1,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "extra_objects": [
+    {
+      "kind": "small tan cork/cylinder at left",
+      "target_instance": false
+    }
+  ],
+  "screening_reason": "Rejected: apple is clearly right of the unique blue cup (dx<.06); above goal still unmet, but old relation is not valid.",
+  "dx": -0.20263671875,
+  "dy": -0.02685546875,
+  "old_relation": "clear_failure",
+  "new_relation": "clear_failure",
+  "old_nominal_success": false,
+  "new_nominal_success": false,
+  "objects_alive": true,
+  "identity_or_instances_uncertain": false,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": false,
+  "joint_success": false
+}

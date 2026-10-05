@@ -1,0 +1,58 @@
+{
+  "seed": 314,
+  "branch": "U",
+  "image_sha256": "75e505cf972fcf33e1fda775128700abde03d100067ca9195e681db59b183288",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        211,
+        357,
+        604,
+        775
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.2060546875,
+        0.3486328125,
+        0.58984375,
+        0.7568359375
+      ],
+      "center_normalized": [
+        0.39794921875,
+        0.552734375
+      ]
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": false,
+      "unique": false,
+      "identity_clear": false,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": null,
+      "confidence": "No reliable target cup: visible vessel is a large cropped shallow bowl, no cup bbox assigned.",
+      "bbox_normalized": null,
+      "center_normalized": null
+    }
+  },
+  "red_apple_count": 1,
+  "major_blue_cup_count": 0,
+  "all_cup_count": 0,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "extra_objects": [
+    {
+      "kind": "large shallow blue bowl",
+      "truncated_at_left": true,
+      "target_instance": false
+    }
+  ],
+  "screening_reason": "Rejected: primary blue cup missing; vessel is a shallow cropped bowl. Target B bbox unavailable; no fabricated cup coordinates."
+}

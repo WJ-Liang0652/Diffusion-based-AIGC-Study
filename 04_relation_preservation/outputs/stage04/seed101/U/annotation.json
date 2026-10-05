@@ -1,0 +1,82 @@
+{
+  "seed": 101,
+  "branch": "U",
+  "image_sha256": "678d50d6f4dad04cb7de9a5702a04baa2c3fbe75229021b362701c09869af3bd",
+  "method": "manual review of original 1024 image, no detector/attention-centroid bbox",
+  "review_status": "ready_for_user_review",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": true,
+      "bbox_pixels": [
+        372,
+        149,
+        656,
+        417
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.36328125,
+        0.1455078125,
+        0.640625,
+        0.4072265625
+      ],
+      "center_normalized": [
+        0.501953125,
+        0.2763671875
+      ]
+    },
+    "B": {
+      "name": "primary blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "occluded": false,
+      "bbox_pixels": [
+        154,
+        408,
+        620,
+        744
+      ],
+      "confidence": "manual visible-subject boundary; a few-pixel uncertainty; stem/handle included and shadows excluded",
+      "bbox_normalized": [
+        0.150390625,
+        0.3984375,
+        0.60546875,
+        0.7265625
+      ],
+      "center_normalized": [
+        0.3779296875,
+        0.5625
+      ]
+    }
+  },
+  "red_apple_count": 1,
+  "major_blue_cup_count": 1,
+  "all_cup_count": 1,
+  "temporal_instance_identity_tracking": "not measured; category/color match only",
+  "extra_objects": [
+    {
+      "kind": "rectangular display block/platform",
+      "target_instance": false
+    }
+  ],
+  "screening_reason": "Rejected: apple sits on cup, old left relation fails and new above relation already satisfied; dy>0. Targets unique and complete, apple base slightly occluded by rim.",
+  "dx": -0.1240234375,
+  "dy": 0.2861328125,
+  "old_relation": "clear_failure",
+  "new_relation": "clear_success",
+  "old_nominal_success": false,
+  "new_nominal_success": true,
+  "objects_alive": true,
+  "identity_or_instances_uncertain": false,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": false,
+  "joint_success": false
+}

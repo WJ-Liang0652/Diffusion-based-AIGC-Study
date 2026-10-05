@@ -1,0 +1,14 @@
+{
+  "base_commit": "d0bb664e4915b9ab82bee60cc374a2b3c1b06a5f",
+  "all_sampling_and_selection_hashes_exact": true,
+  "FLUX_historical_sources_inputs_unchanged": true,
+  "all_report_links_exist": true,
+  "report_sha256": "28fc9230ddf0f932ef7dbcd161738f0ce1eedb97421d8f38a006c92fa205c582",
+  "FLUX_preparation_notes_sha256": "77df3b9fd548781357fbd3bf5a425307fd87b88a448ebfdbce7ff7249d4840a1",
+  "current_AGENTS_sha256": "1ed12ee3efc10cf0715bbe5b7bc97ba588f69436cf67571df42cdc078a8eee55",
+  "AGENTS_after_GPU_update": "authorized completion and conditional FLUX preparation; pre-GPU snapshot preserved",
+  "summary_sha256": "b6c55fdc4137b1df4b8c1641c27f05ffcdc317e343b9c57bfdd72c124d503491",
+  "git_status_final": " M AGENTS.md\n?? 04_relation_preservation/configs/stage04.json\n?? 04_relation_preservation/configs/stage04_flux_single_preparation.json\n?? 04_relation_preservation/notes/stage04_flux_preparation.md\n?? 04_relation_preservation/notes/stage04_protocol.md\n?? 04_relation_preservation/notes/stage04_report.md\n?? 04_relation_preservation/outputs/stage04/\n?? 04_relation_preservation/src/stage04_cpu_delivery.py\n?? 04_relation_preservation/src/stage04_repeat.py\n",
+  "GPU_work_after_experiment": 0,
+  "automatic_commit_push_pull": false
+}
