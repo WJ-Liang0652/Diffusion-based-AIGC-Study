@@ -1,0 +1,16 @@
+{
+  "single_A_unavailable": true,
+  "all_relation_conclusions": "uncertain_due_to_multiple_A_instances",
+  "alternatives": [
+    {
+      "instance": "A1",
+      "dx": -0.220703125,
+      "dy": 0.03466796875
+    },
+    {
+      "instance": "A2",
+      "dx": -0.37548828125,
+      "dy": -0.01806640625
+    }
+  ]
+}

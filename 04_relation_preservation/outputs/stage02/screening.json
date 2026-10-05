@@ -1,0 +1,26 @@
+[
+  {
+    "seed": 42,
+    "qualified": false,
+    "dx": null,
+    "dy": null,
+    "reason": "Two distinct red apple bodies (A1 and A2), one blue ceramic cup on their left. A is not unique; no single A bbox or dx/dy assigned. Reject baseline on uniqueness without using a guided result. Stem included; cup handle included; cast shadows excluded.",
+    "annotation": "04_relation_preservation/outputs/stage02/seed42/baseline_annotation.json"
+  },
+  {
+    "seed": 123,
+    "qualified": false,
+    "dx": -0.44921875,
+    "dy": -0.05810546875,
+    "reason": "One clear red apple and one clear blue ceramic cup, fully visible. Apple is to the right of the cup, so old left-of relation clearly fails; reject without observing any guided image. Visible apple stem and cup handle included; shadows excluded.",
+    "annotation": "04_relation_preservation/outputs/stage02/seed123/baseline_annotation.json"
+  },
+  {
+    "seed": 2024,
+    "qualified": false,
+    "dx": 0.0078125,
+    "dy": -0.0732421875,
+    "reason": "One clear red apple in front of one blue ceramic cup. Neither is cropped by image boundary. Cup handle on the left is included exactly as protocol requires; its full visible extent makes cup bbox center nearly align with apple center. Old center-based left-of fails; reject without any guided image. Small tan sticks are neither an additional apple nor cup; shadows excluded. Occlusion is recorded but no unseen contour is inferred.",
+    "annotation": "04_relation_preservation/outputs/stage02/seed2024/baseline_annotation.json"
+  }
+]

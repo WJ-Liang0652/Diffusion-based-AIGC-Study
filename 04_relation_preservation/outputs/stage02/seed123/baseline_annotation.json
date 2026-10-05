@@ -1,0 +1,68 @@
+{
+  "image_sha256": "0c5493243fef524e30939b2063ed889e7e94114669297ff245dcf5c0aace1d8f",
+  "method": "assistant manual visual annotation of original 1024x1024 image; no detector/attention centroid",
+  "review_status": "ready_for_user_review",
+  "notes": "One clear red apple and one clear blue ceramic cup, fully visible. Apple is to the right of the cup, so old left-of relation clearly fails; reject without observing any guided image. Visible apple stem and cup handle included; shadows excluded.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        639,
+        499,
+        954,
+        814
+      ],
+      "confidence": "high",
+      "bbox_normalized": [
+        0.6240234375,
+        0.4873046875,
+        0.931640625,
+        0.794921875
+      ],
+      "center_normalized": [
+        0.77783203125,
+        0.64111328125
+      ]
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        42,
+        384,
+        631,
+        810
+      ],
+      "confidence": "high; left handle included",
+      "bbox_normalized": [
+        0.041015625,
+        0.375,
+        0.6162109375,
+        0.791015625
+      ],
+      "center_normalized": [
+        0.32861328125,
+        0.5830078125
+      ]
+    }
+  },
+  "dx": -0.44921875,
+  "dy": -0.05810546875,
+  "old_relation": "clear_failure",
+  "new_relation": "clear_failure",
+  "old_nominal_success": false,
+  "new_nominal_success": false,
+  "objects_alive": true,
+  "identity_or_instances_uncertain": false,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": false,
+  "joint_success": false
+}

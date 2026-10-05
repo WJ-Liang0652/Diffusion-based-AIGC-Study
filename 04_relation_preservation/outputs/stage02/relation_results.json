@@ -1,0 +1,244 @@
+{
+  "status": "no_qualified_baseline",
+  "selected_seed": null,
+  "baseline": [
+    {
+      "image_sha256": "b78d47c9b1409c3e8274f74922a59533c117ee233049e2b439966f3cd60683a2",
+      "method": "assistant manual visual annotation of original 1024x1024 image; no detector/attention centroid",
+      "review_status": "user_confirmed_multiple_apples",
+      "notes": "Two distinct red apple bodies (A1 and A2), one blue ceramic cup on their left. A is not unique; no single A bbox or dx/dy assigned. Reject baseline on uniqueness without using a guided result. Stem included; cup handle included; cast shadows excluded.",
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": false,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": null,
+          "instances": [
+            {
+              "label": "A1",
+              "bbox_pixels": [
+                442,
+                506,
+                673,
+                764
+              ],
+              "bbox_normalized": [
+                0.431640625,
+                0.494140625,
+                0.6572265625,
+                0.74609375
+              ],
+              "center_normalized": [
+                0.54443359375,
+                0.6201171875
+              ]
+            },
+            {
+              "label": "A2",
+              "bbox_pixels": [
+                615,
+                592,
+                817,
+                786
+              ],
+              "bbox_normalized": [
+                0.6005859375,
+                0.578125,
+                0.7978515625,
+                0.767578125
+              ],
+              "center_normalized": [
+                0.69921875,
+                0.6728515625
+              ]
+            }
+          ],
+          "confidence": "high identities; single-instance A mapping unavailable",
+          "bbox_normalized": null,
+          "center_normalized": null
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            211,
+            556,
+            452,
+            785
+          ],
+          "confidence": "high; handle included",
+          "bbox_normalized": [
+            0.2060546875,
+            0.54296875,
+            0.44140625,
+            0.7666015625
+          ],
+          "center_normalized": [
+            0.32373046875,
+            0.65478515625
+          ]
+        }
+      },
+      "dx": null,
+      "dy": null,
+      "old_relation": "uncertain",
+      "new_relation": "uncertain",
+      "old_nominal_success": null,
+      "new_nominal_success": null,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": true,
+      "invalid_truncated": false,
+      "uncertain": true,
+      "baseline_qualified": false,
+      "joint_success": false,
+      "user_confirmation": "确认两个苹果"
+    },
+    {
+      "image_sha256": "0c5493243fef524e30939b2063ed889e7e94114669297ff245dcf5c0aace1d8f",
+      "method": "assistant manual visual annotation of original 1024x1024 image; no detector/attention centroid",
+      "review_status": "ready_for_user_review",
+      "notes": "One clear red apple and one clear blue ceramic cup, fully visible. Apple is to the right of the cup, so old left-of relation clearly fails; reject without observing any guided image. Visible apple stem and cup handle included; shadows excluded.",
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            639,
+            499,
+            954,
+            814
+          ],
+          "confidence": "high",
+          "bbox_normalized": [
+            0.6240234375,
+            0.4873046875,
+            0.931640625,
+            0.794921875
+          ],
+          "center_normalized": [
+            0.77783203125,
+            0.64111328125
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            42,
+            384,
+            631,
+            810
+          ],
+          "confidence": "high; left handle included",
+          "bbox_normalized": [
+            0.041015625,
+            0.375,
+            0.6162109375,
+            0.791015625
+          ],
+          "center_normalized": [
+            0.32861328125,
+            0.5830078125
+          ]
+        }
+      },
+      "dx": -0.44921875,
+      "dy": -0.05810546875,
+      "old_relation": "clear_failure",
+      "new_relation": "clear_failure",
+      "old_nominal_success": false,
+      "new_nominal_success": false,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": false,
+      "joint_success": false
+    },
+    {
+      "image_sha256": "9ff91c358e37ec95295c48230c91e3a211f6555836ab3eb0c3bb3d987ddb5132",
+      "method": "assistant manual visual annotation of original 1024x1024 image; no detector/attention centroid",
+      "review_status": "ready_for_user_review",
+      "notes": "One clear red apple in front of one blue ceramic cup. Neither is cropped by image boundary. Cup handle on the left is included exactly as protocol requires; its full visible extent makes cup bbox center nearly align with apple center. Old center-based left-of fails; reject without any guided image. Small tan sticks are neither an additional apple nor cup; shadows excluded. Occlusion is recorded but no unseen contour is inferred.",
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            334,
+            466,
+            650,
+            794
+          ],
+          "confidence": "high",
+          "bbox_normalized": [
+            0.326171875,
+            0.455078125,
+            0.634765625,
+            0.775390625
+          ],
+          "center_normalized": [
+            0.48046875,
+            0.615234375
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            263,
+            358,
+            737,
+            752
+          ],
+          "confidence": "high for visible outer extrema; handle included",
+          "occluded_by_A": true,
+          "bbox_normalized": [
+            0.2568359375,
+            0.349609375,
+            0.7197265625,
+            0.734375
+          ],
+          "center_normalized": [
+            0.48828125,
+            0.5419921875
+          ]
+        }
+      },
+      "dx": 0.0078125,
+      "dy": -0.0732421875,
+      "old_relation": "clear_failure",
+      "new_relation": "clear_failure",
+      "old_nominal_success": false,
+      "new_nominal_success": false,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": false,
+      "joint_success": false
+    }
+  ],
+  "guided": null,
+  "new_target_repaired": null,
+  "old_relation_preserved": null,
+  "joint_success": null,
+  "degradation_candidate": null
+}

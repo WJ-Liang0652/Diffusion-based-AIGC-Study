@@ -1,0 +1,69 @@
+{
+  "image_sha256": "9ff91c358e37ec95295c48230c91e3a211f6555836ab3eb0c3bb3d987ddb5132",
+  "method": "assistant manual visual annotation of original 1024x1024 image; no detector/attention centroid",
+  "review_status": "ready_for_user_review",
+  "notes": "One clear red apple in front of one blue ceramic cup. Neither is cropped by image boundary. Cup handle on the left is included exactly as protocol requires; its full visible extent makes cup bbox center nearly align with apple center. Old center-based left-of fails; reject without any guided image. Small tan sticks are neither an additional apple nor cup; shadows excluded. Occlusion is recorded but no unseen contour is inferred.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        334,
+        466,
+        650,
+        794
+      ],
+      "confidence": "high",
+      "bbox_normalized": [
+        0.326171875,
+        0.455078125,
+        0.634765625,
+        0.775390625
+      ],
+      "center_normalized": [
+        0.48046875,
+        0.615234375
+      ]
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        263,
+        358,
+        737,
+        752
+      ],
+      "confidence": "high for visible outer extrema; handle included",
+      "occluded_by_A": true,
+      "bbox_normalized": [
+        0.2568359375,
+        0.349609375,
+        0.7197265625,
+        0.734375
+      ],
+      "center_normalized": [
+        0.48828125,
+        0.5419921875
+      ]
+    }
+  },
+  "dx": 0.0078125,
+  "dy": -0.0732421875,
+  "old_relation": "clear_failure",
+  "new_relation": "clear_failure",
+  "old_nominal_success": false,
+  "new_nominal_success": false,
+  "objects_alive": true,
+  "identity_or_instances_uncertain": false,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": false,
+  "joint_success": false
+}

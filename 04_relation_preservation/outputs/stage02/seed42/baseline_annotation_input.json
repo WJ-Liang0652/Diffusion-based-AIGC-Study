@@ -1,0 +1,71 @@
+{
+  "image_sha256": "b78d47c9b1409c3e8274f74922a59533c117ee233049e2b439966f3cd60683a2",
+  "method": "assistant manual visual annotation of original 1024x1024 image; no detector/attention centroid",
+  "review_status": "user_review_requested_for_multiple_instances",
+  "notes": "Two distinct red apple bodies (A1 and A2), one blue ceramic cup on their left. A is not unique; no single A bbox or dx/dy assigned. Reject baseline on uniqueness without using a guided result. Stem included; cup handle included; cast shadows excluded.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": false,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": null,
+      "instances": [
+        {
+          "label": "A1",
+          "bbox_pixels": [
+            442,
+            506,
+            673,
+            764
+          ],
+          "bbox_normalized": [
+            0.431640625,
+            0.494140625,
+            0.6572265625,
+            0.74609375
+          ],
+          "center_normalized": [
+            0.54443359375,
+            0.6201171875
+          ]
+        },
+        {
+          "label": "A2",
+          "bbox_pixels": [
+            615,
+            592,
+            817,
+            786
+          ],
+          "bbox_normalized": [
+            0.6005859375,
+            0.578125,
+            0.7978515625,
+            0.767578125
+          ],
+          "center_normalized": [
+            0.69921875,
+            0.6728515625
+          ]
+        }
+      ],
+      "confidence": "high identities; single-instance A mapping unavailable"
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        211,
+        556,
+        452,
+        785
+      ],
+      "confidence": "high; handle included"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+seed,qualified,A_unique,A_present,B_present,dx,dy,old_relation,new_relation,old_nominal_success,new_nominal_success,joint_success,uncertain,invalid_truncated
+42,False,False,True,True,,,uncertain,uncertain,,,False,True,False
+123,False,True,True,True,-0.44921875,-0.05810546875,clear_failure,clear_failure,False,False,False,False,False
+2024,False,True,True,True,0.0078125,-0.0732421875,clear_failure,clear_failure,False,False,False,False,False
