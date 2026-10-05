@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "old_checkpoint_identity_exact": true,
+  "old_LMS_history_count": 4,
+  "boundary": "after scheduler.step",
+  "next_index": 5,
+  "stage03a_runtime_sources_and_inputs_exact": true,
+  "historical_AGENTS_hash": "1c7780b74758c88451c06645341a48092a5213049953ce9ddcbd8d7d02f11392",
+  "current_AGENTS_hash": "53e8b3c6d67655937d5603cd4900f698157d098d7cfe8f06eb6082196a9b0623",
+  "AGENTS_difference_reason": "user-authorized current-stage update; historical lock unchanged",
+  "estimated_tensor_disk_upper_mib": 100
+}

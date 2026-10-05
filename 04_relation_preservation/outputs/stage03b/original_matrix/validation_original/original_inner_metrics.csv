@@ -1,0 +1,2 @@
+denoising_index,timestep,sigma,inner_index,mid_ratio,up_ratio,aggregate_energy,loss_scaled,gradient_norm,gradient_norm_fp32,latent_norm,update_norm,relative_update,finite,nonzero_gradient,model_parameter_grad_present,update_executed
+5,856.0,6.668572902679443,0,0.2831710875034332,0.2380513697862625,0.5472047328948975,16.416141510009766,0.044219970703125,0.04423518478870392,1724.0,1.966796875,0.001140594482421875,True,True,False,True

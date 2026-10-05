@@ -1,0 +1,2 @@
+denoising_index,timestep,sigma,energy_first,energy_last_pre_update,energy_final,mid_ratio_first,mid_ratio_last,up_ratio_first,up_ratio_last,executed_inner_iterations
+5,856.0,6.668572902679443,0.5472047328948975,0.535407543182373,0.5321216583251953,0.2831710875034332,0.28445741534233093,0.2380513697862625,0.2568700313568115,5

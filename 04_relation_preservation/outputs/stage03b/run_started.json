@@ -1,0 +1,7 @@
+{
+  "argv": [
+    "04_relation_preservation/src/stage03b_diagnostic.py",
+    "run"
+  ],
+  "parent_cuda_initialized": false
+}

@@ -1,0 +1,57 @@
+{
+  "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d",
+  "next_index": 5,
+  "latent_sha256": "9ceb3edfbf23a74375a34d7d13e399ce699b816e5a81b48024671f85e519ed5f",
+  "old_environment_accepted": {
+    "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+    "executable": "/root/miniconda3/bin/python",
+    "torch": "2.3.0+cu121",
+    "diffusers": "0.32.2",
+    "transformers": "4.48.3",
+    "accelerate": "1.3.0",
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_bytes": 25252724736,
+    "hf_home": "/root/autodl-tmp/huggingface",
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "allow_tf32_matmul": false
+  },
+  "old_load_checks": {
+    "scheduler_exact": true,
+    "conditioning_exact": true,
+    "processors_restored": true,
+    "cpu_rng_exact": true,
+    "cuda_rng_exact": true,
+    "generator_state_exact": true
+  },
+  "active_switches": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "model_signature_sha256": "4a8ffd574290e329217ae7d65889a5c5861d90983e1f2bf18cc4a555eef84236",
+  "model_weight_content_hash_at_worker_start": {
+    "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+    "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+    "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+    "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+  },
+  "model_signature_matches_frozen_worker_start": true,
+  "model_weight_check_method": "full content hash at start/end; every restore validates all parameter/buffer storage/version/dtype/device/shape and requires_grad",
+  "conditioning_signature": {
+    "positive": "478e486a7194f559efe200410444b5bedfc23a4159a78d1c6e390dc920c42bb8",
+    "cfg_prompt_embeds": "6d64417e51d77a40e81564db9b39cdf56fe547114ca54bd1d15f1bd71727fb22"
+  }
+}

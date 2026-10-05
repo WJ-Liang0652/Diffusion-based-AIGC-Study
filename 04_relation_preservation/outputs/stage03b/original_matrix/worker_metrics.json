@@ -1,0 +1,173 @@
+{
+  "setting": "original",
+  "operation": "matrix",
+  "completed": true,
+  "argv": [
+    "/root/autodl-tmp/diffusion-reproduction/04_relation_preservation/src/stage03b_diagnostic.py",
+    "worker",
+    "--setting",
+    "original",
+    "--operation",
+    "matrix",
+    "--previous-seconds",
+    "0.0",
+    "--previous-backwards",
+    "0"
+  ],
+  "baseline_switches": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "deterministic_algorithms": false,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "environment_before_new_settings": {
+    "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+    "executable": "/root/miniconda3/bin/python",
+    "torch": "2.3.0+cu121",
+    "diffusers": "0.32.2",
+    "transformers": "4.48.3",
+    "accelerate": "1.3.0",
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_bytes": 25252724736,
+    "hf_home": "/root/autodl-tmp/huggingface",
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "allow_tf32_matmul": false
+  },
+  "weight_hash_before": {
+    "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+    "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+    "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+    "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+  },
+  "model_dtype_device_counts": {
+    "unet": {
+      "['torch.float16', 'cuda:0']": 1680
+    },
+    "text_encoder": {
+      "['torch.float16', 'cuda:0']": 196,
+      "['torch.int64', 'cuda:0']": 1
+    },
+    "text_encoder_2": {
+      "['torch.float16', 'cuda:0']": 517,
+      "['torch.int64', 'cuda:0']": 1
+    },
+    "vae": {
+      "['torch.float16', 'cuda:0']": 248
+    }
+  },
+  "implementation_validation": {
+    "map_mid": {
+      "torch_equal": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "different_element_ratio": 0.0,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "map_up": {
+      "torch_equal": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "different_element_ratio": 0.0,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "energy": {
+      "torch_equal": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "different_element_ratio": 0.0,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "loss": {
+      "torch_equal": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "different_element_ratio": 0.0,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "gradient": {
+      "torch_equal": false,
+      "max_abs_error": 2.86102294921875e-06,
+      "mean_abs_error": 3.170762283843942e-07,
+      "different_element_ratio": 0.9003753662109375,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "update": {
+      "torch_equal": false,
+      "max_abs_error": 0.000152587890625,
+      "mean_abs_error": 1.4111279597273096e-05,
+      "different_element_ratio": 0.8876190185546875,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "result": {
+      "torch_equal": false,
+      "max_abs_error": 0.0078125,
+      "mean_abs_error": 1.3256198144517839e-05,
+      "different_element_ratio": 0.0162200927734375,
+      "dtype_equal": true,
+      "finite": true
+    }
+  },
+  "each_run_own_gradient_update_formula_exact": true,
+  "matrix_summary": {
+    "any_difference": true,
+    "A_repeat_exact": false,
+    "AD_exact": false,
+    "confirmation_eligible": false,
+    "condition_repeat_exact": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "cross_condition_exact": {
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  "weight_hash_after": {
+    "unet": "4f5380ff5c08fc0c32c2cb3a7a4251e4e2428fe4c8b9e0aa00fd385686e1135e",
+    "text_encoder": "462aa8274a1dcbbe7477687f3cd17375ccda380a6b1ca71f1cb80f64184569cb",
+    "text_encoder_2": "1881faf704193c3b577c37925e41dee1b7e25e50332326576f4808c7146add5c",
+    "vae": "5e3c54629d4c485ab356341a8b1704eecca21fd5a3b3eaa446d02e72cb4a1053"
+  },
+  "frozen_weights_verified": true,
+  "active_switches": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "deterministic_algorithms": false,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": null
+  },
+  "backwards": 14,
+  "worker_gpu_activity_wall_seconds": 21.32976504229009,
+  "peak_allocated_mib": 11992.88720703125,
+  "peak_reserved_mib": 12338.0
+}

@@ -1,0 +1,58 @@
+{
+  "map_mid": {
+    "torch_equal": true,
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "different_element_ratio": 0.0,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "map_up": {
+    "torch_equal": true,
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "different_element_ratio": 0.0,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "energy": {
+    "torch_equal": true,
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "different_element_ratio": 0.0,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "loss": {
+    "torch_equal": true,
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "different_element_ratio": 0.0,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "gradient": {
+    "torch_equal": false,
+    "max_abs_error": 2.86102294921875e-06,
+    "mean_abs_error": 3.170762283843942e-07,
+    "different_element_ratio": 0.9003753662109375,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "update": {
+    "torch_equal": false,
+    "max_abs_error": 0.000152587890625,
+    "mean_abs_error": 1.4111279597273096e-05,
+    "different_element_ratio": 0.8876190185546875,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "result": {
+    "torch_equal": false,
+    "max_abs_error": 0.0078125,
+    "mean_abs_error": 1.3256198144517839e-05,
+    "different_element_ratio": 0.0162200927734375,
+    "dtype_equal": true,
+    "finite": true
+  }
+}

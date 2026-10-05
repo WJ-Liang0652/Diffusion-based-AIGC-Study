@@ -1,0 +1,213 @@
+{
+  "locked_files_unchanged": {
+    "04_relation_preservation/configs/stage03b.json": true,
+    "04_relation_preservation/notes/stage03b_protocol.md": true,
+    "04_relation_preservation/src/stage03b_diagnostic.py": true,
+    "AGENTS.md": true,
+    "04_relation_preservation/configs/stage03.json": true,
+    "04_relation_preservation/notes/stage03_protocol.md": true,
+    "04_relation_preservation/src/stage03_inner_budget.py": true,
+    "04_relation_preservation/configs/stage02b.json": true,
+    "04_relation_preservation/notes/stage02b_protocol.md": true,
+    "04_relation_preservation/src/stage02b_relations.py": true,
+    "04_relation_preservation/src/stage02_relations.py": true,
+    "04_relation_preservation/src/stage01_sdxl.py": true,
+    "04_relation_preservation/src/attention_processor.py": true,
+    "04_relation_preservation/outputs/stage02b/P1/seed19/checkpoint.pt": true,
+    "04_relation_preservation/outputs/stage02b/P1/seed19/reference_latents.pt": true,
+    "04_relation_preservation/outputs/stage02b/protocol_lock.json": true,
+    "04_relation_preservation/outputs/stage02b/P1/seed19/baseline.png": true,
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided.png": true,
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_inner_iteration_metrics.csv": true,
+    "04_relation_preservation/outputs/stage02b/P1/intervention/guided_step_metrics.csv": true,
+    "04_relation_preservation/outputs/stage03/protocol_lock.json": true,
+    "04_relation_preservation/notes/stage03_report.md": true,
+    "04_relation_preservation/outputs/stage03/run_metrics.json": true,
+    "04_relation_preservation/outputs/stage03/failure_diagnostic.json": true
+  },
+  "full_input_and_rng_audits": [
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/A1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/A2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/A3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/B1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/B2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/B3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/C1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/C2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/C3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/D1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/D2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/D3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/validation_explicit/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/original_matrix/validation_original/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/A1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/A2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/A3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/B1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/B2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/B3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/C1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/C2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/C3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/D1/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/D2/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_matrix/D3/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_confirm/A/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    },
+    {
+      "path": "04_relation_preservation/outputs/stage03b/deterministic_confirm/D/input_state.pt",
+      "all_input_tensors_and_rng_equal_to_worker_reference": true,
+      "model_storage_version_dtype_device_matches": true,
+      "checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d"
+    }
+  ],
+  "cross_worker_input_identity_exact": true,
+  "worker_full_model_weight_hashes_equal_and_unchanged": true,
+  "trace_file_count": 37,
+  "unique_backward_traces": 36,
+  "duplicate_trace_note": "validation_original/trace.pt duplicates its inner0 evidence and records actual original guidance result",
+  "all_trace_finite_and_own_update_formula_exact": true,
+  "all_parameter_grad_absent": true,
+  "local_tensor_file_count": 69,
+  "local_tensor_bytes": 79573356,
+  "all_pt_git_ignored": true,
+  "cpu_cuda_initialized": false,
+  "cpu_delivery_sha256": "ff050f077b4c55361c87a5ba70a8161860190ff70d1bd1b297818e8792801263",
+  "report_local_links_valid": true,
+  "report_link_count": 22,
+  "git_diff_check_passed": true
+}

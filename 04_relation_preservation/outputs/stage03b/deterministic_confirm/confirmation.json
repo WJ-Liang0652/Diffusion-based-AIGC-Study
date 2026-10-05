@@ -1,0 +1,317 @@
+{
+  "guidance": {
+    "latent": {
+      "torch_equal": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "different_element_ratio": 0.0,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "scheduler_packed_exact": true
+  },
+  "step": {
+    "latent": {
+      "torch_equal": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "different_element_ratio": 0.0,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "scheduler_packed_exact": true
+  },
+  "per_inner": [
+    {
+      "map_mid": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "map_up": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "energy": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "loss": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "gradient": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "update": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "result": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      }
+    },
+    {
+      "map_mid": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "map_up": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "energy": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "loss": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "gradient": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "update": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "result": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      }
+    },
+    {
+      "map_mid": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "map_up": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "energy": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "loss": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "gradient": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "update": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "result": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      }
+    },
+    {
+      "map_mid": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "map_up": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "energy": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "loss": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "gradient": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "update": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "result": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      }
+    },
+    {
+      "map_mid": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "map_up": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "energy": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "loss": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "gradient": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "update": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "result": {
+        "torch_equal": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "different_element_ratio": 0.0,
+        "dtype_equal": true,
+        "finite": true
+      }
+    }
+  ],
+  "passed": true
+}

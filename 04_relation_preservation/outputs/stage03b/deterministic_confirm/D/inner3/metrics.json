@@ -1,0 +1,30 @@
+{
+  "energy": 0.5385036468505859,
+  "loss": 16.155109405517578,
+  "gradient_norm": 0.045318603515625,
+  "gradient_norm_fp32": 0.045308567583560944,
+  "update_norm": 2.015625,
+  "latent_norm": 1724.0,
+  "relative_update": 0.0011692047119140625,
+  "all_finite": true,
+  "nonzero_gradient": true,
+  "parameter_grad_present": false,
+  "processor_restored": true,
+  "switches": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": true,
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true,
+    "grad_enabled": true,
+    "autocast_enabled": false,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "norm_backend": "original CUDA FP16 arithmetic (FP32 extra diagnostic)"
+}

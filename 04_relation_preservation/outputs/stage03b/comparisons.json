@@ -1,0 +1,3125 @@
+{
+  "original": [
+    {
+      "kind": "repeat",
+      "left": "A1",
+      "right": "A2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 2.9054353944957256e-07,
+          "different_element_ratio": 0.888580322265625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.2933988728036638e-05,
+          "different_element_ratio": 0.8763885498046875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.248081389348954e-05,
+          "different_element_ratio": 0.0155487060546875,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "A1",
+      "right": "A3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.307286533527076e-07,
+          "different_element_ratio": 0.90216064453125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4715960787725635e-05,
+          "different_element_ratio": 0.8904266357421875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.363114279229194e-05,
+          "different_element_ratio": 0.0162506103515625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "A2",
+      "right": "A3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.814697265625e-06,
+          "mean_abs_error": 3.233290044590831e-07,
+          "different_element_ratio": 0.900360107421875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.00018310546875,
+          "mean_abs_error": 1.4378746527654584e-05,
+          "different_element_ratio": 0.8879852294921875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.2917909771203995e-05,
+          "different_element_ratio": 0.0164337158203125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "B1",
+      "right": "B2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.384185791015625e-06,
+          "mean_abs_error": 3.2581283448962495e-07,
+          "different_element_ratio": 0.9035797119140625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.0001220703125,
+          "mean_abs_error": 1.4489222849078942e-05,
+          "different_element_ratio": 0.8917236328125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.015625,
+          "mean_abs_error": 1.420389162376523e-05,
+          "different_element_ratio": 0.0165863037109375,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "B1",
+      "right": "B3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.0208047974156216e-07,
+          "different_element_ratio": 0.8943939208984375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.3436508197628427e-05,
+          "different_element_ratio": 0.8809967041015625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.3274242519401014e-05,
+          "different_element_ratio": 0.015869140625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "B2",
+      "right": "B3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.2078060030471534e-07,
+          "different_element_ratio": 0.89532470703125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4262555851018988e-05,
+          "different_element_ratio": 0.8831024169921875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.015625,
+          "mean_abs_error": 1.4307661331258714e-05,
+          "different_element_ratio": 0.0163421630859375,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "C1",
+      "right": "C2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.814697265625e-06,
+          "mean_abs_error": 3.330578692839481e-07,
+          "different_element_ratio": 0.906280517578125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.00018310546875,
+          "mean_abs_error": 1.4806249055254739e-05,
+          "different_element_ratio": 0.89404296875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.015625,
+          "mean_abs_error": 1.5535857528448105e-05,
+          "different_element_ratio": 0.0173492431640625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "C1",
+      "right": "C3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.1811669032322243e-07,
+          "different_element_ratio": 0.8992919921875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.0001220703125,
+          "mean_abs_error": 1.4146553439786658e-05,
+          "different_element_ratio": 0.8866119384765625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.4100100088398904e-05,
+          "different_element_ratio": 0.016265869140625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "C2",
+      "right": "C3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.287568688392639e-07,
+          "different_element_ratio": 0.9052581787109375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4620286492572632e-05,
+          "different_element_ratio": 0.893890380859375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.015625,
+          "mean_abs_error": 1.4007957361172885e-05,
+          "different_element_ratio": 0.0165252685546875,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "D1",
+      "right": "D2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.814697265625e-06,
+          "mean_abs_error": 3.2542629924137145e-07,
+          "different_element_ratio": 0.9033050537109375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.00018310546875,
+          "mean_abs_error": 1.4470289897872135e-05,
+          "different_element_ratio": 0.891448974609375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.4571829524356872e-05,
+          "different_element_ratio": 0.016632080078125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "D1",
+      "right": "D3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.247969289077446e-07,
+          "different_element_ratio": 0.9036712646484375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4450342860072851e-05,
+          "different_element_ratio": 0.891998291015625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.4171120710670948e-05,
+          "different_element_ratio": 0.016387939453125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "D2",
+      "right": "D3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.814697265625e-06,
+          "mean_abs_error": 3.2022217055782676e-07,
+          "different_element_ratio": 0.899017333984375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.00018310546875,
+          "mean_abs_error": 1.4232702596927993e-05,
+          "different_element_ratio": 0.8869781494140625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.3842429325450212e-05,
+          "different_element_ratio": 0.015869140625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A1",
+      "right": "B1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.3426931622670963e-07,
+          "different_element_ratio": 0.904327392578125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4873024156258907e-05,
+          "different_element_ratio": 0.89288330078125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.4490338799078017e-05,
+          "different_element_ratio": 0.017242431640625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A1",
+      "right": "C1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.814697265625e-06,
+          "mean_abs_error": 3.314216883154586e-07,
+          "different_element_ratio": 0.90380859375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4739816833753139e-05,
+          "different_element_ratio": 0.8922576904296875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.4281271432992071e-05,
+          "different_element_ratio": 0.0168609619140625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A1",
+      "right": "D1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 2.9526472644647583e-07,
+          "different_element_ratio": 0.8917083740234375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.3127527381584514e-05,
+          "different_element_ratio": 0.878662109375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.2934542610310018e-05,
+          "different_element_ratio": 0.0150146484375,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A2",
+      "right": "B2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.814697265625e-06,
+          "mean_abs_error": 3.2147181627806276e-07,
+          "different_element_ratio": 0.899993896484375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.00018310546875,
+          "mean_abs_error": 1.4297294001153205e-05,
+          "different_element_ratio": 0.8876190185546875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.015625,
+          "mean_abs_error": 1.3325152394827455e-05,
+          "different_element_ratio": 0.0164337158203125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A2",
+      "right": "C2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 2.9803504730807617e-07,
+          "different_element_ratio": 0.8926544189453125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.3242895875009708e-05,
+          "different_element_ratio": 0.8795928955078125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.015625,
+          "mean_abs_error": 1.2574462743941694e-05,
+          "different_element_ratio": 0.0152130126953125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A2",
+      "right": "D2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.219747668481432e-07,
+          "different_element_ratio": 0.904632568359375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.43109373311745e-05,
+          "different_element_ratio": 0.8924102783203125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.3899501936975867e-05,
+          "different_element_ratio": 0.0161895751953125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A3",
+      "right": "B3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 4.410743713378906e-06,
+          "mean_abs_error": 3.346503945067525e-07,
+          "different_element_ratio": 0.904937744140625,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.0001983642578125,
+          "mean_abs_error": 1.4886962162563577e-05,
+          "different_element_ratio": 0.89337158203125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.433064608136192e-05,
+          "different_element_ratio": 0.0168304443359375,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A3",
+      "right": "C3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.301147444290109e-07,
+          "different_element_ratio": 0.9044189453125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.0001220703125,
+          "mean_abs_error": 1.4692190234200098e-05,
+          "different_element_ratio": 0.8924560546875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.4167671906761825e-05,
+          "different_element_ratio": 0.0170440673828125,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A3",
+      "right": "D3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 3.337860107421875e-06,
+          "mean_abs_error": 3.3637934393482283e-07,
+          "different_element_ratio": 0.90185546875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4954292964830529e-05,
+          "different_element_ratio": 0.89013671875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.3740092981606722e-05,
+          "different_element_ratio": 0.0164947509765625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "implementation_validation",
+      "left": "original_guidance_inner1",
+      "right": "explicit_inner1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.170762283843942e-07,
+          "different_element_ratio": 0.9003753662109375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4111279597273096e-05,
+          "different_element_ratio": 0.8876190185546875,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.3256198144517839e-05,
+          "different_element_ratio": 0.0162200927734375,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    }
+  ],
+  "deterministic": [
+    {
+      "kind": "repeat",
+      "left": "A1",
+      "right": "A2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "A1",
+      "right": "A3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "A2",
+      "right": "A3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "B1",
+      "right": "B2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "B1",
+      "right": "B3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "B2",
+      "right": "B3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "C1",
+      "right": "C2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "C1",
+      "right": "C3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "C2",
+      "right": "C3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "D1",
+      "right": "D2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "D1",
+      "right": "D3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "repeat",
+      "left": "D2",
+      "right": "D3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A1",
+      "right": "B1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A1",
+      "right": "C1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A1",
+      "right": "D1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A2",
+      "right": "B2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A2",
+      "right": "C2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A2",
+      "right": "D2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A3",
+      "right": "B3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A3",
+      "right": "C3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "cross_condition",
+      "left": "A3",
+      "right": "D3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_inner",
+      "left": "A_inner0",
+      "right": "D_inner0",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_inner",
+      "left": "A_inner1",
+      "right": "D_inner1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_inner",
+      "left": "A_inner2",
+      "right": "D_inner2",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_inner",
+      "left": "A_inner3",
+      "right": "D_inner3",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_inner",
+      "left": "A_inner4",
+      "right": "D_inner4",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_final",
+      "left": "A_guidance",
+      "right": "D_guidance",
+      "fields": {
+        "latent": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    },
+    {
+      "kind": "confirmation_final",
+      "left": "A_step",
+      "right": "D_step",
+      "fields": {
+        "latent": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    }
+  ],
+  "original_vs_deterministic": [
+    {
+      "kind": "cross_setting",
+      "left": "original_A1",
+      "right": "deterministic_A1",
+      "fields": {
+        "map_mid": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "map_up": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "energy": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "loss": {
+          "torch_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "different_element_ratio": 0.0,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "gradient": {
+          "torch_equal": false,
+          "max_abs_error": 2.86102294921875e-06,
+          "mean_abs_error": 3.154273144900799e-07,
+          "different_element_ratio": 0.89825439453125,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "update": {
+          "torch_equal": false,
+          "max_abs_error": 0.000152587890625,
+          "mean_abs_error": 1.4039153938938398e-05,
+          "different_element_ratio": 0.8859710693359375,
+          "dtype_equal": true,
+          "finite": true
+        },
+        "result": {
+          "torch_equal": false,
+          "max_abs_error": 0.0078125,
+          "mean_abs_error": 1.2687531125266105e-05,
+          "different_element_ratio": 0.0158843994140625,
+          "dtype_equal": true,
+          "finite": true
+        }
+      }
+    }
+  ]
+}
