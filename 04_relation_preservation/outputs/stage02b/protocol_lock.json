@@ -1,0 +1,13 @@
+{
+  "fingerprints": {
+    "04_relation_preservation/configs/stage02b.json": "172623647e2f931a735c5609177b51ff5f103f663593b4ae0eb4a660083c4093",
+    "04_relation_preservation/notes/stage02b_protocol.md": "c523d2649a631f0b7babfa103fb941ddf28362144d99189f228fe6b8e6197f5f",
+    "04_relation_preservation/src/stage02b_relations.py": "296ba5bb8ea93a3290f8e68ef0e84715a949803ffc0c2e3c41e45bba79fd18e5",
+    "04_relation_preservation/src/stage02_relations.py": "96e3ea125a799d87c855f9225eb7f5ddbbb050834c656561d2d9eaf0d3497ceb",
+    "04_relation_preservation/src/stage01_sdxl.py": "38950a7bd21d5e6c5fcc683c92a3649b1d9d625a6cbbf64916456b596056c456",
+    "04_relation_preservation/src/attention_processor.py": "d5bf6239613199a66441ddaab64d01c8117c2555a3552219b73d87412b8b8481"
+  },
+  "locked_at_utc": "2026-10-05 09:29:05 UTC",
+  "git_head": "11432e791f7eeb05248040f6d1c8024dbfbaab68",
+  "git_status_before_sampling": " M AGENTS.md\n?? 04_relation_preservation/configs/stage02b.json\n?? 04_relation_preservation/notes/stage02b_protocol.md\n?? 04_relation_preservation/src/stage02b_relations.py\n?? 04_relation_preservation/tests/test_stage02b_queue.py\n"
+}

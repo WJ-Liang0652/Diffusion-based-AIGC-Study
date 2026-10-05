@@ -1,0 +1,27 @@
+{
+  "scheduler_exact": true,
+  "conditioning_exact": true,
+  "processors_restored": true,
+  "cpu_rng_exact": true,
+  "cuda_rng_exact": true,
+  "generator_state_exact": true,
+  "first_step": {
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "torch_equal": true,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "final_latent": {
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "torch_equal": true,
+    "dtype_equal": true,
+    "finite": true
+  },
+  "next_index": 5,
+  "checkpoint_bytes": 1795170,
+  "image_pixel_exact": true,
+  "image_max_abs_error": 0,
+  "passed": true
+}

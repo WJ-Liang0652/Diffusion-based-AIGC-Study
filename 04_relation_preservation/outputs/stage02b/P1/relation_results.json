@@ -1,0 +1,149 @@
+{
+  "seed": 19,
+  "baseline": {
+    "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+    "method": "manual visual annotation of original 1024x1024 image; no detector or attention centroid",
+    "review_status": "ready_for_user_review",
+    "notes": "One clear fully visible red apple on left and one blue handled ceramic cup on right, no multiple instances or image boundary truncation. Apple stem and cup handle included, shadows excluded. Old center relation clearly passes and apple center is lower (dy<0), so this is the first qualified baseline before any guided observation.",
+    "objects": {
+      "A": {
+        "name": "red apple",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "bbox_pixels": [
+          160,
+          637,
+          385,
+          875
+        ],
+        "occluded": false,
+        "confidence": "high",
+        "bbox_normalized": [
+          0.15625,
+          0.6220703125,
+          0.3759765625,
+          0.8544921875
+        ],
+        "center_normalized": [
+          0.26611328125,
+          0.73828125
+        ]
+      },
+      "B": {
+        "name": "blue ceramic cup",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "bbox_pixels": [
+          483,
+          580,
+          836,
+          864
+        ],
+        "occluded": false,
+        "confidence": "high; right handle included",
+        "bbox_normalized": [
+          0.4716796875,
+          0.56640625,
+          0.81640625,
+          0.84375
+        ],
+        "center_normalized": [
+          0.64404296875,
+          0.705078125
+        ]
+      }
+    },
+    "dx": 0.3779296875,
+    "dy": -0.033203125,
+    "old_relation": "clear_success",
+    "new_relation": "clear_failure",
+    "old_nominal_success": true,
+    "new_nominal_success": false,
+    "objects_alive": true,
+    "identity_or_instances_uncertain": false,
+    "invalid_truncated": false,
+    "uncertain": false,
+    "baseline_qualified": true,
+    "joint_success": false
+  },
+  "guided": {
+    "image_sha256": "1bafcb58697de012d4606bbcc7775d8231c37cd953ec95cb9a4226cef9ea6ca0",
+    "method": "manual visual annotation of original 1024x1024 image; same visible-body bbox convention as baseline",
+    "review_status": "ready_for_user_review",
+    "notes": "One clear red apple remains on left, below the clear blue cup center. Stem and cup handle included, shadows excluded. No missing or multiple target objects, no occlusion or image boundary truncation. New glass bottle and tall leafy branch appear in left background; neither is another apple or blue ceramic cup. New above relation is not repaired despite attention proxy improvement.",
+    "objects": {
+      "A": {
+        "name": "red apple",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "bbox_pixels": [
+          159,
+          644,
+          382,
+          872
+        ],
+        "occluded": false,
+        "confidence": "high",
+        "bbox_normalized": [
+          0.1552734375,
+          0.62890625,
+          0.373046875,
+          0.8515625
+        ],
+        "center_normalized": [
+          0.26416015625,
+          0.740234375
+        ]
+      },
+      "B": {
+        "name": "blue ceramic cup",
+        "present": true,
+        "unique": true,
+        "identity_clear": true,
+        "truncated": false,
+        "bbox_pixels": [
+          483,
+          580,
+          836,
+          865
+        ],
+        "occluded": false,
+        "confidence": "high; right handle included",
+        "bbox_normalized": [
+          0.4716796875,
+          0.56640625,
+          0.81640625,
+          0.8447265625
+        ],
+        "center_normalized": [
+          0.64404296875,
+          0.70556640625
+        ]
+      }
+    },
+    "extra_objects": [
+      "transparent glass bottle",
+      "tall leafy branch in left background"
+    ],
+    "dx": 0.3798828125,
+    "dy": -0.03466796875,
+    "old_relation": "clear_success",
+    "new_relation": "clear_failure",
+    "old_nominal_success": true,
+    "new_nominal_success": false,
+    "objects_alive": true,
+    "identity_or_instances_uncertain": false,
+    "invalid_truncated": false,
+    "uncertain": false,
+    "baseline_qualified": true,
+    "joint_success": false
+  },
+  "degradation_candidate": false,
+  "classification": "new_target_repair_failed"
+}

@@ -1,0 +1,11 @@
+{
+  "frozen_fingerprints_match": true,
+  "historical_source_protocol_config_lock_unchanged": true,
+  "baseline_count": 2,
+  "queue_and_early_stop_verified": true,
+  "actual_restoration_latents_and_disk_png_exact": true,
+  "guidance_indices_and_25_updates_verified": true,
+  "manual_annotation_centers_verified": true,
+  "checkpoints_ignored": true,
+  "report_links_and_whitespace_valid": true
+}

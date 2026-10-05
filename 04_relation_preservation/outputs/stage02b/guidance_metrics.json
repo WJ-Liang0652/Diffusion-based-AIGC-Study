@@ -1,0 +1,23 @@
+{
+  "iterations": 25,
+  "actual_indices": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "all_finite": true,
+  "all_nonzero_gradients": true,
+  "model_parameter_grad_present": false,
+  "processors_restored": true,
+  "gradient_norm_range": [
+    0.0439453125,
+    0.1370849609375
+  ],
+  "update_norm_range": [
+    1.853515625,
+    2.990234375
+  ],
+  "max_relative_update": 0.0024623870849609375
+}

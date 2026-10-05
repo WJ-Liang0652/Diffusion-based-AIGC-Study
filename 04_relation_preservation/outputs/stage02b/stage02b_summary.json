@@ -1,0 +1,327 @@
+{
+  "stage": "02B",
+  "purpose": "diagnostic_start_preparation_and_pipeline_validation_not_statistical_evaluation",
+  "baseline_count": 2,
+  "maximum_baselines": 16,
+  "selected": {
+    "seed": 19,
+    "qualified": true,
+    "dx": 0.3779296875,
+    "dy": -0.033203125,
+    "reason": "One clear fully visible red apple on left and one blue handled ceramic cup on right, no multiple instances or image boundary truncation. Apple stem and cup handle included, shadows excluded. Old center relation clearly passes and apple center is lower (dy<0), so this is the first qualified baseline before any guided observation.",
+    "annotation": "04_relation_preservation/outputs/stage02b/P1/seed19/baseline_annotation.json",
+    "prompt_id": "P1",
+    "candidate_index": 1
+  },
+  "early_stop": true,
+  "screening": [
+    {
+      "seed": 7,
+      "qualified": false,
+      "dx": 0.31982421875,
+      "dy": 0.0712890625,
+      "reason": "Apple is partly hidden inside an additional blue bowl; the clear handled blue cup is on the right. Visible apple bbox is already above cup center (dy>0), so baseline is not an unmet-new-target repair case. No unseen apple contour inferred. Extra bowl and occlusion recorded.",
+      "annotation": "04_relation_preservation/outputs/stage02b/P1/seed7/baseline_annotation.json",
+      "prompt_id": "P1",
+      "candidate_index": 0
+    },
+    {
+      "seed": 19,
+      "qualified": true,
+      "dx": 0.3779296875,
+      "dy": -0.033203125,
+      "reason": "One clear fully visible red apple on left and one blue handled ceramic cup on right, no multiple instances or image boundary truncation. Apple stem and cup handle included, shadows excluded. Old center relation clearly passes and apple center is lower (dy<0), so this is the first qualified baseline before any guided observation.",
+      "annotation": "04_relation_preservation/outputs/stage02b/P1/seed19/baseline_annotation.json",
+      "prompt_id": "P1",
+      "candidate_index": 1
+    }
+  ],
+  "relation_results": {
+    "seed": 19,
+    "baseline": {
+      "image_sha256": "9b3d13aa927c1245bd06c0bf3f92a4cd635c4b91e29337e348bc086da18f7a69",
+      "method": "manual visual annotation of original 1024x1024 image; no detector or attention centroid",
+      "review_status": "ready_for_user_review",
+      "notes": "One clear fully visible red apple on left and one blue handled ceramic cup on right, no multiple instances or image boundary truncation. Apple stem and cup handle included, shadows excluded. Old center relation clearly passes and apple center is lower (dy<0), so this is the first qualified baseline before any guided observation.",
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            160,
+            637,
+            385,
+            875
+          ],
+          "occluded": false,
+          "confidence": "high",
+          "bbox_normalized": [
+            0.15625,
+            0.6220703125,
+            0.3759765625,
+            0.8544921875
+          ],
+          "center_normalized": [
+            0.26611328125,
+            0.73828125
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            483,
+            580,
+            836,
+            864
+          ],
+          "occluded": false,
+          "confidence": "high; right handle included",
+          "bbox_normalized": [
+            0.4716796875,
+            0.56640625,
+            0.81640625,
+            0.84375
+          ],
+          "center_normalized": [
+            0.64404296875,
+            0.705078125
+          ]
+        }
+      },
+      "dx": 0.3779296875,
+      "dy": -0.033203125,
+      "old_relation": "clear_success",
+      "new_relation": "clear_failure",
+      "old_nominal_success": true,
+      "new_nominal_success": false,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": true,
+      "joint_success": false
+    },
+    "guided": {
+      "image_sha256": "1bafcb58697de012d4606bbcc7775d8231c37cd953ec95cb9a4226cef9ea6ca0",
+      "method": "manual visual annotation of original 1024x1024 image; same visible-body bbox convention as baseline",
+      "review_status": "ready_for_user_review",
+      "notes": "One clear red apple remains on left, below the clear blue cup center. Stem and cup handle included, shadows excluded. No missing or multiple target objects, no occlusion or image boundary truncation. New glass bottle and tall leafy branch appear in left background; neither is another apple or blue ceramic cup. New above relation is not repaired despite attention proxy improvement.",
+      "objects": {
+        "A": {
+          "name": "red apple",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            159,
+            644,
+            382,
+            872
+          ],
+          "occluded": false,
+          "confidence": "high",
+          "bbox_normalized": [
+            0.1552734375,
+            0.62890625,
+            0.373046875,
+            0.8515625
+          ],
+          "center_normalized": [
+            0.26416015625,
+            0.740234375
+          ]
+        },
+        "B": {
+          "name": "blue ceramic cup",
+          "present": true,
+          "unique": true,
+          "identity_clear": true,
+          "truncated": false,
+          "bbox_pixels": [
+            483,
+            580,
+            836,
+            865
+          ],
+          "occluded": false,
+          "confidence": "high; right handle included",
+          "bbox_normalized": [
+            0.4716796875,
+            0.56640625,
+            0.81640625,
+            0.8447265625
+          ],
+          "center_normalized": [
+            0.64404296875,
+            0.70556640625
+          ]
+        }
+      },
+      "extra_objects": [
+        "transparent glass bottle",
+        "tall leafy branch in left background"
+      ],
+      "dx": 0.3798828125,
+      "dy": -0.03466796875,
+      "old_relation": "clear_success",
+      "new_relation": "clear_failure",
+      "old_nominal_success": true,
+      "new_nominal_success": false,
+      "objects_alive": true,
+      "identity_or_instances_uncertain": false,
+      "invalid_truncated": false,
+      "uncertain": false,
+      "baseline_qualified": true,
+      "joint_success": false
+    },
+    "degradation_candidate": false,
+    "classification": "new_target_repair_failed",
+    "prompt_id": "P1",
+    "interpretation": "A_new_target_not_repaired"
+  },
+  "sampling_seconds": 27.874290250241756,
+  "summed_generation_invocation_seconds": 51.44684232957661,
+  "peak_allocated_mib": 11896.3720703125,
+  "peak_reserved_mib": 12044.0,
+  "intervention_metrics": {
+    "mode": "intervene",
+    "prompt_id": "P1",
+    "timings": {
+      "model_load": {
+        "seconds": 3.1040052101016045,
+        "peak_allocated_mib": 6732.12255859375,
+        "peak_reserved_mib": 6946.0
+      },
+      "restored_sampling": {
+        "seconds": 5.764506945386529,
+        "peak_allocated_mib": 7067.44384765625,
+        "peak_reserved_mib": 7528.0
+      },
+      "restored_decode": {
+        "seconds": 0.9884423036128283,
+        "peak_allocated_mib": 4157.474609375,
+        "peak_reserved_mib": 7508.0
+      },
+      "restore_inference_devices": {
+        "seconds": 1.4641608875244856,
+        "peak_allocated_mib": 6784.302734375,
+        "peak_reserved_mib": 7550.0
+      },
+      "guided_sampling": {
+        "seconds": 9.476136825978756,
+        "peak_allocated_mib": 11896.3720703125,
+        "peak_reserved_mib": 12044.0
+      },
+      "guided_decode": {
+        "seconds": 0.707423185929656,
+        "peak_allocated_mib": 4161.85009765625,
+        "peak_reserved_mib": 5960.0
+      }
+    },
+    "sampling_seconds": 15.240643771365285,
+    "sampling_seconds_before": 12.633646478876472,
+    "completed": true,
+    "environment": {
+      "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+      "executable": "/root/miniconda3/bin/python",
+      "torch": "2.3.0+cu121",
+      "diffusers": "0.32.2",
+      "transformers": "4.48.3",
+      "accelerate": "1.3.0",
+      "cuda_runtime": "12.1",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "gpu_bytes": 25252724736,
+      "hf_home": "/root/autodl-tmp/huggingface",
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": false,
+      "allow_tf32_matmul": false
+    },
+    "fingerprints": {
+      "04_relation_preservation/configs/stage02b.json": "172623647e2f931a735c5609177b51ff5f103f663593b4ae0eb4a660083c4093",
+      "04_relation_preservation/notes/stage02b_protocol.md": "c523d2649a631f0b7babfa103fb941ddf28362144d99189f228fe6b8e6197f5f",
+      "04_relation_preservation/src/stage02b_relations.py": "296ba5bb8ea93a3290f8e68ef0e84715a949803ffc0c2e3c41e45bba79fd18e5",
+      "04_relation_preservation/src/stage02_relations.py": "96e3ea125a799d87c855f9225eb7f5ddbbb050834c656561d2d9eaf0d3497ceb",
+      "04_relation_preservation/src/stage01_sdxl.py": "38950a7bd21d5e6c5fcc683c92a3649b1d9d625a6cbbf64916456b596056c456",
+      "04_relation_preservation/src/attention_processor.py": "d5bf6239613199a66441ddaab64d01c8117c2555a3552219b73d87412b8b8481"
+    },
+    "command_argv": [
+      "04_relation_preservation/src/stage02b_relations.py",
+      "intervene"
+    ],
+    "artifact_dir": "/root/autodl-tmp/diffusion-reproduction/04_relation_preservation/outputs/stage02b/P1/intervention",
+    "restoration": {
+      "scheduler_exact": true,
+      "conditioning_exact": true,
+      "processors_restored": true,
+      "cpu_rng_exact": true,
+      "cuda_rng_exact": true,
+      "generator_state_exact": true,
+      "first_step": {
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "torch_equal": true,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "final_latent": {
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "torch_equal": true,
+        "dtype_equal": true,
+        "finite": true
+      },
+      "next_index": 5,
+      "checkpoint_bytes": 1795170,
+      "image_pixel_exact": true,
+      "image_max_abs_error": 0,
+      "passed": true
+    },
+    "guided_start": {
+      "scheduler_exact": true,
+      "conditioning_exact": true,
+      "processors_restored": true,
+      "cpu_rng_exact": true,
+      "cuda_rng_exact": true,
+      "generator_state_exact": true,
+      "independent_state": true,
+      "same_checkpoint_sha256": "9ab65c0ea94b32d3111b414cab5d5e2bc5b95931591f2a9c87543afccea3da6d",
+      "same_unintervened_latent": true
+    },
+    "guidance": {
+      "iterations": 25,
+      "actual_indices": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "all_finite": true,
+      "all_nonzero_gradients": true,
+      "model_parameter_grad_present": false,
+      "processors_restored": true,
+      "gradient_norm_range": [
+        0.0439453125,
+        0.1370849609375
+      ],
+      "update_norm_range": [
+        1.853515625,
+        2.990234375
+      ],
+      "max_relative_update": 0.0024623870849609375
+    },
+    "guided_completed": true,
+    "decoded_finite": true,
+    "total_seconds": 26.264583153650165,
+    "peak_allocated_mib": 11896.3720703125,
+    "peak_reserved_mib": 12044.0
+  }
+}

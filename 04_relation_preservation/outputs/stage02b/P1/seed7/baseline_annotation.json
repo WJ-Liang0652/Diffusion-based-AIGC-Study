@@ -1,0 +1,74 @@
+{
+  "image_sha256": "dc61be4c657d87bf48ccf45a7c3e93d4c87e064da8a363f4b8aec3af77a12c6f",
+  "method": "manual visual annotation of original image; visible contour extrema, stem/handle included, shadows excluded",
+  "review_status": "ready_for_review",
+  "notes": "Apple is partly hidden inside an additional blue bowl; the clear handled blue cup is on the right. Visible apple bbox is already above cup center (dy>0), so baseline is not an unmet-new-target repair case. No unseen apple contour inferred. Extra bowl and occlusion recorded.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        313,
+        607,
+        542,
+        712
+      ],
+      "occluded": true,
+      "occlusion_note": "lower body behind blue bowl",
+      "confidence": "high for visible extrema",
+      "bbox_normalized": [
+        0.3056640625,
+        0.5927734375,
+        0.529296875,
+        0.6953125
+      ],
+      "center_normalized": [
+        0.41748046875,
+        0.64404296875
+      ]
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        598,
+        625,
+        912,
+        840
+      ],
+      "occluded": false,
+      "confidence": "high; right handle included",
+      "bbox_normalized": [
+        0.583984375,
+        0.6103515625,
+        0.890625,
+        0.8203125
+      ],
+      "center_normalized": [
+        0.7373046875,
+        0.71533203125
+      ]
+    }
+  },
+  "extra_objects": [
+    "blue bowl holding apple"
+  ],
+  "dx": 0.31982421875,
+  "dy": 0.0712890625,
+  "old_relation": "clear_success",
+  "new_relation": "clear_success",
+  "old_nominal_success": true,
+  "new_nominal_success": true,
+  "objects_alive": true,
+  "identity_or_instances_uncertain": false,
+  "invalid_truncated": false,
+  "uncertain": false,
+  "baseline_qualified": false,
+  "joint_success": true
+}

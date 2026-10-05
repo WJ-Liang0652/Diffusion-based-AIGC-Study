@@ -1,0 +1,4 @@
+comparison,max_abs_error,exact
+first_step_latent,0.0,True
+final_latent,0.0,True
+final_image,0,True

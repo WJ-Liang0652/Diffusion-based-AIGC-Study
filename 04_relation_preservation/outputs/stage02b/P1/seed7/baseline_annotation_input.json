@@ -1,0 +1,42 @@
+{
+  "image_sha256": "dc61be4c657d87bf48ccf45a7c3e93d4c87e064da8a363f4b8aec3af77a12c6f",
+  "method": "manual visual annotation of original image; visible contour extrema, stem/handle included, shadows excluded",
+  "review_status": "ready_for_review",
+  "notes": "Apple is partly hidden inside an additional blue bowl; the clear handled blue cup is on the right. Visible apple bbox is already above cup center (dy>0), so baseline is not an unmet-new-target repair case. No unseen apple contour inferred. Extra bowl and occlusion recorded.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        313,
+        607,
+        542,
+        712
+      ],
+      "occluded": true,
+      "occlusion_note": "lower body behind blue bowl",
+      "confidence": "high for visible extrema"
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        598,
+        625,
+        912,
+        840
+      ],
+      "occluded": false,
+      "confidence": "high; right handle included"
+    }
+  },
+  "extra_objects": [
+    "blue bowl holding apple"
+  ]
+}

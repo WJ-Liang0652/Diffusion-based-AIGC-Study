@@ -1,0 +1,3 @@
+branch,dx,dy,old_relation,new_relation,joint_success,objects_alive,uncertain,invalid_truncated
+baseline,0.3779296875,-0.033203125,clear_success,clear_failure,False,True,False,False
+guided,0.3798828125,-0.03466796875,clear_success,clear_failure,False,True,False,False

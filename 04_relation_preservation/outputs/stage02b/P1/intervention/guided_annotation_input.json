@@ -1,0 +1,42 @@
+{
+  "image_sha256": "1bafcb58697de012d4606bbcc7775d8231c37cd953ec95cb9a4226cef9ea6ca0",
+  "method": "manual visual annotation of original 1024x1024 image; same visible-body bbox convention as baseline",
+  "review_status": "ready_for_user_review",
+  "notes": "One clear red apple remains on left, below the clear blue cup center. Stem and cup handle included, shadows excluded. No missing or multiple target objects, no occlusion or image boundary truncation. New glass bottle and tall leafy branch appear in left background; neither is another apple or blue ceramic cup. New above relation is not repaired despite attention proxy improvement.",
+  "objects": {
+    "A": {
+      "name": "red apple",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        159,
+        644,
+        382,
+        872
+      ],
+      "occluded": false,
+      "confidence": "high"
+    },
+    "B": {
+      "name": "blue ceramic cup",
+      "present": true,
+      "unique": true,
+      "identity_clear": true,
+      "truncated": false,
+      "bbox_pixels": [
+        483,
+        580,
+        836,
+        865
+      ],
+      "occluded": false,
+      "confidence": "high; right handle included"
+    }
+  },
+  "extra_objects": [
+    "transparent glass bottle",
+    "tall leafy branch in left background"
+  ]
+}

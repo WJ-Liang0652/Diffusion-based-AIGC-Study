@@ -1,0 +1,18 @@
+[
+  {
+    "seed": 7,
+    "qualified": false,
+    "dx": 0.31982421875,
+    "dy": 0.0712890625,
+    "reason": "Apple is partly hidden inside an additional blue bowl; the clear handled blue cup is on the right. Visible apple bbox is already above cup center (dy>0), so baseline is not an unmet-new-target repair case. No unseen apple contour inferred. Extra bowl and occlusion recorded.",
+    "annotation": "04_relation_preservation/outputs/stage02b/P1/seed7/baseline_annotation.json"
+  },
+  {
+    "seed": 19,
+    "qualified": true,
+    "dx": 0.3779296875,
+    "dy": -0.033203125,
+    "reason": "One clear fully visible red apple on left and one blue handled ceramic cup on right, no multiple instances or image boundary truncation. Apple stem and cup handle included, shadows excluded. Old center relation clearly passes and apple center is lower (dy<0), so this is the first qualified baseline before any guided observation.",
+    "annotation": "04_relation_preservation/outputs/stage02b/P1/seed19/baseline_annotation.json"
+  }
+]
