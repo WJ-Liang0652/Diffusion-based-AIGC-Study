@@ -246,19 +246,46 @@ def optimize_once(
 
 
 def run_guided(
-    pipe, helpers, stage3, stage4, stage5, state, baseline_state, blocks, target_spans, eta
+    pipe,
+    helpers,
+    stage3,
+    stage4,
+    stage5,
+    state,
+    baseline_state,
+    blocks,
+    target_spans,
+    eta,
+    trajectory_reference=None,
+    expected_timesteps=None,
+    trajectory_records=None,
+    trajectory_eps=1e-12,
+    require_exact_trajectory=False,
 ):
     start = time.perf_counter()
     latents = baseline_state["initial_latents"].to(
         device=state["prompt_embeds"].device, dtype=state["prompt_embeds"].dtype
     )
     timesteps = stage5.set_schedule(pipe, helpers, latents.shape[1], latents.device)
+    if expected_timesteps is not None:
+        actual_timesteps = timesteps.detach().cpu()
+        expected_timesteps = expected_timesteps.detach().cpu()
+        if not torch.equal(actual_timesteps, expected_timesteps):
+            raise RuntimeError("Scheduler timestep tensor does not match the expected baseline tensor")
     sigmas = pipe.scheduler.sigmas
+    if trajectory_reference is not None:
+        if trajectory_records is None:
+            raise ValueError("trajectory_records is required when trajectory_reference is provided")
+        if trajectory_reference.ndim != 4 or trajectory_reference.shape[0] != len(timesteps):
+            raise RuntimeError(
+                "Unexpected baseline trajectory shape: "
+                f"{tuple(trajectory_reference.shape)} for {len(timesteps)} timesteps"
+            )
     inner_records = []
     step_summaries = []
     threshold = PER_BLOCK_OBJECTIVE_THRESHOLD * len(blocks)
     for index, timestep in enumerate(timesteps):
-        if index in GUIDED_INDICES:
+        if eta != 0 and index in GUIDED_INDICES:
             first_record = None
             last_record = None
             noise_pred = None
@@ -309,6 +336,28 @@ def run_guided(
                 noise_pred = stage5.transformer_forward(pipe, state, latents, timestep)
         with torch.no_grad():
             latents = pipe.scheduler.step(noise_pred, timestep, latents, return_dict=False)[0]
+        if trajectory_reference is not None:
+            guided_cpu = latents.detach().cpu()
+            baseline_cpu = trajectory_reference[index]
+            exact_match = bool(torch.equal(guided_cpu, baseline_cpu))
+            difference = guided_cpu.float() - baseline_cpu.float()
+            guided_norm = guided_cpu.float().norm()
+            baseline_norm = baseline_cpu.float().norm()
+            diff_norm = difference.norm()
+            trajectory_records.append(
+                {
+                    "step_index": index,
+                    "timestep": float(timestep.item()),
+                    "sigma": float(sigmas[index].item()),
+                    "guided_norm_l2": float(guided_norm.item()),
+                    "baseline_norm_l2": float(baseline_norm.item()),
+                    "diff_norm_l2": float(diff_norm.item()),
+                    "relative_deviation": float((diff_norm / (baseline_norm + trajectory_eps)).item()),
+                    "exact_match": exact_match,
+                }
+            )
+            if require_exact_trajectory and not exact_match:
+                raise RuntimeError(f"Baseline trajectory mismatch after scheduler step {index}")
         del noise_pred
     image = stage5.decode(pipe, helpers, latents)
     return latents.detach(), image, inner_records, step_summaries, time.perf_counter() - start

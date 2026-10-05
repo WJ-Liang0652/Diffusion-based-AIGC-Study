@@ -1,0 +1,119 @@
+{
+  "restoration": {
+    "scheduler_fields": [
+      "_begin_index",
+      "_step_index",
+      "alphas",
+      "alphas_cumprod",
+      "betas",
+      "derivatives",
+      "is_scale_input_called",
+      "num_inference_steps",
+      "sigmas",
+      "timesteps",
+      "use_karras_sigmas"
+    ],
+    "scheduler_snapshot_exact": true,
+    "conditioning_exact": true,
+    "checkpoint_latent_exact": true,
+    "initial_latent_exact": true,
+    "independent_derivatives": true,
+    "processor_types_exact": true,
+    "processors_restored": true,
+    "generator_state_exact": true,
+    "cpu_rng_exact": true,
+    "cuda_rng_exact": true,
+    "first_step": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "final_latent": {
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "torch_equal": true,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "next_index": 25,
+    "resumed_updates": 26,
+    "derivative_count_at_checkpoint": 4,
+    "checkpoint_bytes": 1794042,
+    "final_image": {
+      "pixel_exact": true,
+      "max_abs_error": 0
+    },
+    "passed": true
+  },
+  "guidance": {
+    "iterations": 50,
+    "all_finite": true,
+    "all_gradients_nonzero": true,
+    "gradient_norm_range": [
+      0.01318359375,
+      0.03497314453125
+    ],
+    "update_norm_range": [
+      0.62451171875,
+      2.1015625
+    ],
+    "max_relative_update": 0.0009069442749023438,
+    "model_parameter_grad_present": false,
+    "all_parameters_frozen": true,
+    "processors_restored": true,
+    "final_latent_vs_baseline": {
+      "max_abs_error": 3.6591796875,
+      "mean_abs_error": 0.2780713140964508,
+      "torch_equal": false,
+      "dtype_equal": true,
+      "finite": true
+    },
+    "image_mean_abs_delta": 21.947863896687824,
+    "image_max_abs_delta": 222,
+    "different_pixel_ratio": 0.9998693466186523
+  },
+  "historical_image_comparison": {
+    "baseline": {
+      "pixel_exact": true,
+      "mean_abs_error": 0.0,
+      "max_abs_error": 0
+    },
+    "guided": {
+      "pixel_exact": false,
+      "mean_abs_error": 1.5193735758463542,
+      "max_abs_error": 132
+    }
+  },
+  "timings": {
+    "model_load": {
+      "seconds": 3.712564643472433,
+      "peak_allocated_mib": 6732.70068359375,
+      "peak_reserved_mib": 6976.0
+    },
+    "baseline_51_steps_including_save": {
+      "seconds": 6.372879823669791,
+      "peak_allocated_mib": 7068.4501953125,
+      "peak_reserved_mib": 7540.0
+    },
+    "guided_51_steps": {
+      "seconds": 13.488626999780536,
+      "peak_allocated_mib": 11993.25341796875,
+      "peak_reserved_mib": 12352.0
+    },
+    "disk_load_and_resumed_26_steps": {
+      "seconds": 3.154525462538004,
+      "peak_allocated_mib": 7078.236328125,
+      "peak_reserved_mib": 12352.0
+    },
+    "decode_and_image_output": {
+      "seconds": 4.747132658958435,
+      "peak_allocated_mib": 4175.5634765625,
+      "peak_reserved_mib": 7512.0
+    }
+  },
+  "total_seconds": 34.75202199816704,
+  "peak_allocated_mib": 11993.25341796875,
+  "peak_reserved_mib": 12352.0
+}

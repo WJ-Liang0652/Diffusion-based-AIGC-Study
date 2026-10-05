@@ -1,0 +1,52 @@
+{
+  "stage": "Stage 1 - eta_scale=0 trajectory equivalence validation",
+  "model_id": "black-forest-labs/FLUX.1-dev",
+  "diffusers_version": "0.32.2",
+  "torch_version": "2.3.0+cu121",
+  "prompt": "a red apple and a blue cup, realistic photo",
+  "seed": 42,
+  "width": 768,
+  "height": 768,
+  "num_inference_steps": 50,
+  "guidance_scale": 3.5,
+  "scheduler_class": "FlowMatchEulerDiscreteScheduler",
+  "blocks": [
+    18
+  ],
+  "guided_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "planned_eta_scales": [
+    0.0,
+    0.125,
+    0.25,
+    0.5
+  ],
+  "eta_scale": 0.0,
+  "eta": 0.0,
+  "trajectory_eps": 1e-12,
+  "initial_latents_sha256": "ae3c7bd3742597f7881546de96177481f24d92dfd30de63cd54f6ffc46cb2c01",
+  "expected_initial_latents_sha256": "ae3c7bd3742597f7881546de96177481f24d92dfd30de63cd54f6ffc46cb2c01",
+  "timestep_tensor_exact_match": true,
+  "all_post_step_latents_exact_match": true,
+  "final_latent_exact_match": true,
+  "max_relative_deviation": 0.0,
+  "final_latent_max_abs_error": 0.0,
+  "final_latent_mean_abs_error": 0.0,
+  "backward_guidance_update_count": 0,
+  "trajectory_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/strength_trajectory/eta_scale_0/trajectory.csv",
+  "image_path": "/root/autodl-tmp/diffusion-reproduction/03_flux_layout_control/outputs/strength_trajectory/eta_scale_0/final.png",
+  "guided_runtime_seconds": 195.1595478700474,
+  "total_runtime_seconds_including_load": 202.38921567425132,
+  "peak_cuda_allocated_mib": 1384.11474609375,
+  "peak_cuda_reserved_mib": 1392.0
+}
